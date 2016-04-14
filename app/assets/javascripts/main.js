@@ -3,8 +3,13 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+import dropotron from './jquery.dropotron.min'
+import scrollgress from './jquery.scrollgress.min'
+import util from './util'
+import skel from './skel.min'
 
-(function($) {
+
+(function() {
 
 	skel.breakpoints({
 		wide: '(max-width: 1680px)',
@@ -97,4 +102,4 @@
 
 	});
 
-})(jQuery);
+})();
