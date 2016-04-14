@@ -1,17 +1,17 @@
-== README
+== ShareDining
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Software versions:
 
-Things you may want to cover:
+* Rails 4.2.6
 
-* Ruby version
+* Ruby 2.3.0
 
-* System dependencies
+* MySQL 5.7.12
 
-* Configuration
+To run the Rails server,
+run "rails server"
 
-* Database creation
+
 
 * Database initialization
 
