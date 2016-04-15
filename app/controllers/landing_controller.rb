@@ -1,6 +1,6 @@
 class LandingController < ApplicationController
 
-  def user_landing
+  def user
   end
 
 end
