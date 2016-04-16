@@ -25,5 +25,8 @@ module ShareDining
 
     # Use browserify to get babel working
     config.browserify_rails.commandline_options = '-t babelify'
+
+    # Add fonts to asset pipeline
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
