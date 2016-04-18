@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-class User < ActiveRecord::Base
-=======
 class User
   include Mongoid::Document
->>>>>>> f4142814a40ff627a535b5b2050f881927cd7ff4
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-<<<<<<< HEAD
-=======
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -39,5 +33,4 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
->>>>>>> f4142814a40ff627a535b5b2050f881927cd7ff4
 end

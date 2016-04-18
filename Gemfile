@@ -26,7 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # add Babel to the build
 gem 'browserify-rails'
 
-
 # MongoDB
 gem 'mongoid', github: "mongoid/mongoid"
 gem 'bson_ext'
