@@ -112,6 +112,8 @@ html, body {
 
 // TODO pick another font family for body text and replace
 .results-container {
+  height: calc(100vh - #{$nav-height});
+  overflow: scroll;
   font-family: logo;
   width: calc(60% - 1px);
   float: left;
@@ -151,6 +153,47 @@ html, body {
 
     input[name=price-range] {
       width: 40%;
+    }
+  }
+}
+
+.results-list {
+  width: 100%;
+
+  .result {
+    outline: 1px solid $light-grey;
+    width: 50%;
+    float: left;
+    height: 350px;
+    background: no-repeat center;
+    background-size: 100% 100%;
+    position: relative;
+    transition: background-size .25s;
+
+    // TODO: change this so the results have real backgrounds
+    @for $i from 1 to 7 {
+      &:nth-child(#{$i}) {
+        background-image: image_url('sampleKitchens/#{$i}.jpg');
+      }
+    }
+
+    &:hover {
+      background-size: 105% 105%;
+
+      .price {
+        background-color: rgba($dark-grey, .8);
+      }
+    }
+
+    .price {
+      font-size: 20px;
+      color: $white;
+      padding: 10px 15px;
+      background-color: rgba($dark-grey, .5);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transition: background-color .25s;
     }
   }
 }
