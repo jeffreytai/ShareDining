@@ -1,7 +1,7 @@
 <!--we should render this on everypage and simply link to the icons via use-->
 <%= render 'shared/icons' %>
 <nav class="main-nav">
-  <h1 class="main-logo">sharedining</h1>
+  <a href="<%= root_url %>"><h1 class="main-logo">sharedining</h1></a>
   <label for="nav-search" class="nav-search-icon">
     <svg>
       <use xlink:href="#search"></use>
@@ -9,7 +9,11 @@
   </label>
   <input id="nav-search" type="text" class="nav-search" value="Sample Location, CA, United States">
   <button class="account-nav-button">
-    <span class="button-text">Bobby</span>
+    <% if user_signed_in? %>
+      <span class="button-text"><%= current_user.first_name %></span>
+    <% else %>
+      <span class="button-text">Log In</span>
+    <% end %>
     <svg>
       <use xlink:href="#user"></use>
     </svg>
