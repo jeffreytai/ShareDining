@@ -161,51 +161,50 @@ $search-input-height: 40px;
 }
 
 .modal-overlay {
-  display: none;
-  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 1000;
   background-color: rgba($black, .6);
 
-  .login-modal {
-    display: none;
-    opacity: 0;
-    position: relative;
+  .login-modal,
+  .signup-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     font-family: main;
     border-radius: 3px;
-    margin: 50vh auto 0;
-    transform: translateY(-50%);
-    width: 22%;
+    margin: 0 auto;
+    transform: translateX(-50%) translateY(-50%);
+    width: 20%;
     min-width: 320px;
     background-color: $white;
     box-shadow: 5px 5px 10px rgba($dark-grey, .8);
-    padding: 50px;
+    padding: 44px;
+  }
 
-    .modal-title {
-      color: $dark-grey;
-      font-size: 28px;
-    }
+  .modal-title {
+    color: $dark-grey;
+    font-size: 24px;
+  }
 
-    .modal-tagline {
-      color: lighten($dark-grey, 20);
-      font-size: 14px;
-      margin-top: 12px;
-    }
+  .modal-tagline {
+    color: lighten($dark-grey, 20);
+    font-size: 12px;
+    margin-top: 12px;
+  }
 
-    .login-details {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      border-top: 1px solid $light-grey;
-      width: calc(100% - 40px);
-      font-size: 12px;
-      padding: 15px 20px;
-      line-height: 1.5;
-    }
+  .login-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid $light-grey;
+    width: calc(100% - 40px);
+    font-size: 12px;
+    padding: 15px 20px;
+    line-height: 1.5;
   }
 
   .login-list {
@@ -220,7 +219,7 @@ $search-input-height: 40px;
       border-radius: 3px;
       border: 2px solid $light-grey;
       padding: 0 20px;
-      font-size: 14px;
+      font-size: 12px;
       text-transform: uppercase;
 
       &:hover {
@@ -256,7 +255,7 @@ $search-input-height: 40px;
       display: block;
       width: 100%;
       border-top: 1px solid $light-grey;
-      margin: 20px auto;
+      margin: 20px auto 40px auto;
     }
 
     &:after {
@@ -278,9 +277,9 @@ $search-input-height: 40px;
     border-radius: 3px;
     width: calc(100% - 24px);
     margin-top: 15px;
-    padding: 15px 10px;
+    padding: 12px 10px;
     border: 2px solid $light-grey;
-    font-size: 16px;
+    font-size: 13px;
   }
 
   input[type=submit] {
@@ -294,18 +293,25 @@ $search-input-height: 40px;
 
 // logic to display modals based on class added to body
 .modal-overlay,
-.login-modal {
-  transition: opacity .25s;
+.login-modal,
+.signup-modal {
+  transition: opacity .4s;
+  opacity: 0;
+  visibility: hidden;
 }
 
-body.login-show {
-  .modal-overlay {
-    display: block;
+body.login-modal-show {
+  .modal-overlay,
+  .login-modal {
     opacity: 1;
+    visibility: visible;
+  }
+}
 
-    .login-modal {
-      display: block;
-      opacity: 1;
-    }
+body.signup-modal-show {
+  .modal-overlay,
+  .signup-modal {
+    opacity: 1;
+    visibility: visible;
   }
 }

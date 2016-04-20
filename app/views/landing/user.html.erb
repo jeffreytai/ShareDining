@@ -9,39 +9,11 @@
 <body class="landing-body">
 
 <section class="modal-overlay">
-  <div class="login-modal">
-    <h2 class="modal-title">Become a member</h2>
-    <h3 class="modal-tagline">Become a part of the awesome kitchen economy</h3>
-    <ul class="login-list">
-      <li>
-        <button>
-          <svg>
-            <use xlink:href="#facebook"></use>
-          </svg>
-          <span class="login-button-text">
-            Login with Facebook
-          </span>
-        </button>
-      </li>
-    </ul>
-
-    <h3 class="login-email-title">login with email</h3>
-
-    <%= render "devise/sessions/new" %>
-    <%# <!-- <form class="login-email-form">
-      <input type="email" placeholder="Your Email">
-      <input type="password" placeholder="Password">
-      <input type="submit" value="Login">
-    </form> --> %>
-
-    <div class="login-details">
-
-    </div>
-  </div>
+  <%= render("signup_modal") %>
+  <%= render("login_modal") %>
 </section>
 
 <section class="landing-banner">
-  <!-- moved menu bar to shared/menu -->
   <%= render("shared/menu") %>
 
   <div class="banner-details">
