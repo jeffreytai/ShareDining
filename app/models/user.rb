@@ -6,8 +6,8 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
-  field :first_name,         type: String
-  field :last_name,          type: String
+  field :first_name,         type: String, default: ""
+  field :last_name,          type: String, default: ""
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
 
