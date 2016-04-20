@@ -1,77 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ShareDining | Results</title>
+  <title>ShareDining | Home</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <%= stylesheet_link_tag "main" %>
 </head>
-<body>
-<!--we should render this on everypage and simply link to the icons via use-->
-<%= render 'shared/icons' %>
+<body class="landing-body">
+<section class="landing-banner">
+  <nav class="main-nav">
+    <h1 class="main-logo">sharedining</h1>
+    <ul class="landing-links">
+      <li><a href="">About</a></li>
+      <li><a href="">Login</a></li>
+    </ul>
+    <button class="landing-rent-button">
+      Rent Your Kitchen
+    </button>
+  </nav>
 
-<!--TODO: pull this out into a partial-->
-<nav class="main-nav">
-  <h1 class="main-logo">sharedining</h1>
-  <label for="nav-search" class="nav-search-icon">
-    <svg>
-      <use xlink:href="#search"></use>
-    </svg>
-  </label>
-  <input id="nav-search" type="text" class="nav-search" value="Sample Location, CA, United States">
-  <button class="account-nav-button">
-    <span class="button-text">Bobby</span>
-    <svg>
-      <use xlink:href="#user"></use>
-    </svg>
-  </button>
-  <button class="help-nav-button">
-    <span class="button-text">FAQ</span>
-    <svg>
-      <use xlink:href="#help"></use>
-    </svg>
-  </button>
-</nav>
+  <div class="banner-details">
+    <h2 class="tagline">Find Your Dream Kitchen</h2>
+    <h3 class="sub-tagline">Search through available commercial kitchens in your area</h3>
+  </div>
 
-<section class="results-map-container">
-  <!--google maps-->
+  <!--TODO: make this into an erb form-->
+  <div class="landing-search">
+    <form action="./search_results/results" class="landing-search-form">
+      <input class="landing-location-input" type="text" value="Portland, OR, United States">
+      <input class="landing-start-input" type="date">
+      <input class="landing-end-input" type="date">
+      <button class="landing-submit">Search</button>
+    </form>
+  </div>
 </section>
-<section class="results-container">
-  <ul class="filters-list">
-    <li class="filter">
-      <label for="begin-date">Dates</label>
-      <input name="begin-date" id="begin-date" type="date">
-      <input name="end-date" type="date">
-    </li>
-    <li class="filter">
-      <label for="price-range">Price</label>
-      <input id="price-range" name="price-range" type="range">
-    </li>
-  </ul>
-
-  <!--TODO replace this with real data-->
-  <ul class="results-list">
-    <li class="result">
-      <span class="price">$369</span>
-    </li>
-    <li class="result">
-      <span class="price">$270</span>
-    </li>
-    <li class="result">
-      <span class="price">$450</span>
-    </li>
-    <li class="result">
-      <span class="price">$220</span>
-    </li>
-    <li class="result">
-      <span class="price">$280</span>
-    </li>
-    <li class="result">
-      <span class="price">$310</span>
-    </li>
-  </ul>
-</section>
-
 </body>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyG_m9OLqJlVFsM0sYo5OXdmrkfK3rMuU&callback=map.init" async defer></script>
 </html>

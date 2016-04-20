@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search_results/results'
+
   devise_for :users
   root 'landing#user'
   # The priority is based upon order of creation: first created -> highest priority.

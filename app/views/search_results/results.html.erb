@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShareDining | Results</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <%= stylesheet_link_tag "main" %>
+</head>
+<body>
+<%= render 'shared/navigation' %>
+
+<section class="results-map-container">
+  <!--google maps-->
+</section>
+<section class="results-container">
+  <ul class="filters-list">
+    <li class="filter">
+      <label for="begin-date">Dates</label>
+      <input name="begin-date" id="begin-date" type="date">
+      <input name="end-date" type="date">
+    </li>
+  </ul>
+
+  <!--TODO replace this with real data-->
+  <ul class="results-list">
+    <li class="result">
+      <span class="price">$369</span>
+    </li>
+    <li class="result">
+      <span class="price">$270</span>
+    </li>
+    <li class="result">
+      <span class="price">$450</span>
+    </li>
+    <li class="result">
+      <span class="price">$220</span>
+    </li>
+    <li class="result">
+      <span class="price">$280</span>
+    </li>
+    <li class="result">
+      <span class="price">$310</span>
+    </li>
+  </ul>
+</section>
+
+</body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyG_m9OLqJlVFsM0sYo5OXdmrkfK3rMuU&callback=map.init" async defer></script>
+</html>
