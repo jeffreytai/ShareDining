@@ -8,19 +8,12 @@
 </head>
 <body class="landing-body">
 <section class="landing-banner">
-  <nav class="main-nav">
-    <h1 class="main-logo">sharedining</h1>
-    <ul class="landing-links">
-      <li><a href="">About</a></li>
-      <li><a href="">Login</a></li>
-    </ul>
-    <button class="landing-rent-button">
-      Rent Your Kitchen
-    </button>
-  </nav>
+
+  <!-- moved menu bar to shared/menu -->
+  <%= render("shared/menu") %>
 
   <div class="banner-details">
-    <h2 class="tagline">Find Your Dream Kitchen</h2>
+    <h2 class="tagline">Creating the Kitchen Economy</h2>
     <h3 class="sub-tagline">Search through available commercial kitchens in your area</h3>
   </div>
 
