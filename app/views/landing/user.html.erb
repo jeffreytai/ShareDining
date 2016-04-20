@@ -26,11 +26,13 @@
     </ul>
 
     <h3 class="login-email-title">login with email</h3>
-    <form class="login-email-form">
+
+    <%= render "devise/sessions/new" %>
+    <%# <!-- <form class="login-email-form">
       <input type="email" placeholder="Your Email">
       <input type="password" placeholder="Password">
       <input type="submit" value="Login">
-    </form>
+    </form> --> %>
 
     <div class="login-details">
 
