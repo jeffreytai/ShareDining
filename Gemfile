@@ -34,7 +34,7 @@ gem 'bson_ext'
 gem 'devise'
 
 # Google Maps autocomplete
-gem 'gmaps-autocomplete-rails'
+# gem 'gmaps-autocomplete-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

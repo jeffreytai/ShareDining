@@ -4,32 +4,52 @@
   <title>ShareDining | Home</title>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script> -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
+  <!--TODO: Check if this script is necessary -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <!-- End TODO -->
+
+  <%= javascript_include_tag "jquery.complete.js" %>
+
   <%= stylesheet_link_tag "main" %>
 </head>
 <body class="landing-body">
 
-<section class="modal-overlay">
-  <%= render("signup_modal") %>
-  <%= render("login_modal") %>
-</section>
+  <section class="modal-overlay">
+    <%= render("signup_modal") %>
+    <%= render("login_modal") %>
+  </section>
 
-<section class="landing-banner">
-  <%= render("shared/menu") %>
+  <section class="landing-banner">
+    <%= render("shared/menu") %>
 
-  <div class="banner-details">
-    <h2 class="tagline">Creating the Kitchen Economy</h2>
-    <h3 class="sub-tagline">Search through available commercial kitchens in your area</h3>
-  </div>
+    <div class="banner-details">
+      <h2 class="tagline">Creating the Kitchen Economy</h2>
+      <h3 class="sub-tagline">Search through available commercial kitchens in your area</h3>
+    </div>
 
-  <!--TODO: make this into an erb form-->
-  <div class="landing-search">
-    <form action="./search_results/results" class="landing-search-form">
-      <input class="landing-location-input" type="text" placeholder="Portland, OR, United States">
-      <input class="landing-start-input" type="date">
-      <input class="landing-end-input" type="date">
-      <button class="landing-submit">Search</button>
-    </form>
-  </div>
-</section>
+    <!--TODO: make this into an erb form-->
+    <div class="landing-search">
+      <form action="./search_results/results" class="landing-search-form">
+        <input class="landing-location-input" type="text" placeholder="Portland, OR, United States">
+        <input class="landing-start-input" type="date">
+        <input class="landing-end-input" type="date">
+        <button class="landing-submit">Search</button>
+      </form>
+    </div>
+
+  </section>
+
+  <!--TODO: make google maps autocomplete work-->
+  <script>
+
+    $(function(){
+      $(".landing-location-input").geocomplete();
+    });
+
+  </script>
+
 </body>
 </html>
