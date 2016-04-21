@@ -171,8 +171,7 @@ $search-input-height: 40px;
   z-index: 1000;
   background-color: rgba($black, .6);
 
-  .login-modal,
-  .signup-modal {
+  .modal {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -185,6 +184,10 @@ $search-input-height: 40px;
     background-color: $white;
     box-shadow: 5px 5px 10px rgba($dark-grey, .8);
     padding: 44px;
+  }
+
+  .modal.signup-modal {
+    padding: 30px;
   }
 
   .modal-title {
@@ -209,7 +212,7 @@ $search-input-height: 40px;
     line-height: 1.5;
   }
 
-  .login-list {
+  .modal-list {
     width: 80%;
     margin: 40px auto;
 
@@ -243,7 +246,7 @@ $search-input-height: 40px;
     }
   }
 
-  .login-email-title {
+  .modal-separator-title {
     font-family: logo;
     width: 100%;
     text-align: center;
@@ -275,7 +278,10 @@ $search-input-height: 40px;
     width: 100%;
   }
 
-  input {
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=submit] {
     border-radius: 3px;
     width: calc(100% - 24px);
     margin-top: 15px;
@@ -290,6 +296,29 @@ $search-input-height: 40px;
     border: none;
     box-sizing: content-box;
     width: calc(100% - 20px)
+  }
+}
+
+.remember-me-field {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  height: 14px;
+
+  .remember-me-label,
+  .remember-me-checkbox {
+    float: left;
+  }
+
+  .remember-me-label {
+    color: $dark-grey;
+  }
+
+  .remember-me-checkbox {
+    display: block;
+    height: 14px;
+    width: 14px;
+    margin: 0 10px 0 0;
   }
 }
 
