@@ -1,7 +1,7 @@
-<div class="signup-modal" role="dialog">
+<div class="signup-modal modal" role="dialog">
   <h2 class="modal-title">Become a member</h2>
   <h3 class="modal-tagline">Join and start sharing in the kitchen economy</h3>
-  <ul class="login-list">
+  <ul class="modal-list">
     <li>
       <button>
         <svg>
@@ -14,7 +14,7 @@
     </li>
   </ul>
 
-  <h3 class="login-email-title">Sign Up with email</h3>
+  <h3 class="modal-separator-title">Sign Up with email</h3>
 
   <%= render "devise/registrations/new" %>
   <!-- <form class="login-email-form">
@@ -23,8 +23,4 @@
     <input type="password" placeholder="Confirm Password">
     <input type="submit" value="Signup">
   </form> -->
-
-  <div class="login-details">
-
-  </div>
 </div>
