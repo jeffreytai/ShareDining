@@ -33,7 +33,8 @@ $search-input-height: 40px;
     margin-right: 50px;
     text-transform: uppercase;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $dark-grey;
       color: $white;
     }
@@ -58,7 +59,8 @@ $search-input-height: 40px;
       text-decoration: inherit;
       text-transform: uppercase;
 
-      &:hover {
+      &:hover,
+      &:focus {
         color: $white;
         background-color: $dark-grey;
       }
