@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'kitchen/view'
+
   devise_for :users
 
   root 'landing#user'
