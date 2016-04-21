@@ -36,3 +36,9 @@ table {
 body {
   -webkit-text-size-adjust: none;
 }
+
+/* hides up/down arrows in date */
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
