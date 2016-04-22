@@ -2,14 +2,20 @@
 <html>
 <head>
   <title>ShareDining</title>
+  <link rel="shortcut icon" href="<%= image_url('global/favicon.ico') %>" type="image/x-icon"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <%= stylesheet_link_tag "main" %>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<!-- <p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p> -->
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 
 <%= yield %>
