@@ -1,0 +1,41 @@
+@import 'fonts';
+@import 'colors';
+
+.main-nav {
+  font-family: logo;
+  border: none;
+  border-bottom: 1px solid lighten($light-grey, 13);
+  background-color: rgba($white, .6);
+  color: $dark-grey;
+}
+
+.landing-rent-button {
+  float: right;
+}
+
+.landing-links {
+  float: right;
+  height: inherit;
+  font-size: 13px;
+
+  li {
+    float: left;
+    height: inherit;
+    line-height: 60px;
+    margin-right: 35px;
+
+    a {
+      border-radius: 3px;
+      padding: 6px 10px;
+      color: inherit;
+      text-decoration: inherit;
+      text-transform: uppercase;
+
+      &:hover,
+      &:focus {
+        color: $white;
+        background-color: $dark-grey;
+      }
+    }
+  }
+}

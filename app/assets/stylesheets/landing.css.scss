@@ -16,55 +16,7 @@ $search-input-height: 40px;
   background-size: cover;
 
   .main-nav {
-    font-family: logo;
-    border: none;
-    background-color: rgba($white, .6);
-    color: $dark-grey;
-  }
-
-  .landing-rent-button {
-    float: right;
-    background-color: transparent;
-    padding: 6px 10px;
-    font-size: 13px;
-    border: 2px solid $dark-grey;
-    border-radius: 2px;
-    margin-top: 15px;
-    margin-right: 50px;
-    text-transform: uppercase;
-
-    &:hover,
-    &:focus {
-      background-color: $dark-grey;
-      color: $white;
-    }
-  }
-}
-
-.landing-links {
-  float: right;
-  height: inherit;
-  font-size: 13px;
-
-  li {
-    float: left;
-    height: inherit;
-    line-height: 60px;
-    margin-right: 35px;
-
-    a {
-      border-radius: 3px;
-      padding: 6px 10px;
-      color: inherit;
-      text-decoration: inherit;
-      text-transform: uppercase;
-
-      &:hover,
-      &:focus {
-        color: $white;
-        background-color: $dark-grey;
-      }
-    }
+    border-bottom: none;
   }
 }
 
