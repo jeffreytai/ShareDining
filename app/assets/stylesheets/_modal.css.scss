@@ -1,0 +1,187 @@
+@import 'colors';
+@import 'fonts';
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba($black, .6);
+
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-family: main;
+    border-radius: 3px;
+    margin: 0 auto;
+    transform: translateX(-50%) translateY(-50%);
+    width: 20%;
+    min-width: 320px;
+    background-color: $white;
+    box-shadow: 5px 5px 10px rgba($dark-grey, .8);
+    padding: 44px;
+  }
+
+  .modal.signup-modal {
+    padding: 30px;
+  }
+
+  .modal-title {
+    color: $dark-grey;
+    font-size: 24px;
+  }
+
+  .modal-tagline {
+    color: lighten($dark-grey, 20);
+    font-size: 12px;
+    margin-top: 12px;
+  }
+
+  .login-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid $light-grey;
+    width: calc(100% - 40px);
+    font-size: 12px;
+    padding: 15px 20px;
+    line-height: 1.5;
+  }
+
+  .modal-list {
+    width: 80%;
+    margin: 40px auto;
+
+    button {
+      font-family: logo;
+      background-color: $white;
+      width: 100%;
+      height: 50px;
+      border-radius: 3px;
+      border: 2px solid $light-grey;
+      padding: 0 20px;
+      font-size: 12px;
+      text-transform: uppercase;
+
+      &:hover {
+        box-shadow: 0 0 15px rgba($dark-grey, .4);
+      }
+
+      .login-button-text {
+        height: 50px;
+        line-height: 50px;
+      }
+
+      svg {
+        margin: 15px 0;
+        float: left;
+        height: 20px;
+        width: 20px;
+        fill: $facebook;
+      }
+    }
+  }
+
+  .modal-separator-title {
+    font-family: logo;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $dark-grey;
+    font-size: 12px;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      border-top: 1px solid $light-grey;
+      margin: 20px auto 40px auto;
+    }
+
+    &:after {
+      content: 'OR';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateY(-40%) translateX(-50%);
+      background-color: $white;
+      width: 70px;
+    }
+  }
+
+  .login-email-form {
+    width: 100%;
+  }
+
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=submit] {
+    border-radius: 3px;
+    width: calc(100% - 24px);
+    margin-top: 15px;
+    padding: 12px 10px;
+    border: 2px solid $light-grey;
+    font-size: 13px;
+  }
+
+  input[type=submit] {
+    background-color: lighten($black, 20);
+    color: $white;
+    border: none;
+    box-sizing: content-box;
+    width: calc(100% - 20px)
+  }
+}
+
+.remember-me-field {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  height: 14px;
+
+  .remember-me-label,
+  .remember-me-checkbox {
+    float: left;
+  }
+
+  .remember-me-label {
+    color: $dark-grey;
+  }
+
+  .remember-me-checkbox {
+    display: block;
+    height: 14px;
+    width: 14px;
+    margin: 0 10px 0 0;
+  }
+}
+
+// logic to display modals based on class added to body
+.modal-overlay,
+.login-modal,
+.signup-modal {
+  transition: opacity .4s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.login-modal-show {
+  .modal-overlay,
+  .login-modal {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+body.signup-modal-show {
+  .modal-overlay,
+  .signup-modal {
+    opacity: 1;
+    visibility: visible;
+  }
+}
