@@ -1,48 +1,54 @@
-<head>
-  <!-- <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script> -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
-
-  <!--TODO: Check if this script is necessary -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <!-- End TODO -->
-
-  <%= javascript_include_tag "jquery.complete.js" %>
-</head>
 <body class="landing-body">
 
-  <section class="modal-overlay">
-    <%= render("signup_modal") %>
-    <%= render("login_modal") %>
-  </section>
+<section class="modal-overlay">
+  <%= render("signup_modal") %>
+  <%= render("login_modal") %>
+</section>
 
-  <section class="landing-banner">
-    <%= render("shared/menu") %>
+<section class="landing-banner">
+  <%= render("shared/menu") %>
 
-    <div class="banner-details">
-      <h2 class="tagline">Creating the Kitchen Economy</h2>
-      <h3 class="sub-tagline">Search through available commercial kitchens in your area</h3>
-    </div>
+  <div class="banner-details">
+    <h2 class="tagline">Creating the Kitchen Economy</h2>
+    <h3 class="sub-tagline">Search through available commercial kitchens in your area</h3>
+  </div>
 
-    <!--TODO: make this into an erb form-->
-    <div class="landing-search">
-      <form action="./search_results/results" class="landing-search-form">
-        <input class="landing-location-input" type="text" placeholder="Portland, OR, United States">
-        <input class="landing-start-input" type="date">
-        <input class="landing-end-input" type="date">
-        <button class="landing-submit">Search</button>
-      </form>
-    </div>
+  <!--TODO: make this into an erb form-->
+  <div class="landing-search">
+    <form action="./search_results/results" class="landing-search-form">
+      <input class="landing-location-input" type="text" placeholder="Portland, OR, United States">
+      <input class="landing-start-input" type="date">
+      <input class="landing-end-input" type="date">
+      <button class="landing-submit">Search</button>
+    </form>
+  </div>
+</section>
 
-  </section>
+<section class="landing-kitchen-list-container">
+  <h2 class="landing-kitchen-section-title">Explore Kitchens</h2>
+  <ul class="landing-kitchen-list clearfix">
+    <li class="landing-kitchen-category">
+      <h2 class="landing-kitchen-category-title">Uptown</h2>
+    </li>
+    <li class="landing-kitchen-category">
+      <h2 class="landing-kitchen-category-title">Central London</h2>
+    </li>
+    <li class="landing-kitchen-category">
+      <h2 class="landing-kitchen-category-title">Downtown</h2>
+    </li>
+    <li class="landing-kitchen-category">
+      <h2 class="landing-kitchen-category-title">Newly Added</h2>
+    </li>
+    <li class="landing-kitchen-category">
+      <h2 class="landing-kitchen-category-title">Highest Rated</h2>
+    </li>
+    <li class="landing-kitchen-category">
+      <h2 class="landing-kitchen-category-title">Last Minute</h2>
+    </li>
+  </ul>
+</section>
 
-  <!--TODO: make google maps autocomplete work-->
-  <script>
-
-    $(function(){
-      $(".landing-location-input").geocomplete();
-    });
-
-  </script>
-
+<footer class="main-footer">
+  CS130 Project
+</footer>
 </body>
-</html>

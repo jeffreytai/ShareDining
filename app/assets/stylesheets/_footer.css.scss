@@ -1,0 +1,14 @@
+@import 'colors';
+@import 'fonts';
+
+.main-footer {
+  font-size: 14px;
+  font-family: main;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: darken($dark-grey, 10);
+  border-top: 3px solid $dark-grey;
+  padding: 40px 20px;
+  text-transform: uppercase;
+  color: $white;
+}
