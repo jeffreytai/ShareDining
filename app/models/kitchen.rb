@@ -4,7 +4,7 @@ class Kitchen
   include Mongoid::Timestamps
 
   # Foreign key to User
-  # belongs_to :user
+  belongs_to :user
 
   field :title,                           type: String
   field :description,                     type: String

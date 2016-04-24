@@ -3,7 +3,7 @@ class KitchenController < ApplicationController
   # GET /kitchen/1
   # GET /kitchen/1.json
   def show
-    # @kitchen = Kitchen.find(params[:id])
+    @kitchen = Kitchen.find(params[:id])
   end
 
   # GET /kitchen/new

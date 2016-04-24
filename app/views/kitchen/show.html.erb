@@ -1,0 +1,66 @@
+<body class="kitchen-listing-body">
+<%= render("shared/menu") %>
+
+<div class="listing-container">
+  <section class="listing-head-container clearfix">
+    <h2 class="listing-title"><%= @kitchen.title %></h2>
+    <ul class="listing-details-list">
+      <li><%= @kitchen.location %></li>
+      <!-- <li>Portland, OR, USA</li>
+      <li>465 Square Meters</li> -->
+      <li>2 Reviews</li>
+    </ul>
+  </section>
+
+  <section class="listing-date-container clearfix">
+    <form class="listing-dates-form">
+      <label class="listing-date-label" for="start-date">Dates</label>
+      <input class="listing-start-date" title="start-date" type="date" id="start-date">
+      <input class="listing-end-date" title="end-date" type="date">
+    </form>
+    <div class="listing-price-container">
+        <span class="listing-price">
+          <span class="price-math">£<%= @kitchen.price %>/day * 2 days =</span>
+          <span class="listing-total-price">$920</span>
+        </span>
+      <button class="transparent-button listing-book-button">
+        Request Kitchen
+      </button>
+    </div>
+  </section>
+
+  <section class="listing-images-container">
+    <%= image_tag "sampleKitchens/3.jpeg", class: "listing-image" %>
+  </section>
+
+  <section class="listing-details-container">
+    <article class="listing-description">
+      <h2 class="listing-details-heading">Description</h2>
+      <p>
+        <%= @kitchen.description %>
+      </p>
+      <!-- <p>
+        Meatloaf ham hamburger shoulder pork belly venison fatback shankle pork bresaola prosciutto. Pig short loin
+        swine prosciutto ball tip drumstick ribeye pork loin tri-tip pork chop. Turkey beef ribs beef kevin flank. Kevin
+        leberkas bresaola frankfurter pig tri-tip andouille. Beef turducken filet mignon, ribeye tongue kielbasa
+        bresaola shank ground round meatloaf bacon. Turkey cupim ground round chuck pork belly pork chop. Picanha ham
+        hock leberkas, kevin drumstick alcatra beef bacon brisket.
+      </p> -->
+    </article>
+    <article class="listing-features">
+      <h2 class="listing-details-heading">Features</h2>
+      <ul class="listing-features-list">
+        <li>Moorwood Vulcan 6 burner double oven</li>
+        <li>Large freestanding Foster freezer</li>
+        <li>Large freestanding Foster fridge</li>
+        <li>Two double sinks</li>
+        <li>Wash hand basin</li>
+        <li>Large static warming cupboard</li>
+        <li>Deep fat fryer</li>
+        <li>Dishwasher</li>
+        <li>9m preparation area</li>
+      </ul>
+    </article>
+  </section>
+</div>
+</body>
