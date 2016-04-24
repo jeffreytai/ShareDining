@@ -48,18 +48,76 @@
       </p> -->
     </article>
     <article class="listing-features">
-      <h2 class="listing-details-heading">Features</h2>
+      <h2 class="listing-details-heading">Washing Station</h2>
       <ul class="listing-features-list">
-        <li>Moorwood Vulcan 6 burner double oven</li>
-        <li>Large freestanding Foster freezer</li>
-        <li>Large freestanding Foster fridge</li>
-        <li>Two double sinks</li>
-        <li>Wash hand basin</li>
-        <li>Large static warming cupboard</li>
-        <li>Deep fat fryer</li>
-        <li>Dishwasher</li>
-        <li>9m preparation area</li>
+        <% @kitchen.washing_station.each do |washing_station| %>
+          <li><%= washing_station %></li>
+        <% end %>
       </ul>
+
+      <h2 class="listing-details-heading">Food Preparation</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.food_preparation.each do |food_preparation| %>
+          <li><%= food_preparation %></li>
+        <% end %>
+      </ul>
+
+      <h2 class="listing-details-heading">Cookware</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.cookware.each do |cookware| %>
+          <li><%= cookware %></li>
+        <% end %>
+      </ul>
+
+      <h2 class="listing-details-heading">Storage</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.storage.each do |storage| %>
+          <li><%= storage %></li>
+        <% end %>
+      </ul>
+
+      <h2 class="listing-details-heading">Refrigeration</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.refrigeration.each do |refrigeration| %>
+          <li><%= refrigeration %></li>
+        <% end %>
+      </ul>
+
+      <h2 class="listing-details-heading">Ovens/Fryers</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.ovens_fryers.each do |ovens_fryers| %>
+          <li><%= ovens_fryers %></li>
+        <% end %>
+      </ul>
+
+      <h2 class="listing-details-heading">Oven Equipment &amp; Storage</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.oven_equipment_and_storage.each do |oven_equipment_and_storage| %>
+          <li><%= oven_equipment_and_storage %></li>
+        <% end %>
+      </ul>
+
+      <h2 class="listing-details-heading">Baking &amp; Pastry</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.baking_and_pastry.each do |baking_and_pastry| %>
+          <li><%= baking_and_pastry %></li>
+        <% end %>
+      </ul>
+
+      <h2 class="listing-details-heading">Other Equipment</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.other_equipment.each do |other_equipment| %>
+          <li><%= other_equipment %></li>
+        <% end %>
+      </ul>
+
+      <h2 class="listing-details-heading">Other Amenities</h2>
+      <ul class="listing-features-list">
+        <% @kitchen.other_amenities.each do |other_amenities| %>
+          <li><%= other_amenities %></li>
+        <% end %>
+      </ul>
+
     </article>
   </section>
 </div>
