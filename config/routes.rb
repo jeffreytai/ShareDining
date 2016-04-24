@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'kitchen/view'
-
   devise_for :users
 
   root 'landing#user'
 
   get 'search_results/results'
+
+  get 'kitchen/view'
+
+  resources :kitchen
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
