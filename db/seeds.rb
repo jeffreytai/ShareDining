@@ -49,3 +49,24 @@ User.create(
   last_sign_in_ip: "::1",
   current_sign_in_ip: "::1"
 )
+
+Kitchen.create(
+  title: "Mayfair",
+  description: "This kitchen is located in the heart of central London just moments from Bond Street Tube station. Being in such a central location the space would suit a local restaurant or cafe in need of some extra space, catering company, or food delivery service.",
+  rental_space: "Whole Kitchen",
+  washing_station: [ "Washing up sink (Single compartment)", "Pre-rinse hose", "Mobile sink", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink" ],
+  food_preparation: [ "Open base work top table (Double unit)", "Knife rack", "Cook's kife", "Carving fork" ],
+  cookware: [ "Stock pot (Large)", "Frying pan (Small)", "Cast iron pan (Large)" ],
+  storage: [ "Regency shelving stack", "Food storage containers (Large)" ],
+  refrigeration: [ "Walk-in refrigerator", "Refrigerated prep table" ],
+  ovens_fryers: [ "Double stack convection", "Countertop steamer", "Floor steamer", "Gas Floor Fryer" ],
+  oven_equipment_and_storage: [ "Immersion fan", "Sheet pan" ],
+  baking_and_pastry: [ "Dry measuring cup", "Dough scrapers" ],
+  other_equipment: [ "Meat slicer" ],
+  other_amenities: [ "Wifi", "Toilets" ],
+  location: "54 Davies Street, London, Greater London, W1K 5HR",
+  kitchen_rules_and_instructions: "None",
+  availability: "All Fridays",
+  price: 54,
+  additional_details: "None"
+)
