@@ -70,3 +70,66 @@ Kitchen.create(
   price: 54,
   additional_details: "None"
 )
+
+Kitchen.create(
+  title: "Baker's Kitchen",
+  description: "This spacious kitchen is fully equipped with the professional grade baking tools needed to run a successful business.",
+  rental_space: "Whole Kitchen",
+  washing_station: [ "Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Single Pull-Down DownDoor)", "Hand wash sink", "Rubber service (wet) matts" ],
+  food_preparation: [ "Work table with shelving underneath (Double unit)", "Knife rack", "Utility knives", "Pairing knife" , "Bread Knife", "Tongs", "Whisk", "Rolling pin", "Wooden spoon", "Slotted spoon", "Measuring spoon", "Spatula - large blade", "Spatula - small blade", "Ladle", "Thermometer", "Grip blade zester", "Box grater", "Conical Sieve", "Colander", "Prep Bowl (Large)", "Prep Bowl (Small)", "Strainers", "Chopping board (Plastic)", "Food processor" ],
+  cookware: [ "Sauce pots (Large)", "Sauce pots (Medium)", "Saute pan (Large)", "Crepe pan" ],
+  storage: [ "Sheet pan rack with caster (Large)", "Regency shelving stack", "Sheet pan", "1/4 size pan", "Food storage containers (Large)" ],
+  refrigeration: [ "Walk-in refrigerator", "Refrigerated prep table", "Freezer (Double)", "Ice Machine" ],
+  ovens_fryers: [ "Bakery depth double stack", "Portable range", "Counter top warming (Large)", "Microwave", "Sous vide machine (single unit)" ],
+  oven_equipment_and_storage: [ "Immersion fan", "Sheet pan", "Oven gloves" ],
+  baking_and_pastry: [ "Dry measuring cup", "Liquid measures (small jug)", "Liquid measures (large jug)", "Countertop stand mixer", "Dough scrapers", "Spring form pan (Medium)", "Cake pan (Large)", "Cake pan (Small)", "Muffin pan" ],
+  other_equipment: [ "Waffle maker", "Crepe plate" ],
+  other_amenities: [ "Wifi", "Toilets", "Parking space (per car)" ],
+  location: "14 Woodside Rd, New Malden KT3 3AH, UK",
+  kitchen_rules_and_instructions: "Please be respectful and do not damage the equipment we provide.",
+  availability: "Every Monday, Tuesday, and Wednesday",
+  price: 107,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Liverpool's Top Kitchen",
+  description: "This inspiring kitchen is located in (rich part), just a block away from the nearest grocery store.",
+  rental_space: "Shared Space",
+  washing_station: [ "Washing up sink (Triple compartment)", "Pre-rinse hose", "Mobile sink", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink", "Soap dispenser", "Rubber service (wet) mats" ],
+  food_preparation: [ "Open base work top table (Double unit)", "Knife rack", "Cook's knife", "Knife sharpener", "Carving fork", "Grill turner", "Fish splice", "Chopping board (Wooden)", "Food processor" ],
+  cookware: [ "Stock pot (Medium)", "Sauce pots (Large)", "Frying pan (Large)", "Saute pan (Large)",  "Cast iron pan (Large)", "Asian wok", "Crepe pan" ],
+  storage: [ "Sheet pan rack with caster (Large)", "Food storage containers (Large)" ],
+  refrigeration: [ "Reach-In Fridge (Full)", "Refrigerated prep table", "Freezer (Single)" ],
+  ovens_fryers: [ "Double stack convection", "Countertop steamer", "Floor steamer", "Multi-ring range top with convection oven", "Gas Floor Fryer", "Electric Griddle", "Microwave", "Souse vide machine (single unit)", "Pressure cooker" ],
+  oven_equipment_and_storage: [ "Immersion fan", "Sheet pan", "Oven gloves", "Fryer basket" ],
+  baking_and_pastry: [ "Dry measuring cup", "Liquid measures (small jug)", "Warming drawers" ],
+  other_equipment: [ "Panini grill", "Toaster", "Crepe plate" ],
+  other_amenities: [ "Wifi", "Toilets" ],
+  location: "10 Westmorland Dr, Liverpool L3 6LR, UK",
+  kitchen_rules_and_instructions: "None",
+  availability: "Every Saturday and Sunday",
+  price: 75,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Huge Kitchen w/ Island",
+  description: "Clean kitchen with newly-installed double stack oven. Less than a block from farmer's market.",
+  rental_space: "Whole Kitchen",
+  washing_station: [ "Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink" ],
+  food_preparation: [ "Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)" ],
+  cookware: [ "Stock pot (Large)", "Frying pan (Large)" ],
+  storage: [ "Regency shelving stack", "Food storage containers (Large)" ],
+  refrigeration: [ "Walk-in refrigerator", "Refrigerated prep table" ],
+  ovens_fryers: [ "Double stack convection" ],
+  oven_equipment_and_storage: [ "Immersion fan", "Sheet pan", "Oven gloves" ],
+  baking_and_pastry: [ "Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers" ],
+  other_equipment: [],
+  other_amenities: [ "Wifi", "Toilets", "Office space", "Wheelchair accessible" ],
+  location: "42 Niall Cl, Birmingham, West Midlands B15 3NX, UK",
+  kitchen_rules_and_instructions: "None",
+  availability: "Every other Friday",
+  price: 40,
+  additional_details: "None"
+)
