@@ -1,0 +1,280 @@
+<h2>List Kitchen</h2>
+
+<%= form_for @kitchen, url: {action: "create"} do |f| %>
+  <div class="field">
+    Title:<br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    Description:<br />
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    Location:<br />
+    <%= f.text_field :location %>
+  </div>
+
+  <!-- TODO: Assign one value to rental space -->
+  <div class="field">
+    Rental Space:<br />
+    Whole Kitchen:<%= f.check_box :rental_space %><br />
+    Shared Space:<%= f.check_box :rental_space %>
+  </div>
+
+  <br />
+  <div class="field">
+    Washing (Wet) Station:<br /><br />
+    Sinks:<br />
+    Washing up sink (Single compartment)<%= f.check_box :washing_station %><br />
+    Washing up sink (Double compartment)<%= f.check_box :washing_station %><br />
+    Washing up sink (Triple compartment)<%= f.check_box :washing_station %><br />
+    Pre-rinse hose<%= f.check_box :washing_station %><br />
+    Mobile sink<%= f.check_box :washing_station %><br />
+    <br />
+    Drainboard<%= f.check_box :washing_station %><br />
+    Dishwasher:<br />
+    Dishwasher (Single Pull-Down Door)<%= f.check_box :washing_station %><br />
+    Dishwasher (Double Pull-Down Door)<%= f.check_box :washing_station %><br />
+    Dishwasher (Under Counter)<%= f.check_box :washing_station %><br />
+    Conveyor Dishwasher<%= f.check_box :washing_station %><br />
+    Glass Washer<%= f.check_box :washing_station %><br />
+    <br />
+    Hand wash sink<%= f.check_box :washing_station %><br />
+    Soap dispenser<%= f.check_box :washing_station %><br />
+    Instant hand sanitizer<%= f.check_box :washing_station %><br />
+    Rubber service (wet) mats<%= f.check_box :washing_station %><br />
+    <!-- TODO: Add option to add more wet station item -->
+  </div>
+
+  <br />
+  <div class="field">
+    Food Preparation Equipment &amp; Utensils<br />
+    <br/>
+    Prep station / Work table<br />
+    Open base work top table (Double unit)<%= f.check_box :food_preparation %><br />
+    Open base work top table (Single unit)<%= f.check_box :food_preparation %><br />
+    Work table with shelving underneath (Double unit)<%= f.check_box :food_preparation %><br />
+    Work table with shelving underneath (Single unit)<%= f.check_box :food_preparation %><br />
+    Work table with cabinet underneath (Double unit)<%= f.check_box :food_preparation %><br />
+    Work table with cabinet underneath (Single unit)<%= f.check_box :food_preparation %><br />
+    <br/>
+    Knives:<br/>
+    Knife rack<%= f.check_box :food_preparation %><br />
+    Cook's knife<%= f.check_box :food_preparation %><br />
+    Utility knives<%= f.check_box :food_preparation %><br />
+    Paring knife<%= f.check_box :food_preparation %><br />
+    Bread knife<%= f.check_box :food_preparation %><br />
+    Boning knife<%= f.check_box :food_preparation %><br />
+    Meat cleaver<%= f.check_box :food_preparation %><br />
+    Knife sharpener<%= f.check_box :food_preparation %><br />
+    Carving fork<%= f.check_box :food_preparation %><br />
+    <br />
+    Utensils:<br />
+    Tongs<%= f.check_box :food_preparation %><br />
+    Whisk<%= f.check_box :food_preparation %><br />
+    Rolling pin<%= f.check_box :food_preparation %><br />
+    Wooden spoon<%= f.check_box :food_preparation %><br />
+    Slotted spoon<%= f.check_box :food_preparation %><br />
+    Measuring spoon<%= f.check_box :food_preparation %><br />
+    Spatula - large blade<%= f.check_box :food_preparation %><br />
+    Spatula - small blade<%= f.check_box :food_preparation %><br />
+    Ladle<%= f.check_box :food_preparation %><br />
+    Grill turner<%= f.check_box :food_preparation %><br />
+    Fish splice<%= f.check_box :food_preparation %><br />
+    Thermometer<%= f.check_box :food_preparation %><br />
+    Grip blade zester<%= f.check_box :food_preparation %><br />
+    Box grater<%= f.check_box :food_preparation %><br />
+    <br />
+    Bowls &amp; Sieves<br/>
+    Conical Sieve<%= f.check_box :food_preparation %><br />
+    Sieve<%= f.check_box :food_preparation %><br />
+    Colander<%= f.check_box :food_preparation %><br />
+    Prep Bowl (Large)<%= f.check_box :food_preparation %><br />
+    Prep Bowl (Small)<%= f.check_box :food_preparation %><br />
+    Strainers<%= f.check_box :food_preparation %><br />
+    <br />
+    Chopping board (Plastic)<%= f.check_box :food_preparation %><br />
+    Chopping board (Wooden)<%= f.check_box :food_preparation %><br />
+    Food processor<%= f.check_box :food_preparation %><br />
+    <!-- TODO: Add option to add more food preparation equipment and/or utensil items -->
+  </div>
+
+  <br />
+  <div class="field">
+    Cookware:<br />
+    Stock pot (Large)<%= f.check_box :cookware %><br />
+    Stock pot (Medium)<%= f.check_box :cookware %><br />
+    Sauce pots (Large)<%= f.check_box :cookware %><br />
+    Sauce pots (Small)<%= f.check_box :cookware %><br />
+    Frying pan (Large)<%= f.check_box :cookware %><br />
+    Frying pan (Small)<%= f.check_box :cookware %><br />
+    Sauté pan (Large)<%= f.check_box :cookware %><br />
+    Sauté pan (Small)<%= f.check_box :cookware %><br />
+    Cast iron pan (Large)<%= f.check_box :cookware %><br />
+    Cast iron pan (Small)<%= f.check_box :cookware %><br />
+    Copper sauce pot (Large)<%= f.check_box :cookware %><br />
+    Copper sauce pot (Small)<%= f.check_box :cookware %><br />
+    Asian wok<%= f.check_box :cookware %><br />
+    Crepe pan<%= f.check_box :cookware %><br />
+    <!-- TODO: Add option to add more cookware -->
+  </div>
+
+  <br />
+  <div class="field">
+    Storage:<br />
+    Sheet pan rack with caster (Large)<%= f.check_box :storage %><br />
+    Sheet pan rack with caster (Small)<%= f.check_box :storage %><br />
+    Regency shelving stack<%= f.check_box :storage %><br />
+    <br />
+    Food storage pans:<br />
+    Sheet pan<%= f.check_box :storage %><br />
+    1/2 Long pan<%= f.check_box :storage %><br />
+    Full size pan<%= f.check_box :storage %><br />
+    Half size pan<%= f.check_box :storage %><br />
+    1/3 size pan<%= f.check_box :storage %><br />
+    1/4 size pan<%= f.check_box :storage %><br />
+    1/6 size pan<%= f.check_box :storage %><br />
+    1/9 size pan<%= f.check_box :storage %><br />
+    <br />
+    Food storage containers:<br />
+    Food storage containers (Large)<%= f.check_box :storage %><br />
+    Food storage containers (Small)<%= f.check_box :storage %><br />
+    <!-- TODO: Add option to add more storage -->
+  </div>
+
+  <br />
+  <div class="field">
+    Refrigeration:<br />
+    Walk-in refrigerator<%= f.check_box :refrigeration %><br />
+    Reach-in fridge (Full)<%= f.check_box :refrigeration %><br />
+    Low fridge (under counter)<%= f.check_box :refrigeration %><br />
+    Refrigerated prep table<%= f.check_box :refrigeration %><br />
+    Freezer (Double)<%= f.check_box :refrigeration %><br />
+    Freezer (Single)<%= f.check_box :refrigeration %><br />
+    Ice machine<%= f.check_box :refrigeration %><br />
+    <!-- TODO: Add option to add more refrigeration -->
+  </div>
+
+  <br />
+  <div class="field">
+    Ovens/Fryers:<br />
+    Ovens:<br />
+    Convection<br />
+    Double stack convection<%= f.check_box :ovens_fryers %><br />
+    Single deck convection<%= f.check_box :ovens_fryers %><br />
+    Bakery depth double stack<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Combination:<br />
+    Electric combination oven<%= f.check_box :ovens_fryers %><br />
+    Gas combination oven<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Steam:<br />
+    Countertop steamer<%= f.check_box :ovens_fryers %><br />
+    Floor steamer<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Ranges:<br />
+    Multi-ring range top with standard electric oven<%= f.check_box :ovens_fryers %><br />
+    Multi-ring range top with convection oven<%= f.check_box :ovens_fryers %><br />
+    Range with space saver over<%= f.check_box :ovens_fryers %><br />
+    Range with space saver underneath<%= f.check_box :ovens_fryers %><br />
+    Range with griddle<%= f.check_box :ovens_fryers %><br />
+    Portable range<%= f.check_box :ovens_fryers %><br />
+    Countertop electric range<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Fryers:<br />
+    Gas Floor Fryer<%= f.check_box :ovens_fryers %><br />
+    Electric Countertop Fryer<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Induction<%= f.check_box :ovens_fryers %><br />
+    Electric Griddle<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Warming:<br />
+    Counter top warming (Large)<%= f.check_box :ovens_fryers %><br />
+    Counter top warming (Small)<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Microwave<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Sous vide:<br />
+    Sous vide machine (single unit)<%= f.check_box :ovens_fryers %><br />
+    Sous vide machine (double unit)<%= f.check_box :ovens_fryers %><br />
+    <br />
+    Rice cooker<%= f.check_box :ovens_fryers %><br />
+    Pressure cooker<%= f.check_box :ovens_fryers %><br />
+    <!-- TODO: Add option to add more ovens/fryers -->
+  </div>
+
+  <br />
+  <div class="field">
+    Oven Equipment &amp; Storage<br />
+    Immersion fan<%= f.check_box :oven_equipment_and_storage %><br />
+    Sheet pan<%= f.check_box :oven_equipment_and_storage %><br />
+    Oven gloves<%= f.check_box :oven_equipment_and_storage %><br />
+    Fryer basket<%= f.check_box :oven_equipment_and_storage %><br />
+    <!-- TODO: Add option to add more oven equipment and storage -->
+  </div>
+
+  <br />
+  <div class="field">
+    Baking &amp; Pastry:<br />
+    Dry measuring cup<%= f.check_box :baking_and_pastry %><br />
+    Liquid measures (small jug)<%= f.check_box :baking_and_pastry %><br />
+    Liquid measures (large jug)<%= f.check_box :baking_and_pastry %><br />
+    Countertop stand mixer<%= f.check_box :baking_and_pastry %><br />
+    Rotary sifter<%= f.check_box :baking_and_pastry %><br />
+    Dough scrapers<%= f.check_box :baking_and_pastry %><br />
+    Spring form pan (Large)<%= f.check_box :baking_and_pastry %><br />
+    Spring form pan (Medium)<%= f.check_box :baking_and_pastry %><br />
+    Spring form pan (Small)<%= f.check_box :baking_and_pastry %><br />
+    Cake pan (Large)<%= f.check_box :baking_and_pastry %><br />
+    Cake pan (Small)<%= f.check_box :baking_and_pastry %><br />
+    Muffin pan<%= f.check_box :baking_and_pastry %><br />
+    Proofing drawers<%= f.check_box :baking_and_pastry %><br />
+    Warming drawers<%= f.check_box :baking_and_pastry %><br />
+    <!-- TODO: Add option to add more bakery and pastry -->
+  </div>
+
+  <br />
+  <div class="field">
+    Other Equipment:<br />
+    Meat slicer<%= f.check_box :other_equipment %><br />
+    Panini grill<%= f.check_box :other_equipment %><br />
+    Toaster<%= f.check_box :other_equipment %><br />
+    Waffle maker<%= f.check_box :other_equipment %><br />
+    Crepe plate<%= f.check_box :other_equipment %><br />
+    <!-- TODO: Add option to add more other equipment -->
+  </div>
+
+  <br />
+  <div class="field">
+    Other Amenities:<br />
+    Wifi<%= f.check_box :other_amenities %><br />
+    Toilets<%= f.check_box :other_amenities %><br />
+    Parking space (per car)<%= f.check_box :other_amenities %><br />
+    Office space<%= f.check_box :other_amenities %><br />
+    Wheelchair accessible<%= f.check_box :other_amenities %><br />
+  </div>
+
+  <br />
+  <div class="field">
+    Kitchen Rules and Instructions:<br />
+    <%= f.text_area :kitchen_rules_and_instructions %>
+  </div>
+
+  <!-- TODO: Add space for picture upload -->
+
+  <!-- TODO: Add section for availability -->
+
+  <div class="field">
+    Price:<br />
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    Additional details:<br />
+    <%= f.text_area :additional_details %>
+  </div>
+
+  <%= f.submit "List Kitchen" %>
+<% end %>

@@ -6,8 +6,6 @@ class Kitchen
   # Foreign key to User
   belongs_to :user
 
-  # field :kitchen_id,                      type: Integer
-
   field :title,                           type: String
   field :description,                     type: String
   field :rental_space,                    type: String

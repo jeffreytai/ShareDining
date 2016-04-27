@@ -8,6 +8,7 @@ class KitchenController < ApplicationController
 
   # GET /kitchen/new
   def new
+    @kitchen = Kitchen.new
   end
 
   # GET /kitchen/1/edit
