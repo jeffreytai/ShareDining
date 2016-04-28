@@ -28,9 +28,11 @@ gem 'browserify-rails'
 gem 'mongoid', '~> 5.0.0'
 gem 'bson_ext'
 
-# Adds auto-increment id instead of _id
-# gem 'mongoid-autoinc'
+# Token field for Mongo
 gem 'mongoid_token', '~> 4.0.0'
+
+# Picture attachment
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
 
 # User authentication
 gem 'devise'

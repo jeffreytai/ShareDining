@@ -3,11 +3,15 @@ class Kitchen
   # for created_at and updated_at fields
   include Mongoid::Timestamps
   include Mongoid::Token
+  include Mongoid::Paperclip
+
+  # https://github.com/meskyanichi/mongoid-paperclip
+  embeds_many :pictures, :cascade_callbacks => true
 
   # Foreign key to User
   belongs_to :user
 
-  # Used as a kitchen_id
+  # Token serves as a unique kitchen id
   token :length => 6, :retry_count => 3
 
   field :title,                           type: String
