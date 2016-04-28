@@ -2,9 +2,13 @@ class Kitchen
   include Mongoid::Document
   # for created_at and updated_at fields
   include Mongoid::Timestamps
+  include Mongoid::Token
 
   # Foreign key to User
   belongs_to :user
+
+  # Used as a kitchen_id
+  token :length => 6, :retry_count => 3
 
   field :title,                           type: String
   field :description,                     type: String
@@ -38,6 +42,7 @@ class Kitchen
 
   # Enforces index on database
   # TODO: decide what fields will be queried often
-  # index({ availability: 1 })
+  # Can also index on User's attributes with `index "user.<attribute>" => 1`
+  index({ token: 1 }, { unique: true, name: "token_index" })
 
 end

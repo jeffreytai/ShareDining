@@ -25,11 +25,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # add Babel to the build
 gem 'browserify-rails'
 # MongoDB
-gem 'mongoid'
+gem 'mongoid', '~> 5.0.0'
 gem 'bson_ext'
 
 # Adds auto-increment id instead of _id
 # gem 'mongoid-autoinc'
+gem 'mongoid_token', '~> 4.0.0'
 
 # User authentication
 gem 'devise'
