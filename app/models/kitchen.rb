@@ -2,9 +2,17 @@ class Kitchen
   include Mongoid::Document
   # for created_at and updated_at fields
   include Mongoid::Timestamps
+  include Mongoid::Token
+  include Mongoid::Paperclip
+
+  # https://github.com/meskyanichi/mongoid-paperclip
+  embeds_many :pictures, :cascade_callbacks => true
 
   # Foreign key to User
   belongs_to :user
+
+  # Token serves as a unique kitchen id
+  token :length => 6, :retry_count => 3
 
   field :title,                           type: String
   field :description,                     type: String
@@ -38,6 +46,7 @@ class Kitchen
 
   # Enforces index on database
   # TODO: decide what fields will be queried often
-  # index({ availability: 1 })
+  # Can also index on User's attributes with `index "user.<attribute>" => 1`
+  index({ token: 1 }, { unique: true, name: "token_index" })
 
 end
