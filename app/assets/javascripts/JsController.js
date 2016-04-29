@@ -1,3 +1,3 @@
-/**
- * Created by mahirshah on 4/25/16.
- */
+const JsController = {};
+
+export default JsController;

@@ -1,280 +1,922 @@
-<h2>List Kitchen</h2>
+<body class="kitchen-new-body" data-js="kitchen-new">
+<%= render("shared/menu") %>
 
-<%= form_for @kitchen, url: {action: "create"} do |f| %>
-  <div class="field">
-    Title:<br />
-    <%= f.text_field :title %>
-  </div>
+<fieldset class="kitchen-new-container">
+  <h2 class="kitchen-new-title">Add Your Kitchen</h2>
+  <h3 class="kitchen-new-subtitle">List your space on ShareDining and join the kitchen economy</h3>
 
-  <div class="field">
-    Description:<br />
-    <%= f.text_area :description %>
-  </div>
+  <!--TODO need placeholders giving examples-->
+  <%= form_for @kitchen, url: {action: "create"} do |f| %>
+      <fieldset class="fieldset fieldset-basic">
+        <legend class="fieldset-title">Basic Information</legend>
+        <ul class="input-list">
+          <li>
+            <label for="title">Title</label>
+            <%= f.text_field :title, id: "title" %>
+          </li>
+          <li>
+            <label for="description">Tell us briefly about your kitchen space so the renters can get a quick idea about
+              the space</label>
+            <%= f.text_area :description, id: "description", placeholder: "E.g. Full stocked commercial kitchen typically serving 30 cover restaurant." %>
+          </li>
+          <li>
+            <label for="location">Location</label>
+            <%= f.text_field :location, id: "location" %>
+          </li>
+          <li>
+            <fieldset class="input-fieldset">
+              <legend class="input-fieldset-title">Type of Kitchen</legend>
+              <ul class="radio-selection-list clearfix">
+                <li>
+                  <%= f.check_box :rental_space, id: "whole-kitchen-option" %>
+                  <label for="whole-kitchen-option" tabindex="0">Whole Kitchen</label>
+                </li>
+                <li>
+                  <%= f.check_box :rental_space, id: "shared-space-option" %>
+                  <label for="shared-space-option" tabindex="0">Shared Space</label>
+                </li>
+              </ul>
+            </fieldset>
+          </li>
+        </ul>
+      </fieldset>
 
-  <div class="field">
-    Location:<br />
-    <%= f.text_field :location %>
-  </div>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Washing (Wet) station</legend>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Sinks</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "washing-up-sink-single-compartment", class: "inventory-fieldlist-checkbox" %>
+              <label for="washing-up-sink-single-compartment">Washing up sink (Single compartment)</label>
+              <input type="number" value="1" aria-label="Washing up sink (Single compartment) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "washing-up-sink-double-compartment", class: "inventory-fieldlist-checkbox" %>
+              <label for="washing-up-sink-double-compartment">Washing up sink (Double compartment)</label>
+              <input type="number" value="1" aria-label="Washing up sink (Double compartment) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "washing-up-sink-triple-compartment", class: "inventory-fieldlist-checkbox" %>
+              <label for="washing-up-sink-triple-compartment">Washing up sink (Triple compartment)</label>
+              <input type="number" value="1" aria-label="Washing up sink (Triple compartment) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "pre-rinse-hose", class: "inventory-fieldlist-checkbox" %>
+              <label for="pre-rinse-hose">Pre-rinse hose</label>
+              <input type="number" value="1" aria-label="Pre-rinse hose Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "mobile-sink", class: "inventory-fieldlist-checkbox" %>
+              <label for="mobile-sink">Mobile sink</label>
+              <input type="number" value="1" aria-label="Mobile sink Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
 
-  <!-- TODO: Assign one value to rental space -->
-  <div class="field">
-    Rental Space:<br />
-    Whole Kitchen:<%= f.check_box :rental_space %><br />
-    Shared Space:<%= f.check_box :rental_space %>
-  </div>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Dishwasher</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "dishwasher-single-pull-down-downdoor", class: "inventory-fieldlist-checkbox" %>
+              <label for="dishwasher-single-pull-down-downdoor">Dishwasher (Single Pull-Down DownDoor)</label>
+              <input type="number" value="1" aria-label="Dishwasher (Single Pull-Down DownDoor) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "dishwasher-double-pull-down-downdoor", class: "inventory-fieldlist-checkbox" %>
+              <label for="dishwasher-double-pull-down-downdoor">Dishwasher (Double Pull-Down DownDoor)</label>
+              <input type="number" value="1" aria-label="Dishwasher (Double Pull-Down DownDoor) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "dishwasher-under-counter", class: "inventory-fieldlist-checkbox" %>
+              <label for="dishwasher-under-counter">Dishwasher (Under Counter)</label>
+              <input type="number" value="1" aria-label="Dishwasher (Under Counter) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "conveyor-dishwasher", class: "inventory-fieldlist-checkbox" %>
+              <label for="conveyor-dishwasher">Conveyor Dishwasher</label>
+              <input type="number" value="1" aria-label="Conveyor Dishwasher Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "glass-washer", class: "inventory-fieldlist-checkbox" %>
+              <label for="glass-washer">Glass washer</label>
+              <input type="number" value="1" aria-label="Glass washer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Other</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "drainboard", class: "inventory-fieldlist-checkbox" %>
+              <label for="drainboard">Drainboard</label>
+              <input type="number" value="1" aria-label="Drainboard Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "hand-wash-sink", class: "inventory-fieldlist-checkbox" %>
+              <label for="hand-wash-sink">Hand wash sink</label>
+              <input type="number" value="1" aria-label="Hand wash sink Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "soap-dispenser", class: "inventory-fieldlist-checkbox" %>
+              <label for="soap-dispenser">Soap dispenser</label>
+              <input type="number" value="1" aria-label="Soap dispenser Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "instant-hand-sanitizer", class: "inventory-fieldlist-checkbox" %>
+              <label for="instant-hand-sanitizer">Instant hand sanitizer</label>
+              <input type="number" value="1" aria-label="Instant hand sanitizer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "rubber-service-wet-matts", class: "inventory-fieldlist-checkbox" %>
+              <label for="rubber-service-wet-matts">Rubber service (wet) matts</label>
+              <input type="number" value="1" aria-label="Rubber service (wet) matts Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Food Preparation Equipment & Utensils</legend>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Prep station / work table</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "open-base-work-top-table-double-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="open-base-work-top-table-double-unit">Open base work top table (Double unit)</label>
+              <input type="number" value="1" aria-label="Open base work top table (Double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "open-base-work-top-table-single-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="open-base-work-top-table-single-unit">Open base work top table (Single unit)</label>
+              <input type="number" value="1" aria-label="Open base work top table (Single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "work-table-with-shelving-underneath-double-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="work-table-with-shelving-underneath-double-unit">Work table with shelving underneath (Double
+                unit)</label>
+              <input type="number" value="1" aria-label="Work table with shelving underneath (Double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "work-table-with-shelving-underneath-single-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="work-table-with-shelving-underneath-single-unit">Work table with shelving underneath (Single
+                unit)</label>
+              <input type="number" value="1" aria-label="Work table with shelving underneath (Single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "work-table-with-cabinet-underneath-double-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="work-table-with-cabinet-underneath-double-unit">Work table with cabinet underneath (Double
+                unit)</label>
+              <input type="number" value="1" aria-label="Work table with cabinet underneath (Double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "work-table-with-cabinet-underneath-single-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="work-table-with-cabinet-underneath-single-unit">Work table with cabinet underneath (Single
+                unit)</label>
+              <input type="number" value="1" aria-label="Work table with cabinet underneath (Single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Knives</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "knife-rack", class: "inventory-fieldlist-checkbox" %>
+              <label for="knife-rack">Knife rack</label>
+              <input type="number" value="1" aria-label="Knife rack Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "cook's-knife", class: "inventory-fieldlist-checkbox" %>
+              <label for="cook's-knife">Cook's knife</label>
+              <input type="number" value="1" aria-label="Cook's knife Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "utility-knives", class: "inventory-fieldlist-checkbox" %>
+              <label for="utility-knives">Utility knives</label>
+              <input type="number" value="1" aria-label="Utility knives Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "paring-knife", class: "inventory-fieldlist-checkbox" %>
+              <label for="paring-knife">Paring knife</label>
+              <input type="number" value="1" aria-label="Paring knife Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "bread-knife", class: "inventory-fieldlist-checkbox" %>
+              <label for="bread-knife">Bread knife</label>
+              <input type="number" value="1" aria-label="Bread knife Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "boning-knife", class: "inventory-fieldlist-checkbox" %>
+              <label for="boning-knife">Boning knife</label>
+              <input type="number" value="1" aria-label="Boning knife Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "meat-cleaver", class: "inventory-fieldlist-checkbox" %>
+              <label for="meat-cleaver">Meat cleaver</label>
+              <input type="number" value="1" aria-label="Meat cleaver Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "knife-sharpener", class: "inventory-fieldlist-checkbox" %>
+              <label for="knife-sharpener">Knife sharpener</label>
+              <input type="number" value="1" aria-label="Knife sharpener Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "carving-fork", class: "inventory-fieldlist-checkbox" %>
+              <label for="carving-fork">Carving fork</label>
+              <input type="number" value="1" aria-label="Carving fork Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Utensils</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "tongs", class: "inventory-fieldlist-checkbox" %>
+              <label for="tongs">Tongs</label>
+              <input type="number" value="1" aria-label="Tongs Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "whisk", class: "inventory-fieldlist-checkbox" %>
+              <label for="whisk">Whisk</label>
+              <input type="number" value="1" aria-label="Whisk Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "rolling-pin", class: "inventory-fieldlist-checkbox" %>
+              <label for="rolling-pin">Rolling pin</label>
+              <input type="number" value="1" aria-label="Rolling pin Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "wooden-spoon", class: "inventory-fieldlist-checkbox" %>
+              <label for="wooden-spoon">Wooden spoon</label>
+              <input type="number" value="1" aria-label="Wooden spoon Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "slotted-spoon", class: "inventory-fieldlist-checkbox" %>
+              <label for="slotted-spoon">Slotted spoon</label>
+              <input type="number" value="1" aria-label="Slotted spoon Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "measuring-spoon", class: "inventory-fieldlist-checkbox" %>
+              <label for="measuring-spoon">Measuring spoon</label>
+              <input type="number" value="1" aria-label="Measuring spoon Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "spatula---large-blade", class: "inventory-fieldlist-checkbox" %>
+              <label for="spatula---large-blade">Spatula - large blade</label>
+              <input type="number" value="1" aria-label="Spatula - large blade Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "spatula-–-small-blade", class: "inventory-fieldlist-checkbox" %>
+              <label for="spatula-–-small-blade">Spatula – small blade</label>
+              <input type="number" value="1" aria-label="Spatula – small blade Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "ladle", class: "inventory-fieldlist-checkbox" %>
+              <label for="ladle">Ladle</label>
+              <input type="number" value="1" aria-label="Ladle Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "grill-turner", class: "inventory-fieldlist-checkbox" %>
+              <label for="grill-turner">Grill turner</label>
+              <input type="number" value="1" aria-label="Grill turner Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "fish-splice", class: "inventory-fieldlist-checkbox" %>
+              <label for="fish-splice">Fish splice</label>
+              <input type="number" value="1" aria-label="Fish splice Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "thermometer", class: "inventory-fieldlist-checkbox" %>
+              <label for="thermometer">Thermometer</label>
+              <input type="number" value="1" aria-label="Thermometer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "grip-blade-zester", class: "inventory-fieldlist-checkbox" %>
+              <label for="grip-blade-zester">Grip blade zester</label>
+              <input type="number" value="1" aria-label="Grip blade zester Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "box-grater", class: "inventory-fieldlist-checkbox" %>
+              <label for="box-grater">Box grater</label>
+              <input type="number" value="1" aria-label="Box grater Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Bowls & Sieves</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "conical-sieve", class: "inventory-fieldlist-checkbox" %>
+              <label for="conical-sieve">Conical Sieve</label>
+              <input type="number" value="1" aria-label="Conical Sieve Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sieve", class: "inventory-fieldlist-checkbox" %>
+              <label for="sieve">Sieve</label>
+              <input type="number" value="1" aria-label="Sieve Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "colander", class: "inventory-fieldlist-checkbox" %>
+              <label for="colander">Colander</label>
+              <input type="number" value="1" aria-label="Colander Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "prep-bowl-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="prep-bowl-large">Prep Bowl (Large)</label>
+              <input type="number" value="1" aria-label="Prep Bowl (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "prep-bowl-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="prep-bowl-small">Prep Bowl (Small)</label>
+              <input type="number" value="1" aria-label="Prep Bowl (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "strainers", class: "inventory-fieldlist-checkbox" %>
+              <label for="strainers">Strainers</label>
+              <input type="number" value="1" aria-label="Strainers Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Other</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "chopping-board-plastic", class: "inventory-fieldlist-checkbox" %>
+              <label for="chopping-board-plastic">Chopping board (Plastic)</label>
+              <input type="number" value="1" aria-label="Chopping board (Plastic) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "chopping-board-wooden", class: "inventory-fieldlist-checkbox" %>
+              <label for="chopping-board-wooden">Chopping board (Wooden)</label>
+              <input type="number" value="1" aria-label="Chopping board (Wooden) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "food-processor", class: "inventory-fieldlist-checkbox" %>
+              <label for="food-processor">Food processor</label>
+              <input type="number" value="1" aria-label="Food processor Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Cookware</legend>
+        <fieldset class="checkbox-fieldset">
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "stock-pot-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="stock-pot-large">Stock pot (Large)</label>
+              <input type="number" value="1" aria-label="Stock pot (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "stock-pot-medium", class: "inventory-fieldlist-checkbox" %>
+              <label for="stock-pot-medium">Stock pot (Medium)</label>
+              <input type="number" value="1" aria-label="Stock pot (Medium) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sauce-pots-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="sauce-pots-large">Sauce pots (Large)</label>
+              <input type="number" value="1" aria-label="Sauce pots (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sauce-pots-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="sauce-pots-small">Sauce pots (Small)</label>
+              <input type="number" value="1" aria-label="Sauce pots (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "frying-pan-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="frying-pan-large">Frying pan (Large)</label>
+              <input type="number" value="1" aria-label="Frying pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "frying-pan-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="frying-pan-small">Frying pan (Small)</label>
+              <input type="number" value="1" aria-label="Frying pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sauté-pan-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="sauté-pan-large">Sauté pan (Large)</label>
+              <input type="number" value="1" aria-label="Sauté pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sauté-pan-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="sauté-pan-small">Sauté pan (Small)</label>
+              <input type="number" value="1" aria-label="Sauté pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "cast-iron-pan-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="cast-iron-pan-large">Cast iron pan (Large)</label>
+              <input type="number" value="1" aria-label="Cast iron pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "cast-iron-pan-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="cast-iron-pan-small">Cast iron pan (Small)</label>
+              <input type="number" value="1" aria-label="Cast iron pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "copper-sauce-pot-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="copper-sauce-pot-large">Copper sauce pot (Large)</label>
+              <input type="number" value="1" aria-label="Copper sauce pot (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "copper-sauce-pot-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="copper-sauce-pot-small">Copper sauce pot (Small)</label>
+              <input type="number" value="1" aria-label="Copper sauce pot (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "asian-wok", class: "inventory-fieldlist-checkbox" %>
+              <label for="asian-wok">Asian wok</label>
+              <input type="number" value="1" aria-label="Asian wok Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "crepe-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="crepe-pan">Crepe pan</label>
+              <input type="number" value="1" aria-label="Crepe pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Storage</legend>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Food Storage Pans</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sheet-pan-rack-with-caster-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="sheet-pan-rack-with-caster-large">Sheet pan rack with caster (Large)</label>
+              <input type="number" value="1" aria-label="Sheet pan rack with caster (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sheet-pan-rack-with-caster-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="sheet-pan-rack-with-caster-small">Sheet pan rack with caster (Small)</label>
+              <input type="number" value="1" aria-label="Sheet pan rack with caster (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "regency-shelving-stack", class: "inventory-fieldlist-checkbox" %>
+              <label for="regency-shelving-stack">Regency shelving stack</label>
+              <input type="number" value="1" aria-label="Regency shelving stack Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sheet-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="sheet-pan">Sheet pan</label>
+              <input type="number" value="1" aria-label="Sheet pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "1/2-long-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="1/2-long-pan">1/2 Long pan</label>
+              <input type="number" value="1" aria-label="1/2 Long pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "full-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="full-size-pan">Full size pan</label>
+              <input type="number" value="1" aria-label="Full size pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "half-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="half-size-pan">Half size pan</label>
+              <input type="number" value="1" aria-label="Half size pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "1/3-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="1/3-size-pan">1/3 size pan</label>
+              <input type="number" value="1" aria-label="1/3 size pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "1/4-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="1/4-size-pan">1/4 size pan</label>
+              <input type="number" value="1" aria-label="1/4 size pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "1/6-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="1/6-size-pan">1/6 size pan</label>
+              <input type="number" value="1" aria-label="1/6 size pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "1/9-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="1/9-size-pan">1/9 size pan</label>
+              <input type="number" value="1" aria-label="1/9 size pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Food storage containers</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "food-storage-containers-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="food-storage-containers-large">Food storage containers (Large)</label>
+              <input type="number" value="1" aria-label="Food storage containers (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "food-storage-containers-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="food-storage-containers-small">Food storage containers (Small)</label>
+              <input type="number" value="1" aria-label="Food storage containers (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
 
-  <br />
-  <div class="field">
-    Washing (Wet) Station:<br /><br />
-    Sinks:<br />
-    Washing up sink (Single compartment)<%= f.check_box :washing_station %><br />
-    Washing up sink (Double compartment)<%= f.check_box :washing_station %><br />
-    Washing up sink (Triple compartment)<%= f.check_box :washing_station %><br />
-    Pre-rinse hose<%= f.check_box :washing_station %><br />
-    Mobile sink<%= f.check_box :washing_station %><br />
-    <br />
-    Drainboard<%= f.check_box :washing_station %><br />
-    Dishwasher:<br />
-    Dishwasher (Single Pull-Down Door)<%= f.check_box :washing_station %><br />
-    Dishwasher (Double Pull-Down Door)<%= f.check_box :washing_station %><br />
-    Dishwasher (Under Counter)<%= f.check_box :washing_station %><br />
-    Conveyor Dishwasher<%= f.check_box :washing_station %><br />
-    Glass Washer<%= f.check_box :washing_station %><br />
-    <br />
-    Hand wash sink<%= f.check_box :washing_station %><br />
-    Soap dispenser<%= f.check_box :washing_station %><br />
-    Instant hand sanitizer<%= f.check_box :washing_station %><br />
-    Rubber service (wet) mats<%= f.check_box :washing_station %><br />
-    <!-- TODO: Add option to add more wet station item -->
-  </div>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Refrigeration</legend>
+        <fieldset class="checkbox-fieldset">
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "walk-in-refrigerator", class: "inventory-fieldlist-checkbox" %>
+              <label for="walk-in-refrigerator">Walk-in refrigerator</label>
+              <input type="number" value="1" aria-label="Walk-in refrigerator Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "reach-in-fridge-full", class: "inventory-fieldlist-checkbox" %>
+              <label for="reach-in-fridge-full">Reach-In fridge (Full)</label>
+              <input type="number" value="1" aria-label="Reach-In fridge (Full) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "low-fridge-under-counter", class: "inventory-fieldlist-checkbox" %>
+              <label for="low-fridge-under-counter">Low fridge (under counter)</label>
+              <input type="number" value="1" aria-label="Low fridge (under counter) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "refrigerated-prep-table", class: "inventory-fieldlist-checkbox" %>
+              <label for="refrigerated-prep-table">Refrigerated prep table</label>
+              <input type="number" value="1" aria-label="Refrigerated prep table Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "freezer-double", class: "inventory-fieldlist-checkbox" %>
+              <label for="freezer-double">Freezer (Double)</label>
+              <input type="number" value="1" aria-label="Freezer (Double) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "freezer-single", class: "inventory-fieldlist-checkbox" %>
+              <label for="freezer-single">Freezer (Single)</label>
+              <input type="number" value="1" aria-label="Freezer (Single) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "ice-machine", class: "inventory-fieldlist-checkbox" %>
+              <label for="ice-machine">Ice Machine</label>
+              <input type="number" value="1" aria-label="Ice Machine Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Ovens/Fryers</legend>
+        <fieldset class="checkbox-fieldset">
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "ovens", class: "inventory-fieldlist-checkbox" %>
+              <label for="ovens">Ovens</label>
+              <input type="number" value="1" aria-label="Ovens Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "convection", class: "inventory-fieldlist-checkbox" %>
+              <label for="convection">Convection</label>
+              <input type="number" value="1" aria-label="Convection Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "double-stack-convection", class: "inventory-fieldlist-checkbox" %>
+              <label for="double-stack-convection">Double stack convection</label>
+              <input type="number" value="1" aria-label="Double stack convection Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "single-deck-convection", class: "inventory-fieldlist-checkbox" %>
+              <label for="single-deck-convection">Single deck convection</label>
+              <input type="number" value="1" aria-label="Single deck convection Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "bakery-depth-double-stack", class: "inventory-fieldlist-checkbox" %>
+              <label for="bakery-depth-double-stack">Bakery depth double stack</label>
+              <input type="number" value="1" aria-label="Bakery depth double stack Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "combination", class: "inventory-fieldlist-checkbox" %>
+              <label for="combination">Combination</label>
+              <input type="number" value="1" aria-label="Combination Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "electric-combination-oven", class: "inventory-fieldlist-checkbox" %>
+              <label for="electric-combination-oven">Electric combination oven</label>
+              <input type="number" value="1" aria-label="Electric combination oven Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "gas-combination-oven", class: "inventory-fieldlist-checkbox" %>
+              <label for="gas-combination-oven">Gas combination oven</label>
+              <input type="number" value="1" aria-label="Gas combination oven Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "steam", class: "inventory-fieldlist-checkbox" %>
+              <label for="steam">Steam</label>
+              <input type="number" value="1" aria-label="Steam Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "countertop-steamer", class: "inventory-fieldlist-checkbox" %>
+              <label for="countertop-steamer">Countertop steamer</label>
+              <input type="number" value="1" aria-label="Countertop steamer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "floor-steamer", class: "inventory-fieldlist-checkbox" %>
+              <label for="floor-steamer">Floor steamer</label>
+              <input type="number" value="1" aria-label="Floor steamer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "ranges", class: "inventory-fieldlist-checkbox" %>
+              <label for="ranges">Ranges</label>
+              <input type="number" value="1" aria-label="Ranges Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "multi-ring-range-top-with-standard-electric-oven", class: "inventory-fieldlist-checkbox" %>
+              <label for="multi-ring-range-top-with-standard-electric-oven">Multi-ring range top with standard electric
+                oven</label>
+              <input type="number" value="1" aria-label="Multi-ring range top with standard electric oven Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "multi-ring-range-top-with-convection-oven", class: "inventory-fieldlist-checkbox" %>
+              <label for="multi-ring-range-top-with-convection-oven">Multi-ring range top with convection oven</label>
+              <input type="number" value="1" aria-label="Multi-ring range top with convection oven Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "range-with-space-saver-over", class: "inventory-fieldlist-checkbox" %>
+              <label for="range-with-space-saver-over">Range with space saver over</label>
+              <input type="number" value="1" aria-label="Range with space saver over Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "range-with-storage-space-underneath", class: "inventory-fieldlist-checkbox" %>
+              <label for="range-with-storage-space-underneath">Range with storage space underneath</label>
+              <input type="number" value="1" aria-label="Range with storage space underneath Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "range-with-griddle", class: "inventory-fieldlist-checkbox" %>
+              <label for="range-with-griddle">Range with griddle</label>
+              <input type="number" value="1" aria-label="Range with griddle Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "portable-range", class: "inventory-fieldlist-checkbox" %>
+              <label for="portable-range">Portable range</label>
+              <input type="number" value="1" aria-label="Portable range Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "countertop-electric-range", class: "inventory-fieldlist-checkbox" %>
+              <label for="countertop-electric-range">Countertop electric range</label>
+              <input type="number" value="1" aria-label="Countertop electric range Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "fryers", class: "inventory-fieldlist-checkbox" %>
+              <label for="fryers">Fryers</label>
+              <input type="number" value="1" aria-label="Fryers Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "gas-floor-fryer", class: "inventory-fieldlist-checkbox" %>
+              <label for="gas-floor-fryer">Gas Floor Fryer</label>
+              <input type="number" value="1" aria-label="Gas Floor Fryer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "electric-counter-top-fryer", class: "inventory-fieldlist-checkbox" %>
+              <label for="electric-counter-top-fryer">Electric Counter top Fryer</label>
+              <input type="number" value="1" aria-label="Electric Counter top Fryer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "induction", class: "inventory-fieldlist-checkbox" %>
+              <label for="induction">Induction</label>
+              <input type="number" value="1" aria-label="Induction Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "electric-griddle", class: "inventory-fieldlist-checkbox" %>
+              <label for="electric-griddle">Electric Griddle</label>
+              <input type="number" value="1" aria-label="Electric Griddle Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "warming", class: "inventory-fieldlist-checkbox" %>
+              <label for="warming">Warming</label>
+              <input type="number" value="1" aria-label="Warming Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "counter-top-warming-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="counter-top-warming-large">Counter top warming (Large)</label>
+              <input type="number" value="1" aria-label="Counter top warming (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "counter-top-warming-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="counter-top-warming-small">Counter top warming (Small)</label>
+              <input type="number" value="1" aria-label="Counter top warming (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "microwave", class: "inventory-fieldlist-checkbox" %>
+              <label for="microwave">Microwave</label>
+              <input type="number" value="1" aria-label="Microwave Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sous-vide", class: "inventory-fieldlist-checkbox" %>
+              <label for="sous-vide">Sous vide</label>
+              <input type="number" value="1" aria-label="Sous vide Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sous-vide-machine-single-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="sous-vide-machine-single-unit">Sous vide machine (single unit)</label>
+              <input type="number" value="1" aria-label="Sous vide machine (single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sous-vide-machine-double-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="sous-vide-machine-double-unit">Sous vide machine (double unit)</label>
+              <input type="number" value="1" aria-label="Sous vide machine (double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "rice-cooker", class: "inventory-fieldlist-checkbox" %>
+              <label for="rice-cooker">Rice cooker</label>
+              <input type="number" value="1" aria-label="Rice cooker Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "pressure-cooker", class: "inventory-fieldlist-checkbox" %>
+              <label for="pressure-cooker">Pressure cooker</label>
+              <input type="number" value="1" aria-label="Pressure cooker Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Oven Equipment &amp; Storage</legend>
+        <fieldset class="checkbox-fieldset">
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "immersion-fan", class: "inventory-fieldlist-checkbox" %>
+              <label for="immersion-fan">Immersion fan</label>
+              <input type="number" value="1" aria-label="Immersion fan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "sheet-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="sheet-pan">Sheet pan</label>
+              <input type="number" value="1" aria-label="Sheet pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "oven-gloves", class: "inventory-fieldlist-checkbox" %>
+              <label for="oven-gloves">Oven gloves</label>
+              <input type="number" value="1" aria-label="Oven gloves Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "fryer-basket", class: "inventory-fieldlist-checkbox" %>
+              <label for="fryer-basket">Fryer basket</label>
+              <input type="number" value="1" aria-label="Fryer basket Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Baking &amp; Pastry</legend>
+        <fieldset class="checkbox-fieldset">
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "dry-measuring-cup", class: "inventory-fieldlist-checkbox" %>
+              <label for="dry-measuring-cup">Dry measuring cup</label>
+              <input type="number" value="1" aria-label="Dry measuring cup Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "liquid-measures-small-jug", class: "inventory-fieldlist-checkbox" %>
+              <label for="liquid-measures-small-jug">Liquid measures (small jug)</label>
+              <input type="number" value="1" aria-label="Liquid measures (small jug) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "liquid-measures-large-jug", class: "inventory-fieldlist-checkbox" %>
+              <label for="liquid-measures-large-jug">Liquid measures (large jug)</label>
+              <input type="number" value="1" aria-label="Liquid measures (large jug) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "countertop-stand-mixer", class: "inventory-fieldlist-checkbox" %>
+              <label for="countertop-stand-mixer">Countertop stand mixer</label>
+              <input type="number" value="1" aria-label="Countertop stand mixer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "rotary-sifter", class: "inventory-fieldlist-checkbox" %>
+              <label for="rotary-sifter">Rotary sifter</label>
+              <input type="number" value="1" aria-label="Rotary sifter Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "dough-scrapers", class: "inventory-fieldlist-checkbox" %>
+              <label for="dough-scrapers">Dough scrapers</label>
+              <input type="number" value="1" aria-label="Dough scrapers Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "spring-form-pan-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="spring-form-pan-large">Spring form pan (Large)</label>
+              <input type="number" value="1" aria-label="Spring form pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "spring-form-pan-medium", class: "inventory-fieldlist-checkbox" %>
+              <label for="spring-form-pan-medium">Spring form pan (Medium)</label>
+              <input type="number" value="1" aria-label="Spring form pan (Medium) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "spring-form-pan-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="spring-form-pan-small">Spring form pan (Small)</label>
+              <input type="number" value="1" aria-label="Spring form pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "cake-pan-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="cake-pan-large">Cake pan (Large)</label>
+              <input type="number" value="1" aria-label="Cake pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "cake-pan-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="cake-pan-small">Cake pan (Small)</label>
+              <input type="number" value="1" aria-label="Cake pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "muffin-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="muffin-pan">Muffin pan</label>
+              <input type="number" value="1" aria-label="Muffin pan Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "proofing-drawers", class: "inventory-fieldlist-checkbox" %>
+              <label for="proofing-drawers">Proofing drawers</label>
+              <input type="number" value="1" aria-label="Proofing drawers Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "warming-drawers", class: "inventory-fieldlist-checkbox" %>
+              <label for="warming-drawers">Warming drawers</label>
+              <input type="number" value="1" aria-label="Warming drawers Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Other Equipment</legend>
+        <fieldset class="checkbox-fieldset">
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "meat-slicer", class: "inventory-fieldlist-checkbox" %>
+              <label for="meat-slicer">Meat slicer</label>
+              <input type="number" value="1" aria-label="Meat slicer Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "panini-grill", class: "inventory-fieldlist-checkbox" %>
+              <label for="panini-grill">Panini grill</label>
+              <input type="number" value="1" aria-label="Panini grill Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "toaster", class: "inventory-fieldlist-checkbox" %>
+              <label for="toaster">Toaster</label>
+              <input type="number" value="1" aria-label="Toaster Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "waffle-maker", class: "inventory-fieldlist-checkbox" %>
+              <label for="waffle-maker">Waffle maker</label>
+              <input type="number" value="1" aria-label="Waffle maker Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "crepe-plate", class: "inventory-fieldlist-checkbox" %>
+              <label for="crepe-plate">Crepe plate</label>
+              <input type="number" value="1" aria-label="Crepe plate Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      <fieldset class="fieldset">
+        <legend class="fieldset-title">Other Amenities</legend>
+        <fieldset class="checkbox-fieldset">
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "wifi", class: "inventory-fieldlist-checkbox" %>
+              <label for="wifi">Wifi</label>
+              <input type="number" value="1" aria-label="Wifi Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "toilets", class: "inventory-fieldlist-checkbox" %>
+              <label for="toilets">Toilets</label>
+              <input type="number" value="1" aria-label="Toilets Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "parking-space-per-car", class: "inventory-fieldlist-checkbox" %>
+              <label for="parking-space-per-car">Parking space (per car)</label>
+              <input type="number" value="1" aria-label="Parking space (per car) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "office-space", class: "inventory-fieldlist-checkbox" %>
+              <label for="office-space">Office space</label>
+              <input type="number" value="1" aria-label="Office space Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item">
+              <%= f.check_box :washing_station, id: "wheelchair-accessible", class: "inventory-fieldlist-checkbox" %>
+              <label for="wheelchair-accessible">Wheelchair accessible</label>
+              <input type="number" value="1" aria-label="Wheelchair accessible Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+      </fieldset>
+      
+      <div class="field">
+        Kitchen Rules and Instructions:<br/>
+        <%= f.text_area :kitchen_rules_and_instructions %>
+      </div>
 
-  <br />
-  <div class="field">
-    Food Preparation Equipment &amp; Utensils<br />
-    <br/>
-    Prep station / Work table<br />
-    Open base work top table (Double unit)<%= f.check_box :food_preparation %><br />
-    Open base work top table (Single unit)<%= f.check_box :food_preparation %><br />
-    Work table with shelving underneath (Double unit)<%= f.check_box :food_preparation %><br />
-    Work table with shelving underneath (Single unit)<%= f.check_box :food_preparation %><br />
-    Work table with cabinet underneath (Double unit)<%= f.check_box :food_preparation %><br />
-    Work table with cabinet underneath (Single unit)<%= f.check_box :food_preparation %><br />
-    <br/>
-    Knives:<br/>
-    Knife rack<%= f.check_box :food_preparation %><br />
-    Cook's knife<%= f.check_box :food_preparation %><br />
-    Utility knives<%= f.check_box :food_preparation %><br />
-    Paring knife<%= f.check_box :food_preparation %><br />
-    Bread knife<%= f.check_box :food_preparation %><br />
-    Boning knife<%= f.check_box :food_preparation %><br />
-    Meat cleaver<%= f.check_box :food_preparation %><br />
-    Knife sharpener<%= f.check_box :food_preparation %><br />
-    Carving fork<%= f.check_box :food_preparation %><br />
-    <br />
-    Utensils:<br />
-    Tongs<%= f.check_box :food_preparation %><br />
-    Whisk<%= f.check_box :food_preparation %><br />
-    Rolling pin<%= f.check_box :food_preparation %><br />
-    Wooden spoon<%= f.check_box :food_preparation %><br />
-    Slotted spoon<%= f.check_box :food_preparation %><br />
-    Measuring spoon<%= f.check_box :food_preparation %><br />
-    Spatula - large blade<%= f.check_box :food_preparation %><br />
-    Spatula - small blade<%= f.check_box :food_preparation %><br />
-    Ladle<%= f.check_box :food_preparation %><br />
-    Grill turner<%= f.check_box :food_preparation %><br />
-    Fish splice<%= f.check_box :food_preparation %><br />
-    Thermometer<%= f.check_box :food_preparation %><br />
-    Grip blade zester<%= f.check_box :food_preparation %><br />
-    Box grater<%= f.check_box :food_preparation %><br />
-    <br />
-    Bowls &amp; Sieves<br/>
-    Conical Sieve<%= f.check_box :food_preparation %><br />
-    Sieve<%= f.check_box :food_preparation %><br />
-    Colander<%= f.check_box :food_preparation %><br />
-    Prep Bowl (Large)<%= f.check_box :food_preparation %><br />
-    Prep Bowl (Small)<%= f.check_box :food_preparation %><br />
-    Strainers<%= f.check_box :food_preparation %><br />
-    <br />
-    Chopping board (Plastic)<%= f.check_box :food_preparation %><br />
-    Chopping board (Wooden)<%= f.check_box :food_preparation %><br />
-    Food processor<%= f.check_box :food_preparation %><br />
-    <!-- TODO: Add option to add more food preparation equipment and/or utensil items -->
-  </div>
+      <!-- TODO: Add space for picture upload -->
 
-  <br />
-  <div class="field">
-    Cookware:<br />
-    Stock pot (Large)<%= f.check_box :cookware %><br />
-    Stock pot (Medium)<%= f.check_box :cookware %><br />
-    Sauce pots (Large)<%= f.check_box :cookware %><br />
-    Sauce pots (Small)<%= f.check_box :cookware %><br />
-    Frying pan (Large)<%= f.check_box :cookware %><br />
-    Frying pan (Small)<%= f.check_box :cookware %><br />
-    Sauté pan (Large)<%= f.check_box :cookware %><br />
-    Sauté pan (Small)<%= f.check_box :cookware %><br />
-    Cast iron pan (Large)<%= f.check_box :cookware %><br />
-    Cast iron pan (Small)<%= f.check_box :cookware %><br />
-    Copper sauce pot (Large)<%= f.check_box :cookware %><br />
-    Copper sauce pot (Small)<%= f.check_box :cookware %><br />
-    Asian wok<%= f.check_box :cookware %><br />
-    Crepe pan<%= f.check_box :cookware %><br />
-    <!-- TODO: Add option to add more cookware -->
-  </div>
+      <!-- TODO: Add section for availability -->
 
-  <br />
-  <div class="field">
-    Storage:<br />
-    Sheet pan rack with caster (Large)<%= f.check_box :storage %><br />
-    Sheet pan rack with caster (Small)<%= f.check_box :storage %><br />
-    Regency shelving stack<%= f.check_box :storage %><br />
-    <br />
-    Food storage pans:<br />
-    Sheet pan<%= f.check_box :storage %><br />
-    1/2 Long pan<%= f.check_box :storage %><br />
-    Full size pan<%= f.check_box :storage %><br />
-    Half size pan<%= f.check_box :storage %><br />
-    1/3 size pan<%= f.check_box :storage %><br />
-    1/4 size pan<%= f.check_box :storage %><br />
-    1/6 size pan<%= f.check_box :storage %><br />
-    1/9 size pan<%= f.check_box :storage %><br />
-    <br />
-    Food storage containers:<br />
-    Food storage containers (Large)<%= f.check_box :storage %><br />
-    Food storage containers (Small)<%= f.check_box :storage %><br />
-    <!-- TODO: Add option to add more storage -->
-  </div>
+      <div class="field">
+        Price:<br/>
+        <%= f.text_field :price %>
+      </div>
 
-  <br />
-  <div class="field">
-    Refrigeration:<br />
-    Walk-in refrigerator<%= f.check_box :refrigeration %><br />
-    Reach-in fridge (Full)<%= f.check_box :refrigeration %><br />
-    Low fridge (under counter)<%= f.check_box :refrigeration %><br />
-    Refrigerated prep table<%= f.check_box :refrigeration %><br />
-    Freezer (Double)<%= f.check_box :refrigeration %><br />
-    Freezer (Single)<%= f.check_box :refrigeration %><br />
-    Ice machine<%= f.check_box :refrigeration %><br />
-    <!-- TODO: Add option to add more refrigeration -->
-  </div>
+      <div class="field">
+        Additional details:<br/>
+        <%= f.text_area :additional_details %>
+      </div>
 
-  <br />
-  <div class="field">
-    Ovens/Fryers:<br />
-    Ovens:<br />
-    Convection<br />
-    Double stack convection<%= f.check_box :ovens_fryers %><br />
-    Single deck convection<%= f.check_box :ovens_fryers %><br />
-    Bakery depth double stack<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Combination:<br />
-    Electric combination oven<%= f.check_box :ovens_fryers %><br />
-    Gas combination oven<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Steam:<br />
-    Countertop steamer<%= f.check_box :ovens_fryers %><br />
-    Floor steamer<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Ranges:<br />
-    Multi-ring range top with standard electric oven<%= f.check_box :ovens_fryers %><br />
-    Multi-ring range top with convection oven<%= f.check_box :ovens_fryers %><br />
-    Range with space saver over<%= f.check_box :ovens_fryers %><br />
-    Range with space saver underneath<%= f.check_box :ovens_fryers %><br />
-    Range with griddle<%= f.check_box :ovens_fryers %><br />
-    Portable range<%= f.check_box :ovens_fryers %><br />
-    Countertop electric range<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Fryers:<br />
-    Gas Floor Fryer<%= f.check_box :ovens_fryers %><br />
-    Electric Countertop Fryer<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Induction<%= f.check_box :ovens_fryers %><br />
-    Electric Griddle<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Warming:<br />
-    Counter top warming (Large)<%= f.check_box :ovens_fryers %><br />
-    Counter top warming (Small)<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Microwave<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Sous vide:<br />
-    Sous vide machine (single unit)<%= f.check_box :ovens_fryers %><br />
-    Sous vide machine (double unit)<%= f.check_box :ovens_fryers %><br />
-    <br />
-    Rice cooker<%= f.check_box :ovens_fryers %><br />
-    Pressure cooker<%= f.check_box :ovens_fryers %><br />
-    <!-- TODO: Add option to add more ovens/fryers -->
-  </div>
-
-  <br />
-  <div class="field">
-    Oven Equipment &amp; Storage<br />
-    Immersion fan<%= f.check_box :oven_equipment_and_storage %><br />
-    Sheet pan<%= f.check_box :oven_equipment_and_storage %><br />
-    Oven gloves<%= f.check_box :oven_equipment_and_storage %><br />
-    Fryer basket<%= f.check_box :oven_equipment_and_storage %><br />
-    <!-- TODO: Add option to add more oven equipment and storage -->
-  </div>
-
-  <br />
-  <div class="field">
-    Baking &amp; Pastry:<br />
-    Dry measuring cup<%= f.check_box :baking_and_pastry %><br />
-    Liquid measures (small jug)<%= f.check_box :baking_and_pastry %><br />
-    Liquid measures (large jug)<%= f.check_box :baking_and_pastry %><br />
-    Countertop stand mixer<%= f.check_box :baking_and_pastry %><br />
-    Rotary sifter<%= f.check_box :baking_and_pastry %><br />
-    Dough scrapers<%= f.check_box :baking_and_pastry %><br />
-    Spring form pan (Large)<%= f.check_box :baking_and_pastry %><br />
-    Spring form pan (Medium)<%= f.check_box :baking_and_pastry %><br />
-    Spring form pan (Small)<%= f.check_box :baking_and_pastry %><br />
-    Cake pan (Large)<%= f.check_box :baking_and_pastry %><br />
-    Cake pan (Small)<%= f.check_box :baking_and_pastry %><br />
-    Muffin pan<%= f.check_box :baking_and_pastry %><br />
-    Proofing drawers<%= f.check_box :baking_and_pastry %><br />
-    Warming drawers<%= f.check_box :baking_and_pastry %><br />
-    <!-- TODO: Add option to add more bakery and pastry -->
-  </div>
-
-  <br />
-  <div class="field">
-    Other Equipment:<br />
-    Meat slicer<%= f.check_box :other_equipment %><br />
-    Panini grill<%= f.check_box :other_equipment %><br />
-    Toaster<%= f.check_box :other_equipment %><br />
-    Waffle maker<%= f.check_box :other_equipment %><br />
-    Crepe plate<%= f.check_box :other_equipment %><br />
-    <!-- TODO: Add option to add more other equipment -->
-  </div>
-
-  <br />
-  <div class="field">
-    Other Amenities:<br />
-    Wifi<%= f.check_box :other_amenities %><br />
-    Toilets<%= f.check_box :other_amenities %><br />
-    Parking space (per car)<%= f.check_box :other_amenities %><br />
-    Office space<%= f.check_box :other_amenities %><br />
-    Wheelchair accessible<%= f.check_box :other_amenities %><br />
-  </div>
-
-  <br />
-  <div class="field">
-    Kitchen Rules and Instructions:<br />
-    <%= f.text_area :kitchen_rules_and_instructions %>
-  </div>
-
-  <!-- TODO: Add space for picture upload -->
-
-  <!-- TODO: Add section for availability -->
-
-  <div class="field">
-    Price:<br />
-    <%= f.text_field :price %>
-  </div>
-
-  <div class="field">
-    Additional details:<br />
-    <%= f.text_area :additional_details %>
-  </div>
-
-  <%= f.submit "List Kitchen" %>
-<% end %>
+      <%= f.submit "List Kitchen" %>
+  <% end %>
+</fieldset>
+</body>

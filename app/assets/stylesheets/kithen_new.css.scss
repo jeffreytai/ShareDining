@@ -1,0 +1,202 @@
+@import 'colors';
+@import 'fonts';
+
+$field-height: 36px;
+
+.kitchen-new-container {
+  width: 969px;
+  margin: 0 auto;
+  font-family: main;
+}
+
+.kitchen-new-subtitle,
+.kitchen-new-title {
+  font-family: logo;
+  width: 100%;
+  text-align: center;
+}
+
+.kitchen-new-title {
+  font-size: 34px;
+  color: $dark-grey;
+  margin: 40px 0 0;
+}
+
+.kitchen-new-subtitle {
+  font-size: 14px;
+  color: lighten($dark-grey, 20);
+  margin: 16px 0 40px;
+}
+
+// can be abstracted to general styles if we need to
+.fieldset {
+  width: 85%;
+  min-width: 350px;
+  margin: 0 auto 60px;
+
+  &.fieldset-basic {
+    width: 50%;
+  }
+
+  .fieldset-title {
+    font-family: logo;
+    width: 100%;
+    color: $dark-grey;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 10px;
+  }
+
+  .input-list li {
+    margin: 16px 0;
+  }
+
+  label,
+  .input-fieldset-title,
+  .checkbox-fieldset-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+    display: block;
+    font-family: logo;
+  }
+
+  textarea,
+  input[type=text] {
+    width: 100%;
+    border-radius: 2px;
+    border: 2px solid $light-grey;
+    font-size: 16px;
+    color: $dark-grey;
+    padding: 10px;
+
+    &:active,
+    &:hover {
+      border-color: darken($light-grey, 30);
+    }
+  }
+
+  textarea {
+    font-size: 14px;
+    line-height: 1.2;
+    height: #{16 * 4 * 1.2}px;
+  }
+}
+
+// fancy styling to get checkboxes looking like pick button list
+.radio-selection-list {
+  width: 80%;
+  margin: 0 auto;
+
+  input[type=radio],
+  input[type=checkbox] {
+    display: none;
+  }
+
+  li {
+    width: 50%;
+    height: 40px;
+    float: left;
+  }
+
+  label {
+    height: 100%;
+    width: 100%;
+    border: 2px solid $light-grey;
+    text-align: center;
+    line-height: 40px;
+    font-size: 12px;
+
+    &:hover {
+      background-color: lighten($light-grey, 10);
+    }
+  }
+
+  li:first-child label {
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+  }
+
+  li:last-child label {
+    border-radius: 0 5px 5px 0;
+  }
+
+  input[type=radio],
+  input[type=checkbox] {
+    &:checked ~ label {
+      background-color: $dark-grey;
+      color: $white;
+    }
+  }
+}
+
+.checkbox-fieldset {
+  margin: 20px 0;
+  width: 100%;
+
+  .checkbox-field-list {
+    width: 100%;
+  }
+
+  .checkbox-fieldset-list-item {
+    width: calc(45% - 1px);
+    float: left;
+    height: $field-height;
+
+    &:nth-child(odd) {
+      border-right: 2px solid $light-grey;
+      padding-right: 5%;
+      margin-right: 5%;
+    }
+
+    .inventory-fieldlist-checkbox,
+    //.inventory-quantity-input,
+    label {
+      float: left;
+    }
+
+    label {
+      font-family: main;
+      font-size: 14px;
+      color: lighten($dark-grey, 30);
+      line-height: $field-height;
+    }
+
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  .inventory-fieldlist-checkbox {
+    padding: 0;
+    height: 16px;
+    width: 16px;
+    margin: 10px 10px 10px 0;
+
+    &:checked {
+      & ~ label {
+        color: lighten($dark-grey, 10);
+      }
+
+      & ~ .inventory-quantity-input {
+        display: block;
+      }
+    }
+  }
+
+  .inventory-quantity-input {
+    display: none;
+    box-sizing: border-box;
+    float: right;
+    padding: 2px;
+    width: 24px;
+    border: none;
+    border-bottom: 2px solid $light-grey;
+    text-align: center;
+    height: 18px;
+    margin-top: ($field-height - 18px)/2;
+  }
+}
+
+
