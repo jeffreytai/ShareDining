@@ -18,6 +18,15 @@ class KitchenController < ApplicationController
   # POST /kitchen
   # POST /kitchen.json
   def create
+    @kitchen = Kitchen.new(kitchen_params)
+    @kitchen.save
+
+    # if @kitchen.save
+    #   redirect_to root_url
+    #   flash[:notice] = "Successfully created kitchen!"
+    # else
+    #   render action: 'new'
+    # end
   end
 
   # PATCH/PUT /kitchen/1
@@ -38,5 +47,18 @@ class KitchenController < ApplicationController
   # DELETE /kitchen/1.json
   def destroy
   end
+
+  private
+    def kitchen_params
+      params.require(:kitchen).permit(:title, :description, :location, :rental_space, :kitchen_rules_and_instructions,
+                                      :additional_details, :price,
+                                      { washing_station: [] }, { food_preparation: [] },
+                                      { food_preparation: [] }, { cookware: [] }, { storage: [] },
+                                      { refrigeration: [] }, { ovens_fryers: [] },
+                                      { oven_equipment_and_storage: [] }, { baking_and_pastry: [] },
+                                      { other_equipment: [] }, { other_amenities: [] }
+                                      # :availability
+                                      )
+    end
 
 end

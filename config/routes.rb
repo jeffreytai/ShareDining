@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   root 'landing#user'
 
   get 'search_results/results'
-
-  get 'kitchen/view'
+  post 'kitchen/create'
 
   resources :kitchen
 
