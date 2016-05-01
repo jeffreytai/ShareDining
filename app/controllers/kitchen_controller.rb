@@ -19,7 +19,13 @@ class KitchenController < ApplicationController
   # POST /kitchen.json
   def create
     @kitchen = Kitchen.new(kitchen_params)
-    @kitchen.save
+    if @kitchen.save
+      redirect_to @kitchen
+      flash[:notice] = 'Kitchen was successfully added.'
+    else
+      format.html { render :new }
+      format.json { render json: @kitchen.errors, status: :unprocessable_entity }
+    end
 
     # if @kitchen.save
     #   redirect_to root_url
