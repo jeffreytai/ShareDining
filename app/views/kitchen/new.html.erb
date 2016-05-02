@@ -28,11 +28,11 @@
               <legend class="input-fieldset-title">Type of Kitchen</legend>
               <ul class="radio-selection-list clearfix">
                 <li>
-                  <%= f.check_box :rental_space, id: "whole-kitchen-option" %>
+                  <%= f.check_box :rental_space, id: "whole-kitchen-option", name: "whole_kitchen" %>
                   <label for="whole-kitchen-option" tabindex="0">Whole Kitchen</label>
                 </li>
                 <li>
-                  <%= f.check_box :rental_space, id: "shared-space-option" %>
+                  <%= f.check_box :rental_space, id: "shared-space-option", name: "shared_space" %>
                   <label for="shared-space-option" tabindex="0">Shared Space</label>
                 </li>
               </ul>

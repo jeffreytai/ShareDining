@@ -19,6 +19,7 @@ class KitchenController < ApplicationController
   # POST /kitchen.json
   def create
     @kitchen = Kitchen.new(kitchen_params)
+    params[:whole_kitchen] == "1" ? (@kitchen.rental_space = "Whole Kitchen") : (@kitchen.rental_space = "Shared Space")
     if @kitchen.save
       redirect_to @kitchen
       flash[:notice] = 'Kitchen was successfully added.'
@@ -56,13 +57,14 @@ class KitchenController < ApplicationController
 
   private
     def kitchen_params
-      params.require(:kitchen).permit(:title, :description, :location, :rental_space, :kitchen_rules_and_instructions,
-                                      :additional_details, :price,
+      params.require(:kitchen).permit(:title, :description, :location, :rental_space,
+                                      :kitchen_rules_and_instructions, :additional_details, :price,
                                       { washing_station: [] }, { food_preparation: [] },
                                       { food_preparation: [] }, { cookware: [] }, { storage: [] },
                                       { refrigeration: [] }, { ovens_fryers: [] },
                                       { oven_equipment_and_storage: [] }, { baking_and_pastry: [] },
                                       { other_equipment: [] }, { other_amenities: [] }
+                                      # :whole_kitchen, :shared_space
                                       # :availability
                                       )
     end
