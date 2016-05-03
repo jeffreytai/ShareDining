@@ -14,7 +14,7 @@ JsController.landing = function () {
 
   // init autocomplete
   const $addressInput = document.getElementsByClassName(addressInput)[0];
-  window.initLandingAutoComplete = function () {
-    const autocomplete = new google.maps.places.Autocomplete($addressInput, {});
-  };
+  // window.initLandingAutoComplete = function () {
+  //   const autocomplete = new google.maps.places.Autocomplete($addressInput, {});
+  // };
 };

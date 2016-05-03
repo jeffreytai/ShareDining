@@ -2,6 +2,7 @@ class Kitchen
   include Mongoid::Document
   # for created_at and updated_at fields
   include Mongoid::Timestamps
+  include Mongoid::Attributes::Dynamic
   include Mongoid::Token
   include Mongoid::Paperclip
 

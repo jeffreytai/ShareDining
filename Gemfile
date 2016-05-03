@@ -37,9 +37,6 @@ gem "mongoid-paperclip", :require => "mongoid_paperclip"
 # User authentication
 gem 'devise'
 
-# Google Maps autocomplete
-# gem 'gmaps-autocomplete-rails'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

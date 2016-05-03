@@ -1,7 +1,8 @@
 class User
   include Mongoid::Document
+  include Mongoid::Attributes::Dynamic
 
-  has_many :kitchens, dependent: :destroy
+  has_many :kitchens
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
