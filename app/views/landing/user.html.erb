@@ -14,9 +14,8 @@
   </div>
 
   <div class="landing-search">
-    <form action="./search/results" class="landing-search-form">
-      <input id="pac-input" class="landing-location-input" type="text" placeholder="Portland, OR, United States">
-
+  <%= form_tag({:controller => "search", :action => "results"}, :method => :get, :class => "landing-search-form") do %>
+      <%= text_field_tag :location, nil, class: "landing-location-input", :placeholder => "Portland, OR, United States" %>
       <!-- Google Maps Autocomplete -->
       <script>
         function initialize() {
@@ -24,7 +23,7 @@
             types: ['(cities)'],
             componentRestrictions: {country: "GB"}
           }
-          var input = document.getElementById('pac-input');
+          var input = document.getElementById('location');
           var autocomplete = new google.maps.places.Autocomplete(input, options);
         }
       </script>
@@ -33,6 +32,7 @@
       <input class="landing-start-input" type="date">
       <input class="landing-end-input" type="date">
       <button class="landing-submit">Search</button>
+    <% end %>
     </form>
   </div>
 </section>
