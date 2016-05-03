@@ -117,41 +117,49 @@ var kitchenInventoryList = {
     'Freezer (Single)',
     'Ice Machine'
   ],
-  'Ovens/Fryers': [
-    'Ovens',
-    'Convection',
-    'Double stack convection',
-    'Single deck convection',
-    'Bakery depth double stack',
-    'Combination',
-    'Electric combination oven',
-    'Gas combination oven',
-    'Steam',
-    'Countertop steamer',
-    'Floor steamer',
-    'Ranges',
-    'Multi-ring range top with standard electric oven',
-    'Multi-ring range top with convection oven',
-    'Range with space saver over',
-    'Range with storage space underneath',
-    'Range with griddle',
-    'Portable range',
-    'Countertop electric range',
-    'Fryers',
-    'Gas Floor Fryer',
-    'Electric Counter top Fryer',
-    'Induction',
-    'Electric Griddle',
-    'Warming',
-    'Counter top warming (Large)',
-    'Counter top warming (Small)',
-    'Microwave',
-    'Sous vide',
-    'Sous vide machine (single unit)',
-    'Sous vide machine (double unit)',
-    'Rice cooker',
-    'Pressure cooker'
-  ],
+  'Ovens/Fryers': {
+    'Convection': [
+      'Double stack convection',
+      'Single deck convection',
+      'Bakery depth double stack'
+    ],
+    'Combination': [
+      'Electric combination oven',
+      'Gas combination oven'
+    ],
+    'Steam': [
+      'Countertop steamer',
+      'Floor steamer',
+    ],
+    'Ranges': [
+      'Multi-ring range top with standard electric oven',
+      'Multi-ring range top with convection oven',
+      'Range with space saver over',
+      'Range with storage space underneath',
+      'Range with griddle',
+      'Portable range',
+      'Countertop electric range'
+    ],
+    'Fryers': [
+      'Gas Floor Fryer',
+      'Electric Counter top Fryer'
+    ],
+    'Warming': [
+      'Counter top warming (Large)',
+      'Counter top warming (Small)'
+    ],
+    'Sous vide': [
+      'Sous vide machine (single unit)',
+      'Sous vide machine (double unit)'
+    ],
+    'Other': [
+      'Induction',
+      'Electric Griddle',
+      'Microwave',
+      'Rice cooker',
+      'Pressure cooker'
+    ]
+  },
   'Oven Equipment & Storage': [
     'Immersion fan',
     'Sheet pan',
@@ -262,5 +270,3 @@ function generateMenuHtml() {
     return htmlText('li', { 'class': 'kitchen-new-side-menu-el' }, linkHtml);
   }).join('\n');
 }
-
-
