@@ -13,10 +13,23 @@
     <h3 class="sub-tagline">Search through available commercial kitchens in your area</h3>
   </div>
 
-  <!--TODO: make this into an erb form-->
   <div class="landing-search">
     <form action="./search_results/results" class="landing-search-form">
-      <input class="landing-location-input" type="text" placeholder="Portland, OR, United States">
+      <input id="pac-input" class="landing-location-input" type="text" placeholder="Portland, OR, United States">
+
+      <!-- Google Maps Autocomplete -->
+      <script>
+        function initialize() {
+          var options = {
+            types: ['(cities)'],
+            componentRestrictions: {country: "GB"}
+          }
+          var input = document.getElementById('pac-input');
+          var autocomplete = new google.maps.places.Autocomplete(input, options);
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
+
       <input class="landing-start-input" type="date">
       <input class="landing-end-input" type="date">
       <button class="landing-submit">Search</button>
@@ -52,4 +65,3 @@
   CS130 Project
 </footer>
 </body>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyG_m9OLqJlVFsM0sYo5OXdmrkfK3rMuU&libraries=places&callback=initLandingAutoComplete" async defer></script>

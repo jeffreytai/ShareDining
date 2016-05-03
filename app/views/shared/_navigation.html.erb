@@ -1,5 +1,12 @@
 <!--we should render this on everypage and simply link to the icons via use-->
 <%= render 'shared/icons' %>
+<style>
+  .pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+    /*display:none !important;*/
+  }
+</style>
 <nav class="main-nav">
   <a href="<%= root_url %>"><h1 class="main-logo">ShareDining</h1></a>
   <label for="nav-search" class="nav-search-icon">
@@ -7,8 +14,38 @@
       <use xlink:href="#search"></use>
     </svg>
   </label>
-  <input id="nav-search" type="text" class="nav-search" value="Sample Location, CA, United States">
-  <button class="account-nav-button">
+  <input id="pac-input" type="text" class="nav-search" placeholder="Portland, OR, United States">
+
+  <!-- Google Maps Autocomplete -->
+  <!-- <script>
+    function initialize() {
+      var options = {
+        types: ['(cities)'],
+        componentRestrictions: {country: "GB"}
+      }
+      var input = document.getElementById('pac-input');
+      var autocomplete = new google.maps.places.Autocomplete(input, options);
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script> -->
+
+  <ul class="landing-links">
+    <% if user_signed_in? %>
+        <li><%= link_to "Messages", root_url %></li>
+        <li><%= link_to "Help", root_url %></li>
+        <li><%= link_to "Account", root_url %></li>
+        <li><%= link_to "Sign out", destroy_user_session_path %></li>
+    <% else %>
+        <li><%= link_to "About", root_url %></li>
+        <li><a href="#" class="nav-login-button">Login</a></li>
+        <li><a href="#" class="nav-signup-button">Sign Up</a></li>
+    <% end %>
+  </ul>
+  <a href="<%= new_kitchen_path %>"><button class="transparent-button landing-rent-button">
+    Rent Your Kitchen
+  </button></a>
+
+  <!-- <button class="account-nav-button">
     <% if user_signed_in? %>
       <span class="button-text"><%= current_user.first_name %></span>
     <% else %>
@@ -23,5 +60,5 @@
     <svg>
       <use xlink:href="#help"></use>
     </svg>
-  </button>
+  </button> -->
 </nav>
