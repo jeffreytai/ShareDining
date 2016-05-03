@@ -42,7 +42,7 @@ class Kitchen
   field :price,                           type: Integer
   field :additional_details,              type: String, default: ""
 
-  validates_presence_of :title, :description, :rental_space, :location, :price
+  # validates_presence_of :title, :description, :rental_space, :location, :price
 
   # Enforces index on database
   # TODO: decide what fields will be queried often
