@@ -2,11 +2,20 @@
 @import 'fonts';
 
 $field-height: 36px;
+$menu-width: 350px;
+
+.kitchen-new-body {
+  background-color: lighten($light-grey, 16);
+}
 
 .kitchen-new-container {
   width: 969px;
-  margin: 0 auto;
+  margin: 0 $menu-width;
   font-family: main;
+  background-color: $white;
+  padding-top: 40px;
+  min-height: calc(100vh - 100px);
+  border-left: 2px solid $light-grey;
 }
 
 .kitchen-new-subtitle,
@@ -19,7 +28,6 @@ $field-height: 36px;
 .kitchen-new-title {
   font-size: 34px;
   color: $dark-grey;
-  margin: 40px 0 0;
 }
 
 .kitchen-new-subtitle {
@@ -32,7 +40,12 @@ $field-height: 36px;
 .fieldset {
   width: 85%;
   min-width: 350px;
-  margin: 0 auto 60px;
+  margin: 0 auto;
+  display: none;
+
+  &.current {
+    display: block;
+  }
 
   &.fieldset-basic {
     width: 50%;
@@ -196,6 +209,63 @@ $field-height: 36px;
     text-align: center;
     height: 18px;
     margin-top: ($field-height - 18px)/2;
+  }
+}
+
+.kitchen-new-side-menu {
+  position: absolute;
+  top: 61px;
+  left: 0;
+  min-width: $menu-width;
+  background-color: lighten($light-grey, 15);
+  height: calc(100vh - 61px);
+  font-family: main;
+  font-size: 15px;
+
+  &.stuck {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+  }
+
+  .kitchen-new-side-menu-list,
+  .kitchen-new-side-menu-el {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .kitchen-new-side-menu-list {
+    padding-top: 20px;
+  }
+
+  .kitchen-new-side-menu-el {
+    box-sizing: border-box;
+    height: 50px;
+    line-height: 50px;
+  }
+  .kitchen-new-menu-link {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: inherit;
+    padding-left: 20px;
+    transition: padding-left .5s, background-color .25s;
+
+    &.current {
+      background-color: lighten($light-grey, 10);
+      font-family: logo;
+    }
+
+    &.current,
+    &:hover {
+      padding-left: 30px;
+    }
+
+    &:hover {
+      background-color: lighten($light-grey, 12);
+    }
   }
 }
 
