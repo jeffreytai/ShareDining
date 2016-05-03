@@ -269,4 +269,33 @@ $menu-width: 350px;
   }
 }
 
+.kitchen-new-button-container {
+  width: 70%;
+  margin: 20px auto 0;
+  border-top: 1px solid $light-grey;
+  padding: 20px 0 30px;
+
+  .next-button,
+  .prev-button {
+    width: 100px;
+    height: 36px;
+    margin: 0;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: .2;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .next-button {
+    float: right;
+  }
+
+  .prev-button {
+    float: left;
+  }
+}
+
 

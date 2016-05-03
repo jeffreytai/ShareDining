@@ -15,10 +15,11 @@
 
   <div class="landing-search">
     <form action="./search_results/results" class="landing-search-form">
-      <input id="pac-input" class="landing-location-input" type="text" placeholder="Portland, OR, United States">
+      <input id="pac-input" class="landing-location-input" type="text" placeholder="Location">
 
       <!-- Google Maps Autocomplete -->
       <script>
+        // TODO: this should be moved to a js file and attached to window
         function initialize() {
           var options = {
             types: ['(cities)'],
@@ -30,8 +31,8 @@
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
 
-      <input class="landing-start-input" type="date">
-      <input class="landing-end-input" type="date">
+      <input class="landing-start-input" type="date" aria-label="Start Date">
+      <input class="landing-end-input" type="date" aria-label="End Date">
       <button class="landing-submit">Search</button>
     </form>
   </div>

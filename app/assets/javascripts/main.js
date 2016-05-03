@@ -14,5 +14,4 @@ function loadPageJs() {
 }
 
 // we use the page:change event b/c of turbolinks
-document.addEventListener('DOMContentLoaded', loadPageJs);
 document.addEventListener('page:change', loadPageJs);

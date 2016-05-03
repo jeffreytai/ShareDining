@@ -11,5 +11,5 @@
 // about supported directives.
 //
 //= require turbolinks
+//= require main
 
-require('./main');
