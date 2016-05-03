@@ -242,7 +242,9 @@ $menu-width: 350px;
     box-sizing: border-box;
     height: 50px;
     line-height: 50px;
+    position: relative;
   }
+
   .kitchen-new-menu-link {
     box-sizing: border-box;
     display: block;
@@ -265,6 +267,28 @@ $menu-width: 350px;
 
     &:hover {
       background-color: lighten($light-grey, 12);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 10px;
+      top: 18px;
+      height: 14px;
+      width: 14px;
+      border-radius: 100%;
+      opacity: 0;
+      transition: opacity .5s;
+    }
+
+    &.completed:after {
+      background-color:$light-green;
+      opacity: 1;
+    }
+
+    &.incomplete:after {
+      background-color: $light-red;
+      opacity: 1;
     }
   }
 }
