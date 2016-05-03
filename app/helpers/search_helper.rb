@@ -1,2 +1,2 @@
-module SearchResultsHelper
+module SearchHelper
 end
