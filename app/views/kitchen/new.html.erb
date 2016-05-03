@@ -61,6 +61,20 @@
           <li>
             <label for="location">Location</label>
             <%= f.text_field :location, id: "location", required: "true" %>
+
+            <script>
+              // TODO: this should be moved to a js file and attached to window
+              function initialize() {
+                var options = {
+                  types: ['(cities)'],
+                  componentRestrictions: { country: "GB" }
+                }
+                var input = document.getElementById('location');
+                var autocomplete = new google.maps.places.Autocomplete(input, options);
+              }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
+
           </li>
           <li>
             <fieldset class="input-fieldset">

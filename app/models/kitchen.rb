@@ -34,6 +34,8 @@ class Kitchen
   # Information Questionnaire
   # TODO: possibly make this location an object?
   field :location,                        type: String
+  field :latitude,                        type: Float
+  field :longitude,                       type: Float
 
   # TODO: insert photos...
 
