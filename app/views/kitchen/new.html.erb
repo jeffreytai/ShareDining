@@ -1,7 +1,7 @@
 <body class="kitchen-new-body" data-js="kitchen-new">
 <%= render("shared/menu") %>
 
-<menu class="kitchen-new-side-menu">
+<nav class="kitchen-new-side-menu">
   <ul class="kitchen-new-side-menu-list">
     <li class="kitchen-new-side-menu-el">
       <a class="kitchen-new-menu-link current" href="#basic-information">Basic Information</a>
@@ -38,7 +38,7 @@
       <a class="kitchen-new-menu-link" href="#other-amenities">Other Amenities</a>
     </li>
   </ul>
-</menu>
+</nav>
 
 <div class="kitchen-new-container">
   <h2 class="kitchen-new-title">Add Your Kitchen</h2>
@@ -51,16 +51,16 @@
         <ul class="input-list">
           <li>
             <label for="title">Title</label>
-            <%= f.text_field :title, id: "title" %>
+            <%= f.text_field :title, id: "title", required: "true" %>
           </li>
           <li>
             <label for="description">Tell us briefly about your kitchen space so the renters can get a quick idea about
               the space</label>
-            <%= f.text_area :description, id: "description", placeholder: "E.g. Full stocked commercial kitchen typically serving 30 cover restaurant." %>
+            <%= f.text_area :description, id: "description", required: "true", placeholder: "E.g. Full stocked commercial kitchen typically serving 30 cover restaurant." %>
           </li>
           <li>
             <label for="location">Location</label>
-            <%= f.text_field :location, id: "location" %>
+            <%= f.text_field :location, id: "location", required: "true" %>
           </li>
           <li>
             <fieldset class="input-fieldset">
@@ -809,6 +809,11 @@
       <!--<%= f.text_area :additional_details %>-->
       <!--</div>-->
   <% end %>
+
+  <div class="kitchen-new-button-container clearfix">
+    <button class="prev-button transparent-button" disabled>Previous</button>
+    <button class="next-button transparent-button">Next</button>
+  </div>
   </div>
 </body>
 

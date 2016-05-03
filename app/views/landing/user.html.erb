@@ -18,10 +18,11 @@
       <%= text_field_tag :location, nil, class: "landing-location-input", :placeholder => "Portland, OR, United States" %>
       <!-- Google Maps Autocomplete -->
       <script>
+        // TODO: this should be moved to a js file and attached to window
         function initialize() {
           var options = {
             types: ['(cities)'],
-            componentRestrictions: {country: "GB"}
+            componentRestrictions: { country: "GB" }
           }
           var input = document.getElementById('location');
           var autocomplete = new google.maps.places.Autocomplete(input, options);
@@ -29,8 +30,8 @@
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
 
-      <input class="landing-start-input" type="date">
-      <input class="landing-end-input" type="date">
+      <input class="landing-start-input" type="date" aria-label="Start Date">
+      <input class="landing-end-input" type="date" aria-label="End Date">
       <button class="landing-submit">Search</button>
     <% end %>
     </form>

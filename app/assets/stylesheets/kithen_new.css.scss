@@ -242,7 +242,9 @@ $menu-width: 350px;
     box-sizing: border-box;
     height: 50px;
     line-height: 50px;
+    position: relative;
   }
+
   .kitchen-new-menu-link {
     box-sizing: border-box;
     display: block;
@@ -266,6 +268,57 @@ $menu-width: 350px;
     &:hover {
       background-color: lighten($light-grey, 12);
     }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 10px;
+      top: 18px;
+      height: 14px;
+      width: 14px;
+      border-radius: 100%;
+      opacity: 0;
+      transition: opacity .5s;
+    }
+
+    &.completed:after {
+      background-color:$light-green;
+      opacity: 1;
+    }
+
+    &.incomplete:after {
+      background-color: $light-red;
+      opacity: 1;
+    }
+  }
+}
+
+.kitchen-new-button-container {
+  width: 70%;
+  margin: 20px auto 0;
+  border-top: 1px solid $light-grey;
+  padding: 20px 0 30px;
+
+  .next-button,
+  .prev-button {
+    width: 100px;
+    height: 36px;
+    margin: 0;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: .2;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  .next-button {
+    float: right;
+  }
+
+  .prev-button {
+    float: left;
   }
 }
 
