@@ -32,6 +32,7 @@ jsController['kitchen-new'] = function () {
 
     if (currHashIdx === hashArray.length - 1) {
       $nextButton.innerText = 'Finish';
+      $nextButton.setAttribute('type', 'submit');
     } else {
       $nextButton.innerText = 'Next';
     }

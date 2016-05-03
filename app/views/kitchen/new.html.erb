@@ -62,6 +62,10 @@
             <label for="location">Location</label>
             <%= f.text_field :location, id: "location", required: "true" %>
 
+            <%= f.hidden_field :latitude %>
+
+            <%= f.hidden_field :longitude %>
+
             <script>
               // TODO: this should be moved to a js file and attached to window
               function initialize() {
@@ -71,10 +75,29 @@
                 }
                 var input = document.getElementById('location');
                 var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+                var geocoder = new google.maps.Geocoder();
+                document.getElementById('submit').addEventListener('click', function() {
+                  geocodeAddress(geocoder, map);
+                });
               }
+
+              // TODO: double check that the latitude and longitude are being retrieved
+              function geocodeAddress(geocoder, resultsMap) {
+                  var address = document.getElementById('address').value;
+                  geocoder.geocode({'address': address}, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                      var lat = results[0].geometry.location.lat();
+                      var lng = results[0].geometry.location.lng();
+                      document.getElementById('latitude').value = lat;
+                      document.getElementById('longitude').value = lng;
+                    } else {
+                      alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                  });
+                }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
-
           </li>
           <li>
             <fieldset class="input-fieldset">
@@ -839,5 +862,7 @@
     <button class="prev-button transparent-button" disabled>Previous</button>
     <button class="next-button transparent-button">Next</button>
   </div>
-  </div>
+
+
+</div>
 </body>
