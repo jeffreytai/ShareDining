@@ -133,3 +133,66 @@ Kitchen.create(
   price: 40,
   additional_details: "None"
 )
+
+Kitchen.create(
+  title: "Brockley",
+  description: "Clean kitchen with newly-installed double stack oven. Less than a block from farmer's market.",
+  rental_space: "Whole Kitchen",
+  washing_station: [ "Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink" ],
+  food_preparation: [ "Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)" ],
+  cookware: [ "Stock pot (Large)", "Frying pan (Large)" ],
+  storage: [ "Regency shelving stack", "Food storage containers (Large)" ],
+  refrigeration: [ "Walk-in refrigerator", "Refrigerated prep table" ],
+  ovens_fryers: [ "Double stack convection" ],
+  oven_equipment_and_storage: [ "Immersion fan", "Sheet pan", "Oven gloves" ],
+  baking_and_pastry: [ "Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers" ],
+  other_equipment: [],
+  other_amenities: [ "Wifi", "Toilets", "Office space", "Wheelchair accessible" ],
+  location: "96 Endwell Road, London SE4, UK",
+  kitchen_rules_and_instructions: "None",
+  availability: "Every other Friday",
+  price: 40,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Bethnal Green",
+  description: "Clean kitchen with newly-installed double stack oven. Less than a block from farmer's market.",
+  rental_space: "Whole Kitchen",
+  washing_station: [ "Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink" ],
+  food_preparation: [ "Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)" ],
+  cookware: [ "Stock pot (Large)", "Frying pan (Large)" ],
+  storage: [ "Regency shelving stack", "Food storage containers (Large)" ],
+  refrigeration: [ "Walk-in refrigerator", "Refrigerated prep table" ],
+  ovens_fryers: [ "Double stack convection" ],
+  oven_equipment_and_storage: [ "Immersion fan", "Sheet pan", "Oven gloves" ],
+  baking_and_pastry: [ "Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers" ],
+  other_equipment: [],
+  other_amenities: [ "Wifi", "Toilets", "Office space", "Wheelchair accessible" ],
+  location: "6 Gales Gardens, London E2 0EJ, UK",
+  kitchen_rules_and_instructions: "None",
+  availability: "Every other Friday",
+  price: 40,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Hackney Wick",
+  description: "Clean kitchen with newly-installed double stack oven. Less than a block from farmer's market.",
+  rental_space: "Whole Kitchen",
+  washing_station: [ "Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink" ],
+  food_preparation: [ "Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)" ],
+  cookware: [ "Stock pot (Large)", "Frying pan (Large)" ],
+  storage: [ "Regency shelving stack", "Food storage containers (Large)" ],
+  refrigeration: [ "Walk-in refrigerator", "Refrigerated prep table" ],
+  ovens_fryers: [ "Double stack convection" ],
+  oven_equipment_and_storage: [ "Immersion fan", "Sheet pan", "Oven gloves" ],
+  baking_and_pastry: [ "Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers" ],
+  other_equipment: [],
+  other_amenities: [ "Wifi", "Toilets", "Office space", "Wheelchair accessible" ],
+  location: "10 Stour Rd, London E3 2NT, UK",
+  kitchen_rules_and_instructions: "None",
+  availability: "Every other Friday",
+  price: 40,
+  additional_details: "None"
+)
