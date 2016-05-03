@@ -152,13 +152,13 @@ var kitchenInventoryList = {
     'Rice cooker',
     'Pressure cooker'
   ],
-  'Oven Equipment &amp; Storage': [
+  'Oven Equipment & Storage': [
     'Immersion fan',
     'Sheet pan',
     'Oven gloves',
     'Fryer basket'
   ],
-  'Baking &amp; Pastry': [
+  'Baking & Pastry': [
     'Dry measuring cup',
     'Liquid measures (small jug)',
     'Liquid measures (large jug)',
@@ -188,10 +188,30 @@ var kitchenInventoryList = {
     'Office space',
     'Wheelchair accessible'
   ]
-};
+}, sectionKeys = [
+  'washing_station',
+  'food_preparation',
+  'cookware',
+  'storage',
+  'refrigeration',
+  'ovens_fryers',
+  'oven_equipment_and_storage',
+  'baking_and_pastry',
+  'other_equipment',
+  'other_amenities'
+];
+
+
+function dashReplace(str) {
+  return str.toLowerCase().replace(/[-&]/g, ' ').replace(/ +/g, '-').replace(/[()/&]/g, '');
+}
+
+function htmlEntities(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
 function htmlText(tag, attr = {}, inner) {
-  var attrs = Object.keys(attr).map((key) => `${key}="${attr[key]}"`).join(',');
+  var attrs = Object.keys(attr).map((key) => `${key}="${attr[key]}"`).join(' ');
 
   if (inner) {
     return `<${tag} ${attrs}>${inner}</${tag}>`;
@@ -200,31 +220,47 @@ function htmlText(tag, attr = {}, inner) {
   }
 }
 
-function checkboxFieldListItem(el) {
-  var elNameDashed = el.replace(/ /g, '-').replace(/[()]/g, '').toLowerCase();
+function checkboxFieldListItem(el, bigSectionSnakeCase) {
+  var elNameDashed = dashReplace(el);
 
   return htmlText('li', { 'class': 'checkbox-fieldset-list-item' },
-    `<%= f.check_box :washing_station, id: "${elNameDashed}", class: "inventory-fieldlist-checkbox" %>
-    <label for="${elNameDashed}">${el}</label>
+    `<%= check_box_tag 'kitchen[${bigSectionSnakeCase}][]', "${el}", @kitchen.${bigSectionSnakeCase}.include?("${el}"), id: "${elNameDashed}", class: "inventory-fieldlist-checkbox" %>
+    <label for="${elNameDashed}">${htmlEntities(el)}</label>
     <input type="number" value="1" aria-label="${el} Quantity" step="1" min="1" class="inventory-quantity-input">`)
 }
 
-Object.keys(kitchenInventoryList).map((bigSectionName) => {
-  var bigTitle = htmlText('legend', { 'class': 'fieldset-title' }, bigSectionName),
-    element = kitchenInventoryList[bigSectionName],
-    finalInner = bigTitle;
+function generateInventoryHtml() {
+  return Object.keys(kitchenInventoryList).map((bigSectionName, idx) => {
+    var bigTitle = htmlText('legend', { 'class': 'fieldset-title' }, htmlEntities(bigSectionName)),
+      element = kitchenInventoryList[bigSectionName],
+      finalInner = bigTitle,
+      bigTitleDashed = dashReplace(bigSectionName),
+      bigSectionSnakeCase = sectionKeys[idx];
 
-  if (Array.isArray(element)) {
-    finalInner += htmlText('fieldset', { 'class': 'checkbox-fieldset' }, htmlText('ul', { 'class': 'checkbox-field-list' }, element.map(checkboxFieldListItem).join('\n')));
-  } else {
-    finalInner += Object.keys(element).map((sectionTitle) => {
-      var inventoryArray = element[sectionTitle],
-        sectionInner = htmlText('legend', { 'class': 'checkbox-fieldset-title' }, sectionTitle) +
-          htmlText('ul', { 'class': 'checkbox-field-list' }, inventoryArray.map(checkboxFieldListItem).join('\n'));
+    if (Array.isArray(element)) {
+      finalInner += htmlText('fieldset', { 'class': 'checkbox-fieldset' }, htmlText('ul', { 'class': 'checkbox-field-list' }, element.map((el) => checkboxFieldListItem(el, bigSectionSnakeCase)).join('\n')));
+    } else {
+      finalInner += Object.keys(element).map((sectionTitle) => {
+        var inventoryArray = element[sectionTitle],
+          elNameDashed = dashReplace(sectionTitle),
+          sectionInner = htmlText('legend', { 'class': 'checkbox-fieldset-title' }, htmlEntities(sectionTitle)) +
+            htmlText('ul', { 'class': 'checkbox-field-list' }, inventoryArray.map((el) => checkboxFieldListItem(el, bigSectionSnakeCase)).join('\n'));
 
-      return htmlText('fieldset', { 'class': 'checkbox-fieldset' }, sectionInner);
-    }).join('\n');
-  }
+        return htmlText('fieldset', { 'class': 'checkbox-fieldset' }, sectionInner);
+      }).join('\n');
+    }
 
-  return htmlText('fieldset', { 'class': 'fieldset' }, finalInner);
-}).join('\n');
+    return htmlText('fieldset', { 'class': 'fieldset', 'id': bigTitleDashed }, finalInner);
+  }).join('\n');
+}
+
+function generateMenuHtml() {
+  return Object.keys(kitchenInventoryList).map(title => {
+    var titleClass = dashReplace(title),
+      linkHtml = htmlText('a', { 'class': 'kitchen-new-menu-link', 'href': `#${titleClass}` }, htmlEntities(title));
+
+    return htmlText('li', { 'class': 'kitchen-new-side-menu-el' }, linkHtml);
+  }).join('\n');
+}
+
+

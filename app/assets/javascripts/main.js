@@ -1,8 +1,9 @@
 import JsController from 'JsController';
 import 'pageJs/Landing';
 import 'pageJs/Results';
+import 'pageJs/KitchenNewController';
 
-document.addEventListener('DOMContentLoaded', () => {
+function loadPageJs() {
   // grab the data-js attribute off of body, which indicates which modules we need to init
   const jsModules = document.querySelector('body').dataset.js.split(' ');
 
@@ -10,4 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   jsModules.forEach((module) => {
     JsController[module]();
   });
-});
+}
+
+// we use the page:change event b/c of turbolinks
+document.addEventListener('DOMContentLoaded', loadPageJs);
+document.addEventListener('page:change', loadPageJs);

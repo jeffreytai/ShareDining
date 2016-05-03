@@ -1,13 +1,52 @@
 <body class="kitchen-new-body" data-js="kitchen-new">
 <%= render("shared/menu") %>
 
-<fieldset class="kitchen-new-container">
+<menu class="kitchen-new-side-menu">
+  <ul class="kitchen-new-side-menu-list">
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link current" href="#basic-information">Basic Information</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#washing-wet-station">Washing (Wet) station</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#food-preparation-equipment-utensils">Food Preparation Equipment &amp;
+        Utensils</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#cookware">Cookware</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#storage">Storage</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#refrigeration">Refrigeration</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#ovensfryers">Ovens/Fryers</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#oven-equipment-storage">Oven Equipment &amp; Storage</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#baking-pastry">Baking &amp; Pastry</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#other-equipment">Other Equipment</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#other-amenities">Other Amenities</a>
+    </li>
+  </ul>
+</menu>
+
+<div class="kitchen-new-container">
   <h2 class="kitchen-new-title">Add Your Kitchen</h2>
   <h3 class="kitchen-new-subtitle">List your space on ShareDining and join the kitchen economy</h3>
 
   <!--TODO need placeholders giving examples-->
   <%= form_for @kitchen, url: {action: "create"} do |f| %>
-      <fieldset class="fieldset fieldset-basic">
+      <fieldset class="fieldset fieldset-basic current" id="basic-information">
         <legend class="fieldset-title">Basic Information</legend>
         <ul class="input-list">
           <li>
@@ -41,867 +80,705 @@
         </ul>
       </fieldset>
 
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="washing-wet-station">
         <legend class="fieldset-title">Washing (Wet) station</legend>
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Sinks</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Washing up sink (Single compartment)', @kitchen.washing_station.include?('Washing up sink (Single compartment)'), id: 'washing-up-sink-single-compartment', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Washing up sink (Single compartment)", @kitchen.washing_station.include?("Washing up sink (Single compartment)"), id: "washing-up-sink-single-compartment", class: "inventory-fieldlist-checkbox" %>
               <label for="washing-up-sink-single-compartment">Washing up sink (Single compartment)</label>
               <input type="number" value="1" aria-label="Washing up sink (Single compartment) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Washing up sink (Double compartment)', @kitchen.washing_station.include?('Washing up sink (Double compartment)'), id: 'washing-up-sink-double-compartment', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Washing up sink (Double compartment)", @kitchen.washing_station.include?("Washing up sink (Double compartment)"), id: "washing-up-sink-double-compartment", class: "inventory-fieldlist-checkbox" %>
               <label for="washing-up-sink-double-compartment">Washing up sink (Double compartment)</label>
               <input type="number" value="1" aria-label="Washing up sink (Double compartment) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Washing up sink (Triple compartment)', @kitchen.washing_station.include?('Washing up sink (Triple compartment)'), id: "washing-up-sink-triple-compartment", class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Washing up sink (Triple compartment)", @kitchen.washing_station.include?("Washing up sink (Triple compartment)"), id: "washing-up-sink-triple-compartment", class: "inventory-fieldlist-checkbox" %>
               <label for="washing-up-sink-triple-compartment">Washing up sink (Triple compartment)</label>
               <input type="number" value="1" aria-label="Washing up sink (Triple compartment) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Pre-rinse hose', @kitchen.washing_station.include?('Pre-rinse hose'), id: "pre-rinse-hose", class: "inventory-fieldlist-checkbox"%>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Pre-rinse hose", @kitchen.washing_station.include?("Pre-rinse hose"), id: "pre-rinse-hose", class: "inventory-fieldlist-checkbox" %>
               <label for="pre-rinse-hose">Pre-rinse hose</label>
               <input type="number" value="1" aria-label="Pre-rinse hose Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Mobile sink', @kitchen.washing_station.include?('Mobile sink'), id: "mobile-sink", class: "inventory-fieldlist-checkbox" %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Mobile sink", @kitchen.washing_station.include?("Mobile sink"), id: "mobile-sink", class: "inventory-fieldlist-checkbox" %>
               <label for="mobile-sink">Mobile sink</label>
               <input type="number" value="1" aria-label="Mobile sink Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
-
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Dishwasher</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Dishwasher (Single Pull-Down DownDoor)', @kitchen.washing_station.include?('Dishwasher (Single Pull-Down DownDoor)'), id: 'dishwasher-single-pull-down-downdoor', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Dishwasher (Single Pull-Down DownDoor)", @kitchen.washing_station.include?("Dishwasher (Single Pull-Down DownDoor)"), id: "dishwasher-single-pull-down-downdoor", class: "inventory-fieldlist-checkbox" %>
               <label for="dishwasher-single-pull-down-downdoor">Dishwasher (Single Pull-Down DownDoor)</label>
               <input type="number" value="1" aria-label="Dishwasher (Single Pull-Down DownDoor) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Dishwasher (Double Pull-Down DownDoor)', @kitchen.washing_station.include?('Dishwasher (Double Pull-Down DownDoor)'), id: 'dishwasher-double-pull-down-downdoor', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Dishwasher (Double Pull-Down DownDoor)", @kitchen.washing_station.include?("Dishwasher (Double Pull-Down DownDoor)"), id: "dishwasher-double-pull-down-downdoor", class: "inventory-fieldlist-checkbox" %>
               <label for="dishwasher-double-pull-down-downdoor">Dishwasher (Double Pull-Down DownDoor)</label>
               <input type="number" value="1" aria-label="Dishwasher (Double Pull-Down DownDoor) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Dishwasher (Under Counter)', @kitchen.washing_station.include?('Dishwasher (Under Counter)'), id: 'dishwasher-under-counter', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Dishwasher (Under Counter)", @kitchen.washing_station.include?("Dishwasher (Under Counter)"), id: "dishwasher-under-counter", class: "inventory-fieldlist-checkbox" %>
               <label for="dishwasher-under-counter">Dishwasher (Under Counter)</label>
               <input type="number" value="1" aria-label="Dishwasher (Under Counter) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Conveyor Dishwasher', @kitchen.washing_station.include?('Conveyor Dishwasher'), id: 'conveyor-dishwasher', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Conveyor Dishwasher", @kitchen.washing_station.include?("Conveyor Dishwasher"), id: "conveyor-dishwasher", class: "inventory-fieldlist-checkbox" %>
               <label for="conveyor-dishwasher">Conveyor Dishwasher</label>
               <input type="number" value="1" aria-label="Conveyor Dishwasher Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Glass washer', @kitchen.washing_station.include?('Glass washer'), id: 'glass-washer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Glass washer", @kitchen.washing_station.include?("Glass washer"), id: "glass-washer", class: "inventory-fieldlist-checkbox" %>
               <label for="glass-washer">Glass washer</label>
               <input type="number" value="1" aria-label="Glass washer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
-
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Other</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Drainboard', @kitchen.washing_station.include?('Drainboard'), id: 'drainboard', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Drainboard", @kitchen.washing_station.include?("Drainboard"), id: "drainboard", class: "inventory-fieldlist-checkbox" %>
               <label for="drainboard">Drainboard</label>
               <input type="number" value="1" aria-label="Drainboard Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Hand wash sink', @kitchen.washing_station.include?('Hand wash sink'), id: 'hand-wash-sink', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Hand wash sink", @kitchen.washing_station.include?("Hand wash sink"), id: "hand-wash-sink", class: "inventory-fieldlist-checkbox" %>
               <label for="hand-wash-sink">Hand wash sink</label>
               <input type="number" value="1" aria-label="Hand wash sink Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Soap dispenser', @kitchen.washing_station.include?('Soap dispenser'), id: 'soap-dispenser', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Soap dispenser", @kitchen.washing_station.include?("Soap dispenser"), id: "soap-dispenser", class: "inventory-fieldlist-checkbox" %>
               <label for="soap-dispenser">Soap dispenser</label>
               <input type="number" value="1" aria-label="Soap dispenser Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Instant hand sanitizer', @kitchen.washing_station.include?('Instant hand sanitizer'), id: 'instant-hand-sanitizer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Instant hand sanitizer", @kitchen.washing_station.include?("Instant hand sanitizer"), id: "instant-hand-sanitizer", class: "inventory-fieldlist-checkbox" %>
               <label for="instant-hand-sanitizer">Instant hand sanitizer</label>
               <input type="number" value="1" aria-label="Instant hand sanitizer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[washing_station][]', 'Rubber service (wet) matts', @kitchen.washing_station.include?('Rubber service (wet) matts'), id: 'rubber-service-wet-matts', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[washing_station][]', "Rubber service (wet) matts", @kitchen.washing_station.include?("Rubber service (wet) matts"), id: "rubber-service-wet-matts", class: "inventory-fieldlist-checkbox" %>
               <label for="rubber-service-wet-matts">Rubber service (wet) matts</label>
               <input type="number" value="1" aria-label="Rubber service (wet) matts Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="food-preparation-equipment-utensils">
         <legend class="fieldset-title">Food Preparation Equipment &amp; Utensils</legend>
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Prep station / work table</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Open base work top table (Double unit)', @kitchen.washing_station.include?('Open base work top table (Double unit)'), id: 'open-base-work-top-table-double-unit', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Open base work top table (Double unit)", @kitchen.food_preparation.include?("Open base work top table (Double unit)"), id: "open-base-work-top-table-double-unit", class: "inventory-fieldlist-checkbox" %>
               <label for="open-base-work-top-table-double-unit">Open base work top table (Double unit)</label>
               <input type="number" value="1" aria-label="Open base work top table (Double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Open base work top table (Single unit)', @kitchen.washing_station.include?('Open base work top table (Single unit)'), id: 'open-base-work-top-table-single-unit', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Open base work top table (Single unit)", @kitchen.food_preparation.include?("Open base work top table (Single unit)"), id: "open-base-work-top-table-single-unit", class: "inventory-fieldlist-checkbox" %>
               <label for="open-base-work-top-table-single-unit">Open base work top table (Single unit)</label>
               <input type="number" value="1" aria-label="Open base work top table (Single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Work table with shelving underneath (Double unit)', @kitchen.washing_station.include?('Work table with shelving underneath (Double unit)'), id: 'work-table-with-shelving-underneath-double-unit', class: 'inventory-fieldlist-checkbox' %>
-              <label for="work-table-with-shelving-underneath-double-unit">Work table with shelving underneath (Double unit)</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Work table with shelving underneath (Double unit)", @kitchen.food_preparation.include?("Work table with shelving underneath (Double unit)"), id: "work-table-with-shelving-underneath-double-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="work-table-with-shelving-underneath-double-unit">Work table with shelving underneath (Double
+                unit)</label>
               <input type="number" value="1" aria-label="Work table with shelving underneath (Double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Work table with shelving underneath (Single unit)', @kitchen.washing_station.include?('Work table with shelving underneath (Single unit)'), id: 'work-table-with-shelving-underneath-single-unit', class: 'inventory-fieldlist-checkbox' %>
-              <label for="work-table-with-shelving-underneath-single-unit">Work table with shelving underneath (Single unit)</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Work table with shelving underneath (Single unit)", @kitchen.food_preparation.include?("Work table with shelving underneath (Single unit)"), id: "work-table-with-shelving-underneath-single-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="work-table-with-shelving-underneath-single-unit">Work table with shelving underneath (Single
+                unit)</label>
               <input type="number" value="1" aria-label="Work table with shelving underneath (Single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Work table with cabinet underneath (Double unit)', @kitchen.washing_station.include?('Work table with cabinet underneath (Double unit)'), id: 'work-table-with-cabinet-underneath-double-unit', class: 'inventory-fieldlist-checkbox' %>
-              <label for="work-table-with-cabinet-underneath-double-unit">Work table with cabinet underneath (Double unit)</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Work table with cabinet underneath (Double unit)", @kitchen.food_preparation.include?("Work table with cabinet underneath (Double unit)"), id: "work-table-with-cabinet-underneath-double-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="work-table-with-cabinet-underneath-double-unit">Work table with cabinet underneath (Double
+                unit)</label>
               <input type="number" value="1" aria-label="Work table with cabinet underneath (Double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Work table with cabinet underneath (Single unit)', @kitchen.washing_station.include?('Work table with cabinet underneath (Single unit)'), id: 'work-table-with-cabinet-underneath-single-unit', class: 'inventory-fieldlist-checkbox' %>
-              <label for="work-table-with-cabinet-underneath-single-unit">Work table with cabinet underneath (Single unit)</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Work table with cabinet underneath (Single unit)", @kitchen.food_preparation.include?("Work table with cabinet underneath (Single unit)"), id: "work-table-with-cabinet-underneath-single-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="work-table-with-cabinet-underneath-single-unit">Work table with cabinet underneath (Single
+                unit)</label>
               <input type="number" value="1" aria-label="Work table with cabinet underneath (Single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
-
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Knives</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Knife rack', @kitchen.washing_station.include?('Knife rack'), id: 'knife-rack', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Knife rack", @kitchen.food_preparation.include?("Knife rack"), id: "knife-rack", class: "inventory-fieldlist-checkbox" %>
               <label for="knife-rack">Knife rack</label>
               <input type="number" value="1" aria-label="Knife rack Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Cook\'s knife', @kitchen.washing_station.include?('Cook\'s knife'), id: 'cook\'s-knife', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Cook's knife", @kitchen.food_preparation.include?("Cook's knife"), id: "cook's-knife", class: "inventory-fieldlist-checkbox" %>
               <label for="cook's-knife">Cook's knife</label>
               <input type="number" value="1" aria-label="Cook's knife Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Utility knives', @kitchen.washing_station.include?('Utility knives'), id: 'utility-knives', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Utility knives", @kitchen.food_preparation.include?("Utility knives"), id: "utility-knives", class: "inventory-fieldlist-checkbox" %>
               <label for="utility-knives">Utility knives</label>
               <input type="number" value="1" aria-label="Utility knives Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Paring knife', @kitchen.washing_station.include?('Paring knife'), id: 'paring-knife', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Paring knife", @kitchen.food_preparation.include?("Paring knife"), id: "paring-knife", class: "inventory-fieldlist-checkbox" %>
               <label for="paring-knife">Paring knife</label>
               <input type="number" value="1" aria-label="Paring knife Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Bread knife', @kitchen.washing_station.include?('Bread knife'), id: 'bread-knife', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Bread knife", @kitchen.food_preparation.include?("Bread knife"), id: "bread-knife", class: "inventory-fieldlist-checkbox" %>
               <label for="bread-knife">Bread knife</label>
               <input type="number" value="1" aria-label="Bread knife Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Boning knife', @kitchen.washing_station.include?('Boning knife'), id: 'boning-knife', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Boning knife", @kitchen.food_preparation.include?("Boning knife"), id: "boning-knife", class: "inventory-fieldlist-checkbox" %>
               <label for="boning-knife">Boning knife</label>
               <input type="number" value="1" aria-label="Boning knife Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Meat cleaver', @kitchen.washing_station.include?('Meat cleaver'), id: 'meat-cleaver', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Meat cleaver", @kitchen.food_preparation.include?("Meat cleaver"), id: "meat-cleaver", class: "inventory-fieldlist-checkbox" %>
               <label for="meat-cleaver">Meat cleaver</label>
               <input type="number" value="1" aria-label="Meat cleaver Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Knife sharpener', @kitchen.washing_station.include?('Knife sharpener'), id: 'knife-sharpener', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Knife sharpener", @kitchen.food_preparation.include?("Knife sharpener"), id: "knife-sharpener", class: "inventory-fieldlist-checkbox" %>
               <label for="knife-sharpener">Knife sharpener</label>
               <input type="number" value="1" aria-label="Knife sharpener Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Carving fork', @kitchen.washing_station.include?('Carving fork'), id: 'carving-fork', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Carving fork", @kitchen.food_preparation.include?("Carving fork"), id: "carving-fork", class: "inventory-fieldlist-checkbox" %>
               <label for="carving-fork">Carving fork</label>
               <input type="number" value="1" aria-label="Carving fork Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
-
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Utensils</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Tongs', @kitchen.washing_station.include?('Tongs'), id: 'tongs', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Tongs", @kitchen.food_preparation.include?("Tongs"), id: "tongs", class: "inventory-fieldlist-checkbox" %>
               <label for="tongs">Tongs</label>
               <input type="number" value="1" aria-label="Tongs Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Whisk', @kitchen.washing_station.include?('Whisk'), id: 'whisk', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Whisk", @kitchen.food_preparation.include?("Whisk"), id: "whisk", class: "inventory-fieldlist-checkbox" %>
               <label for="whisk">Whisk</label>
               <input type="number" value="1" aria-label="Whisk Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Rolling pin', @kitchen.washing_station.include?('Rolling pin'), id: 'rolling-pin', class: 'inventory-fieldlist-checkbox' %>              <label for="rolling-pin">Rolling pin</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Rolling pin", @kitchen.food_preparation.include?("Rolling pin"), id: "rolling-pin", class: "inventory-fieldlist-checkbox" %>
               <label for="rolling-pin">Rolling pin</label>
               <input type="number" value="1" aria-label="Rolling pin Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Wooden spoon', @kitchen.washing_station.include?('Wooden spoon'), id: 'wooden-spoon', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Wooden spoon", @kitchen.food_preparation.include?("Wooden spoon"), id: "wooden-spoon", class: "inventory-fieldlist-checkbox" %>
               <label for="wooden-spoon">Wooden spoon</label>
               <input type="number" value="1" aria-label="Wooden spoon Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Slotted spoon', @kitchen.washing_station.include?('Slotted spoon'), id: 'slotted-spoon', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Slotted spoon", @kitchen.food_preparation.include?("Slotted spoon"), id: "slotted-spoon", class: "inventory-fieldlist-checkbox" %>
               <label for="slotted-spoon">Slotted spoon</label>
               <input type="number" value="1" aria-label="Slotted spoon Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Measuring spoon', @kitchen.washing_station.include?('Measuring spoon'), id: 'measuring-spoon', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Measuring spoon", @kitchen.food_preparation.include?("Measuring spoon"), id: "measuring-spoon", class: "inventory-fieldlist-checkbox" %>
               <label for="measuring-spoon">Measuring spoon</label>
               <input type="number" value="1" aria-label="Measuring spoon Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Spatula - large blade', @kitchen.washing_station.include?('Spatula - large blade'), id: 'spatula-large-blade', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Spatula - large blade", @kitchen.food_preparation.include?("Spatula - large blade"), id: "spatula-large-blade", class: "inventory-fieldlist-checkbox" %>
               <label for="spatula-large-blade">Spatula - large blade</label>
               <input type="number" value="1" aria-label="Spatula - large blade Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Spatula – small blade', @kitchen.washing_station.include?('Spatula – small blade'), id: 'spatula-small-blade', class: 'inventory-fieldlist-checkbox' %>
-              <label for="spatula-small-blade">Spatula – small blade</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Spatula – small blade", @kitchen.food_preparation.include?("Spatula – small blade"), id: "spatula-–-small-blade", class: "inventory-fieldlist-checkbox" %>
+              <label for="spatula-–-small-blade">Spatula – small blade</label>
               <input type="number" value="1" aria-label="Spatula – small blade Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Ladle', @kitchen.washing_station.include?('Ladle'), id: 'ladle', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Ladle", @kitchen.food_preparation.include?("Ladle"), id: "ladle", class: "inventory-fieldlist-checkbox" %>
               <label for="ladle">Ladle</label>
               <input type="number" value="1" aria-label="Ladle Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Grill turner', @kitchen.washing_station.include?('Grill turner'), id: 'grill-turner', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Grill turner", @kitchen.food_preparation.include?("Grill turner"), id: "grill-turner", class: "inventory-fieldlist-checkbox" %>
               <label for="grill-turner">Grill turner</label>
               <input type="number" value="1" aria-label="Grill turner Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Fish splice', @kitchen.washing_station.include?('Fish splice'), id: 'Fish splice', class: 'inventory-fieldlist-checkbox' %>
-              <label for="Fish splice">Fish splice</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Fish splice", @kitchen.food_preparation.include?("Fish splice"), id: "fish-splice", class: "inventory-fieldlist-checkbox" %>
+              <label for="fish-splice">Fish splice</label>
               <input type="number" value="1" aria-label="Fish splice Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Thermometer', @kitchen.washing_station.include?('Thermometer'), id: 'thermometer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Thermometer", @kitchen.food_preparation.include?("Thermometer"), id: "thermometer", class: "inventory-fieldlist-checkbox" %>
               <label for="thermometer">Thermometer</label>
               <input type="number" value="1" aria-label="Thermometer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Grip blade zester', @kitchen.washing_station.include?('Grip blade zester'), id: 'grip-blade-zester', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Grip blade zester", @kitchen.food_preparation.include?("Grip blade zester"), id: "grip-blade-zester", class: "inventory-fieldlist-checkbox" %>
               <label for="grip-blade-zester">Grip blade zester</label>
               <input type="number" value="1" aria-label="Grip blade zester Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Box grater', @kitchen.washing_station.include?('Box grater'), id: 'box-grater', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Box grater", @kitchen.food_preparation.include?("Box grater"), id: "box-grater", class: "inventory-fieldlist-checkbox" %>
               <label for="box-grater">Box grater</label>
               <input type="number" value="1" aria-label="Box grater Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
-
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Bowls &amp; Sieves</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Conical Sieve', @kitchen.washing_station.include?('Conical Sieve'), id: 'conical-sieve', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Conical Sieve", @kitchen.food_preparation.include?("Conical Sieve"), id: "conical-sieve", class: "inventory-fieldlist-checkbox" %>
               <label for="conical-sieve">Conical Sieve</label>
               <input type="number" value="1" aria-label="Conical Sieve Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Sieve', @kitchen.washing_station.include?('Sieve'), id: 'sieve', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Sieve", @kitchen.food_preparation.include?("Sieve"), id: "sieve", class: "inventory-fieldlist-checkbox" %>
               <label for="sieve">Sieve</label>
               <input type="number" value="1" aria-label="Sieve Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Colander', @kitchen.washing_station.include?('Colander'), id: 'colander', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Colander", @kitchen.food_preparation.include?("Colander"), id: "colander", class: "inventory-fieldlist-checkbox" %>
               <label for="colander">Colander</label>
               <input type="number" value="1" aria-label="Colander Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Prep Bowl (Large)', @kitchen.washing_station.include?('Prep Bowl (Large)'), id: 'prep-bowl-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Prep Bowl (Large)", @kitchen.food_preparation.include?("Prep Bowl (Large)"), id: "prep-bowl-large", class: "inventory-fieldlist-checkbox" %>
               <label for="prep-bowl-large">Prep Bowl (Large)</label>
               <input type="number" value="1" aria-label="Prep Bowl (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Prep Bowl (Small)', @kitchen.washing_station.include?('Prep Bowl (Small)'), id: 'prep-bowl-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Prep Bowl (Small)", @kitchen.food_preparation.include?("Prep Bowl (Small)"), id: "prep-bowl-small", class: "inventory-fieldlist-checkbox" %>
               <label for="prep-bowl-small">Prep Bowl (Small)</label>
               <input type="number" value="1" aria-label="Prep Bowl (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Strainers', @kitchen.washing_station.include?('Strainers'), id: 'strainers', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Strainers", @kitchen.food_preparation.include?("Strainers"), id: "strainers", class: "inventory-fieldlist-checkbox" %>
               <label for="strainers">Strainers</label>
               <input type="number" value="1" aria-label="Strainers Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
-
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Other</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Chopping board (Plastic)', @kitchen.washing_station.include?('Chopping board (Plastic)'), id: 'chopping-board-plastic', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Chopping board (Plastic)", @kitchen.food_preparation.include?("Chopping board (Plastic)"), id: "chopping-board-plastic", class: "inventory-fieldlist-checkbox" %>
               <label for="chopping-board-plastic">Chopping board (Plastic)</label>
               <input type="number" value="1" aria-label="Chopping board (Plastic) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Chopping board (Wooden)', @kitchen.washing_station.include?('Chopping board (Wooden)'), id: 'chopping-board-wooden', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Chopping board (Wooden)", @kitchen.food_preparation.include?("Chopping board (Wooden)"), id: "chopping-board-wooden", class: "inventory-fieldlist-checkbox" %>
               <label for="chopping-board-wooden">Chopping board (Wooden)</label>
               <input type="number" value="1" aria-label="Chopping board (Wooden) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[food_preparation][]', 'Food processor', @kitchen.washing_station.include?('Strainers'), id: 'food-processor', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[food_preparation][]', "Food processor", @kitchen.food_preparation.include?("Food processor"), id: "food-processor", class: "inventory-fieldlist-checkbox" %>
               <label for="food-processor">Food processor</label>
               <input type="number" value="1" aria-label="Food processor Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="cookware">
         <legend class="fieldset-title">Cookware</legend>
         <fieldset class="checkbox-fieldset">
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Stock pot (Large)', @kitchen.washing_station.include?('Stock pot (Large)'), id: 'stock-pot-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Stock pot (Large)", @kitchen.cookware.include?("Stock pot (Large)"), id: "stock-pot-large", class: "inventory-fieldlist-checkbox" %>
               <label for="stock-pot-large">Stock pot (Large)</label>
               <input type="number" value="1" aria-label="Stock pot (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Stock pot (Medium)', @kitchen.washing_station.include?('Stock pot (Medium)'), id: 'stock-pot-medium', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Stock pot (Medium)", @kitchen.cookware.include?("Stock pot (Medium)"), id: "stock-pot-medium", class: "inventory-fieldlist-checkbox" %>
               <label for="stock-pot-medium">Stock pot (Medium)</label>
               <input type="number" value="1" aria-label="Stock pot (Medium) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Sauce pots (Large)', @kitchen.washing_station.include?('Sauce pots (Large)'), id: 'sauce-pots-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Sauce pots (Large)", @kitchen.cookware.include?("Sauce pots (Large)"), id: "sauce-pots-large", class: "inventory-fieldlist-checkbox" %>
               <label for="sauce-pots-large">Sauce pots (Large)</label>
               <input type="number" value="1" aria-label="Sauce pots (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Sauce pots (Small)', @kitchen.washing_station.include?('Sauce pots (Small)'), id: 'sauce-pots-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Sauce pots (Small)", @kitchen.cookware.include?("Sauce pots (Small)"), id: "sauce-pots-small", class: "inventory-fieldlist-checkbox" %>
               <label for="sauce-pots-small">Sauce pots (Small)</label>
               <input type="number" value="1" aria-label="Sauce pots (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Frying pan (Large)', @kitchen.washing_station.include?('Frying pan (Large)'), id: 'frying-pan-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Frying pan (Large)", @kitchen.cookware.include?("Frying pan (Large)"), id: "frying-pan-large", class: "inventory-fieldlist-checkbox" %>
               <label for="frying-pan-large">Frying pan (Large)</label>
               <input type="number" value="1" aria-label="Frying pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Frying pan (Small)', @kitchen.washing_station.include?('Frying pan (Small)'), id: 'frying-pan-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Frying pan (Small)", @kitchen.cookware.include?("Frying pan (Small)"), id: "frying-pan-small", class: "inventory-fieldlist-checkbox" %>
               <label for="frying-pan-small">Frying pan (Small)</label>
               <input type="number" value="1" aria-label="Frying pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Sauté pan (Large)', @kitchen.washing_station.include?('Sauté pan (Large)'), id: 'sauté-pan-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Sauté pan (Large)", @kitchen.cookware.include?("Sauté pan (Large)"), id: "sauté-pan-large", class: "inventory-fieldlist-checkbox" %>
               <label for="sauté-pan-large">Sauté pan (Large)</label>
               <input type="number" value="1" aria-label="Sauté pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Sauté pan (Small)', @kitchen.washing_station.include?('Sauté pan (Small)'), id: 'sauté-pan-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Sauté pan (Small)", @kitchen.cookware.include?("Sauté pan (Small)"), id: "sauté-pan-small", class: "inventory-fieldlist-checkbox" %>
               <label for="sauté-pan-small">Sauté pan (Small)</label>
               <input type="number" value="1" aria-label="Sauté pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Cast iron pan (Large)', @kitchen.washing_station.include?('Cast iron pan (Large)'), id: 'cast-iron-pan-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Cast iron pan (Large)", @kitchen.cookware.include?("Cast iron pan (Large)"), id: "cast-iron-pan-large", class: "inventory-fieldlist-checkbox" %>
               <label for="cast-iron-pan-large">Cast iron pan (Large)</label>
               <input type="number" value="1" aria-label="Cast iron pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Cast iron pan (Small)', @kitchen.washing_station.include?('Cast iron pan (Small)'), id: 'cast-iron-pan-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Cast iron pan (Small)", @kitchen.cookware.include?("Cast iron pan (Small)"), id: "cast-iron-pan-small", class: "inventory-fieldlist-checkbox" %>
               <label for="cast-iron-pan-small">Cast iron pan (Small)</label>
               <input type="number" value="1" aria-label="Cast iron pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Copper sauce pot (Large)', @kitchen.washing_station.include?('Copper sauce pot (Large)'), id: 'copper-sauce-pot-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Copper sauce pot (Large)", @kitchen.cookware.include?("Copper sauce pot (Large)"), id: "copper-sauce-pot-large", class: "inventory-fieldlist-checkbox" %>
               <label for="copper-sauce-pot-large">Copper sauce pot (Large)</label>
               <input type="number" value="1" aria-label="Copper sauce pot (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Copper sauce pot (Small)', @kitchen.washing_station.include?('Copper sauce pot (Small)'), id: 'copper-sauce-pot-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Copper sauce pot (Small)", @kitchen.cookware.include?("Copper sauce pot (Small)"), id: "copper-sauce-pot-small", class: "inventory-fieldlist-checkbox" %>
               <label for="copper-sauce-pot-small">Copper sauce pot (Small)</label>
               <input type="number" value="1" aria-label="Copper sauce pot (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Asian wok', @kitchen.washing_station.include?('Asian wok'), id: 'asian-wok', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Asian wok", @kitchen.cookware.include?("Asian wok"), id: "asian-wok", class: "inventory-fieldlist-checkbox" %>
               <label for="asian-wok">Asian wok</label>
               <input type="number" value="1" aria-label="Asian wok Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[cookware][]', 'Crepe pan', @kitchen.washing_station.include?('Crepe pan'), id: 'crepe-pan', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[cookware][]', "Crepe pan", @kitchen.cookware.include?("Crepe pan"), id: "crepe-pan", class: "inventory-fieldlist-checkbox" %>
               <label for="crepe-pan">Crepe pan</label>
               <input type="number" value="1" aria-label="Crepe pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="storage">
         <legend class="fieldset-title">Storage</legend>
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Food Storage Pans</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', 'Sheet pan rack with caster (Large)', @kitchen.washing_station.include?('Sheet pan rack with caster (Large)'), id: 'sheet-pan-rack-with-caster-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "Sheet pan rack with caster (Large)", @kitchen.storage.include?("Sheet pan rack with caster (Large)"), id: "sheet-pan-rack-with-caster-large", class: "inventory-fieldlist-checkbox" %>
               <label for="sheet-pan-rack-with-caster-large">Sheet pan rack with caster (Large)</label>
               <input type="number" value="1" aria-label="Sheet pan rack with caster (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', 'Sheet pan rack with caster (Small)', @kitchen.washing_station.include?('Sheet pan rack with caster (Small)'), id: 'sheet-pan-rack-with-caster-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "Sheet pan rack with caster (Small)", @kitchen.storage.include?("Sheet pan rack with caster (Small)"), id: "sheet-pan-rack-with-caster-small", class: "inventory-fieldlist-checkbox" %>
               <label for="sheet-pan-rack-with-caster-small">Sheet pan rack with caster (Small)</label>
               <input type="number" value="1" aria-label="Sheet pan rack with caster (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', 'Regency shelving stack', @kitchen.washing_station.include?('Regency shelving stack'), id: 'regency-shelving-stack', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "Regency shelving stack", @kitchen.storage.include?("Regency shelving stack"), id: "regency-shelving-stack", class: "inventory-fieldlist-checkbox" %>
               <label for="regency-shelving-stack">Regency shelving stack</label>
               <input type="number" value="1" aria-label="Regency shelving stack Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', 'Sheet pan', @kitchen.washing_station.include?('Sheet pan'), id: 'sheet-pan', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "Sheet pan", @kitchen.storage.include?("Sheet pan"), id: "sheet-pan", class: "inventory-fieldlist-checkbox" %>
               <label for="sheet-pan">Sheet pan</label>
               <input type="number" value="1" aria-label="Sheet pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', '1/2 Long pan', @kitchen.washing_station.include?('1/2 Long pan'), id: '1/2-long-pan', class: 'inventory-fieldlist-checkbox' %>
-              <label for="1/2-long-pan">1/2 Long pan</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "1/2 Long pan", @kitchen.storage.include?("1/2 Long pan"), id: "12-long-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="12-long-pan">1/2 Long pan</label>
               <input type="number" value="1" aria-label="1/2 Long pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', 'Full size pan', @kitchen.washing_station.include?('Full size pan'), id: 'full-size-pan', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "Full size pan", @kitchen.storage.include?("Full size pan"), id: "full-size-pan", class: "inventory-fieldlist-checkbox" %>
               <label for="full-size-pan">Full size pan</label>
               <input type="number" value="1" aria-label="Full size pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', 'Half size pan', @kitchen.washing_station.include?('Half size pan'), id: 'half-size-pan', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "Half size pan", @kitchen.storage.include?("Half size pan"), id: "half-size-pan", class: "inventory-fieldlist-checkbox" %>
               <label for="half-size-pan">Half size pan</label>
               <input type="number" value="1" aria-label="Half size pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', '1/3 size pan', @kitchen.washing_station.include?('1/3 size pan'), id: '1/3 size pan', class: 'inventory-fieldlist-checkbox' %>
-              <label for="1/3 size pan">1/3 size pan</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "1/3 size pan", @kitchen.storage.include?("1/3 size pan"), id: "13-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="13-size-pan">1/3 size pan</label>
               <input type="number" value="1" aria-label="1/3 size pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', '1/4 size pan', @kitchen.washing_station.include?('1/4 size pan'), id: '1/4-size-pan', class: 'inventory-fieldlist-checkbox' %>
-              <label for="1/4-size-pan">1/4 size pan</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "1/4 size pan", @kitchen.storage.include?("1/4 size pan"), id: "14-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="14-size-pan">1/4 size pan</label>
               <input type="number" value="1" aria-label="1/4 size pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', '1/6 size pan', @kitchen.washing_station.include?('1/6 size pan'), id: '1/6-size-pan', class: 'inventory-fieldlist-checkbox' %>
-              <label for="1/6-size-pan">1/6 size pan</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "1/6 size pan", @kitchen.storage.include?("1/6 size pan"), id: "16-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="16-size-pan">1/6 size pan</label>
               <input type="number" value="1" aria-label="1/6 size pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', '1/9 size pan', @kitchen.washing_station.include?('1/9 size pan'), id: '1/9-size-pan', class: 'inventory-fieldlist-checkbox' %>
-              <label for="1/9-size-pan">1/9 size pan</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "1/9 size pan", @kitchen.storage.include?("1/9 size pan"), id: "19-size-pan", class: "inventory-fieldlist-checkbox" %>
+              <label for="19-size-pan">1/9 size pan</label>
               <input type="number" value="1" aria-label="1/9 size pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
-
         <fieldset class="checkbox-fieldset">
           <legend class="checkbox-fieldset-title">Food storage containers</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', 'Food storage containers (Large)', @kitchen.washing_station.include?('Food storage containers (Large)'), id: 'food-storage-containers-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "Food storage containers (Large)", @kitchen.storage.include?("Food storage containers (Large)"), id: "food-storage-containers-large", class: "inventory-fieldlist-checkbox" %>
               <label for="food-storage-containers-large">Food storage containers (Large)</label>
               <input type="number" value="1" aria-label="Food storage containers (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[storage][]', 'Food storage containers (Small)', @kitchen.washing_station.include?('Food storage containers (Small)'), id: 'food-storage-containers-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[storage][]', "Food storage containers (Small)", @kitchen.storage.include?("Food storage containers (Small)"), id: "food-storage-containers-small", class: "inventory-fieldlist-checkbox" %>
               <label for="food-storage-containers-small">Food storage containers (Small)</label>
               <input type="number" value="1" aria-label="Food storage containers (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="refrigeration">
         <legend class="fieldset-title">Refrigeration</legend>
         <fieldset class="checkbox-fieldset">
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[refrigeration][]', 'Walk-in refrigerator', @kitchen.washing_station.include?('Walk-in refrigerator'), id: 'walk-in-refrigerator', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[refrigeration][]', "Walk-in refrigerator", @kitchen.refrigeration.include?("Walk-in refrigerator"), id: "walk-in-refrigerator", class: "inventory-fieldlist-checkbox" %>
               <label for="walk-in-refrigerator">Walk-in refrigerator</label>
               <input type="number" value="1" aria-label="Walk-in refrigerator Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[refrigeration][]', 'Reach-In fridge (Full)', @kitchen.washing_station.include?('Reach-In fridge (Full)'), id: 'reach-in-fridge-full', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[refrigeration][]', "Reach-In fridge (Full)", @kitchen.refrigeration.include?("Reach-In fridge (Full)"), id: "reach-in-fridge-full", class: "inventory-fieldlist-checkbox" %>
               <label for="reach-in-fridge-full">Reach-In fridge (Full)</label>
               <input type="number" value="1" aria-label="Reach-In fridge (Full) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[refrigeration][]', 'Low fridge (under counter)', @kitchen.washing_station.include?('Low fridge (under counter)'), id: 'low-fridge-under-counter', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[refrigeration][]', "Low fridge (under counter)", @kitchen.refrigeration.include?("Low fridge (under counter)"), id: "low-fridge-under-counter", class: "inventory-fieldlist-checkbox" %>
               <label for="low-fridge-under-counter">Low fridge (under counter)</label>
               <input type="number" value="1" aria-label="Low fridge (under counter) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[refrigeration][]', 'Refrigerated prep table', @kitchen.washing_station.include?('Refrigerated prep table'), id: 'refrigerated-prep-table', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[refrigeration][]', "Refrigerated prep table", @kitchen.refrigeration.include?("Refrigerated prep table"), id: "refrigerated-prep-table", class: "inventory-fieldlist-checkbox" %>
               <label for="refrigerated-prep-table">Refrigerated prep table</label>
               <input type="number" value="1" aria-label="Refrigerated prep table Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[refrigeration][]', 'Freezer (Double)', @kitchen.washing_station.include?('Freezer (Double)'), id: 'freezer-double', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[refrigeration][]', "Freezer (Double)", @kitchen.refrigeration.include?("Freezer (Double)"), id: "freezer-double", class: "inventory-fieldlist-checkbox" %>
               <label for="freezer-double">Freezer (Double)</label>
               <input type="number" value="1" aria-label="Freezer (Double) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[refrigeration][]', 'Freezer (Single)', @kitchen.washing_station.include?('Freezer (Single)'), id: 'freezer-single', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[refrigeration][]', "Freezer (Single)", @kitchen.refrigeration.include?("Freezer (Single)"), id: "freezer-single", class: "inventory-fieldlist-checkbox" %>
               <label for="freezer-single">Freezer (Single)</label>
               <input type="number" value="1" aria-label="Freezer (Single) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[refrigeration][]', 'Ice Machine', @kitchen.washing_station.include?('Ice Machine'), id: 'ice-machine', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[refrigeration][]', "Ice Machine", @kitchen.refrigeration.include?("Ice Machine"), id: "ice-machine", class: "inventory-fieldlist-checkbox" %>
               <label for="ice-machine">Ice Machine</label>
               <input type="number" value="1" aria-label="Ice Machine Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="ovensfryers">
         <legend class="fieldset-title">Ovens/Fryers</legend>
         <fieldset class="checkbox-fieldset">
-          <legend class="checkbox-fieldset-title">Convection</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Double stack convection', @kitchen.washing_station.include?('Double stack convection'), id: 'double-stack-convection', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Ovens", @kitchen.ovens_fryers.include?("Ovens"), id: "ovens", class: "inventory-fieldlist-checkbox" %>
+              <label for="ovens">Ovens</label>
+              <input type="number" value="1" aria-label="Ovens Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Convection", @kitchen.ovens_fryers.include?("Convection"), id: "convection", class: "inventory-fieldlist-checkbox" %>
+              <label for="convection">Convection</label>
+              <input type="number" value="1" aria-label="Convection Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Double stack convection", @kitchen.ovens_fryers.include?("Double stack convection"), id: "double-stack-convection", class: "inventory-fieldlist-checkbox" %>
               <label for="double-stack-convection">Double stack convection</label>
               <input type="number" value="1" aria-label="Double stack convection Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Single stack convection', @kitchen.washing_station.include?('Single stack convection'), id: 'single-stack-convection', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Single deck convection", @kitchen.ovens_fryers.include?("Single deck convection"), id: "single-deck-convection", class: "inventory-fieldlist-checkbox" %>
               <label for="single-deck-convection">Single deck convection</label>
               <input type="number" value="1" aria-label="Single deck convection Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Bakery depth double stack', @kitchen.washing_station.include?('Bakery depth double stack'), id: 'bakery-depth-double-stack', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Bakery depth double stack", @kitchen.ovens_fryers.include?("Bakery depth double stack"), id: "bakery-depth-double-stack", class: "inventory-fieldlist-checkbox" %>
               <label for="bakery-depth-double-stack">Bakery depth double stack</label>
               <input type="number" value="1" aria-label="Bakery depth double stack Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="checkbox-fieldset">
-          <legend class="checkbox-fieldset-title">Combination</legend>
-          <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Electric combination oven', @kitchen.washing_station.include?('Electric combination oven'), id: 'electric-combination-oven', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Combination", @kitchen.ovens_fryers.include?("Combination"), id: "combination", class: "inventory-fieldlist-checkbox" %>
+              <label for="combination">Combination</label>
+              <input type="number" value="1" aria-label="Combination Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Electric combination oven", @kitchen.ovens_fryers.include?("Electric combination oven"), id: "electric-combination-oven", class: "inventory-fieldlist-checkbox" %>
               <label for="electric-combination-oven">Electric combination oven</label>
               <input type="number" value="1" aria-label="Electric combination oven Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Gas combination oven', @kitchen.washing_station.include?('Gas combination oven'), id: 'gas-combination-oven', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Gas combination oven", @kitchen.ovens_fryers.include?("Gas combination oven"), id: "gas-combination-oven", class: "inventory-fieldlist-checkbox" %>
               <label for="gas-combination-oven">Gas combination oven</label>
               <input type="number" value="1" aria-label="Gas combination oven Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="checkbox-fieldset">
-          <legend class="checkbox-fieldset-title">Steam</legend>
-          <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Countertop steamer', @kitchen.washing_station.include?('Countertop steamer'), id: 'countertop-steamer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Steam", @kitchen.ovens_fryers.include?("Steam"), id: "steam", class: "inventory-fieldlist-checkbox" %>
+              <label for="steam">Steam</label>
+              <input type="number" value="1" aria-label="Steam Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Countertop steamer", @kitchen.ovens_fryers.include?("Countertop steamer"), id: "countertop-steamer", class: "inventory-fieldlist-checkbox" %>
               <label for="countertop-steamer">Countertop steamer</label>
               <input type="number" value="1" aria-label="Countertop steamer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Floor steamer', @kitchen.washing_station.include?('Floor steamer'), id: 'floor-steamer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Floor steamer", @kitchen.ovens_fryers.include?("Floor steamer"), id: "floor-steamer", class: "inventory-fieldlist-checkbox" %>
               <label for="floor-steamer">Floor steamer</label>
               <input type="number" value="1" aria-label="Floor steamer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="checkbox-fieldset">
-          <legend class="checkbox-fieldset-title">Ranges</legend>
-          <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Multi-ring range top with standard electric oven', @kitchen.washing_station.include?('Multi-ring range top with standard electric oven'), id: 'multi-ring-range-top-with-standard-electric-oven', class: 'inventory-fieldlist-checkbox' %>
-              <label for="multi-ring-range-top-with-standard-electric-oven">Multi-ring range top with standard electric oven</label>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Ranges", @kitchen.ovens_fryers.include?("Ranges"), id: "ranges", class: "inventory-fieldlist-checkbox" %>
+              <label for="ranges">Ranges</label>
+              <input type="number" value="1" aria-label="Ranges Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Multi-ring range top with standard electric oven", @kitchen.ovens_fryers.include?("Multi-ring range top with standard electric oven"), id: "multi-ring-range-top-with-standard-electric-oven", class: "inventory-fieldlist-checkbox" %>
+              <label for="multi-ring-range-top-with-standard-electric-oven">Multi-ring range top with standard electric
+                oven</label>
               <input type="number" value="1" aria-label="Multi-ring range top with standard electric oven Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Multi-ring range top with convection oven', @kitchen.washing_station.include?('Multi-ring range top with convection oven'), id: 'multi-ring-range-top-with-convection-oven', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Multi-ring range top with convection oven", @kitchen.ovens_fryers.include?("Multi-ring range top with convection oven"), id: "multi-ring-range-top-with-convection-oven", class: "inventory-fieldlist-checkbox" %>
               <label for="multi-ring-range-top-with-convection-oven">Multi-ring range top with convection oven</label>
               <input type="number" value="1" aria-label="Multi-ring range top with convection oven Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Range with space saver over', @kitchen.washing_station.include?('Range with space saver over'), id: 'range-with-space-saver-over', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Range with space saver over", @kitchen.ovens_fryers.include?("Range with space saver over"), id: "range-with-space-saver-over", class: "inventory-fieldlist-checkbox" %>
               <label for="range-with-space-saver-over">Range with space saver over</label>
               <input type="number" value="1" aria-label="Range with space saver over Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Range with storage space underneath', @kitchen.washing_station.include?('Range with storage space underneath'), id: 'range-with-storage-space-underneath', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Range with storage space underneath", @kitchen.ovens_fryers.include?("Range with storage space underneath"), id: "range-with-storage-space-underneath", class: "inventory-fieldlist-checkbox" %>
               <label for="range-with-storage-space-underneath">Range with storage space underneath</label>
               <input type="number" value="1" aria-label="Range with storage space underneath Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Range with griddle', @kitchen.washing_station.include?('Range with griddle'), id: 'range-with-griddle', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Range with griddle", @kitchen.ovens_fryers.include?("Range with griddle"), id: "range-with-griddle", class: "inventory-fieldlist-checkbox" %>
               <label for="range-with-griddle">Range with griddle</label>
               <input type="number" value="1" aria-label="Range with griddle Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Portable range', @kitchen.washing_station.include?('Portable range'), id: 'portable-range', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Portable range", @kitchen.ovens_fryers.include?("Portable range"), id: "portable-range", class: "inventory-fieldlist-checkbox" %>
               <label for="portable-range">Portable range</label>
               <input type="number" value="1" aria-label="Portable range Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Countertop electric range', @kitchen.washing_station.include?('Countertop electric range'), id: 'countertop-electric-range', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Countertop electric range", @kitchen.ovens_fryers.include?("Countertop electric range"), id: "countertop-electric-range", class: "inventory-fieldlist-checkbox" %>
               <label for="countertop-electric-range">Countertop electric range</label>
               <input type="number" value="1" aria-label="Countertop electric range Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="checkbox-fieldset">
-          <legend class="checkbox-fieldset-title">Fryers</legend>
-          <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Gas Floor Fryer', @kitchen.washing_station.include?('Gas Floor Fryer'), id: 'gas-floor-fryer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Fryers", @kitchen.ovens_fryers.include?("Fryers"), id: "fryers", class: "inventory-fieldlist-checkbox" %>
+              <label for="fryers">Fryers</label>
+              <input type="number" value="1" aria-label="Fryers Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Gas Floor Fryer", @kitchen.ovens_fryers.include?("Gas Floor Fryer"), id: "gas-floor-fryer", class: "inventory-fieldlist-checkbox" %>
               <label for="gas-floor-fryer">Gas Floor Fryer</label>
               <input type="number" value="1" aria-label="Gas Floor Fryer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Electric Counter top Fryer', @kitchen.washing_station.include?('Electric Counter top Fryer'), id: 'electric-counter-top-fryer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Electric Counter top Fryer", @kitchen.ovens_fryers.include?("Electric Counter top Fryer"), id: "electric-counter-top-fryer", class: "inventory-fieldlist-checkbox" %>
               <label for="electric-counter-top-fryer">Electric Counter top Fryer</label>
               <input type="number" value="1" aria-label="Electric Counter top Fryer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="checkbox-fieldset">
-          <legend class="checkbox-fieldset-title">Warming</legend>
-          <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Counter top warming (Large)', @kitchen.washing_station.include?('Counter top warming (Large)'), id: 'counter-top-warming-large', class: 'inventory-fieldlist-checkbox' %>
-              <label for="counter-top-warming-large">Counter top warming (Large)</label>
-              <input type="number" value="1" aria-label="Counter top warming (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Counter top warming (Small)', @kitchen.washing_station.include?('Counter top warming (Small)'), id: 'counter-top-warming-small', class: 'inventory-fieldlist-checkbox' %>
-              <label for="counter-top-warming-small">Counter top warming (Small)</label>
-              <input type="number" value="1" aria-label="Counter top warming (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="checkbox-fieldset">
-          <legend class="checkbox-fieldset-title">Sous vide</legend>
-          <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Sous vide machine (single unit)', @kitchen.washing_station.include?('Sous vide machine (single unit)'), id: 'sous-vide-machine-single-unit', class: 'inventory-fieldlist-checkbox' %>
-              <label for="sous-vide-machine-single-unit">Sous vide machine (single unit)</label>
-              <input type="number" value="1" aria-label="Sous vide machine (single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Sous vide machine (double unit)', @kitchen.washing_station.include?('Sous vide machine (double unit)'), id: 'sous-vide-machine-double-unit', class: 'inventory-fieldlist-checkbox' %>
-              <label for="sous-vide-machine-double-unit">Sous vide machine (double unit)</label>
-              <input type="number" value="1" aria-label="Sous vide machine (double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
-          </ul>
-        </fieldset>
-
-        <fieldset class="checkbox-fieldset">
-          <legend class="checkbox-fieldset-title">Other</legend>
-          <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Induction', @kitchen.washing_station.include?('Induction'), id: 'induction', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Induction", @kitchen.ovens_fryers.include?("Induction"), id: "induction", class: "inventory-fieldlist-checkbox" %>
               <label for="induction">Induction</label>
               <input type="number" value="1" aria-label="Induction Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Electric Griddle', @kitchen.washing_station.include?('Electric Griddle'), id: 'electric-griddle', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Electric Griddle", @kitchen.ovens_fryers.include?("Electric Griddle"), id: "electric-griddle", class: "inventory-fieldlist-checkbox" %>
               <label for="electric-griddle">Electric Griddle</label>
               <input type="number" value="1" aria-label="Electric Griddle Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Microwave', @kitchen.washing_station.include?('Microwave'), id: 'microwave', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Warming", @kitchen.ovens_fryers.include?("Warming"), id: "warming", class: "inventory-fieldlist-checkbox" %>
+              <label for="warming">Warming</label>
+              <input type="number" value="1" aria-label="Warming Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Counter top warming (Large)", @kitchen.ovens_fryers.include?("Counter top warming (Large)"), id: "counter-top-warming-large", class: "inventory-fieldlist-checkbox" %>
+              <label for="counter-top-warming-large">Counter top warming (Large)</label>
+              <input type="number" value="1" aria-label="Counter top warming (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Counter top warming (Small)", @kitchen.ovens_fryers.include?("Counter top warming (Small)"), id: "counter-top-warming-small", class: "inventory-fieldlist-checkbox" %>
+              <label for="counter-top-warming-small">Counter top warming (Small)</label>
+              <input type="number" value="1" aria-label="Counter top warming (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Microwave", @kitchen.ovens_fryers.include?("Microwave"), id: "microwave", class: "inventory-fieldlist-checkbox" %>
               <label for="microwave">Microwave</label>
               <input type="number" value="1" aria-label="Microwave Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Rice cooker', @kitchen.washing_station.include?('Rice cooker'), id: 'rice-cooker', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Sous vide", @kitchen.ovens_fryers.include?("Sous vide"), id: "sous-vide", class: "inventory-fieldlist-checkbox" %>
+              <label for="sous-vide">Sous vide</label>
+              <input type="number" value="1" aria-label="Sous vide Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Sous vide machine (single unit)", @kitchen.ovens_fryers.include?("Sous vide machine (single unit)"), id: "sous-vide-machine-single-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="sous-vide-machine-single-unit">Sous vide machine (single unit)</label>
+              <input type="number" value="1" aria-label="Sous vide machine (single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Sous vide machine (double unit)", @kitchen.ovens_fryers.include?("Sous vide machine (double unit)"), id: "sous-vide-machine-double-unit", class: "inventory-fieldlist-checkbox" %>
+              <label for="sous-vide-machine-double-unit">Sous vide machine (double unit)</label>
+              <input type="number" value="1" aria-label="Sous vide machine (double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Rice cooker", @kitchen.ovens_fryers.include?("Rice cooker"), id: "rice-cooker", class: "inventory-fieldlist-checkbox" %>
               <label for="rice-cooker">Rice cooker</label>
               <input type="number" value="1" aria-label="Rice cooker Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[ovens_fryers][]', 'Pressure cooker', @kitchen.washing_station.include?('Pressure cooker'), id: 'pressure-cooker', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Pressure cooker", @kitchen.ovens_fryers.include?("Pressure cooker"), id: "pressure-cooker", class: "inventory-fieldlist-checkbox" %>
               <label for="pressure-cooker">Pressure cooker</label>
               <input type="number" value="1" aria-label="Pressure cooker Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="oven-equipment-storage">
         <legend class="fieldset-title">Oven Equipment &amp; Storage</legend>
         <fieldset class="checkbox-fieldset">
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[oven_equipment_and_storage][]', 'Immersion fan', @kitchen.washing_station.include?('Immersion fan'), id: 'immersion-fan', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[oven_equipment_and_storage][]', "Immersion fan", @kitchen.oven_equipment_and_storage.include?("Immersion fan"), id: "immersion-fan", class: "inventory-fieldlist-checkbox" %>
               <label for="immersion-fan">Immersion fan</label>
               <input type="number" value="1" aria-label="Immersion fan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[oven_equipment_and_storage][]', 'Sheet pan', @kitchen.washing_station.include?('Sheet pan'), id: 'sheet-pan', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[oven_equipment_and_storage][]', "Sheet pan", @kitchen.oven_equipment_and_storage.include?("Sheet pan"), id: "sheet-pan", class: "inventory-fieldlist-checkbox" %>
               <label for="sheet-pan">Sheet pan</label>
               <input type="number" value="1" aria-label="Sheet pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[oven_equipment_and_storage][]', 'Oven gloves', @kitchen.washing_station.include?('Oven gloves'), id: 'oven-gloves', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[oven_equipment_and_storage][]', "Oven gloves", @kitchen.oven_equipment_and_storage.include?("Oven gloves"), id: "oven-gloves", class: "inventory-fieldlist-checkbox" %>
               <label for="oven-gloves">Oven gloves</label>
               <input type="number" value="1" aria-label="Oven gloves Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[oven_equipment_and_storage][]', 'Fryer basket', @kitchen.washing_station.include?('Fryer basket'), id: 'fryer-basket', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[oven_equipment_and_storage][]', "Fryer basket", @kitchen.oven_equipment_and_storage.include?("Fryer basket"), id: "fryer-basket", class: "inventory-fieldlist-checkbox" %>
               <label for="fryer-basket">Fryer basket</label>
               <input type="number" value="1" aria-label="Fryer basket Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="baking-pastry">
         <legend class="fieldset-title">Baking &amp; Pastry</legend>
         <fieldset class="checkbox-fieldset">
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Dry measuring cup', @kitchen.washing_station.include?('Dry measuring cup'), id: 'dry-measuring-cup', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Dry measuring cup", @kitchen.baking_and_pastry.include?("Dry measuring cup"), id: "dry-measuring-cup", class: "inventory-fieldlist-checkbox" %>
               <label for="dry-measuring-cup">Dry measuring cup</label>
               <input type="number" value="1" aria-label="Dry measuring cup Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Liquid measures (small jug)', @kitchen.washing_station.include?('Liquid measures (small jug)'), id: 'liquid-measures-small-jug', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Liquid measures (small jug)", @kitchen.baking_and_pastry.include?("Liquid measures (small jug)"), id: "liquid-measures-small-jug", class: "inventory-fieldlist-checkbox" %>
               <label for="liquid-measures-small-jug">Liquid measures (small jug)</label>
               <input type="number" value="1" aria-label="Liquid measures (small jug) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Liquid measures (large jug)', @kitchen.washing_station.include?('Liquid measures (large jug)'), id: 'liquid-measures-large-jug', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Liquid measures (large jug)", @kitchen.baking_and_pastry.include?("Liquid measures (large jug)"), id: "liquid-measures-large-jug", class: "inventory-fieldlist-checkbox" %>
               <label for="liquid-measures-large-jug">Liquid measures (large jug)</label>
               <input type="number" value="1" aria-label="Liquid measures (large jug) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Countertop stand mixer', @kitchen.washing_station.include?('Countertop stand mixer'), id: 'countertop-stand-mixer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Countertop stand mixer", @kitchen.baking_and_pastry.include?("Countertop stand mixer"), id: "countertop-stand-mixer", class: "inventory-fieldlist-checkbox" %>
               <label for="countertop-stand-mixer">Countertop stand mixer</label>
               <input type="number" value="1" aria-label="Countertop stand mixer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Rotary sifter', @kitchen.washing_station.include?('Rotary sifter'), id: 'rotary-sifter', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Rotary sifter", @kitchen.baking_and_pastry.include?("Rotary sifter"), id: "rotary-sifter", class: "inventory-fieldlist-checkbox" %>
               <label for="rotary-sifter">Rotary sifter</label>
               <input type="number" value="1" aria-label="Rotary sifter Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Dough scrapers', @kitchen.washing_station.include?('Dough scrapers'), id: 'dough-scrapers', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Dough scrapers", @kitchen.baking_and_pastry.include?("Dough scrapers"), id: "dough-scrapers", class: "inventory-fieldlist-checkbox" %>
               <label for="dough-scrapers">Dough scrapers</label>
               <input type="number" value="1" aria-label="Dough scrapers Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Spring form pan (Large)', @kitchen.washing_station.include?('Spring form pan (Large)'), id: 'spring-form-pan-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Spring form pan (Large)", @kitchen.baking_and_pastry.include?("Spring form pan (Large)"), id: "spring-form-pan-large", class: "inventory-fieldlist-checkbox" %>
               <label for="spring-form-pan-large">Spring form pan (Large)</label>
               <input type="number" value="1" aria-label="Spring form pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Spring form pan (Medium)', @kitchen.washing_station.include?('Spring form pan (Medium)'), id: 'spring-form-pan-medium', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Spring form pan (Medium)", @kitchen.baking_and_pastry.include?("Spring form pan (Medium)"), id: "spring-form-pan-medium", class: "inventory-fieldlist-checkbox" %>
               <label for="spring-form-pan-medium">Spring form pan (Medium)</label>
               <input type="number" value="1" aria-label="Spring form pan (Medium) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Spring form pan (Small)', @kitchen.washing_station.include?('Spring form pan (Small)'), id: 'spring-form-pan-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Spring form pan (Small)", @kitchen.baking_and_pastry.include?("Spring form pan (Small)"), id: "spring-form-pan-small", class: "inventory-fieldlist-checkbox" %>
               <label for="spring-form-pan-small">Spring form pan (Small)</label>
               <input type="number" value="1" aria-label="Spring form pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Cake pan (Large)', @kitchen.washing_station.include?('Cake pan (Large)'), id: 'cake-pan-large', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Cake pan (Large)", @kitchen.baking_and_pastry.include?("Cake pan (Large)"), id: "cake-pan-large", class: "inventory-fieldlist-checkbox" %>
               <label for="cake-pan-large">Cake pan (Large)</label>
               <input type="number" value="1" aria-label="Cake pan (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Cake pan (Small)', @kitchen.washing_station.include?('Cake pan (Small)'), id: 'cake-pan-small', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Cake pan (Small)", @kitchen.baking_and_pastry.include?("Cake pan (Small)"), id: "cake-pan-small", class: "inventory-fieldlist-checkbox" %>
               <label for="cake-pan-small">Cake pan (Small)</label>
               <input type="number" value="1" aria-label="Cake pan (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Muffin pan', @kitchen.washing_station.include?('Muffin pan'), id: 'muffin-pan', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Muffin pan", @kitchen.baking_and_pastry.include?("Muffin pan"), id: "muffin-pan", class: "inventory-fieldlist-checkbox" %>
               <label for="muffin-pan">Muffin pan</label>
               <input type="number" value="1" aria-label="Muffin pan Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Proofing drawers', @kitchen.washing_station.include?('Proofing drawers'), id: 'proofing-drawers', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Proofing drawers", @kitchen.baking_and_pastry.include?("Proofing drawers"), id: "proofing-drawers", class: "inventory-fieldlist-checkbox" %>
               <label for="proofing-drawers">Proofing drawers</label>
               <input type="number" value="1" aria-label="Proofing drawers Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[baking_and_pastry][]', 'Warming drawers', @kitchen.washing_station.include?('Warming drawers'), id: 'warming-drawers', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[baking_and_pastry][]', "Warming drawers", @kitchen.baking_and_pastry.include?("Warming drawers"), id: "warming-drawers", class: "inventory-fieldlist-checkbox" %>
               <label for="warming-drawers">Warming drawers</label>
               <input type="number" value="1" aria-label="Warming drawers Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="other-equipment">
         <legend class="fieldset-title">Other Equipment</legend>
         <fieldset class="checkbox-fieldset">
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_equipment][]', 'Meat slicer', @kitchen.washing_station.include?('Meat slicer'), id: 'meat-slicer', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_equipment][]', "Meat slicer", @kitchen.other_equipment.include?("Meat slicer"), id: "meat-slicer", class: "inventory-fieldlist-checkbox" %>
               <label for="meat-slicer">Meat slicer</label>
               <input type="number" value="1" aria-label="Meat slicer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_equipment][]', 'Panini grill', @kitchen.washing_station.include?('Panini grill'), id: 'panini-grill', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_equipment][]', "Panini grill", @kitchen.other_equipment.include?("Panini grill"), id: "panini-grill", class: "inventory-fieldlist-checkbox" %>
               <label for="panini-grill">Panini grill</label>
               <input type="number" value="1" aria-label="Panini grill Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_equipment][]', 'Toaster', @kitchen.washing_station.include?('Toaster'), id: 'toaster', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_equipment][]', "Toaster", @kitchen.other_equipment.include?("Toaster"), id: "toaster", class: "inventory-fieldlist-checkbox" %>
               <label for="toaster">Toaster</label>
               <input type="number" value="1" aria-label="Toaster Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_equipment][]', 'Waffle maker', @kitchen.washing_station.include?('Waffle maker'), id: 'waffle-maker', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_equipment][]', "Waffle maker", @kitchen.other_equipment.include?("Waffle maker"), id: "waffle-maker", class: "inventory-fieldlist-checkbox" %>
               <label for="waffle-maker">Waffle maker</label>
               <input type="number" value="1" aria-label="Waffle maker Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_equipment][]', 'Crepe plate', @kitchen.washing_station.include?('Crepe plate'), id: 'crepe-plate', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_equipment][]', "Crepe plate", @kitchen.other_equipment.include?("Crepe plate"), id: "crepe-plate", class: "inventory-fieldlist-checkbox" %>
               <label for="crepe-plate">Crepe plate</label>
               <input type="number" value="1" aria-label="Crepe plate Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
           </ul>
         </fieldset>
       </fieldset>
-
-      <fieldset class="fieldset">
+      <fieldset class="fieldset" id="other-amenities">
         <legend class="fieldset-title">Other Amenities</legend>
         <fieldset class="checkbox-fieldset">
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_amenities][]', 'Wifi', @kitchen.washing_station.include?('Wifi'), id: 'wifi', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_amenities][]', "Wifi", @kitchen.other_amenities.include?("Wifi"), id: "wifi", class: "inventory-fieldlist-checkbox" %>
               <label for="wifi">Wifi</label>
               <input type="number" value="1" aria-label="Wifi Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_amenities][]', 'Toilets', @kitchen.washing_station.include?('Toilets'), id: 'toilets', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_amenities][]', "Toilets", @kitchen.other_amenities.include?("Toilets"), id: "toilets", class: "inventory-fieldlist-checkbox" %>
               <label for="toilets">Toilets</label>
               <input type="number" value="1" aria-label="Toilets Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_amenities][]', 'Parking space (per car)', @kitchen.washing_station.include?('Parking space (per car)'), id: 'parking-space-per-car', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_amenities][]', "Parking space (per car)", @kitchen.other_amenities.include?("Parking space (per car)"), id: "parking-space-per-car", class: "inventory-fieldlist-checkbox" %>
               <label for="parking-space-per-car">Parking space (per car)</label>
               <input type="number" value="1" aria-label="Parking space (per car) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_amenities][]', 'Office space', @kitchen.washing_station.include?('Office space'), id: 'office-space', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_amenities][]', "Office space", @kitchen.other_amenities.include?("Office space"), id: "office-space", class: "inventory-fieldlist-checkbox" %>
               <label for="office-space">Office space</label>
               <input type="number" value="1" aria-label="Office space Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item">
-              <%= check_box_tag 'kitchen[other_amenities][]', 'Wheelchair accessible', @kitchen.washing_station.include?('Wheelchair accessible'), id: 'wheelchair-accessible', class: 'inventory-fieldlist-checkbox' %>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[other_amenities][]', "Wheelchair accessible", @kitchen.other_amenities.include?("Wheelchair accessible"), id: "wheelchair-accessible", class: "inventory-fieldlist-checkbox" %>
               <label for="wheelchair-accessible">Wheelchair accessible</label>
               <input type="number" value="1" aria-label="Wheelchair accessible Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
@@ -909,26 +786,29 @@
         </fieldset>
       </fieldset>
 
-      <div class="field">
-        Kitchen Rules and Instructions:<br/>
-        <%= f.text_area :kitchen_rules_and_instructions %>
-      </div>
+      <!--<div class="field">-->
+        <!--Kitchen Rules and Instructions:<br/>-->
+        <!--<%= f.text_area :kitchen_rules_and_instructions %>-->
+      <!--</div>-->
+      <!--<div class="field">-->
+      <!--Kitchen Rules and Instructions:<br/>-->
+      <!--<%= f.text_area :kitchen_rules_and_instructions %>-->
+      <!--</div>-->
 
-      <!-- TODO: Add space for picture upload -->
+      <!--&lt;!&ndash; TODO: Add space for picture upload &ndash;&gt;-->
 
-      <!-- TODO: Add section for availability -->
+      <!--&lt;!&ndash; TODO: Add section for availability &ndash;&gt;-->
 
-      <div class="field">
-        Price:<br/>
-        <%= f.text_field :price %>
-      </div>
+      <!--<div class="field">-->
+      <!--Price:<br/>-->
+      <!--<%= f.text_field :price %>-->
+      <!--</div>-->
 
-      <div class="field">
-        Additional details:<br/>
-        <%= f.text_area :additional_details %>
-      </div>
-
-      <%= f.submit "List Kitchen" %>
+      <!--<div class="field">-->
+      <!--Additional details:<br/>-->
+      <!--<%= f.text_area :additional_details %>-->
+      <!--</div>-->
   <% end %>
-</fieldset>
+  </div>
 </body>
+
