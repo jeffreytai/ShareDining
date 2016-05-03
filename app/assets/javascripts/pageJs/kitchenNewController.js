@@ -9,6 +9,7 @@ jsController['kitchen-new'] = function () {
   const KITCHEN_MENU_LINK_CLASS = 'kitchen-new-menu-link';
   const COMPLETED_LINK_CLASS = 'completed';
   const INCOMPLETE_LINK_CLASS = 'incomplete';
+
   const navHeight = document.querySelector('.main-nav').offsetHeight;
   const $stickyMenu = document.querySelector('.kitchen-new-side-menu');
   const $body = document.querySelector('body');
@@ -54,17 +55,21 @@ jsController['kitchen-new'] = function () {
   // changes the current fieldset and menu item
   function changeCurrentFieldset(newHash) {
     const $newFieldset = document.querySelector(newHash);
-    const $newMenuItem = document.querySelector(`.${MENU_LINK_CLASS}[href="${newHash}"]`);
 
-    handleButtonChanges(newHash);
-    addCompletionIcon($currentMenuItem);
+    // make sure that the hash change corresponds to the inventory form
+    if ($newFieldset) {
+      const $newMenuItem = document.querySelector(`.${MENU_LINK_CLASS}[href="${newHash}"]`);
 
-    $currentFieldset.classList.remove(CURRENT_FIELDSET_CLASS);
-    $currentMenuItem.classList.remove(CURRENT_MENU_ITEM_CLASS);
-    $newFieldset.classList.add(CURRENT_FIELDSET_CLASS);
-    $newMenuItem.classList.add(CURRENT_MENU_ITEM_CLASS);
-    $currentFieldset = $newFieldset;
-    $currentMenuItem = $newMenuItem;
+      handleButtonChanges(newHash);
+      addCompletionIcon($currentMenuItem);
+
+      $currentFieldset.classList.remove(CURRENT_FIELDSET_CLASS);
+      $currentMenuItem.classList.remove(CURRENT_MENU_ITEM_CLASS);
+      $newFieldset.classList.add(CURRENT_FIELDSET_CLASS);
+      $newMenuItem.classList.add(CURRENT_MENU_ITEM_CLASS);
+      $currentFieldset = $newFieldset;
+      $currentMenuItem = $newMenuItem;
+    }
   }
 
   // change to proper fieldset if a hash is present
