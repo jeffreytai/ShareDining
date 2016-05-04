@@ -16,6 +16,7 @@ jsController['kitchen-new'] = function () {
   const $buttonContainer = document.querySelector('.kitchen-new-button-container');
   const $nextButton = document.querySelector('.next-button');
   const $prevButton = document.querySelector('.prev-button');
+  const $kitchenForm = document.querySelector('#new_kitchen');
 
   var $currentFieldset = document.querySelector('.fieldset.current'),
     $currentMenuItem = document.querySelector(`.${KITCHEN_MENU_LINK_CLASS}.current`),
@@ -32,7 +33,6 @@ jsController['kitchen-new'] = function () {
 
     if (currHashIdx === hashArray.length - 1) {
       $nextButton.innerText = 'Finish';
-      $nextButton.setAttribute('type', 'submit');
     } else {
       $nextButton.innerText = 'Next';
     }
@@ -90,7 +90,10 @@ jsController['kitchen-new'] = function () {
     if (evt.target && (evt.target === $nextButton || evt.target === $prevButton)) {
       const currIdx = hashArray.indexOf(location.hash);
 
-      if (currIdx !== -1) {
+      // if the last button is pressed, then submit the form
+      if (event.target === $nextButton && currIdx === hashArray.length - 1) {
+        $kitchenForm.submit();
+      } else if (currIdx !== -1) {
         evt.target === $nextButton ? location.hash = hashArray[currIdx + 1] : location.hash = hashArray[currIdx - 1];
       }
     }
