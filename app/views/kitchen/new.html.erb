@@ -61,6 +61,43 @@
           <li>
             <label for="location">Location</label>
             <%= f.text_field :location, id: "location", required: "true" %>
+
+            <%= f.hidden_field :latitude %>
+
+            <%= f.hidden_field :longitude %>
+
+            <script>
+              // TODO: this should be moved to a js file and attached to window
+              function initialize() {
+                var options = {
+                  types: ['(cities)'],
+                  componentRestrictions: { country: "GB" }
+                }
+                var input = document.getElementById('location');
+                var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+                var geocoder = new google.maps.Geocoder();
+                document.getElementById('submit').addEventListener('click', function() {
+                  geocodeAddress(geocoder);
+                });
+              }
+
+              // TODO: double check that the latitude and longitude are being retrieved
+              function geocodeAddress(geocoder) {
+                  var address = document.getElementById('address').value;
+                  geocoder.geocode({'address': address}, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                      var lat = results[0].geometry.location.lat();
+                      var lng = results[0].geometry.location.lng();
+                      document.getElementById('latitude').value = lat;
+                      document.getElementById('longitude').value = lng;
+                    } else {
+                      alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                  });
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
           </li>
           <li>
             <fieldset class="input-fieldset">
@@ -508,15 +545,8 @@
       <fieldset class="fieldset" id="ovensfryers">
         <legend class="fieldset-title">Ovens/Fryers</legend>
         <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Convection</legend>
           <ul class="checkbox-field-list">
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Ovens", @kitchen.ovens_fryers.include?("Ovens"), id: "ovens", class: "inventory-fieldlist-checkbox" %>
-              <label for="ovens">Ovens</label>
-              <input type="number" value="1" aria-label="Ovens Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Convection", @kitchen.ovens_fryers.include?("Convection"), id: "convection", class: "inventory-fieldlist-checkbox" %>
-              <label for="convection">Convection</label>
-              <input type="number" value="1" aria-label="Convection Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Double stack convection", @kitchen.ovens_fryers.include?("Double stack convection"), id: "double-stack-convection", class: "inventory-fieldlist-checkbox" %>
               <label for="double-stack-convection">Double stack convection</label>
               <input type="number" value="1" aria-label="Double stack convection Quantity" step="1" min="1" class="inventory-quantity-input">
@@ -529,10 +559,12 @@
               <label for="bakery-depth-double-stack">Bakery depth double stack</label>
               <input type="number" value="1" aria-label="Bakery depth double stack Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Combination", @kitchen.ovens_fryers.include?("Combination"), id: "combination", class: "inventory-fieldlist-checkbox" %>
-              <label for="combination">Combination</label>
-              <input type="number" value="1" aria-label="Combination Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Combination</legend>
+          <ul class="checkbox-field-list">
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Electric combination oven", @kitchen.ovens_fryers.include?("Electric combination oven"), id: "electric-combination-oven", class: "inventory-fieldlist-checkbox" %>
               <label for="electric-combination-oven">Electric combination oven</label>
               <input type="number" value="1" aria-label="Electric combination oven Quantity" step="1" min="1" class="inventory-quantity-input">
@@ -541,10 +573,12 @@
               <label for="gas-combination-oven">Gas combination oven</label>
               <input type="number" value="1" aria-label="Gas combination oven Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Steam", @kitchen.ovens_fryers.include?("Steam"), id: "steam", class: "inventory-fieldlist-checkbox" %>
-              <label for="steam">Steam</label>
-              <input type="number" value="1" aria-label="Steam Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Steam</legend>
+          <ul class="checkbox-field-list">
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Countertop steamer", @kitchen.ovens_fryers.include?("Countertop steamer"), id: "countertop-steamer", class: "inventory-fieldlist-checkbox" %>
               <label for="countertop-steamer">Countertop steamer</label>
               <input type="number" value="1" aria-label="Countertop steamer Quantity" step="1" min="1" class="inventory-quantity-input">
@@ -553,10 +587,12 @@
               <label for="floor-steamer">Floor steamer</label>
               <input type="number" value="1" aria-label="Floor steamer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Ranges", @kitchen.ovens_fryers.include?("Ranges"), id: "ranges", class: "inventory-fieldlist-checkbox" %>
-              <label for="ranges">Ranges</label>
-              <input type="number" value="1" aria-label="Ranges Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Ranges</legend>
+          <ul class="checkbox-field-list">
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Multi-ring range top with standard electric oven", @kitchen.ovens_fryers.include?("Multi-ring range top with standard electric oven"), id: "multi-ring-range-top-with-standard-electric-oven", class: "inventory-fieldlist-checkbox" %>
               <label for="multi-ring-range-top-with-standard-electric-oven">Multi-ring range top with standard electric
                 oven</label>
@@ -586,10 +622,12 @@
               <label for="countertop-electric-range">Countertop electric range</label>
               <input type="number" value="1" aria-label="Countertop electric range Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Fryers", @kitchen.ovens_fryers.include?("Fryers"), id: "fryers", class: "inventory-fieldlist-checkbox" %>
-              <label for="fryers">Fryers</label>
-              <input type="number" value="1" aria-label="Fryers Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Fryers</legend>
+          <ul class="checkbox-field-list">
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Gas Floor Fryer", @kitchen.ovens_fryers.include?("Gas Floor Fryer"), id: "gas-floor-fryer", class: "inventory-fieldlist-checkbox" %>
               <label for="gas-floor-fryer">Gas Floor Fryer</label>
               <input type="number" value="1" aria-label="Gas Floor Fryer Quantity" step="1" min="1" class="inventory-quantity-input">
@@ -598,18 +636,12 @@
               <label for="electric-counter-top-fryer">Electric Counter top Fryer</label>
               <input type="number" value="1" aria-label="Electric Counter top Fryer Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Induction", @kitchen.ovens_fryers.include?("Induction"), id: "induction", class: "inventory-fieldlist-checkbox" %>
-              <label for="induction">Induction</label>
-              <input type="number" value="1" aria-label="Induction Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Electric Griddle", @kitchen.ovens_fryers.include?("Electric Griddle"), id: "electric-griddle", class: "inventory-fieldlist-checkbox" %>
-              <label for="electric-griddle">Electric Griddle</label>
-              <input type="number" value="1" aria-label="Electric Griddle Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Warming", @kitchen.ovens_fryers.include?("Warming"), id: "warming", class: "inventory-fieldlist-checkbox" %>
-              <label for="warming">Warming</label>
-              <input type="number" value="1" aria-label="Warming Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Warming</legend>
+          <ul class="checkbox-field-list">
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Counter top warming (Large)", @kitchen.ovens_fryers.include?("Counter top warming (Large)"), id: "counter-top-warming-large", class: "inventory-fieldlist-checkbox" %>
               <label for="counter-top-warming-large">Counter top warming (Large)</label>
               <input type="number" value="1" aria-label="Counter top warming (Large) Quantity" step="1" min="1" class="inventory-quantity-input">
@@ -618,14 +650,12 @@
               <label for="counter-top-warming-small">Counter top warming (Small)</label>
               <input type="number" value="1" aria-label="Counter top warming (Small) Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Microwave", @kitchen.ovens_fryers.include?("Microwave"), id: "microwave", class: "inventory-fieldlist-checkbox" %>
-              <label for="microwave">Microwave</label>
-              <input type="number" value="1" aria-label="Microwave Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
-            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Sous vide", @kitchen.ovens_fryers.include?("Sous vide"), id: "sous-vide", class: "inventory-fieldlist-checkbox" %>
-              <label for="sous-vide">Sous vide</label>
-              <input type="number" value="1" aria-label="Sous vide Quantity" step="1" min="1" class="inventory-quantity-input">
-            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Sous vide</legend>
+          <ul class="checkbox-field-list">
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Sous vide machine (single unit)", @kitchen.ovens_fryers.include?("Sous vide machine (single unit)"), id: "sous-vide-machine-single-unit", class: "inventory-fieldlist-checkbox" %>
               <label for="sous-vide-machine-single-unit">Sous vide machine (single unit)</label>
               <input type="number" value="1" aria-label="Sous vide machine (single unit) Quantity" step="1" min="1" class="inventory-quantity-input">
@@ -633,6 +663,24 @@
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Sous vide machine (double unit)", @kitchen.ovens_fryers.include?("Sous vide machine (double unit)"), id: "sous-vide-machine-double-unit", class: "inventory-fieldlist-checkbox" %>
               <label for="sous-vide-machine-double-unit">Sous vide machine (double unit)</label>
               <input type="number" value="1" aria-label="Sous vide machine (double unit) Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="checkbox-fieldset">
+          <legend class="checkbox-fieldset-title">Other</legend>
+          <ul class="checkbox-field-list">
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Induction", @kitchen.ovens_fryers.include?("Induction"), id: "induction", class: "inventory-fieldlist-checkbox" %>
+              <label for="induction">Induction</label>
+              <input type="number" value="1" aria-label="Induction Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Electric Griddle", @kitchen.ovens_fryers.include?("Electric Griddle"), id: "electric-griddle", class: "inventory-fieldlist-checkbox" %>
+              <label for="electric-griddle">Electric Griddle</label>
+              <input type="number" value="1" aria-label="Electric Griddle Quantity" step="1" min="1" class="inventory-quantity-input">
+            </li>
+            <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Microwave", @kitchen.ovens_fryers.include?("Microwave"), id: "microwave", class: "inventory-fieldlist-checkbox" %>
+              <label for="microwave">Microwave</label>
+              <input type="number" value="1" aria-label="Microwave Quantity" step="1" min="1" class="inventory-quantity-input">
             </li>
             <li class="checkbox-fieldset-list-item"><%= check_box_tag 'kitchen[ovens_fryers][]', "Rice cooker", @kitchen.ovens_fryers.include?("Rice cooker"), id: "rice-cooker", class: "inventory-fieldlist-checkbox" %>
               <label for="rice-cooker">Rice cooker</label>
@@ -814,6 +862,7 @@
     <button class="prev-button transparent-button" disabled>Previous</button>
     <button class="next-button transparent-button">Next</button>
   </div>
-  </div>
-</body>
 
+
+</div>
+</body>
