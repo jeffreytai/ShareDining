@@ -33,27 +33,27 @@
         radius: 500,
         type: ['store']
       }, callback);
-    }
 
-    function callback(results, status) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-          createMarker(results[i]);
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          <% @nearbyKitchens.each do |kitchen| %>
+            var coordinates = {lat: <%= kitchen.coordinates[1] %>, lng: <%= kitchen.coordinates[0] %>};
+            createMarker(coordinates);
+          <% end %>
         }
       }
-    }
 
-    function createMarker(place) {
-      var placeLoc = place.geometry.location;
-      var marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
-      });
+      function createMarker(coordinates) {
+        var marker = new google.maps.Marker({
+          position: coordinates,
+          map: map
+        });
+      }
 
-      google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
-        infowindow.open(map, this);
-      });
+      // google.maps.event.addListener(marker, 'click', function() {
+      //   infowindow.setContent(place.name);
+      //   infowindow.open(map, this);
+      // });
     }
 
   </script>

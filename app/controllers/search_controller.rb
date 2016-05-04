@@ -9,6 +9,10 @@ class SearchController < ApplicationController
 
     @nearbyKitchens = Kitchen.near(:coordinates => [@latitude, @longitude])
 
+    # @nearbyKitchens.each do |kitchen|
+    #   puts [kitchen.coordinates[1], kitchen.coordinates[0]]
+    # end
+
   end
 
 end
