@@ -2,7 +2,6 @@
 @import 'fonts';
 
 $nav-height: 60px;
-$filter-height: 50px;
 
 html, body {
   width: 100%;
@@ -39,11 +38,11 @@ html, body {
 
   .nav-search-icon {
     float: left;
-    height: 25px;
-    width: 25px;
-    padding: ($nav-height - 25px)/2;
+    height: 20px;
+    width: 20px;
+    padding: ($nav-height - 20px)/2;
     opacity: .75;
-    fill: $dark-grey;
+    fill: lighten($dark-grey, 30);
   }
 
   .nav-search {
@@ -110,42 +109,45 @@ html, body {
   font-family: logo;
   width: calc(60% - 1px);
   float: left;
+  background-color: lighten($light-grey, 15);
 
   .filters-list {
-    width: 100%;
+    background-color: $white;
+    box-shadow: 0 2px 3px 2px rgba($light-grey, .8);
+    width: 95%;
+    height: 70px;
+    margin: 24px auto;
   }
 
   .filter {
-    width: 96%;
-    margin: 0 2%;
-    height: $filter-height;
-    border-bottom: 1px solid $light-grey;
+    box-sizing: border-box;
+    width: 25%;
+    border-left: 1px solid $light-grey;
+    float: left;
+    height: inherit;
 
     label {
-      color: $dark-grey;
-      //margin-left: %;
-      line-height: $filter-height;
-      float: left;
+      color: lighten($dark-grey, 25);
+      text-transform: uppercase;
       font-size: 12px;
+      display: block;
+      width: 100%;
+      padding: 10px;
     }
 
-    input[name=begin-date],
-    input[name=end-date],
-    input[name=price-range] {
-      margin-top: ($filter-height - 22px)/2;
-      font-family: "Helvetica Neue", "Arial", sans-serif;
-      height: 20px;
-      border: 2px solid $light-grey;
-      margin-left: 20px;
+    input[type=date],
+    select {
+      box-sizing: border-box;
+      font-family: main;
+      border: none;
+      padding-left: 10px;
+      width: 100%;
+      display: block;
+      font-size: 18px;
     }
 
-    input[name=begin-date],
-    input[name=end-date] {
-      width: 20%;
-    }
-
-    input[name=price-range] {
-      width: 40%;
+    select {
+      background-color: inherit;
     }
   }
 }
@@ -154,14 +156,18 @@ html, body {
   width: 100%;
 
   .result {
-    outline: 1px solid $light-grey;
-    width: 50%;
+    box-sizing: border-box;
+    width: calc(50% - 24px);
+    margin: 8px 16px;
     float: left;
-    height: 350px;
+    height: 320px;
     background: no-repeat center;
     background-size: 100% 100%;
-    position: relative;
-    transition: background-size .25s;
+    box-shadow: 2px 2px 5px 2px rgba($dark-grey, .4);
+
+    &:nth-child(odd) {
+      margin-right: 0;
+    }
 
     // TODO: change this so the results have real backgrounds
     @for $i from 1 to 7 {
@@ -169,24 +175,49 @@ html, body {
         background-image: image_url('sampleKitchens/#{$i}.jpg');
       }
     }
+  }
 
-    &:hover {
-      background-size: 105% 105%;
+  .result-link {
+    display: block;
+    font: inherit;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba($dark-grey, .7), rgba($dark-grey, .5) 5%, rgba($dark-grey, 0) 30%);
+    color: $white;
+    text-decoration: inherit;
+    position: relative;
 
-      .price {
-        background-color: rgba($dark-grey, .8);
-      }
-    }
-
-    .price {
-      font-size: 20px;
-      color: $white;
-      padding: 10px 15px;
-      background-color: rgba($dark-grey, .5);
+    .result-title,
+    .result-price-container {
       position: absolute;
       bottom: 0;
+      box-sizing: border-box;
+    }
+
+    .result-title {
+      font-family: main;
+      font-size: 18px;
+      left: 0;
+      padding: 0 0 10px 10px;
+      width: 70%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .result-price-container {
       right: 0;
-      transition: background-color .25s;
+      padding: 0 10px 10px 0;
+      width: 30%;
+      text-align: right;
+
+      .result-price {
+        font-size: 24px;
+      }
+
+      .result-price-after {
+        opacity: .8;
+        font-size: 12px;
+      }
     }
   }
 }
