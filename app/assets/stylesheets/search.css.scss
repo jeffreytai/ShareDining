@@ -182,6 +182,42 @@ html, body {
     font: inherit;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba($dark-grey, 1), rgba($dark-grey, .5) 5%, rgba($dark-grey, 0) 40%);
+    background: linear-gradient(to top, rgba($dark-grey, .7), rgba($dark-grey, .5) 5%, rgba($dark-grey, 0) 30%);
+    color: $white;
+    text-decoration: inherit;
+    position: relative;
+
+    .result-title,
+    .result-price-container {
+      position: absolute;
+      bottom: 0;
+      box-sizing: border-box;
+    }
+
+    .result-title {
+      font-family: main;
+      font-size: 18px;
+      left: 0;
+      padding: 0 0 10px 10px;
+      width: 70%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .result-price-container {
+      right: 0;
+      padding: 0 10px 10px 0;
+      width: 30%;
+      text-align: right;
+
+      .result-price {
+        font-size: 24px;
+      }
+
+      .result-price-after {
+        opacity: .8;
+        font-size: 12px;
+      }
+    }
   }
 }

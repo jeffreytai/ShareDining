@@ -20,7 +20,7 @@
       var autocomplete = new google.maps.places.Autocomplete(input, options);
 
       /* Google Maps section */
-      var cntr = {lat: <%= @latitude %>, lng: <%= @longitude %>};
+      var cntr = { lat: <%= @latitude %>, lng: <%= @longitude %> };
 
 
       map = new google.maps.Map(document.getElementById('map'), {
@@ -112,37 +112,55 @@
     <li class="result">
       <a class="result-link" href="">
         <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price">£230/night</h2>
+        <h2 class="result-price-container">
+          <span class="result-price">£230</span>
+          <span class="result-price-after">/night</span>
+        </h2>
       </a>
     </li>
     <li class="result">
       <a class="result-link" href="">
         <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price">£230/night</h2>
+        <h2 class="result-price-container">
+          <span class="result-price">£230</span>
+          <span class="result-price-after">/night</span>
+        </h2>
       </a>
     </li>
     <li class="result">
       <a class="result-link" href="">
         <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price">£230/night</h2>
+        <h2 class="result-price-container">
+          <span class="result-price">£230</span>
+          <span class="result-price-after">/night</span>
+        </h2>
       </a>
     </li>
     <li class="result">
       <a class="result-link" href="">
         <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price">£230/night</h2>
+        <h2 class="result-price-container">
+          <span class="result-price">£230</span>
+          <span class="result-price-after">/night</span>
+        </h2>
       </a>
     </li>
     <li class="result">
       <a class="result-link" href="">
         <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price">£230/night</h2>
+        <h2 class="result-price-container">
+          <span class="result-price">£230</span>
+          <span class="result-price-after">/night</span>
+        </h2>
       </a>
     </li>
     <li class="result">
       <a class="result-link" href="">
         <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price">£230/night</h2>
+        <h2 class="result-price-container">
+          <span class="result-price">£230</span>
+          <span class="result-price-after">/night</span>
+        </h2>
       </a>
     </li>
   </ul>

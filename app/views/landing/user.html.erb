@@ -15,10 +15,10 @@
 
   <div class="landing-search">
   <%= form_tag({:controller => "search", :action => "results"}, :method => :get, :class => "landing-search-form") do %>
-      <%= text_field_tag :location, nil, class: "landing-location-input", :placeholder => "Location" %>
+      <%= text_field_tag :location, nil, class: "landing-location-input", required: "required", :placeholder => "Location" %>
 
-      <input class="landing-start-input" type="date" aria-label="Start Date">
-      <input class="landing-end-input" type="date" aria-label="End Date">
+      <input class="landing-start-input" type="date" aria-label="Start Date" required=>
+      <input class="landing-end-input" type="date" aria-label="End Date" required>
       <button class="landing-submit">Search</button>
 
       <!-- Google Maps Autocomplete -->
