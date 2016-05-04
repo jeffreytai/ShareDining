@@ -78,12 +78,12 @@
 
                 var geocoder = new google.maps.Geocoder();
                 document.getElementById('submit').addEventListener('click', function() {
-                  geocodeAddress(geocoder, map);
+                  geocodeAddress(geocoder);
                 });
               }
 
               // TODO: double check that the latitude and longitude are being retrieved
-              function geocodeAddress(geocoder, resultsMap) {
+              function geocodeAddress(geocoder) {
                   var address = document.getElementById('address').value;
                   geocoder.geocode({'address': address}, function(results, status) {
                     if (status === google.maps.GeocoderStatus.OK) {

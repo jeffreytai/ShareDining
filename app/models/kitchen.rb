@@ -4,10 +4,15 @@ class Kitchen
   include Mongoid::Timestamps
   include Mongoid::Attributes::Dynamic
   include Mongoid::Token
+  include Geocoder::Model::Mongoid
   include Mongoid::Paperclip
 
   # https://github.com/meskyanichi/mongoid-paperclip
   embeds_many :pictures, :cascade_callbacks => true
+
+  # Adds coordinates based on location (address)
+  geocoded_by :location
+  after_validation :geocode, if: ->(obj){ obj.location.present? and obj.location_changed? }
 
   # Foreign key to User
   belongs_to :user
@@ -34,8 +39,9 @@ class Kitchen
   # Information Questionnaire
   # TODO: possibly make this location an object?
   field :location,                        type: String
-  field :latitude,                        type: Float
-  field :longitude,                       type: Float
+  field :coordinates,                     type: Array
+  # field :latitude,                        type: Float
+  # field :longitude,                       type: Float
 
   # TODO: insert photos...
 
