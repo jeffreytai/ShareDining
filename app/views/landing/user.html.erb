@@ -15,7 +15,7 @@
 
   <div class="landing-search">
   <%= form_tag({:controller => "search", :action => "results"}, :method => :get, :class => "landing-search-form") do %>
-      <%= text_field_tag :location, nil, class: "landing-location-input", :placeholder => "Portland, OR, United States" %>
+      <%= text_field_tag :location, nil, class: "landing-location-input", :placeholder => "Location" %>
       <!-- Google Maps Autocomplete -->
       <script>
         // TODO: this should be moved to a js file and attached to window
