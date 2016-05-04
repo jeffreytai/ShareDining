@@ -39,7 +39,7 @@
       function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           <% @nearbyKitchens.each do |kitchen| %>
-            var coordinates = {lat: <%= kitchen.coordinates[1] %>, lng: <%= kitchen.coordinates[0] %>};
+            var coordinates = { lat: <%= kitchen.coordinates[1] %>, lng: <%= kitchen.coordinates[0] %> };
             createMarker(coordinates);
           <% end %>
         }

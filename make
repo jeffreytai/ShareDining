@@ -1,0 +1,1 @@
+bundle install && rake db:seed && rake db:mongoid:create_indexes && rails server

@@ -1,97 +1,73 @@
 @import 'colors';
 @import 'fonts';
+@import 'menu';
 
-$nav-height: 60px;
 
 html, body {
   width: 100%;
 }
 
-.main-nav {
+// just make all svgs conform to parent size
+svg {
+  height: 100%;
   width: 100%;
-  height: $nav-height;
-  border-bottom: 1px solid $light-grey;
+}
 
-  // just make all svgs conform to parent size
-  svg {
-    height: 100%;
-    width: 100%;
+.nav-search-icon {
+  float: left;
+  height: 20px;
+  width: 20px;
+  padding: ($nav-height - 20px)/2;
+  opacity: .75;
+  fill: lighten($dark-grey, 30);
+}
+
+.nav-search {
+  height: inherit;
+  display: block;
+  float: left;
+  margin: 0;
+  border: none;
+  color: $dark-grey;
+  width: calc(100% - 1000px);
+  font-size: 14px;
+  padding: 0 0 0 20px;
+  border-bottom: inherit;
+}
+
+.help-nav-button,
+.account-nav-button {
+  float: right;
+  height: inherit;
+  border: none;
+  border-left: 1px solid $light-grey;
+  background-color: $black;
+  color: $white;
+  font-size: 14px;
+  padding: 0 15px;
+  opacity: .85;
+  transition: opacity .5s;
+
+  &:hover {
+    opacity: 1;
   }
 
-  .main-logo {
+  .button-text {
     font-family: logo;
-    float: left;
-    width: 200px;
-    height: 100%;
-    background-color: $black;
-    color: $white;
-    line-height: $nav-height;
-    text-align: center;
-    font-size: 24px;
-    opacity: .85;
-    transition: opacity .5s;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  .nav-search-icon {
-    float: left;
-    height: 20px;
-    width: 20px;
-    padding: ($nav-height - 20px)/2;
-    opacity: .75;
-    fill: lighten($dark-grey, 30);
-  }
-
-  .nav-search {
-    height: inherit;
     display: block;
     float: left;
-    margin: 0;
-    border: none;
-    color: $dark-grey;
-    width: calc(100% - 1000px);
-    font-size: 14px;
-    padding: 0 0 0 20px;
-    border-bottom: inherit;
+    line-height: $nav-height;
+    height: inherit;
   }
 
-  .help-nav-button,
-  .account-nav-button {
-    float: right;
-    height: inherit;
-    border: none;
-    border-left: 1px solid $light-grey;
-    background-color: $black;
-    color: $white;
-    font-size: 14px;
-    padding: 0 15px;
-    opacity: .85;
-    transition: opacity .5s;
-
-    &:hover {
-      opacity: 1;
-    }
-
-    .button-text {
-      font-family: logo;
-      display: block;
-      float: left;
-      line-height: $nav-height;
-      height: inherit;
-    }
-
-    & > svg {
-      margin-left: 15px;
-      display: block;
-      float: left;
-      padding-top: ($nav-height - 30px)/2;
-      width: 30px;
-      height: 30px;
-      fill: $white;
-    }
+  & > svg {
+    margin-left: 15px;
+    display: block;
+    float: left;
+    padding-top: ($nav-height - 30px)/2;
+    width: 30px;
+    height: 30px;
+    fill: $white;
   }
 }
 
