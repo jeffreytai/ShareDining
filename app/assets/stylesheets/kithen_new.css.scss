@@ -93,6 +93,36 @@ $menu-width: 350px;
     line-height: 1.2;
     height: #{16 * 4 * 1.2}px;
   }
+
+  .price-input,
+  .price-currency-symbol {
+    display: inline-block;
+    height: 28px;
+    vertical-align: middle;
+    line-height: 28px;
+  }
+
+  .price-input {
+    width: 64px;
+    color: $dark-grey;
+    border: 1px solid $light-grey;
+    font-size: 20px;
+  }
+
+  .price-currency-symbol {
+    font-family: logo;
+    padding: 0 10px;
+    border-radius: 4px 0 0 4px;
+    background-color: lighten($light-grey, 10);
+    color: lighten($dark-grey, 10);
+    border: 2px solid $light-grey;
+    margin-right: -.25em;
+  }
+
+  .price-description {
+    color: lighten($dark-grey, 20);
+    font-size: 12px;
+  }
 }
 
 // fancy styling to get checkboxes looking like pick button list
