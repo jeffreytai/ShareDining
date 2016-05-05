@@ -39,6 +39,7 @@ class Kitchen
 
   # TODO: insert photos...
 
+
   field :kitchen_rules_and_instructions,  type: String, default: ""
   # TODO: decide object to hold kitchen availability
   field :availability,                    type: String

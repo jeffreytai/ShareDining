@@ -37,6 +37,12 @@
     <li class="kitchen-new-side-menu-el">
       <a class="kitchen-new-menu-link" href="#other-amenities">Other Amenities</a>
     </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#additional-information">Additional Information</a>
+    </li>
+    <li class="kitchen-new-side-menu-el">
+      <a class="kitchen-new-menu-link" href="#pictures">Pictures</a>
+    </li>
   </ul>
 </nav>
 
@@ -809,30 +815,37 @@
           </ul>
         </fieldset>
       </fieldset>
+      <fieldset class="fieldset" id="additional-information">
+        <legend class="fieldset-title">Additional Information</legend>
+        <ul class="input-list">
+          <li>
+            <label for="rules">Kitchen Rules or Instructions</label>
+            <%= f.text_area :kitchen_rules_and_instructions, id: "rules", placeholder: "- E.g. Details about location of operational switches.
 
+- Instructions to bring specific equipment.
 
-      <!-- <div class="field"> -->
-        <!--Kitchen Rules and Instructions:<br/>-->
-        <!--<%= f.text_area :kitchen_rules_and_instructions %>-->
-      <!--</div>-->
-      <!--<div class="field">-->
-      <!--Kitchen Rules and Instructions:<br/>-->
-      <!--<%= f.text_area :kitchen_rules_and_instructions %>-->
-      <!--</div>-->
+- Any available storage space.
 
-      <!--&lt;!&ndash; TODO: Add space for picture upload &ndash;&gt;-->
-
-      <!--&lt;!&ndash; TODO: Add section for availability &ndash;&gt;-->
-
-      <!--<div class="field">-->
-      <!--Price:<br/>-->
-      <!--<%= f.text_field :price %>-->
-      <!--</div>-->
-
-      <!--<div class="field">-->
-      <!--Additional details:<br/>-->
-      <!--<%= f.text_area :additional_details %>-->
-      <!--</div>-->
+- Details about deliveries." %>
+          </li>
+          <li>
+            <label for="price">Tell us how much you would like to rent the kitchen space for</label>
+            <span class="price-currency-symbol">£</span>
+            <%= f.text_field :price, type: "number", id: "price", class: "price-input", required: "true", min: "10" %>
+            <span class=price-description>/hour</span>
+          </li>
+          <li>
+            <label for="additional-details">Let us know about any other details you think the renter might want to know
+              about</label>
+            <%= f.text_area :additional_details, id: "additional-details", placeholder: "E.g Highly recommend local supplier [x]." %>
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset class="fieldset" id="pictures">
+        <legend class="fieldset-title">Upload Pictures</legend>
+        <!--TODO this needs to be changed to actual picture input-->
+        <input type="file">
+      </fieldset>
   <% end %>
 
   <div class="kitchen-new-button-container clearfix">
