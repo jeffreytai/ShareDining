@@ -27,13 +27,6 @@ class KitchenController < ApplicationController
       format.html { render :new }
       format.json { render json: @kitchen.errors, status: :unprocessable_entity }
     end
-
-    # if @kitchen.save
-    #   redirect_to root_url
-    #   flash[:notice] = "Successfully created kitchen!"
-    # else
-    #   render action: 'new'
-    # end
   end
 
   # PATCH/PUT /kitchen/1

@@ -32,7 +32,9 @@ gem 'bson_ext'
 gem 'mongoid_token', '~> 4.0.0'
 
 # Picture attachment
-gem "mongoid-paperclip", :require => "mongoid_paperclip"
+# gem "mongoid-paperclip", :require => "mongoid_paperclip"
+# gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+# gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 
 # User authentication
 gem 'devise'

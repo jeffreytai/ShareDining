@@ -108,63 +108,20 @@
     </li>
   </ul>
 
-  <!--TODO replace this with real data-->
   <ul class="results-list">
-    <li class="result">
-      <a class="result-link" href="">
-        <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price-container">
-          <span class="result-price">£230</span>
-          <span class="result-price-after">/night</span>
-        </h2>
-      </a>
-    </li>
-    <li class="result">
-      <a class="result-link" href="">
-        <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price-container">
-          <span class="result-price">£230</span>
-          <span class="result-price-after">/night</span>
-        </h2>
-      </a>
-    </li>
-    <li class="result">
-      <a class="result-link" href="">
-        <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price-container">
-          <span class="result-price">£230</span>
-          <span class="result-price-after">/night</span>
-        </h2>
-      </a>
-    </li>
-    <li class="result">
-      <a class="result-link" href="">
-        <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price-container">
-          <span class="result-price">£230</span>
-          <span class="result-price-after">/night</span>
-        </h2>
-      </a>
-    </li>
-    <li class="result">
-      <a class="result-link" href="">
-        <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price-container">
-          <span class="result-price">£230</span>
-          <span class="result-price-after">/night</span>
-        </h2>
-      </a>
-    </li>
-    <li class="result">
-      <a class="result-link" href="">
-        <h2 class="result-title">Large Kitchen In Downtown</h2>
-        <h2 class="result-price-container">
-          <span class="result-price">£230</span>
-          <span class="result-price-after">/night</span>
-        </h2>
-      </a>
-    </li>
+    <% @nearbyKitchens.each do |kitchen| %>
+      <li class="result">
+        <a class="result-link" href="/kitchen/<%= kitchen.token %>">
+          <h2 class="result-title"><%= kitchen.title %></h2>
+          <h2 class="result-price-container">
+            <span class="result-price">£<%= kitchen.price %></span>
+            <span class="result-price-after">/night</span>
+          </h2>
+        </a>
+      </li>
+    <% end %>
   </ul>
+
 </section>
 
 </body>

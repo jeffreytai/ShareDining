@@ -7,12 +7,8 @@ class SearchController < ApplicationController
     @latitude = (Geocoder.search(@location))[0].latitude
     @longitude = (Geocoder.search(@location))[0].longitude
 
-    @nearbyKitchens = Kitchen.near(:coordinates => [@latitude, @longitude])
-
-    # @nearbyKitchens.each do |kitchen|
-    #   puts [kitchen.coordinates[1], kitchen.coordinates[0]]
-    # end
-
+    # limit number of results to 6
+    @nearbyKitchens = Kitchen.near(:coordinates => [@latitude, @longitude]).take(6)
   end
 
 end
