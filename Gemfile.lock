@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/refile/refile.git
+  revision: e844cc96ed5d07d07f6bde96b6429c01cd291b9a
+  branch: master
+  specs:
+    refile (0.6.2)
+      mime-types
+      rest-client (~> 1.8)
+      sinatra (>= 1.4.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -141,10 +151,6 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
-    refile (0.6.2)
-      mime-types
-      rest-client (~> 1.8)
-      sinatra (~> 1.4.5)
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
@@ -215,7 +221,7 @@ DEPENDENCIES
   mongoid (~> 4.0)
   mongoid_token (~> 3.0.0)
   rails (= 4.2.6)
-  refile
+  refile!
   refile-mini_magick
   refile-mongoid
   sass-rails (~> 5.0)

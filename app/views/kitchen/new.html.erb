@@ -51,7 +51,7 @@
   <h3 class="kitchen-new-subtitle">List your space on ShareDining and join the kitchen economy</h3>
 
   <!--TODO need placeholders giving examples-->
-  <%= form_for @kitchen, url: {action: "create"} do |f| %>
+  <%= form_for @kitchen, url: {action: "create"}, :html => {:multipart => true} do |f| %>
       <fieldset class="fieldset fieldset-basic current" id="basic-information">
         <legend class="fieldset-title">Basic Information</legend>
         <ul class="input-list">
@@ -846,7 +846,6 @@
         <legend class="fieldset-title">Upload Pictures</legend>
         <%= f.attachment_field :photo %>
         <!--TODO this needs to be changed to actual picture input-->
-        <!-- <input type="file"> -->
       </fieldset>
   <% end %>
 

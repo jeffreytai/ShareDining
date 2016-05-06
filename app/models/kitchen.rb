@@ -1,5 +1,3 @@
-# require "refile/mongoid"
-
 class Kitchen
 
   include Mongoid::Document
@@ -12,7 +10,13 @@ class Kitchen
   extend Refile::Attachment
   extend Refile::Mongoid::Attachment
 
+  # has_many :images, dependent: :destroy
+  # accepts_attachments_for :images, attachment: :file
+
   attachment :photo, type: :image
+
+  # has_many :images, dependent: :destroy
+  # accepts_attachments_for :images
 
   # Adds coordinates based on location (address)
   geocoded_by :location

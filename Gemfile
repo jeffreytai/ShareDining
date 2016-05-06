@@ -34,7 +34,8 @@ gem 'bson_ext'
 gem 'mongoid_token', '~> 3.0.0'
 
 # Picture attachment
-gem "refile", require: "refile/rails"
+# https://github.com/refile/refile
+gem 'refile', require: "refile/rails", git: 'https://github.com/refile/refile.git', branch: 'master'
 gem "refile-mini_magick"
 gem 'refile-mongoid'
 

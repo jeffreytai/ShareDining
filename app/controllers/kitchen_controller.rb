@@ -20,12 +20,16 @@ class KitchenController < ApplicationController
   def create
     @kitchen = Kitchen.new(kitchen_params)
     params[:whole_kitchen] == "1" ? (@kitchen.rental_space = "Whole Kitchen") : (@kitchen.rental_space = "Shared Space")
+
     if @kitchen.save
       redirect_to @kitchen
       flash[:notice] = 'Kitchen was successfully added.'
     else
-      format.html { render :new }
-      format.json { render json: @kitchen.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        flash[:notice] = 'Error: Kitchen was not successfully added.'
+        format.html { render action: 'new' }
+        format.json { render json: @kitchen.errors, status: :unprocessable_entity }
+      end
     end
   end
 
