@@ -51,13 +51,12 @@ class KitchenController < ApplicationController
   private
     def kitchen_params
       params.require(:kitchen).permit(:title, :description, :location, :rental_space,
-                                      :kitchen_rules_and_instructions, :additional_details, :price,
+                                      :kitchen_rules_and_instructions, :additional_details, :price, :photo,
                                       { washing_station: [] }, { food_preparation: [] },
                                       { food_preparation: [] }, { cookware: [] }, { storage: [] },
                                       { refrigeration: [] }, { ovens_fryers: [] },
                                       { oven_equipment_and_storage: [] }, { baking_and_pastry: [] },
                                       { other_equipment: [] }, { other_amenities: [] }
-                                      # :whole_kitchen, :shared_space
                                       # :availability
                                       )
     end

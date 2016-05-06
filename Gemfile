@@ -25,16 +25,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # add Babel to the build
 gem 'browserify-rails'
 # MongoDB
-gem 'mongoid', '~> 5.0.0'
+# gem 'mongoid', '~> 5.0.0'
+gem 'mongoid', '~> 4.0'
 gem 'bson_ext'
 
 # Token field for Mongo
-gem 'mongoid_token', '~> 4.0.0'
+# gem 'mongoid_token', '~> 4.0.0'
+gem 'mongoid_token', '~> 3.0.0'
 
 # Picture attachment
-# gem "mongoid-paperclip", :require => "mongoid_paperclip"
-# gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
-# gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+gem 'refile-mongoid'
 
 # User authentication
 gem 'devise'

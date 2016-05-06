@@ -30,7 +30,8 @@
   </section>
 
   <section class="listing-images-container">
-    <%= image_tag "sampleKitchens/3.jpeg", class: "listing-image" %>
+    <%= image_tag attachment_url(@kitchen, :photo, :fill, 300, 300, format: "jpg") %>
+    <!-- <%= image_tag "sampleKitchens/3.jpeg", class: "listing-image" %> -->
   </section>
 
   <section class="listing-details-container">

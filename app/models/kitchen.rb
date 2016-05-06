@@ -1,10 +1,18 @@
+# require "refile/mongoid"
+
 class Kitchen
+
   include Mongoid::Document
   # for created_at and updated_at fields
   include Mongoid::Timestamps
   include Mongoid::Attributes::Dynamic
   include Mongoid::Token
   include Geocoder::Model::Mongoid
+
+  extend Refile::Attachment
+  extend Refile::Mongoid::Attachment
+
+  attachment :photo, type: :image
 
   # Adds coordinates based on location (address)
   geocoded_by :location
