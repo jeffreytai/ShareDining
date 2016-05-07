@@ -67,7 +67,8 @@ Kitchen.create(
   location: "54 Davies Street, London, Greater London, W1K 5HR",
   kitchen_rules_and_instructions: "None",
   price: 54,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -87,7 +88,8 @@ Kitchen.create(
   location: "14 Woodside Rd, New Malden KT3 3AH, UK",
   kitchen_rules_and_instructions: "Please be respectful and do not damage the equipment we provide.",
   price: 107,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 2
 )
 
 Kitchen.create(
@@ -107,7 +109,8 @@ Kitchen.create(
   location: "10 Westmorland Dr, Liverpool L3 6LR, UK",
   kitchen_rules_and_instructions: "None",
   price: 75,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 3
 )
 
 Kitchen.create(
@@ -127,7 +130,8 @@ Kitchen.create(
   location: "42 Niall Cl, Birmingham, West Midlands B15 3NX, UK",
   kitchen_rules_and_instructions: "None",
   price: 40,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 4
 )
 
 Kitchen.create(
@@ -147,7 +151,8 @@ Kitchen.create(
   location: "96 Endwell Road, London SE4, UK",
   kitchen_rules_and_instructions: "None",
   price: 40,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -167,7 +172,8 @@ Kitchen.create(
   location: "6 Gales Gardens, London E2 0EJ, UK",
   kitchen_rules_and_instructions: "None",
   price: 40,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 2
 )
 
 Kitchen.create(
@@ -187,7 +193,8 @@ Kitchen.create(
   location: "10 Stour Rd, London E3 2NT, UK",
   kitchen_rules_and_instructions: "None",
   price: 40,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 3
 )
 
 Kitchen.create(
@@ -207,7 +214,8 @@ Kitchen.create(
   location: "Hackney E8 4TS",
   kitchen_rules_and_instructions: "None",
   price: 115,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 4
 )
 
 Kitchen.create(
@@ -227,7 +235,8 @@ Kitchen.create(
   location: "Twickenham TW2 6QE UK",
   kitchen_rules_and_instructions: "None",
   price: 15,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 #
 # Kitchen.create(

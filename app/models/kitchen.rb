@@ -4,6 +4,8 @@ class Kitchen < ActiveRecord::Base
   validates_presence_of :token
   validates_uniqueness_of :token
 
+  belongs_to :user
+
   # Mount photos to kitchen
   mount_uploaders :photos, PhotoUploader
   serialize :photos, JSON

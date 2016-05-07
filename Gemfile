@@ -35,6 +35,8 @@ gem 'geocoder'
 
 # File attachment (https://github.com/carrierwaveuploader/carrierwave)
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+# Resizing pictures for thumbnails (https://github.com/minimagick/minimagick)
+gem 'mini_magick'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
