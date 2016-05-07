@@ -27,10 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # add Babel to the build
 gem 'browserify-rails'
 
-# Token field for Mongo
-# gem 'mongoid_token', '~> 4.0.0'
-# gem 'mongoid_token', '~> 3.0.0'
-
 # User authentication
 gem 'devise'
 

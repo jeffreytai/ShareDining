@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507024118) do
+ActiveRecord::Schema.define(version: 20160507053656) do
 
   create_table "kitchens", force: :cascade do |t|
     t.string   "title",                          limit: 255
@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(version: 20160507024118) do
     t.datetime "updated_at",                                   null: false
     t.float    "latitude",                       limit: 24
     t.float    "longitude",                      limit: 24
+    t.string   "token",                          limit: 255
   end
+
+  add_index "kitchens", ["token"], name: "index_kitchens_on_token", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             limit: 255

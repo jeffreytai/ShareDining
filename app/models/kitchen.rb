@@ -1,5 +1,9 @@
 class Kitchen < ActiveRecord::Base
 
+  before_validation :set_token, on: :create
+  validates_presence_of :token
+  validates_uniqueness_of :token
+
   serialize :washing_station, Array
   serialize :food_preparation, Array
   serialize :cookware, Array
@@ -14,4 +18,9 @@ class Kitchen < ActiveRecord::Base
   # auto-fetch coordinates
   geocoded_by :location
   after_validation :geocode, if: ->(obj){ obj.location.present? and obj.location_changed? }
+
+  protected
+    def set_token
+      self.token = rand(36**8).to_s(36) if self.new_record? and self.token.nil?
+    end
 end
