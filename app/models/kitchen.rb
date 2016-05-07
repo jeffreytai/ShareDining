@@ -1,4 +1,5 @@
 class Kitchen < ActiveRecord::Base
+
   serialize :washing_station, Array
   serialize :food_preparation, Array
   serialize :cookware, Array
@@ -9,4 +10,8 @@ class Kitchen < ActiveRecord::Base
   serialize :baking_and_pastry, Array
   serialize :other_equipment, Array
   serialize :other_amenities, Array
+
+  # auto-fetch coordinates
+  geocoded_by :location
+  after_validation :geocode, if: ->(obj){ obj.location.present? and obj.location_changed? }
 end
