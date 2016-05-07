@@ -7,8 +7,7 @@ class SearchController < ApplicationController
     @coordinates = Geocoder.coordinates(@location)
 
     # Kitchens within 7 miles, limit to 6
-    @nearbyKitchens = Kitchen.near(@location, 10).take(6)
-    puts @nearbyKitchens
+    @nearbyKitchens = Kitchen.near(@location, 15)
 
   end
 
