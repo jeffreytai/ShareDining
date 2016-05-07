@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+# MySQL
+gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -26,24 +28,24 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'browserify-rails'
 # MongoDB
 # gem 'mongoid', '~> 5.0.0'
-gem 'mongoid', '~> 4.0'
-gem 'bson_ext'
+# gem 'mongoid', '~> 4.0'
+# gem 'bson_ext'
 
 # Token field for Mongo
 # gem 'mongoid_token', '~> 4.0.0'
-gem 'mongoid_token', '~> 3.0.0'
+# gem 'mongoid_token', '~> 3.0.0'
 
 # Picture attachment
 # https://github.com/refile/refile
-gem 'refile', require: "refile/rails", git: 'https://github.com/refile/refile.git', branch: 'master'
-gem "refile-mini_magick"
-gem 'refile-mongoid'
+# gem 'refile', require: "refile/rails", git: 'https://github.com/refile/refile.git', branch: 'master'
+# gem "refile-mini_magick"
+# gem 'refile-mongoid'
 
 # User authentication
 gem 'devise'
 
 # Google Maps Geocoder
-gem 'geocoder'
+# gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -3,7 +3,7 @@ class KitchenController < ApplicationController
   # GET /kitchen/1
   # GET /kitchen/1.json
   def show
-    @kitchen = Kitchen.find_by(token: params[:id])
+    @kitchen = Kitchen.find(params[:id])
   end
 
   # GET /kitchen/new
@@ -55,7 +55,7 @@ class KitchenController < ApplicationController
   private
     def kitchen_params
       params.require(:kitchen).permit(:title, :description, :location, :rental_space,
-                                      :kitchen_rules_and_instructions, :additional_details, :price, :photo,
+                                      :kitchen_rules_and_instructions, :additional_details, :price, #:photo,
                                       { washing_station: [] }, { food_preparation: [] },
                                       { food_preparation: [] }, { cookware: [] }, { storage: [] },
                                       { refrigeration: [] }, { ovens_fryers: [] },
