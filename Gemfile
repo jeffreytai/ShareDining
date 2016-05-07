@@ -33,6 +33,9 @@ gem 'devise'
 # Google Maps Geocoder
 gem 'geocoder'
 
+# File attachment (https://github.com/carrierwaveuploader/carrierwave)
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -4,6 +4,10 @@ class Kitchen < ActiveRecord::Base
   validates_presence_of :token
   validates_uniqueness_of :token
 
+  # Mount photos to kitchen
+  mount_uploaders :photos, PhotoUploader
+  serialize :photos, JSON
+
   serialize :washing_station, Array
   serialize :food_preparation, Array
   serialize :cookware, Array

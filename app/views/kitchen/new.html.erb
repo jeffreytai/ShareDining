@@ -71,7 +71,6 @@
               // TODO: this should be moved to a js file and attached to window
               function initialize() {
                 var options = {
-                  types: ['(cities)'],
                   componentRestrictions: { country: "GB" }
                 }
                 var input = document.getElementById('location');
@@ -844,6 +843,7 @@
       <!-- TODO: add availability section -->
       <fieldset class="fieldset" id="pictures">
         <legend class="fieldset-title">Upload Pictures</legend>
+          <%= f.file_field :photos, multiple: true %>
         <!--TODO this needs to be changed to actual picture input-->
       </fieldset>
   <% end %>

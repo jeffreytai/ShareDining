@@ -6,7 +6,7 @@ class SearchController < ApplicationController
     @location = params[:location]
     @coordinates = Geocoder.coordinates(@location)
 
-    # Kitchens within 7 miles, limit to 6
+    # Kitchens within 15 miles
     @nearbyKitchens = Kitchen.near(@location, 15)
 
   end
