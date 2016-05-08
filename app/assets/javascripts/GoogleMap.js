@@ -1,13 +1,20 @@
 export default class GoogleMap {
-  constructor(mapElName, center, zoom = 11) {
-    this.mapElName = mapElName;
-    this.center = center;
-    this.zoom = zoom;
+
+  static createMap($mapContainer, center, zoom = 14, options = {}) {
+    options.center = center;
+    options.zoom = zoom;
+
+    return new google.maps.Map($mapContainer, options);
   }
 
-  init() {
-    const $mapEl = document.querySelector(this.mapElName);
+  static createAutoComplete($inputEl, options = {}) {
+    return new google.maps.places.Autocomplete($inputEl, options);
+  }
 
-    this.map = new google.maps.Map($mapEl, { center: this.center, zoom: this.zoom });
+  static createMapMarker(map, lat, lng) {
+    return new google.maps.Marker({
+      position: { lat, lng },
+      map: map
+    });
   }
 }

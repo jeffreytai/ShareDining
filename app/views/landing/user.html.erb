@@ -14,46 +14,46 @@
   </div>
 
   <div class="landing-search">
-  <%= form_tag({:controller => "search", :action => "results"}, :method => :get, :class => "landing-search-form") do %>
-      <%= text_field_tag :location, nil, class: "landing-location-input", required: "required", :placeholder => "Location" %>
+    <%= form_tag({:controller => "search", :action => "results"}, :method => :get, :class => "landing-search-form") do %>
+        <%= text_field_tag :location, nil, class: "landing-location-input", required: true, :placeholder => "Location", "aria-label": "Location" %>
+        <%= date_field_tag :start_date, nil, class: "landing-start-input", required: true, "aria-label": "Start Date" %>
+        <%= date_field_tag :end_date, nil, class: "landing-end-input", required: true, "aria-label": "End Date" %>
 
-      <input class="landing-start-input" type="date" aria-label="Start Date" required=>
-      <input class="landing-end-input" type="date" aria-label="End Date" required>
-      <button class="landing-submit">Search</button>
+        <input type="submit" class="landing-submit">Search</input>
 
-      <!-- Google Maps Autocomplete -->
-      <script>
-        // TODO: this should be moved to a js file and attached to window
-        function initialize() {
-          var options = {
-            types: ['(cities)'],
-            componentRestrictions: { country: "GB" }
+        <!-- Google Maps Autocomplete -->
+        <script>
+          // TODO: this should be moved to a js file and attached to window
+          function initialize() {
+            var options = {
+              types: ['(cities)'],
+              componentRestrictions: { country: "GB" }
+            }
+            var input = document.getElementById('location');
+            var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+            // var geocoder = new google.maps.Geocoder();
+            // document.getElementById('submit').addEventListener('click', function() {
+            //   geocodeAddress(geocoder);
+            // });
           }
-          var input = document.getElementById('location');
-          var autocomplete = new google.maps.places.Autocomplete(input, options);
 
-          // var geocoder = new google.maps.Geocoder();
-          // document.getElementById('submit').addEventListener('click', function() {
-          //   geocodeAddress(geocoder);
-          // });
-        }
-
-        // function geocodeAddress(geocoder) {
-        //   var address = document.getElementById('address').value;
-        //   geocoder.geocode({'address': address}, function(results, status) {
-        //     if (status === google.maps.GeocoderStatus.OK) {
-        //       var lat = results[0].geometry.location.lat();
-        //       var lng = results[0].geometry.location.lng();
-        //
-        //       document.getElementById('latitude').value = lat;
-        //       document.getElementById('longitude').value = lng;
-        //     } else {
-        //       alert('Geocode was not successful for the following reason: ' + status);
-        //     }
-        //   });
-        // }
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
+          // function geocodeAddress(geocoder) {
+          //   var address = document.getElementById('address').value;
+          //   geocoder.geocode({'address': address}, function(results, status) {
+          //     if (status === google.maps.GeocoderStatus.OK) {
+          //       var lat = results[0].geometry.location.lat();
+          //       var lng = results[0].geometry.location.lng();
+          //
+          //       document.getElementById('latitude').value = lat;
+          //       document.getElementById('longitude').value = lng;
+          //     } else {
+          //       alert('Geocode was not successful for the following reason: ' + status);
+          //     }
+          //   });
+          // }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
 
     <% end %>
     </form>

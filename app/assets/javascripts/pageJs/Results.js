@@ -2,8 +2,13 @@ import JsController from 'JsController';
 import InfiniteScroll from 'InfiniteScroll';
 import { addUrlParams } from 'utils';
 import 'whatwg-fetch';
+import GoogleMap from 'GoogleMap';
+
 
 const RESULT_CLASS = 'result';
+const KITCHENS_URL = '/api/v1/kitchens';
+const NUM_RESULTS_TO_RETURN_INIT = 6;
+const NUM_RESULTS_TO_RETURN_SCROLL = 4;
 
 function makeKitchenHtml(kitchen) {
   const liEl = document.createElement('LI');
@@ -23,25 +28,64 @@ function makeKitchenHtml(kitchen) {
 }
 
 JsController.results = function () {
+  const $mapContainer = document.querySelector('#map');
+  const $locationInput = document.querySelector('#pac-input');
   const $resultsContainer = document.querySelector('.results-container');
   const $resultsList = document.querySelector('.results-list');
-  const KITCHENS_URL = '/api/v1/kitchens';
-  const NUM_RESULTS_TO_RETURN = 3;
+  let currentLatLng = { lat: window.landingLatitude, lng: window.landingLongitude };
+  let googleMapObject;
+  let googleAutoCompleteObject;
   let currentIndex = 0;
 
-  const infiniteScrollController = new InfiniteScroll($resultsContainer, () => {
-    const url = addUrlParams(KITCHENS_URL, { 'num_results': NUM_RESULTS_TO_RETURN, 'index': currentIndex });
+  /**
+   * Fetches the next numResults
+   * @param {Number} numResults - number of results to fetch
+   * @returns {Promise.<*>|*} - promise with json data
+   */
+  function fetchNextResults(numResults) {
+    const url = addUrlParams(KITCHENS_URL, { 'num_results': numResults, 'index': currentIndex });
 
-    // get the new kitchen data and append it to the result list
-    fetch(url).then((data) => data.json()).then((json) => {
-      const listFragment = document.createDocumentFragment();
-      json.map(makeKitchenHtml).forEach((listElement) => {
-        listFragment.appendChild(listElement);
-      });
+    return fetch(url).then((data) => data.json());
+  }
 
-      $resultsList.appendChild(listFragment);
+  /**
+   * Loads the next numResults and returns true/false depending on if there is more data
+   * @param {Number} numResults - number of results to load
+   * @return {void}
+   */
+  function loadNextResults(numResults) {
+    fetchNextResults(numResults).then((json) => {
+      if (json && json.length) {
+        const listFragment = document.createDocumentFragment();
+
+        json.map(makeKitchenHtml).forEach((listElement) => {
+          listFragment.appendChild(listElement);
+        });
+
+        json.forEach((kitchen) => GoogleMap.createMapMarker(googleMapObject, kitchen.latitude, kitchen.longitude));
+
+        $resultsList.appendChild(listFragment);
+        currentIndex += numResults;
+      }
     });
-  });
+  }
 
+  // setup the infinite scrolling to return more results
+  const infiniteScrollController = new InfiniteScroll($resultsContainer, () => {
+    loadNextResults(NUM_RESULTS_TO_RETURN_SCROLL);
+  });
   infiniteScrollController.attachEvents();
+
+  // google maps callback
+  window.resultsGoogleInit = function () {
+    const autoCompleteOptions = {
+      types: ['(cities)'],
+      componentRestrictions: { country: 'GB' }
+    };
+
+    // init the autocomplete, the map, and then fetch the initial results
+    googleAutoCompleteObject = GoogleMap.createAutoComplete($locationInput, autoCompleteOptions);
+    googleMapObject = GoogleMap.createMap($mapContainer, currentLatLng);
+    loadNextResults(NUM_RESULTS_TO_RETURN_INIT);
+  };
 };
