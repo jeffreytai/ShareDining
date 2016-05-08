@@ -1,4 +1,4 @@
-<!-- <body data-js="results"> -->
+<body data-js="results">
 <%= render 'shared/navigation' %>
 
 <section id="map" class="results-map-container">
@@ -38,8 +38,8 @@
       function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           <% @nearbyKitchens.each do |kitchen| %>
-            var coordinates = { lat: <%= kitchen.latitude %>, lng: <%= kitchen.longitude %> };
-            createMarker(coordinates);
+          var coordinates = { lat: <%= kitchen.latitude %>, lng: <%= kitchen.longitude %> };
+          createMarker(coordinates);
           <% end %>
         }
       }
@@ -109,15 +109,15 @@
 
   <ul class="results-list">
     <% @nearbyKitchens.each do |kitchen| %>
-      <li class="result">
-        <a class="result-link" href="/kitchen/<%= kitchen.token %>">
-          <h2 class="result-title"><%= kitchen.title %></h2>
-          <h2 class="result-price-container">
-            <span class="result-price">£<%= kitchen.price %></span>
-            <span class="result-price-after">/night</span>
-          </h2>
-        </a>
-      </li>
+        <li class="result">
+          <a class="result-link" href="/kitchen/<%= kitchen.token %>">
+            <h2 class="result-title"><%= kitchen.title %></h2>
+            <h2 class="result-price-container">
+              <span class="result-price">£<%= kitchen.price %></span>
+              <span class="result-price-after">/night</span>
+            </h2>
+          </a>
+        </li>
     <% end %>
   </ul>
 

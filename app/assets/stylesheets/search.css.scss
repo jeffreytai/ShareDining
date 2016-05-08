@@ -147,7 +147,7 @@ svg {
 
     // TODO: change this so the results have real backgrounds
     @for $i from 1 to 7 {
-      &:nth-child(#{$i}) {
+      &:nth-child(#{$i}n) {
         background-image: image_url('sampleKitchens/#{$i}.jpg');
       }
     }

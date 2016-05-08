@@ -8,15 +8,15 @@ class KitchenController < ApplicationController
 
   # TODO: more error handling and more parameters need to be added
   def filter
-    @start_index = params[:start_index] ? Integer(params[:start_index]) : nil
+    @index = params[:index] ? Integer(params[:index]) : nil
     @num_results = params[:num_results] ? Integer(params[:num_results]) : nil
 
-    if !@start_index.present? || !@num_results.present?
+    if !@index.present? || !@num_results.present?
       render :nothing => true, :status => 400
       return
     end
 
-    @filtered_kitchens = Kitchen.all[@start_index...@start_index + @num_results]
+    @filtered_kitchens = Kitchen.all[@index...@index + @num_results]
     render json: @filtered_kitchens
   end
 

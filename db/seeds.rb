@@ -239,242 +239,242 @@ Kitchen.create(
   user_id: 1
 )
 #
-# Kitchen.create(
-#   title: "London Fields",
-#   description: "This spacious tunnel arch kitchen space in East London has been fitted to the highest of standards. Located just a one minute walk from London fields overground station it is in a prime location, with good access to the city and central. The kitchen is currently run by a confectionery business that have some excess space so are looking for a trusted tenant to share.",
-#   rental_space: "Shared Space",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "London Greater London E8 3PH",
-#   kitchen_rules_and_instructions: "None",
-#   price: 85,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Whipps Cross",
-#   description: "No description",
-#   rental_space: "Shared Space",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Lea Bridge Road London Greater London E17 9DW",
-#   kitchen_rules_and_instructions: "None",
-#   price: 10,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Stratford",
-#   description: "N/A",
-#   rental_space: "Whole Kitchen",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Portway London Greater London E15 3QN",
-#   kitchen_rules_and_instructions: "None",
-#   price: 62,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Brixton",
-#   description: "N/A",
-#   rental_space: "Whole Kitchen",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Upper Tulse Hill London Greater London",
-#   kitchen_rules_and_instructions: "None",
-#   price: 57,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Mitcham",
-#   description: "N/A",
-#   rental_space: "Shared Space",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Mitcham Road Croydon Greater London CR0 3RU",
-#   kitchen_rules_and_instructions: "None",
-#   price: 57,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Sutton",
-#   description: "N/A",
-#   rental_space: "Shared Space",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Sutton Greater London SM3 9HG",
-#   kitchen_rules_and_instructions: "None",
-#   price: 57,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Bexleyheath",
-#   description: "N/A",
-#   rental_space: "Whole Kitchen",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Watling Street Bexleyheath Greater London DA6 7QQ",
-#   kitchen_rules_and_instructions: "None",
-#   price: 10,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Balham",
-#   description: "N/A",
-#   rental_space: "Whole Kitchen",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Balham High Road London Greater London SW17 7BQ",
-#   kitchen_rules_and_instructions: "None",
-#   price: 50,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Blackheath",
-#   description: "N/A",
-#   rental_space: "Whole Kitchen",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "London Greater London SE3 0QZ",
-#   kitchen_rules_and_instructions: "None",
-#   price: 50,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Catford",
-#   description: "N/A",
-#   rental_space: "Whole Kitchen",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Bromley Road London Greater London SE6 2RH",
-#   kitchen_rules_and_instructions: "None",
-#   price: 405,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Southfields",
-#   description: "N/A",
-#   rental_space: "Whole Kitchen",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Merton Road London Greater London",
-#   kitchen_rules_and_instructions: "None",
-#   price: 405,
-#   additional_details: "None"
-# )
-#
-# Kitchen.create(
-#   title: "Ewell",
-#   description: "N/A",
-#   rental_space: "Shared Space",
-#   washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
-#   food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
-#   cookware: ["Stock pot (Large)", "Frying pan (Large)"],
-#   storage: ["Regency shelving stack", "Food storage containers (Large)"],
-#   refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
-#   ovens_fryers: ["Double stack convection"],
-#   oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
-#   baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
-#   other_equipment: ["Toaster"],
-#   other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
-#   location: "Epsom England",
-#   kitchen_rules_and_instructions: "None",
-#   price: 435,
-#   additional_details: "None"
-# )
+Kitchen.create(
+  title: "London Fields",
+  description: "This spacious tunnel arch kitchen space in East London has been fitted to the highest of standards. Located just a one minute walk from London fields overground station it is in a prime location, with good access to the city and central. The kitchen is currently run by a confectionery business that have some excess space so are looking for a trusted tenant to share.",
+  rental_space: "Shared Space",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "London Greater London E8 3PH",
+  kitchen_rules_and_instructions: "None",
+  price: 85,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Whipps Cross",
+  description: "No description",
+  rental_space: "Shared Space",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Lea Bridge Road London Greater London E17 9DW",
+  kitchen_rules_and_instructions: "None",
+  price: 10,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Stratford",
+  description: "N/A",
+  rental_space: "Whole Kitchen",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Portway London Greater London E15 3QN",
+  kitchen_rules_and_instructions: "None",
+  price: 62,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Brixton",
+  description: "N/A",
+  rental_space: "Whole Kitchen",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Upper Tulse Hill London Greater London",
+  kitchen_rules_and_instructions: "None",
+  price: 57,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Mitcham",
+  description: "N/A",
+  rental_space: "Shared Space",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Mitcham Road Croydon Greater London CR0 3RU",
+  kitchen_rules_and_instructions: "None",
+  price: 57,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Sutton",
+  description: "N/A",
+  rental_space: "Shared Space",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Sutton Greater London SM3 9HG",
+  kitchen_rules_and_instructions: "None",
+  price: 57,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Bexleyheath",
+  description: "N/A",
+  rental_space: "Whole Kitchen",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Watling Street Bexleyheath Greater London DA6 7QQ",
+  kitchen_rules_and_instructions: "None",
+  price: 10,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Balham",
+  description: "N/A",
+  rental_space: "Whole Kitchen",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Balham High Road London Greater London SW17 7BQ",
+  kitchen_rules_and_instructions: "None",
+  price: 50,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Blackheath",
+  description: "N/A",
+  rental_space: "Whole Kitchen",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "London Greater London SE3 0QZ",
+  kitchen_rules_and_instructions: "None",
+  price: 50,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Catford",
+  description: "N/A",
+  rental_space: "Whole Kitchen",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Bromley Road London Greater London SE6 2RH",
+  kitchen_rules_and_instructions: "None",
+  price: 405,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Southfields",
+  description: "N/A",
+  rental_space: "Whole Kitchen",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Merton Road London Greater London",
+  kitchen_rules_and_instructions: "None",
+  price: 405,
+  additional_details: "None"
+)
+
+Kitchen.create(
+  title: "Ewell",
+  description: "N/A",
+  rental_space: "Shared Space",
+  washing_station: ["Washing up sink (Double compartment)", "Pre-rinse hose", "Drainboard", "Dishwasher (Under Counter)", "Hand wash sink"],
+  food_preparation: ["Open base work top table (Double unit)", "Work table with cabinet underneath (Double unit)", "Knife rack", "Colander", "Prep Bowl (Large)"],
+  cookware: ["Stock pot (Large)", "Frying pan (Large)"],
+  storage: ["Regency shelving stack", "Food storage containers (Large)"],
+  refrigeration: ["Walk-in refrigerator", "Refrigerated prep table"],
+  ovens_fryers: ["Double stack convection"],
+  oven_equipment_and_storage: ["Immersion fan", "Sheet pan", "Oven gloves"],
+  baking_and_pastry: ["Dry measuring cup", "Liquid measures (Small jug)", "Proofing drawers"],
+  other_equipment: ["Toaster"],
+  other_amenities: ["Wifi", "Toilets", "Office space", "Wheelchair accessible"],
+  location: "Epsom England",
+  kitchen_rules_and_instructions: "None",
+  price: 435,
+  additional_details: "None"
+)
