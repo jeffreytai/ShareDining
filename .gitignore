@@ -21,3 +21,6 @@
 
 # Ignore npm modules b/c npm i
 /node_modules
+
+# Ignore public uploads
+/public/uploads/*

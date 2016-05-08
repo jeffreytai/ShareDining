@@ -3,7 +3,7 @@ class KitchenController < ApplicationController
   # GET /kitchen/1
   # GET /kitchen/1.json
   def show
-    @kitchen = Kitchen.find(params[:id])
+    @kitchen = Kitchen.find_by(token: params[:id])
   end
 
   # TODO: more error handling and more parameters need to be added
@@ -36,7 +36,8 @@ class KitchenController < ApplicationController
     params[:whole_kitchen] == "1" ? (@kitchen.rental_space = "Whole Kitchen") : (@kitchen.rental_space = "Shared Space")
 
     if @kitchen.save
-      redirect_to @kitchen
+      @photos = @kitchen.photos
+      redirect_to kitchen_path(@kitchen.token)
       flash[:notice] = 'Kitchen was successfully added.'
     else
       respond_to do |format|
@@ -68,13 +69,13 @@ class KitchenController < ApplicationController
 
   private
     def kitchen_params
-      params.require(:kitchen).permit(:title, :description, :location, :rental_space,
-                                      :kitchen_rules_and_instructions, :additional_details, :price, #:photo,
+      params.require(:kitchen).permit(:user_id, :title, :description, :location, :rental_space,
+                                      :kitchen_rules_and_instructions, :additional_details, :price,
                                       { washing_station: [] }, { food_preparation: [] },
                                       { food_preparation: [] }, { cookware: [] }, { storage: [] },
                                       { refrigeration: [] }, { ovens_fryers: [] },
                                       { oven_equipment_and_storage: [] }, { baking_and_pastry: [] },
-                                      { other_equipment: [] }, { other_amenities: [] }
+                                      { other_equipment: [] }, { other_amenities: [] }, { photos: [] }
                                       # :availability
                                       )
     end

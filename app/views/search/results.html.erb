@@ -20,9 +20,7 @@
       var autocomplete = new google.maps.places.Autocomplete(input, options);
 
       /* Google Maps section */
-      var cntr = { lat: 0, lng: 0 };
-      <%# var cntr = { lat: <%= @latitude , lng: <%= @longitude  }; %>
-
+      var cntr = { lat: <%= @coordinates[0] %>, lng: <%= @coordinates[1] %> };
 
       map = new google.maps.Map(document.getElementById('map'), {
         center: cntr,
@@ -40,8 +38,7 @@
       function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           <% @nearbyKitchens.each do |kitchen| %>
-          var coordinates = { lat: 0, lng: 0 };
-            <%# var coordinates = { lat: <%= kitchen.coordinates[1] , lng: <%= kitchen.coordinates[0]  }; %>
+            var coordinates = { lat: <%= kitchen.latitude %>, lng: <%= kitchen.longitude %> };
             createMarker(coordinates);
           <% end %>
         }
@@ -113,7 +110,7 @@
   <ul class="results-list">
     <% @nearbyKitchens.each do |kitchen| %>
       <li class="result">
-        <a class="result-link" href="/kitchen/<%= kitchen.id %>">
+        <a class="result-link" href="/kitchen/<%= kitchen.token %>">
           <h2 class="result-title"><%= kitchen.title %></h2>
           <h2 class="result-price-container">
             <span class="result-price">£<%= kitchen.price %></span>

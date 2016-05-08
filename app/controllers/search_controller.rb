@@ -4,12 +4,11 @@ class SearchController < ApplicationController
 
   def results
     @location = params[:location]
-    # @latitude = (Geocoder.search(@location))[0].latitude
-    # @longitude = (Geocoder.search(@location))[0].longitude
+    @coordinates = Geocoder.coordinates(@location)
 
-    # limit number of results to 6
-    # @nearbyKitchens = Kitchen.near(:coordinates => [@latitude, @longitude]).take(6)
-    @nearbyKitchens = Kitchen.all
+    # Kitchens within 15 miles
+    @nearbyKitchens = Kitchen.near(@location, 15)
+
   end
 
 end

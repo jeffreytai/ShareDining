@@ -1,4 +1,15 @@
 class Kitchen < ActiveRecord::Base
+
+  before_validation :set_token, on: :create
+  validates_presence_of :token
+  validates_uniqueness_of :token
+
+  belongs_to :user
+
+  # Mount photos to kitchen
+  mount_uploaders :photos, PhotoUploader
+  serialize :photos, JSON
+
   serialize :washing_station, Array
   serialize :food_preparation, Array
   serialize :cookware, Array
@@ -9,4 +20,13 @@ class Kitchen < ActiveRecord::Base
   serialize :baking_and_pastry, Array
   serialize :other_equipment, Array
   serialize :other_amenities, Array
+
+  # auto-fetch coordinates
+  geocoded_by :location
+  after_validation :geocode, if: ->(obj){ obj.location.present? and obj.location_changed? }
+
+  protected
+    def set_token
+      self.token = rand(36**8).to_s(36) if self.new_record? and self.token.nil?
+    end
 end

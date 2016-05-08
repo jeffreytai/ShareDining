@@ -27,15 +27,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # add Babel to the build
 gem 'browserify-rails'
 
-# Token field for Mongo
-# gem 'mongoid_token', '~> 4.0.0'
-# gem 'mongoid_token', '~> 3.0.0'
-
 # User authentication
 gem 'devise'
 
 # Google Maps Geocoder
-# gem 'geocoder'
+gem 'geocoder'
+
+# File attachment (https://github.com/carrierwaveuploader/carrierwave)
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+# Resizing pictures for thumbnails (https://github.com/minimagick/minimagick)
+gem 'mini_magick'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

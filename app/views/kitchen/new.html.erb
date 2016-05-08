@@ -55,6 +55,7 @@
       <fieldset class="fieldset fieldset-basic current" id="basic-information">
         <legend class="fieldset-title">Basic Information</legend>
         <ul class="input-list">
+          <%= f.hidden_field :user_id, value: current_user.id %>
           <li>
             <label for="title">Title</label>
             <%= f.text_field :title, id: "title", required: "true" %>
@@ -71,7 +72,6 @@
               // TODO: this should be moved to a js file and attached to window
               function initialize() {
                 var options = {
-                  types: ['(cities)'],
                   componentRestrictions: { country: "GB" }
                 }
                 var input = document.getElementById('location');
@@ -844,6 +844,7 @@
       <!-- TODO: add availability section -->
       <fieldset class="fieldset" id="pictures">
         <legend class="fieldset-title">Upload Pictures</legend>
+          <%= f.file_field :photos, multiple: true %>
         <!--TODO this needs to be changed to actual picture input-->
       </fieldset>
   <% end %>

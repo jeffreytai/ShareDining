@@ -30,7 +30,9 @@
   </section>
 
   <section class="listing-images-container">
-    <%= image_tag "sampleKitchens/3.jpeg", class: "listing-image" %>
+    <% @kitchen.photos.each do |photo| %>
+      <%= image_tag photo %>
+    <% end %>
   </section>
 
   <section class="listing-details-container">

@@ -11,29 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507021408) do
+ActiveRecord::Schema.define(version: 20160507075745) do
 
-  create_table "kitchens", force: :cascade do |t|
-    t.string   "title",                          limit: 255
-    t.text     "description",                    limit: 65535
-    t.string   "rental_space",                   limit: 255
-    t.text     "washing_station",                limit: 65535
-    t.text     "food_preparation",               limit: 65535
-    t.text     "cookware",                       limit: 65535
-    t.text     "storage",                        limit: 65535
-    t.text     "refrigeration",                  limit: 65535
-    t.text     "ovens_fryers",                   limit: 65535
-    t.text     "oven_equipment_and_storage",     limit: 65535
-    t.text     "baking_and_pastry",              limit: 65535
-    t.text     "other_equipment",                limit: 65535
-    t.text     "other_amenities",                limit: 65535
-    t.string   "location",                       limit: 255
-    t.text     "kitchen_rules_and_instructions", limit: 65535
-    t.integer  "price",                          limit: 4
-    t.text     "additional_details",             limit: 65535
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
-  end
+# Could not dump table "kitchens" because of following StandardError
+#   Unknown type 'json' for column 'photos'
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -55,4 +36,5 @@ ActiveRecord::Schema.define(version: 20160507021408) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "kitchens", "users"
 end

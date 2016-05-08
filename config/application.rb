@@ -32,5 +32,8 @@ module ShareDining
 
     # Add fonts to asset pipeline
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    # Serve static assets such as images
+    config.serve_static_files = true
   end
 end
