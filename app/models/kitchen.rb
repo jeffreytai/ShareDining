@@ -4,6 +4,11 @@ class Kitchen < ActiveRecord::Base
   validates_presence_of :token
   validates_uniqueness_of :token
 
+  validates :title, presence: true
+  validates :rental_space, presence: true
+  validates :location, presence: true
+  validates :price, presence: true
+
   belongs_to :user
 
   # Mount photos to kitchen
