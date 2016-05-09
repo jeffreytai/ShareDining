@@ -10,6 +10,7 @@ class Kitchen < ActiveRecord::Base
   validates :price, presence: true
 
   belongs_to :user
+  has_many :reservations
 
   # Mount photos to kitchen
   mount_uploaders :photos, PhotoUploader
