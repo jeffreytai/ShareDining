@@ -6,8 +6,6 @@
     <h2 class="listing-title"><%= @kitchen.title %></h2>
     <ul class="listing-details-list">
       <li><%= @kitchen.location %></li>
-      <!-- <li>Portland, OR, USA</li>
-      <li>465 Square Meters</li> -->
       <li>2 Reviews</li>
     </ul>
   </section>
@@ -20,12 +18,10 @@
     </form>
     <div class="listing-price-container">
         <span class="listing-price">
-          <span class="price-math">£<%= @kitchen.price %>/day * 2 days =</span>
+          <span class="price-math">£<%= @kitchen.price %>/hr * 3 hours =</span>
           <span class="listing-total-price">$920</span>
         </span>
-      <button class="transparent-button listing-book-button">
-        Request Kitchen
-      </button>
+      <%= link_to 'Request Kitchen', new_reservation_path(@kitchen), class: "transparent-button listing-book-button" %>
     </div>
   </section>
 

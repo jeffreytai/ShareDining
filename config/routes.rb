@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :kitchen
 
+  resources :reservation
+
   scope '/api' do
     scope '/v1' do
       get '/kitchens' => 'kitchen#filter'
