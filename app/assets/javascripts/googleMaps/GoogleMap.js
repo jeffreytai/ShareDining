@@ -96,7 +96,7 @@ export default class GoogleMap {
   static createMap($mapContainer, center, zoom = 14, options = {}) {
     options.center = center;
     options.zoom = zoom;
-    options.styles =
+    options.styles = 
 
     return new google.maps.Map($mapContainer, options);
   }
@@ -108,7 +108,7 @@ export default class GoogleMap {
   static createMapMarker(map, lat, lng) {
     // TODO: change this to something better
     var icon = {
-      
+
     };
 
     return new google.maps.Marker({
