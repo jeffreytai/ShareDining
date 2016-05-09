@@ -2,6 +2,7 @@ import JsController from 'JsController';
 import 'pageJs/Landing';
 import 'pageJs/Results';
 import 'pageJs/KitchenNewController';
+import 'pageJs/KitchenShow';
 
 function loadPageJs() {
   // grab the data-js attribute off of body, which indicates which modules we need to init

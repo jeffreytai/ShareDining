@@ -1,4 +1,4 @@
-<body class="kitchen-listing-body">
+<body class="kitchen-listing-body" data-js="kitchen-show">
 <%= render("shared/menu") %>
 
 <div class="listing-container">
@@ -25,10 +25,17 @@
     </div>
   </section>
 
-  <section class="listing-images-container">
-    <% @kitchen.photos.each do |photo| %>
-      <%= image_tag photo %>
-    <% end %>
+  <section class="listing-images-container slider-container">
+    <button class="prev-button">&lt;</button>
+    <button class="next-button">&gt;</button>
+    <ul class="slider-list">
+      <% @kitchen.photos.each do |photo| %>
+          <li class="slider-list-element">
+            <%= image_tag photo %>
+          </li>
+      <% end %>
+    </ul>
+    <ul class="breadcrumb-list"></ul>
   </section>
 
   <section class="listing-details-container">
@@ -42,70 +49,70 @@
       <h2 class="listing-details-heading">Washing Station</h2>
       <ul class="listing-features-list">
         <% @kitchen.washing_station.each do |washing_station| %>
-          <li><%= washing_station %></li>
+            <li><%= washing_station %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Food Preparation</h2>
       <ul class="listing-features-list">
         <% @kitchen.food_preparation.each do |food_preparation| %>
-          <li><%= food_preparation %></li>
+            <li><%= food_preparation %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Cookware</h2>
       <ul class="listing-features-list">
         <% @kitchen.cookware.each do |cookware| %>
-          <li><%= cookware %></li>
+            <li><%= cookware %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Storage</h2>
       <ul class="listing-features-list">
         <% @kitchen.storage.each do |storage| %>
-          <li><%= storage %></li>
+            <li><%= storage %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Refrigeration</h2>
       <ul class="listing-features-list">
         <% @kitchen.refrigeration.each do |refrigeration| %>
-          <li><%= refrigeration %></li>
+            <li><%= refrigeration %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Ovens/Fryers</h2>
       <ul class="listing-features-list">
         <% @kitchen.ovens_fryers.each do |ovens_fryers| %>
-          <li><%= ovens_fryers %></li>
+            <li><%= ovens_fryers %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Oven Equipment &amp; Storage</h2>
       <ul class="listing-features-list">
         <% @kitchen.oven_equipment_and_storage.each do |oven_equipment_and_storage| %>
-          <li><%= oven_equipment_and_storage %></li>
+            <li><%= oven_equipment_and_storage %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Baking &amp; Pastry</h2>
       <ul class="listing-features-list">
         <% @kitchen.baking_and_pastry.each do |baking_and_pastry| %>
-          <li><%= baking_and_pastry %></li>
+            <li><%= baking_and_pastry %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Other Equipment</h2>
       <ul class="listing-features-list">
         <% @kitchen.other_equipment.each do |other_equipment| %>
-          <li><%= other_equipment %></li>
+            <li><%= other_equipment %></li>
         <% end %>
       </ul>
 
       <h2 class="listing-details-heading">Other Amenities</h2>
       <ul class="listing-features-list">
         <% @kitchen.other_amenities.each do |other_amenities| %>
-          <li><%= other_amenities %></li>
+            <li><%= other_amenities %></li>
         <% end %>
       </ul>
 
