@@ -1,0 +1,16 @@
+<h2>Reservation Information</h2>
+
+<%= form_for @reservation, url: { action: "create" } do |f| %>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <p>Start</p>
+  <%= f.datetime_local_field :start_time %>
+
+  <p>End</p>
+  <%= f.datetime_local_field :end_time %>
+
+  <%= f.submit "Make Reservation" %>
+
+
+<% end %>
