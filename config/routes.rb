@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   get 'search/results'
   post 'kitchen/create'
 
-  resources :kitchen
+  resources :kitchen do
+    resources :reservation, only: [:new, :create]
+  end
 
-  resources :reservation
+  resources :reservation, only: [:show, :edit, :update, :destroy]
 
   scope '/api' do
     scope '/v1' do

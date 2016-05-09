@@ -2,9 +2,10 @@ import JsController from 'JsController';
 import InfiniteScroll from 'InfiniteScroll';
 import { addUrlParams } from 'utils';
 import 'whatwg-fetch';
-import GoogleMap from 'GoogleMap';
+import GoogleMap from 'googleMaps/GoogleMap';
+import { MARKER_DEFAULT_STYLES, MARKER_HOVER_STYLES } from 'googleMaps/styles';
 
-
+const LOADING_CLASS = 'loading';
 const RESULT_CLASS = 'result';
 const KITCHENS_URL = '/api/v1/kitchens';
 const NUM_RESULTS_TO_RETURN_INIT = 6;
@@ -16,7 +17,7 @@ function makeKitchenHtml(kitchen) {
   liEl.classList.add(RESULT_CLASS);
 
   liEl.innerHTML = `
-        <a class="result-link" href="/kitchen/${kitchen.token}">
+        <a class="result-link" id="${kitchen.token}" href="/kitchen/${kitchen.token}">
           <h2 class="result-title">${kitchen.title}</h2>
           <h2 class="result-price-container">
             <span class="result-price">£${kitchen.price}</span>
@@ -32,9 +33,12 @@ JsController.results = function () {
   const $locationInput = document.querySelector('#pac-input');
   const $resultsContainer = document.querySelector('.results-container');
   const $resultsList = document.querySelector('.results-list');
+  const $filterList = document.querySelector('.filters-list');
+  let kitchenToMarkerMap = {};
   let currentLatLng = { lat: window.landingLatitude, lng: window.landingLongitude };
   let googleMapObject;
   let googleAutoCompleteObject;
+  let currentHoveredId;
   let currentIndex = 0;
 
   /**
@@ -51,10 +55,10 @@ JsController.results = function () {
   /**
    * Loads the next numResults and returns true/false depending on if there is more data
    * @param {Number} numResults - number of results to load
-   * @return {void}
+   * @return {Promise} - promise after results are loaded
    */
   function loadNextResults(numResults) {
-    fetchNextResults(numResults).then((json) => {
+    return fetchNextResults(numResults).then((json) => {
       if (json && json.length) {
         const listFragment = document.createDocumentFragment();
 
@@ -62,10 +66,14 @@ JsController.results = function () {
           listFragment.appendChild(listElement);
         });
 
-        json.forEach((kitchen) => GoogleMap.createMapMarker(googleMapObject, kitchen.latitude, kitchen.longitude));
+        // create the marker on the map and map it to the kitchen
+        json.forEach((kitchen) => {
+          kitchenToMarkerMap[kitchen.token] = GoogleMap.createMapMarker(googleMapObject, kitchen.latitude, kitchen.longitude);
+        });
 
         $resultsList.appendChild(listFragment);
         currentIndex += numResults;
+        $resultsContainer.classList.remove(LOADING_CLASS);
       }
     });
   }
@@ -75,6 +83,41 @@ JsController.results = function () {
     loadNextResults(NUM_RESULTS_TO_RETURN_SCROLL);
   });
   infiniteScrollController.attachEvents();
+
+  // attach event so that markers change on kitchen element hovers
+  $resultsList.addEventListener('mouseenter', (evt) => {
+    var target = evt.target;
+
+    if (target && target.nodeName === 'A') {
+      let kitchenId = target.id;
+
+      // unhighlight previous kitchen incase mouseleave didn't do it
+      if (currentHoveredId && currentHoveredId !== kitchenId) {
+        kitchenToMarkerMap[currentHoveredId].setIcon(MARKER_DEFAULT_STYLES);
+      }
+
+      kitchenToMarkerMap[kitchenId].setIcon(MARKER_HOVER_STYLES);
+      currentHoveredId = kitchenId;
+    }
+  }, true);
+
+  // attach event so markers change back
+  $resultsList.addEventListener('mouseleave', () => {
+    if (currentHoveredId) {
+      kitchenToMarkerMap[currentHoveredId].setIcon(MARKER_DEFAULT_STYLES);
+      currentHoveredId = null;
+    }
+  });
+
+  // attach event on filter or location change
+  $filterList.addEventListener('change', () => {
+    $resultsContainer.classList.add(LOADING_CLASS);
+    currentIndex = 0;
+    Array.prototype.forEach.call($resultsList.querySelectorAll('.result'), (e) => $resultsList.removeChild(e));
+    // TODO: remove map markers
+    kitchenToMarkerMap = {};
+    loadNextResults(NUM_RESULTS_TO_RETURN_INIT);
+  });
 
   // google maps callback
   window.resultsGoogleInit = function () {

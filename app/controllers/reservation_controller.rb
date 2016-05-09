@@ -1,8 +1,7 @@
 class ReservationController < ApplicationController
 
   def new
-    @kitchen_id = params[:id]
-    puts @kitchen_id # doesn't work
+    @kitchen = Kitchen.find(params[:kitchen_id])
     @reservation = Reservation.new
   end
 

@@ -1,12 +1,5 @@
 <!--we should render this on everypage and simply link to the icons via use-->
 <%= render 'shared/icons' %>
-<style>
-  .pac-container:after {
-    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
-
-    /*display:none !important;*/
-  }
-</style>
 <nav class="main-nav">
   <a class="main-logo-link clearfix" href="<%= root_url %>"><h1 class="main-logo">ShareDining</h1></a>
   <label for="nav-search" class="nav-search-icon">
@@ -14,7 +7,7 @@
       <use xlink:href="#search"></use>
     </svg>
   </label>
-  <input id="pac-input" type="text" class="nav-search" placeholder="Portland, OR, United States">
+  <input id="pac-input" type="text" class="nav-search" placeholder="Location" aria-label="Location" value="<%= @location %>">
 
   <ul class="landing-links">
     <% if user_signed_in? %>
@@ -31,21 +24,4 @@
   <a href="<%= new_kitchen_path %>"><button class="transparent-button landing-rent-button">
     Rent Your Kitchen
   </button></a>
-
-  <!-- <button class="account-nav-button">
-    <% if user_signed_in? %>
-      <span class="button-text"><%= current_user.first_name %></span>
-    <% else %>
-      <span class="button-text">Log In</span>
-    <% end %>
-    <svg>
-      <use xlink:href="#user"></use>
-    </svg>
-  </button>
-  <button class="help-nav-button">
-    <span class="button-text">FAQ</span>
-    <svg>
-      <use xlink:href="#help"></use>
-    </svg>
-  </button> -->
 </nav>
