@@ -4,6 +4,7 @@ class KitchenController < ApplicationController
   # GET /kitchen/1.json
   def show
     @kitchen = Kitchen.find_by(token: params[:id])
+    # puts @kitchen.photos.class
   end
 
   # TODO: more error handling and more parameters need to be added
