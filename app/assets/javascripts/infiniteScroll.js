@@ -17,7 +17,7 @@ export default class InfiniteScroll {
       if (percentScroll >= this.sensitivity) {
         this.callback();
       }
-    }, 100));
+    }, 200));
 
     window.addEventListener('resize', debounce(() => {
       this.clientHeight = this.el.clientHeight;

@@ -108,6 +108,6 @@ jsController['kitchen-new'] = function () {
       $stickyMenu.classList.remove(STICKY_MENU_CLASS);
       isStuck = !isStuck;
     }
-  }, 20));
+  }, 50));
 }
 ;
