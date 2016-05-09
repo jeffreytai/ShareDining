@@ -7,19 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <%= stylesheet_link_tag "main" %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <!-- <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-
 <%= yield %>
 
-</body>
 </html>

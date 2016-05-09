@@ -3,6 +3,8 @@ class SearchController < ApplicationController
   # extend Geocoder::Model::Mongoid
 
   def results
+    @start_date = params[:start_date]
+    @end_date = params[:end_date]
     @location = params[:location]
     @coordinates = Geocoder.coordinates(@location)
 

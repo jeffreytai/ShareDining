@@ -1,77 +1,26 @@
-<!-- <body data-js="results"> -->
+<script>
+  window.landingLatitude = <%= @coordinates[0] %>;
+  window.landingLongitude = <%= @coordinates[1] %>;
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=resultsGoogleInit" async defer></script>
+
+<body data-js="results">
 <%= render 'shared/navigation' %>
 
 <section id="map" class="results-map-container">
-
-  <!-- Google Maps API -->
-  <script>
-    // TODO: externalize this into its own module, separate js file
-    var map;
-    var infowindow;
-
-    function initialize() {
-
-      /* Autocomplete section */
-      var options = {
-        types: ['(cities)'],
-        componentRestrictions: { country: "GB" }
-      }
-      var input = document.getElementById('pac-input');
-      var autocomplete = new google.maps.places.Autocomplete(input, options);
-
-      /* Google Maps section */
-      var cntr = { lat: <%= @coordinates[0] %>, lng: <%= @coordinates[1] %> };
-
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: cntr,
-        zoom: 14
-      });
-
-      infowindow = new google.maps.InfoWindow();
-      var service = new google.maps.places.PlacesService(map);
-      service.nearbySearch({
-        location: cntr,
-        radius: 500,
-        type: ['store']
-      }, callback);
-
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          <% @nearbyKitchens.each do |kitchen| %>
-            var coordinates = { lat: <%= kitchen.latitude %>, lng: <%= kitchen.longitude %> };
-            createMarker(coordinates);
-          <% end %>
-        }
-      }
-
-      function createMarker(coordinates) {
-        var marker = new google.maps.Marker({
-          position: coordinates,
-          map: map
-        });
-      }
-
-      // google.maps.event.addListener(marker, 'click', function() {
-      //   infowindow.setContent(place.name);
-      //   infowindow.open(map, this);
-      // });
-
-    }
-
-  </script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=initialize" async defer></script>
-
+  <!--Google map rendered here-->
 </section>
+
 <section class="results-container">
   <ul class="filters-list clearfix">
     <li class="filter">
-      <label for="begin-date">Begin</label>
-      <input name="begin-date" id="begin-date" type="date">
+      <label for="start_date">Begin</label>
+      <%= date_field_tag :start_date, @start_date %>
     </li>
     <li class="filter">
-      <label for="end-date">End</label>
-      <input name="end-date" id="end-date" type="date">
+      <label for="end_date">End</label>
+      <%= date_field_tag :end_date, @end_date %>
     </li>
     <li class="filter">
       <label for="duration">Duration</label>
@@ -108,17 +57,7 @@
   </ul>
 
   <ul class="results-list">
-    <% @nearbyKitchens.each do |kitchen| %>
-      <li class="result">
-        <a class="result-link" href="/kitchen/<%= kitchen.token %>">
-          <h2 class="result-title"><%= kitchen.title %></h2>
-          <h2 class="result-price-container">
-            <span class="result-price">£<%= kitchen.price %></span>
-            <span class="result-price-after">/night</span>
-          </h2>
-        </a>
-      </li>
-    <% end %>
+
   </ul>
 
 </section>
