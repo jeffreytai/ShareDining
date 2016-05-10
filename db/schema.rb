@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510045801) do
+ActiveRecord::Schema.define(version: 20160510054235) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "start_time"
@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 20160510045801) do
 #   Unknown type 'json' for column 'photos'
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "renter_id",  limit: 4
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "kitchen_id", limit: 4
+    t.integer  "renter_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "kitchen_id",   limit: 4
+    t.date     "reserve_date"
+    t.time     "start_time"
+    t.time     "end_time"
   end
 
   add_index "reservations", ["kitchen_id"], name: "index_reservations_on_kitchen_id", using: :btree

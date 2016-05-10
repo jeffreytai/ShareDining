@@ -12,7 +12,7 @@ class ReservationController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:kitchen_id, :renter_id, :start_time, :end_time)
+      params.require(:reservation).permit(:kitchen_id, :renter_id, :reserve_date, :start_time, :end_time)
     end
 
 end
