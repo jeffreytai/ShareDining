@@ -10,8 +10,11 @@ class KitchenController < ApplicationController
   def filter
     @index = params[:index] ? Integer(params[:index]) : nil
     @num_results = params[:num_results] ? Integer(params[:num_results]) : nil
+    @location = params[:location]
+    @type = params[:type_of_kitchen]
+    @size = params[:size_of_kitchen]
 
-    if !@index.present? || !@num_results.present?
+    if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@size.present?
       render :nothing => true, :status => 400
       return
     end

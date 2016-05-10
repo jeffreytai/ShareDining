@@ -1,4 +1,4 @@
-import { MAP_STYLES, MARKER_DEFAULT_STYLES } from 'googleMaps/styles';
+import { MAP_STYLES, MARKER_DEFAULT_STYLES } from 'google-maps/styles';
 
 export default class GoogleMap {
 

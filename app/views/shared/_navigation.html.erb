@@ -7,7 +7,7 @@
       <use xlink:href="#search"></use>
     </svg>
   </label>
-  <input id="pac-input" type="text" class="nav-search" placeholder="Location" aria-label="Location" value="<%= @location %>">
+  <input id="pac-input" name="location" type="text" class="nav-search" placeholder="Location" aria-label="Location" value="<%= @location %>">
 
   <ul class="landing-links">
     <% if user_signed_in? %>

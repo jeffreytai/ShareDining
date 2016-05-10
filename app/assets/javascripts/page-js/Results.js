@@ -1,9 +1,10 @@
 import JsController from 'JsController';
-import InfiniteScroll from 'InfiniteScroll';
-import { addUrlParams } from 'utils';
+import InfiniteScrollController from 'utils/InfiniteScrollController';
+import { addUrlParams } from 'utils/utils';
 import 'whatwg-fetch';
-import GoogleMap from 'googleMaps/GoogleMap';
-import { MARKER_DEFAULT_STYLES, MARKER_HOVER_STYLES } from 'googleMaps/styles';
+import GoogleMap from 'google-maps/GoogleMap';
+import { MARKER_DEFAULT_STYLES, MARKER_HOVER_STYLES } from 'google-maps/styles';
+
 
 const LOADING_CLASS = 'loading';
 const RESULT_CLASS = 'result';
@@ -11,6 +12,11 @@ const KITCHENS_URL = '/api/v1/kitchens';
 const NUM_RESULTS_TO_RETURN_INIT = 6;
 const NUM_RESULTS_TO_RETURN_SCROLL = 4;
 
+/**
+ * Creates a kitchen list element from the given kitchen json object
+ * @param {{}} kitchen - kitchen json object
+ * @returns {Element} - the kitchen list element
+ */
 function makeKitchenHtml(kitchen) {
   const liEl = document.createElement('LI');
 
@@ -34,20 +40,35 @@ JsController.results = function () {
   const $resultsContainer = document.querySelector('.results-container');
   const $resultsList = document.querySelector('.results-list');
   const $filterList = document.querySelector('.filters-list');
+  const currentLatLng = { lat: window.landingLatitude, lng: window.landingLongitude };
+  const nameToInputElementMap = {
+    location: $locationInput,
+    start_date: document.querySelector('#start_date'),
+    end_date: document.querySelector('#end_date'),
+    type_of_kitchen: document.querySelector('#type_of_kitchen'),
+    size_of_kitchen: document.querySelector('#size_of_kitchen')
+  };
+
   let kitchenToMarkerMap = {};
-  let currentLatLng = { lat: window.landingLatitude, lng: window.landingLongitude };
   let googleMapObject;
   let googleAutoCompleteObject;
   let currentHoveredId;
   let currentIndex = 0;
 
   /**
-   * Fetches the next numResults
+   * Fetches the next numResults by using the params in nameToInputMap
    * @param {Number} numResults - number of results to fetch
    * @returns {Promise.<*>|*} - promise with json data
    */
   function fetchNextResults(numResults) {
-    const url = addUrlParams(KITCHENS_URL, { 'num_results': numResults, 'index': currentIndex });
+    const urlParams = Object.keys(nameToInputElementMap).reduce((paramsObj, currKey) => {
+      paramsObj[currKey] = nameToInputElementMap[currKey].value;
+      return paramsObj;
+    }, {
+      num_results: numResults,
+      index: currentIndex
+    });
+    const url = addUrlParams(KITCHENS_URL, urlParams);
 
     return fetch(url).then((data) => data.json());
   }
@@ -79,7 +100,7 @@ JsController.results = function () {
   }
 
   // setup the infinite scrolling to return more results
-  const infiniteScrollController = new InfiniteScroll($resultsContainer, () => {
+  const infiniteScrollController = new InfiniteScrollController($resultsContainer, () => {
     loadNextResults(NUM_RESULTS_TO_RETURN_SCROLL);
   });
   infiniteScrollController.attachEvents();
@@ -89,7 +110,7 @@ JsController.results = function () {
     var target = evt.target;
 
     if (target && target.nodeName === 'A') {
-      let kitchenId = target.id;
+      const kitchenId = target.id;
 
       // unhighlight previous kitchen incase mouseleave didn't do it
       if (currentHoveredId && currentHoveredId !== kitchenId) {
@@ -113,8 +134,12 @@ JsController.results = function () {
   $filterList.addEventListener('change', () => {
     $resultsContainer.classList.add(LOADING_CLASS);
     currentIndex = 0;
+
+    // remove all the current results from the DOM
     Array.prototype.forEach.call($resultsList.querySelectorAll('.result'), (e) => $resultsList.removeChild(e));
-    // TODO: remove map markers
+
+    // remove all the markers from the map
+    Object.keys(kitchenToMarkerMap).forEach((key) => kitchenToMarkerMap[key].setMap(null));
     kitchenToMarkerMap = {};
     loadNextResults(NUM_RESULTS_TO_RETURN_INIT);
   });

@@ -1,8 +1,8 @@
-import { throttle, debounce } from 'utils';
+import { throttle, debounce } from 'utils/utils';
 
 const DEFAULT_SENSITIVITY = 0.95;
 
-export default class InfiniteScroll {
+export default class InfiniteScrollController {
   constructor(el, callback, sensitivity = DEFAULT_SENSITIVITY) {
     this.el = el;
     this.clientHeight = el.clientHeight;

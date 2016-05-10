@@ -1,5 +1,5 @@
 import JsController from 'JsController';
-import ModalController from 'ModalController';
+import ModalController from 'utils/ModalController';
 
 const landingLoginButton = '.nav-login-button';
 const landingSignupButton = '.nav-signup-button';

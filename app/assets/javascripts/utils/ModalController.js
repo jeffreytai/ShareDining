@@ -1,4 +1,4 @@
-export default class ModalShow {
+export default class ModalController {
   constructor(bodyModalClass, modalLinks, modalClass) {
     this.bodyModalClass = bodyModalClass;
     this.modalLinks = modalLinks;
