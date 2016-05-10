@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-
   root 'landing#user'
+
+  devise_for :users
 
   get 'search/results'
   post 'kitchen/create'
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :reservation, only: [:show, :edit, :update, :destroy]
+
+  mount FullcalendarEngine::Engine => "/calendar"
 
   scope '/api' do
     scope '/v1' do

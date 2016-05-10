@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509085955) do
+ActiveRecord::Schema.define(version: 20160510003058) do
+
+  create_table "fullcalendar_engine_event_series", force: :cascade do |t|
+    t.integer  "frequency",  limit: 4,   default: 1
+    t.string   "period",     limit: 255, default: "monthly"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",                default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fullcalendar_engine_events", force: :cascade do |t|
+    t.string   "title",           limit: 255
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day",                       default: false
+    t.text     "description",     limit: 65535
+    t.integer  "event_series_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fullcalendar_engine_events", ["event_series_id"], name: "index_fullcalendar_engine_events_on_event_series_id", using: :btree
 
 # Could not dump table "kitchens" because of following StandardError
 #   Unknown type 'json' for column 'photos'

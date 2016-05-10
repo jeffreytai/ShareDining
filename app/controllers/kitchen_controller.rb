@@ -5,6 +5,13 @@ class KitchenController < ApplicationController
   def show
     @kitchen = Kitchen.find_by(token: params[:id])
     # puts @kitchen.photos.class
+
+    # FullcalendarEngine::Event.create({
+    #   :title => 'title',
+    #   :description => 'description',
+    #   :starttime => Time.current,
+    #   :endtime => Time.current + 10.minute
+    # })
   end
 
   # TODO: more error handling and more parameters need to be added

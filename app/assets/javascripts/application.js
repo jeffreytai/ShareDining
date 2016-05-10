@@ -12,4 +12,4 @@
 //
 //= require turbolinks
 //= require main
-
+//= require fullcalendar_engine/application
