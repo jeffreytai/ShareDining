@@ -13,8 +13,6 @@ Rails.application.routes.draw do
 
   resources :reservation, only: [:show, :edit, :update, :destroy]
 
-  mount FullcalendarEngine::Engine => "/calendar"
-
   scope '/api' do
     scope '/v1' do
       get '/kitchens' => 'kitchen#filter'

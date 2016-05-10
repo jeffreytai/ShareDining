@@ -25,6 +25,12 @@
     </div>
   </section>
 
+  <div>
+    <%= week_calendar number_of_weeks: 2 do |date| %>
+      <%= date %>
+    <% end %>
+  </div>
+
   <section class="listing-images-container slider-container">
     <button class="prev-button">&lt;</button>
     <button class="next-button">&gt;</button>
@@ -38,32 +44,13 @@
     <ul class="breadcrumb-list"></ul>
   </section>
 
-  <div>
-    <div class="calendar"></div>
-  </div>
-  <div id="create_event_dialog" class="dialog" style ="display:none;"></div>
-  <div id="event_desc_dialog" class="dialog" style ="display:none;">
-    <%= render 'form' %>
-  </div>
-
-  <script type = 'javascript'>
-    // $('.calendar').fullCalendar(full_calendar_options);
-    $(document).ready(function(){
-      $('.calendar').fullCalendar(full_calendar_options);
-      // page is now ready, initialize the calendar...
-      $('#new_event').click(function(event) {
-        FullcalendarEngine.Form.display()
-        event.preventDefault();
-      });
-    });
-  </script>
-
   <section class="listing-details-container">
     <article class="listing-description">
       <h2 class="listing-details-heading">Description</h2>
       <p>
         <%= @kitchen.description %>
       </p>
+
     </article>
 
     <article class="listing-features">

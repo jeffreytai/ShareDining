@@ -37,8 +37,8 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # Resizing pictures for thumbnails (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 
-# Calendar (https://github.com/vinsol/fullcalendar-rails-engine)
-gem 'fullcalendar_engine'
+# Calendar
+gem "simple_calendar", "~> 2.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
