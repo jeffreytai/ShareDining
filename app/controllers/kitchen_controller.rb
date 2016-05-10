@@ -4,8 +4,8 @@ class KitchenController < ApplicationController
   # GET /kitchen/1.json
   def show
     @kitchen = Kitchen.find_by(token: params[:id])
+    @censored_address = ('' == @kitchen.location.partition(',').last) ? @kitchen.location : @kitchen.location.partition(',').last
     @reservation = Reservation.new
-    # puts @kitchen.photos.class
   end
 
   # TODO: more error handling and more parameters need to be added
