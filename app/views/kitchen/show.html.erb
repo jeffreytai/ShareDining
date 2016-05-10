@@ -25,6 +25,12 @@
     </div>
   </section>
 
+  <div>
+    <%= week_calendar number_of_weeks: 2 do |date| %>
+      <%= date %>
+    <% end %>
+  </div>
+
   <section class="listing-images-container slider-container">
     <button class="prev-button">&lt;</button>
     <button class="next-button">&gt;</button>
@@ -44,6 +50,7 @@
       <p>
         <%= @kitchen.description %>
       </p>
+
     </article>
     <article class="listing-features">
       <h2 class="listing-details-heading">Washing Station</h2>

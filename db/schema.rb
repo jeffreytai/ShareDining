@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509085955) do
+ActiveRecord::Schema.define(version: 20160510003058) do
 
 # Could not dump table "kitchens" because of following StandardError
 #   Unknown type 'json' for column 'photos'
