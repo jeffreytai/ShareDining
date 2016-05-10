@@ -13,7 +13,8 @@ class Kitchen < ActiveRecord::Base
   # don't validate price for testing purposes
 
   belongs_to :user
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
+  has_many :availabilities, dependent: :destroy
 
   # Mount photos to kitchen
   mount_uploaders :photos, PhotoUploader
