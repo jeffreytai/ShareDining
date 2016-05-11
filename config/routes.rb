@@ -9,12 +9,12 @@ Rails.application.routes.draw do
 
   resources :kitchen do
     resources :reservation, only: [:new, :create]
-    resources :availability, only: [:new, :create]
+    resources :availability, only: :create
   end
 
   resources :reservation, only: [:show, :edit, :update, :destroy]
 
-  resources :availability, only: [:show, :edit, :update, :destroy]
+  resources :availability, only: [:new, :show, :edit, :update, :destroy]
 
   scope '/api' do
     scope '/v1' do

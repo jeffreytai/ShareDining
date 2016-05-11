@@ -1,7 +1,7 @@
 import JsController from 'JsController';
 import 'page-js/Landing';
 import 'page-js/Results';
-import 'page-js/KitchenNewController';
+import 'page-js/KitchenNew';
 import 'page-js/KitchenShow';
 
 function loadPageJs() {
