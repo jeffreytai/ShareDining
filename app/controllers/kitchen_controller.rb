@@ -25,6 +25,7 @@ class KitchenController < ApplicationController
   # GET /kitchen/new
   def new
     @kitchen = Kitchen.new
+    @availability = Availability.new
   end
 
   # GET /kitchen/1/edit
@@ -35,9 +36,13 @@ class KitchenController < ApplicationController
   # POST /kitchen.json
   def create
     @kitchen = Kitchen.new(kitchen_params)
+    @availability = Availability.new(availability_params)
     params[:whole_kitchen] == "1" ? (@kitchen.rental_space = "Whole Kitchen") : (@kitchen.rental_space = "Shared Space")
 
     if @kitchen.save
+      @availability.kitchen_id = @kitchen.id
+      puts @availability.kitchen_id
+      @availability.save
       @photos = @kitchen.photos
       redirect_to kitchen_path(@kitchen.token)
       flash[:notice] = 'Kitchen was successfully added.'
@@ -78,8 +83,16 @@ class KitchenController < ApplicationController
                                       { refrigeration: [] }, { ovens_fryers: [] },
                                       { oven_equipment_and_storage: [] }, { baking_and_pastry: [] },
                                       { other_equipment: [] }, { other_amenities: [] }, { photos: [] }
-                                      # :availability
                                       )
+    end
+
+    def availability_params
+      params.require(:availability).permit(:sunday_start_time, :sunday_end_time, :monday_start_time,
+                                          :monday_end_time, :tuesday_start_time, :tuesday_end_time,
+                                          :wednesday_start_time, :wednesday_end_time, :thursday_start_time,
+                                          :thursday_end_time, :friday_start_time, :friday_end_time,
+                                          :saturday_start_time, :saturday_end_time
+                                          )
     end
 
 end

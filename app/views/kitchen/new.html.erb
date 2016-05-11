@@ -843,6 +843,34 @@
       <!-- TODO: add availability section -->
 
       <fieldset class="fieldset" id="pictures">
+        <legend class="fieldset-title">Availability</legend>
+        <%= form_for @availability, url: {action: "create"} do |avail| %>
+          <%= f.label "Sunday" %>
+          <%= avail.time_select :sunday_start_time, minute_step: 30 %>
+          <%= avail.time_select :sunday_end_time, minute_step: 30 %>
+          <%= f.label "Monday" %>
+          <%= avail.time_select :monday_start_time, minute_step: 30 %>
+          <%= avail.time_select :monday_end_time, minute_step: 30 %>
+          <%= f.label "Tuesday" %>
+          <%= avail.time_select :tuesday_start_time, minute_step: 30 %>
+          <%= avail.time_select :tuesday_end_time, minute_step: 30 %>
+          <%= f.label "Wednesday" %>
+          <%= avail.time_select :wednesday_start_time, minute_step: 30 %>
+          <%= avail.time_select :wednesday_end_time, minute_step: 30 %>
+          <%= f.label "Thursday" %>
+          <%= avail.time_select :thursday_start_time, minute_step: 30 %>
+          <%= avail.time_select :thursday_end_time, minute_step: 30 %>
+          <%= f.label "Friday" %>
+          <%= avail.time_select :friday_start_time, minute_step: 30 %>
+          <%= avail.time_select :friday_end_time, minute_step: 30 %>
+          <%= f.label "Saturday" %>
+          <%= avail.time_select :saturday_start_time, minute_step: 30 %>
+          <%= avail.time_select :saturday_end_time, minute_step: 30 %>
+
+        <% end %>
+
+
+        <br/>
         <legend class="fieldset-title">Upload Pictures</legend>
           <%= f.file_field :photos, multiple: true %>
         <!--TODO this needs to be changed to actual picture input-->
