@@ -1,8 +1,8 @@
 import JsController from 'JsController';
-import Slider from 'Slider';
+import SliderController from 'utils/SliderController';
 
 JsController['kitchen-show'] = function() {
   const $imageSliderContainer = document.querySelector('.listing-images-container');
-  const imageSlider = new Slider($imageSliderContainer);
+  const imageSlider = new SliderController($imageSliderContainer);
   imageSlider.init();
 };

@@ -4,7 +4,7 @@ const CURRENT_CLASS = 'current';
 const RIGHT_ARROW_CODE = 39;
 const LEFT_ARROW_CODE = 37;
 
-export default class Slider {
+export default class SliderController {
   constructor($sliderContainer, options = {}) {
     this.$sliderList = $sliderContainer.querySelector('.slider-list');
     this.$sliderElements = this.$sliderList.querySelectorAll('li');
@@ -20,7 +20,6 @@ export default class Slider {
 
   init() {
     this._addBreadcrumbs();
-    console.log(this.breadcrumbElements);
     this._attachEvents();
     this._changeCurrent(this.currentIndex);
   }
@@ -39,7 +38,8 @@ export default class Slider {
 
     // attach breadcrumb list elements to fragment
     for (let i = 0; i < this.numElements; i += 1) {
-      let breadcrumbListEl = document.createElement('LI');
+      const breadcrumbListEl = document.createElement('LI');
+
       breadcrumbListEl.classList.add(BREADCRUMB_LIST_EL_CLASS);
       breadcrumbListEl.innerHTML = `<button class="${BREADCRUMB_BUTTON_CLASS}"></button>`;
       breadcrumbFrag.appendChild(breadcrumbListEl);
@@ -50,8 +50,8 @@ export default class Slider {
   }
 
   _attachEvents() {
-    let nextSlideFn = () => this._changeCurrent((this.currentIndex + 1) % this.numElements);
-    let prevSlideFn = () => this._changeCurrent(this.currentIndex ? this.currentIndex - 1 : this.numElements - 1);
+    const nextSlideFn = () => this._changeCurrent((this.currentIndex + 1) % this.numElements);
+    const prevSlideFn = () => this._changeCurrent(this.currentIndex ? this.currentIndex - 1 : this.numElements - 1);
 
     this.$nextButton.addEventListener('click', nextSlideFn);
     this.$prevButton.addEventListener('click', prevSlideFn);
@@ -70,6 +70,7 @@ export default class Slider {
       if (target && target.nodeName === 'BUTTON') {
         target = target.parentNode;
         const nextIndex = this.breadcrumbElements.indexOf(target);
+
         this._changeCurrent(nextIndex);
       }
     }, true);

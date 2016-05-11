@@ -1,5 +1,5 @@
-import  jsController from 'JsController';
-import { throttle } from 'utils';
+import jsController from 'JsController';
+import { throttle } from 'utils/utils';
 
 jsController['kitchen-new'] = function () {
   const CURRENT_FIELDSET_CLASS = 'current';

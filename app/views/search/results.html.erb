@@ -24,22 +24,17 @@
       <%= date_field_tag :end_date, @end_date %>
     </li>
     <li class="filter">
-      <label for="duration">Duration</label>
-      <select id="duration" name="duration">
-        <option value="any">Any</option>
-        <option value="3">3 hours</option>
-        <option value="4">4 hours</option>
-        <option value="5">5 hours</option>
-        <option value="6">6 hours</option>
-        <option value="7">7 hours</option>
-        <option value="8">8 hours</option>
-        <option value="8.5">All day</option>
+      <label for="type_of_kitchen">Type</label>
+      <select id="type_of_kitchen" name="type_of_kitchen">
+        <option value="any" selected>Any</option>
+        <option value="whole">Whole Kitchen</option>
+        <option value="shared">Shared Kitchen</option>
       </select>
     </li>
     <li class="filter">
-      <label for="size-of-kitchen">Size</label>
-      <select id="size-of-kitchen" name="size-of-kitchen">
-        <option value="any">Any</option>
+      <label for="size_of_kitchen">Size</label>
+      <select id="size_of_kitchen" name="size_of_kitchen">
+        <option value="any" selected>Any</option>
         <option value="small">Small</option>
         <option value="large">Large (20+ items)</option>
       </select>
