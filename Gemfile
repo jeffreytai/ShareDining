@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # MySQL
@@ -37,6 +36,9 @@ gem 'geocoder'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # Resizing pictures for thumbnails (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
+
+# Calendar
+gem "simple_calendar", "~> 2.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

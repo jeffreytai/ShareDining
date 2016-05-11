@@ -2,7 +2,7 @@
 
 <%= form_for @reservation, url: { action: "create" } do |f| %>
 
-  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :renter_id, value: current_user.id %>
   <%= f.hidden_field :kitchen_id, value: @kitchen.id %>
 
   <p>Start</p>

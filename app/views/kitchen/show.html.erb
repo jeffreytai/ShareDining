@@ -11,19 +11,33 @@
   </section>
 
   <section class="listing-date-container clearfix">
-    <form class="listing-dates-form">
-      <label class="listing-date-label" for="start-date">Dates</label>
-      <input class="listing-start-date" title="start-date" type="date" id="start-date">
-      <input class="listing-end-date" title="end-date" type="date">
-    </form>
-    <div class="listing-price-container">
-        <span class="listing-price">
-          <span class="price-math">£<%= @kitchen.price %>/hr * 3 hours =</span>
-          <span class="listing-total-price">$920</span>
-        </span>
-      <%= link_to 'Request Kitchen', new_kitchen_reservation_path(@kitchen), class: "transparent-button listing-book-button" %>
-    </div>
+    <%= form_for @reservation, url: kitchen_reservation_index_path(@kitchen), html: { method: :post, class: "listing-dates-form" } do |f| %>
+    <!-- <form class="listing-dates-form"> -->
+      <%= f.hidden_field :renter_id, value: current_user.id %>
+      <%= f.hidden_field :kitchen_id, value: @kitchen.id %>
+      <label class="listing-date-label" for="reserve_date">Date</label>
+      <%= f.date_field :reserve_date, id: "reserve_date", class: "listing-start-date" %>
+      <label class="listing-date-label" for="start_time">Start Time</label>
+      <%= f.time_select :start_time, id: "start_time", minute_step: 30 %>
+      <label class="listing-date-label" for="end_time">End Time</label>
+      <%= f.time_select :end_time, id: "end_time", minute_step: 30 %>
+      <%= f.submit "Request Kitchen", class: "transparent-button listing-book-button" %>
+    <% end %>
+      <div class="listing-price-container">
+          <span class="listing-price">
+            <span class="price-math">£<%= @kitchen.price %>/hr * 3 hours =</span>
+            <span class="listing-total-price">$920</span>
+          </span>
+        <%# link_to 'Request Kitchen', new_kitchen_reservation_path(@kitchen), class: "transparent-button listing-book-button" %>
+      </div>
+
   </section>
+
+  <!-- <div>
+    <%= week_calendar number_of_weeks: 3 do |date| %>
+      <%= date %>
+    <% end %>
+  </div> -->
 
   <section class="listing-images-container slider-container">
     <button class="prev-button"></button>

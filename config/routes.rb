@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-
   root 'landing#user'
+
+  devise_for :users
 
   get 'search/results'
   post 'kitchen/create'

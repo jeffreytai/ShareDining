@@ -11,19 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507082041) do
+ActiveRecord::Schema.define(version: 20160510054235) do
+
+  create_table "availabilities", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "kitchen_id", limit: 4
+  end
+
+  add_index "availabilities", ["kitchen_id"], name: "index_availabilities_on_kitchen_id", using: :btree
 
 # Could not dump table "kitchens" because of following StandardError
 #   Unknown type 'json' for column 'photos'
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "kitchen_id", limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "renter_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "kitchen_id",   limit: 4
+    t.date     "reserve_date"
+    t.time     "start_time"
+    t.time     "end_time"
   end
+
+  add_index "reservations", ["kitchen_id"], name: "index_reservations_on_kitchen_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -45,5 +58,7 @@ ActiveRecord::Schema.define(version: 20160507082041) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "availabilities", "kitchens"
   add_foreign_key "kitchens", "users"
+  add_foreign_key "reservations", "kitchens"
 end
