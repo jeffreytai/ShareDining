@@ -37,49 +37,40 @@
 }
 
 .listing-date-container {
+  box-sizing: border-box;
   width: 100%;
   background-color: lighten($light-grey, 8);
   margin: 20px 0;
-  height: 110px;
+  padding: 10px 20px;
 
   .listing-dates-form {
     float: left;
     height: inherit;
 
-    .listing-date-label {
-      text-transform: uppercase;
-      float: left;
-      font-size: 14px;
-      font-family: logo;
-      color: lighten($dark-grey, 10);
-      margin: 0 20px;
-      height: inherit;
-      line-height: 110px;
-    }
+    .listing-dates-form-field {
+      margin: 10px 0;
 
-    input[type=date] {
-      margin: 34px 0;
-      padding: 10px 5px;
-      display: block;
-      float: left;
-      font-family: main;
-      font-size: 14px;
-      border: 2px solid $light-grey;
-    }
+      label {
+        margin-right: 6px;
+      }
 
-    .listing-start-date {
-      border-radius: 3px 0 0 3px;
-    }
+      select,
+      input {
+        border: 1px solid $light-grey;
+        padding: 4px;
+        font-family: main;
+        font-size: 14px;
+      }
 
-    input[type=date].listing-end-date {
-      border-radius: 0 3px 3px 0;
-      border-left: none;
+      select {
+        background-color: lighten($light-grey, 20);
+        border-radius: 2px;
+      }
     }
   }
 
   .listing-price-container {
     float: right;
-    margin-right: 20px;
     display: inline-block;
     vertical-align: middle;
 
