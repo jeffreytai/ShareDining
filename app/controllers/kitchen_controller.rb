@@ -23,13 +23,6 @@ class KitchenController < ApplicationController
     @type = params[:type_of_kitchen]
     @size = params[:size_of_kitchen]
 
-    puts "Index: #{@index}"
-    puts "num results: #{@num_results}"
-    puts "Location: #{@location}"
-    puts "type: #{@type}"
-    puts "size: #{@size}"
-
-
     if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@size.present?
       render :nothing => true, :status => 400
       return
@@ -37,9 +30,20 @@ class KitchenController < ApplicationController
 
     @filtered_kitchens = Kitchen.all[@index...@index + @num_results]
 
-    if @size.present? && (@size == 'small' || @size == 'large')
+
+    # handle no kitchens returned
+
+    if @type.present? && @type != 'any'
+      if @type == 'whole'
+        @filtered_kitchens = @filtered_kitchens.select { |kitchen| kitchen.rental_space == 'Whole Kitchen' }
+      elsif @type == 'shared'
+        @filtered_kitchens = @filtered_kitchens.select { |kitchen| kitchen.rental_space == 'Shared Space' }
+      end
+    end
+
+    if @size.present? && @size != 'any'
       # Change so that if there are no results in filtered_kitchens, do a search for the entire kitchen list
-      @filtered_kitchens = @filtered_kitchens.select { |kitchen| kitchen.size.downcase == 'large' }
+      @filtered_kitchens = @filtered_kitchens.select { |kitchen| kitchen.size.downcase == @size }
     end
 
     render json: @filtered_kitchens
