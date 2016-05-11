@@ -8,7 +8,14 @@ class KitchenController < ApplicationController
     @reservation = Reservation.new
   end
 
-  # TODO: more error handling and more parameters need to be added
+  # GET /api/v1/kitchens
+  # Returns a JSON array of relevant kitchens
+  # GET parameters are as follows:
+  # {Integer} index (required) - the starting index of relevant results to return
+  # {Integer} num_results (required) - the number of relevant results to return
+  # {String} location (required) - the location string
+  # {String} type_of_kitchen - the type of kitchens to be returned. Values may include [any, whole, shared]
+  # {String} size_of_kitchen  - the size of the kitchens to be returned. Values may include [any, large, small]
   def filter
     @index = params[:index] ? Integer(params[:index]) : nil
     @num_results = params[:num_results] ? Integer(params[:num_results]) : nil

@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: b893859067d6aea497809ace68293633e1d64672
+  revision: ef0d36a7c195621d8d7d4c769a47a9aee6f64d95
   specs:
     carrierwave (0.11.0)
       activemodel (>= 4.0.0)
@@ -142,7 +142,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_calendar (2.1.1)
+    simple_calendar (2.1.2)
       rails (>= 3.0)
     spring (1.7.1)
     sprockets (3.6.0)
