@@ -28,23 +28,30 @@ class KitchenController < ApplicationController
       return
     end
 
-    @filtered_kitchens = Kitchen.all[@index...@index + @num_results]
-
-
     # handle no kitchens returned
+
+    @nearbyKitchens = Kitchen.near(@location, 15)
 
     if @type.present? && @type != 'any'
       if @type == 'whole'
-        @filtered_kitchens = @filtered_kitchens.select { |kitchen| kitchen.rental_space == 'Whole Kitchen' }
+        @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.rental_space == 'Whole Kitchen' }
       elsif @type == 'shared'
-        @filtered_kitchens = @filtered_kitchens.select { |kitchen| kitchen.rental_space == 'Shared Space' }
+        @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.rental_space == 'Shared Space' }
       end
     end
 
     if @size.present? && @size != 'any'
       # Change so that if there are no results in filtered_kitchens, do a search for the entire kitchen list
-      @filtered_kitchens = @filtered_kitchens.select { |kitchen| kitchen.size.downcase == @size }
+      @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.size.downcase == @size }
     end
+
+    # limit number of filtered ktichens to specified num_results
+    if @nearbyKitchens.size <= @num_results
+      @filtered_kitchens = @nearbyKitchens
+    else
+      @filtered_kitchens = @nearbyKitchens[@index...@index + @num_results]
+    end
+
 
     render json: @filtered_kitchens
   end
