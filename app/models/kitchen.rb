@@ -14,6 +14,7 @@ class Kitchen < ActiveRecord::Base
 
   belongs_to :user
   has_many :reservations, dependent: :destroy
+  has_one :availability, dependent: :destroy
 
   # Mount photos to kitchen
   mount_uploaders :photos, PhotoUploader

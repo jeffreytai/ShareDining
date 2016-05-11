@@ -28,13 +28,38 @@ class KitchenController < ApplicationController
       return
     end
 
-    @filtered_kitchens = Kitchen.all[@index...@index + @num_results]
+    # handle no kitchens returned
+
+    @nearbyKitchens = Kitchen.near(@location, 15)
+
+    if @type.present? && @type != 'any'
+      if @type == 'whole'
+        @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.rental_space == 'Whole Kitchen' }
+      elsif @type == 'shared'
+        @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.rental_space == 'Shared Space' }
+      end
+    end
+
+    if @size.present? && @size != 'any'
+      # Change so that if there are no results in filtered_kitchens, do a search for the entire kitchen list
+      @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.size.downcase == @size }
+    end
+
+    # limit number of filtered ktichens to specified num_results
+    if @nearbyKitchens.size <= @num_results
+      @filtered_kitchens = @nearbyKitchens
+    else
+      @filtered_kitchens = @nearbyKitchens[@index...@index + @num_results]
+    end
+
+
     render json: @filtered_kitchens
   end
 
   # GET /kitchen/new
   def new
     @kitchen = Kitchen.new
+    @availability = Availability.new
   end
 
   # GET /kitchen/1/edit
@@ -45,9 +70,13 @@ class KitchenController < ApplicationController
   # POST /kitchen.json
   def create
     @kitchen = Kitchen.new(kitchen_params)
+    @availability = Availability.new(availability_params)
     params[:whole_kitchen] == "1" ? (@kitchen.rental_space = "Whole Kitchen") : (@kitchen.rental_space = "Shared Space")
 
     if @kitchen.save
+      @availability.kitchen_id = @kitchen.id
+      puts @availability.kitchen_id
+      @availability.save
       @photos = @kitchen.photos
       redirect_to kitchen_path(@kitchen.token)
       flash[:notice] = 'Kitchen was successfully added.'
@@ -88,8 +117,16 @@ class KitchenController < ApplicationController
                                       { refrigeration: [] }, { ovens_fryers: [] },
                                       { oven_equipment_and_storage: [] }, { baking_and_pastry: [] },
                                       { other_equipment: [] }, { other_amenities: [] }, { photos: [] }
-                                      # :availability
                                       )
+    end
+
+    def availability_params
+      params.require(:availability).permit(:sunday_start_time, :sunday_end_time, :monday_start_time,
+                                          :monday_end_time, :tuesday_start_time, :tuesday_end_time,
+                                          :wednesday_start_time, :wednesday_end_time, :thursday_start_time,
+                                          :thursday_end_time, :friday_start_time, :friday_end_time,
+                                          :saturday_start_time, :saturday_end_time
+                                          )
     end
 
 end
