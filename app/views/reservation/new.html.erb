@@ -5,6 +5,8 @@
   <%= f.hidden_field :renter_id, value: current_user.id %>
   <%= f.hidden_field :kitchen_id, value: @kitchen.id %>
 
+  <%= f.check_box :recurring %>
+
   <p>Start</p>
   <%= f.datetime_local_field :start_time %>
 
