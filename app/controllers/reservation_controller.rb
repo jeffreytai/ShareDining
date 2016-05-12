@@ -6,7 +6,9 @@ class ReservationController < ApplicationController
   end
 
   def create
+    @kitchen = Kitchen.find(params[:kitchen_id])
     @reservation = Reservation.new(reservation_params)
+    @censored_address = ('' == @kitchen.location.partition(',').last) ? @kitchen.location : @kitchen.location.partition(',').last
     @reservation.save
   end
 

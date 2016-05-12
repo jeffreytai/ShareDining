@@ -37,9 +37,9 @@
     </div>
   </section>
 
-  <section class="listing-images-container slider-container">
-    <button class="prev-button"></button>
-    <button class="next-button"></button>
+  <section class="listing-images-container slider-container" role="region" aria-label="Kitchen Images">
+    <button class="prev-button">Previous Slide</button>
+    <button class="next-button">Next Slide</button>
     <ul id="listing-images" class="slider-list">
       <!--TODO: remove if else block for production, this is simply for testing kitchens that don't have images-->
       <% if @kitchen.photos.present? %>
