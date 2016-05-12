@@ -193,12 +193,15 @@
   }
 
   .listing-features-list {
-    list-style: none;
-
+      list-style: none;
 
     li {
-      margin-left: 6px;
       margin-bottom: 12px;
+
+      &:before {
+        content:"\2713\0020";
+        color: rgba($light-green, .9);
+      }
     }
   }
 }

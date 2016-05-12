@@ -56,6 +56,7 @@ JsController.results = function () {
   let currentIndex = 0;
 
   /**
+   * TODO: when returned results is less than numResults, set global to true and don't request anymore kitchens
    * Fetches the next numResults by using the params in nameToInputMap
    * @param {Number} numResults - number of results to fetch
    * @returns {Promise.<*>|*} - promise with json data
@@ -94,9 +95,29 @@ JsController.results = function () {
 
         $resultsList.appendChild(listFragment);
         currentIndex += numResults;
-        $resultsContainer.classList.remove(LOADING_CLASS);
       }
+
+      $resultsContainer.classList.remove(LOADING_CLASS);
     });
+  }
+
+  /**
+   * Resets the current results and loads new results based on the current filters
+   * @return {void}
+   */
+  function resetResults() {
+    $resultsContainer.classList.add(LOADING_CLASS);
+    currentIndex = 0;
+
+    // remove all the current results from the DOM
+    Array.prototype.forEach.call($resultsList.querySelectorAll('.result'), (e) => $resultsList.removeChild(e));
+
+    // remove all the markers from the map
+    Object.keys(kitchenToMarkerMap).forEach((key) => kitchenToMarkerMap[key].setMap(null));
+    kitchenToMarkerMap = {};
+
+    // load the next set of results
+    loadNextResults(NUM_RESULTS_TO_RETURN_INIT);
   }
 
   // setup the infinite scrolling to return more results
@@ -131,18 +152,8 @@ JsController.results = function () {
   });
 
   // attach event on filter or location change
-  $filterList.addEventListener('change', () => {
-    $resultsContainer.classList.add(LOADING_CLASS);
-    currentIndex = 0;
-
-    // remove all the current results from the DOM
-    Array.prototype.forEach.call($resultsList.querySelectorAll('.result'), (e) => $resultsList.removeChild(e));
-
-    // remove all the markers from the map
-    Object.keys(kitchenToMarkerMap).forEach((key) => kitchenToMarkerMap[key].setMap(null));
-    kitchenToMarkerMap = {};
-    loadNextResults(NUM_RESULTS_TO_RETURN_INIT);
-  });
+  $filterList.addEventListener('change', resetResults);
+  $locationInput.addEventListener('change', resetResults);
 
   // google maps callback
   window.resultsGoogleInit = function () {

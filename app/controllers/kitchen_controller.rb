@@ -8,6 +8,8 @@ class KitchenController < ApplicationController
     @reservation = Reservation.new
   end
 
+  # TODO: filter out any information that is not relevant for the results page,
+  #   TODO: ie SELECT price, name, image[0], lat, long, shared, size
   # GET /api/v1/kitchens
   # Returns a JSON array of relevant kitchens
   # GET parameters are as follows:

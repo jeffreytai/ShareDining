@@ -60,19 +60,19 @@
 
   .next-button,
   .prev-button {
+    font-size: 0;
     z-index: 400;
     background-color: $dark-grey;
-    font-family: logo;
-    font-size: 30px;
     position: absolute;
     height: 50px;
     width: 50px;
-    opacity: .6;
+    opacity: .7;
     border-radius: 100%;
     line-height: 54px;
     text-align: center;
     top: 50%;
     transform: translateY(-50%);
+    box-shadow: 0 2px 5px rgba($dark-grey, .7);
 
     &:hover,
     &:focus {
