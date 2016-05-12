@@ -11,9 +11,7 @@
   </section>
 
   <section class="listing-date-container clearfix">
-    <%= form_for @reservation, url: kitchen_reservation_index_path(@kitchen), html: {method: :post, class: "listing-dates-form"} do |f| %>
-      <%= f.hidden_field :renter_id, value: current_user.id %>
-      <%= f.hidden_field :kitchen_id, value: @kitchen.id %>
+    <%= form_for @reservation, url: new_kitchen_reservation_path(@kitchen, @reservation), html: {method: :post, class: "listing-dates-form"} do |f| %>
       <%= f.radio_button :multiple, 'Single Reservation' %>
       <%= f.label :multiple, 'Single Reservation', value: false %>
       <%= f.radio_button :multiple, 'Multiple Reservations' %>

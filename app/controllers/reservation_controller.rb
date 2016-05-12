@@ -3,7 +3,17 @@ class ReservationController < ApplicationController
   def new
     @kitchen = Kitchen.find(params[:kitchen_id])
     @censored_address = ('' == @kitchen.location.partition(',').last) ? @kitchen.location : @kitchen.location.partition(',').last
-    @reservation = Reservation.new
+    @reservation = Reservation.new(reservation_params)
+    @reservation.renter_id = current_user.id
+    @reservation.kitchen_id = @kitchen.id
+
+    # Individual reservation will make start_date and end_date the same
+    @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
+
+    puts "renter_id: #{@reservation.renter_id}"
+    puts "kitchen_id: #{@reservation.kitchen_id}"
+    puts "start_date: #{@reservation.start_date}"
+    puts "end_date: #{@reservation.end_date}"
   end
 
   def create
@@ -11,10 +21,12 @@ class ReservationController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     # Individual reservation will make start_date and end_date the same
-    @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
+    # @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
 
     if @reservation.save
       redirect_to [@kitchen, @reservation], notice: "Reservation is successfully made."
+    else
+      flash[:notice] = 'Error: Reservation was not successfully added.'
     end
   end
 
@@ -24,7 +36,7 @@ class ReservationController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:renter_id, :kitchen_id, :multiple, :start_date, :end_date
+      params.require(:reservation).permit(:multiple, :start_date, :end_date
                                           #:schedule
                                           )
     end
