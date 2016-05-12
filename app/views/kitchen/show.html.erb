@@ -11,21 +11,11 @@
   </section>
 
   <section class="listing-date-container clearfix">
-    <%= form_for @reservation, url: kitchen_reservation_index_path(@kitchen), html: {method: :post, class: "listing-dates-form"} do |f| %>
-        <%= f.hidden_field :renter_id, value: current_user.id %>
-        <%= f.hidden_field :kitchen_id, value: @kitchen.id %>
-        <div class="listing-dates-form-field">
-          <label class="listing-date-label" for="reserve_date">Date</label>
-          <%= f.date_field :reserve_date, id: "reserve_date", class: "listing-start-date" %>
-        </div>
-        <div class="listing-dates-form-field">
-          <label class="listing-date-label" for="start_time">Start Time</label>
-          <%= f.time_select :start_time, id: "start_time", minute_step: 30 %>
-        </div>
-        <div class="listing-dates-form-field">
-          <label class="listing-date-label" for="end_time">End Time</label>
-          <%= f.time_select :end_time, id: "end_time", minute_step: 30 %>
-        </div>
+    <%= form_for @reservation, url: new_kitchen_reservation_path(@kitchen), html: {method: :get, class: "listing-dates-form"} do |f| %>
+      <div class="listing-dates-form-field">
+        <label class="listing-date-label" for="reserve_date">Date</label>
+        <%= f.date_field :start_date, id: "start_date", class: "listing-start-date" %>
+      </div>
     <% end %>
 
     <div class="listing-price-container">
@@ -43,24 +33,24 @@
     <ul id="listing-images" class="slider-list">
       <!--TODO: remove if else block for production, this is simply for testing kitchens that don't have images-->
       <% if @kitchen.photos.present? %>
-          <% @kitchen.photos.each do |photo| %>
-              <li class="slider-list-element">
-                <%= image_tag photo, class: 'listing-image' %>
-              </li>
-          <% end %>
+        <% @kitchen.photos.each do |photo| %>
+            <li class="slider-list-element">
+              <%= image_tag photo, class: 'listing-image' %>
+            </li>
+        <% end %>
       <% else %>
-          <li class="slider-list-element">
-            <%= image_tag 'sampleKitchens/1.jpg', class: 'listing-image' %>
-          </li>
-          <li class="slider-list-element">
-            <%= image_tag 'sampleKitchens/2.jpg', class: 'listing-image' %>
-          </li>
-          <li class="slider-list-element">
-            <%= image_tag 'sampleKitchens/3.jpeg', class: 'listing-image' %>
-          </li>
-          <li class="slider-list-element">
-            <%= image_tag 'sampleKitchens/4.jpeg', class: 'listing-image' %>
-          </li>
+        <li class="slider-list-element">
+          <%= image_tag 'sampleKitchens/1.jpg', class: 'listing-image' %>
+        </li>
+        <li class="slider-list-element">
+          <%= image_tag 'sampleKitchens/2.jpg', class: 'listing-image' %>
+        </li>
+        <li class="slider-list-element">
+          <%= image_tag 'sampleKitchens/3.jpeg', class: 'listing-image' %>
+        </li>
+        <li class="slider-list-element">
+          <%= image_tag 'sampleKitchens/4.jpeg', class: 'listing-image' %>
+        </li>
       <% end %>
     </ul>
     <ul class="breadcrumb-list"></ul>

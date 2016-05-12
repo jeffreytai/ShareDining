@@ -2,17 +2,45 @@
 
 <%= form_for @reservation, url: { action: "create" } do |f| %>
 
-  <%= f.hidden_field :renter_id, value: current_user.id %>
-  <%= f.hidden_field :kitchen_id, value: @kitchen.id %>
+  <% f.hidden_field :renter_id, value: current_user.id %>
+  <% f.hidden_field :kitchen_id, value: @kitchen.id %>
 
-  <%= f.check_box :recurring %>
+  <%= f.radio_button :multiple, 'Single Reservation' %>
+  <%= f.label :multiple, 'Single Reservation', value: false %>
+  <%= f.radio_button :multiple, 'Multiple Reservations' %>
+  <%= f.label :multiple, 'Multiple Reservations', value: true %>
 
-  <p>Start</p>
-  <%= f.datetime_local_field :start_time %>
+  <br />
+  <%= f.label "Start Date" %>
+  <%= f.date_field :start_date, value: @start_date %>
 
-  <p>End</p>
-  <%= f.datetime_local_field :end_time %>
+  <!-- display only if Multiple Reservations is checked -->
+  <div id="end_time">
+    <%= f.label "End Date" %>
+    <%= f.date_field :end_date %>
+  </div>
 
+  <br />
+  <%= f.label :schedule %>
+  <br />
+  <% Date::DAYNAMES.each do |day| %>
+    <%= f.check_box :schedule, {}, day %>
+    <%= day %>
+    <br />
+    <%= f.label "Start Time" %>
+    <%= f.time_select :schedule, minute_step: 30 %>
+    <%= f.label "End Time" %>
+    <%= f.time_select :schedule, minute_step: 30 %>
+    <br/><br/>
+  <% end %>
+
+  <br/>
+
+
+
+
+
+  <br/>
   <%= f.submit "Make Reservation" %>
 
 

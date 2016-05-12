@@ -1,6 +1,8 @@
 class ReservationController < ApplicationController
 
   def new
+    @start_date = params[:reservation][:start_date]
+    puts @start_date
     @kitchen = Kitchen.find(params[:kitchen_id])
     @reservation = Reservation.new
   end
@@ -12,7 +14,7 @@ class ReservationController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:kitchen_id, :renter_id, :reserve_date, :start_time, :end_time)
+      params.require(:reservation).permit(:reserve_date, :start_time, :end_time)
     end
 
 end
