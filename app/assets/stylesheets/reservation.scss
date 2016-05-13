@@ -58,7 +58,7 @@ $main-container-width: 968px;
     top: 90px;
     right: calc(50vw - #{$main-container-width / 2});
     border: 1px solid lighten($light-grey, 10);
-    box-shadow: 0 3px 5px rgba($light-grey, .4);
+    box-shadow: 0 3px 5px 1px rgba($light-grey, .4);
     width: 0.38 * $main-container-width;
     padding: 0 12px;
 
@@ -225,11 +225,16 @@ $main-container-width: 968px;
       padding: 10px;
       font-size: 18px;
       border: 1px solid $light-grey;
+      font-family: main;
     }
 
     select {
       background-color: inherit;
       height: 40px;
+    }
+
+    .payment-zip {
+      width: 120px;
     }
 
     .payment-expiration-month {
