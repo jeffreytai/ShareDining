@@ -1,4 +1,5 @@
 import jsController from 'JsController';
+import DateSlider from 'utils/DateSlider';
 import { throttle } from 'utils/utils';
 
 jsController['kitchen-new'] = function () {
@@ -17,6 +18,7 @@ jsController['kitchen-new'] = function () {
   const $nextButton = document.querySelector('.next-button');
   const $prevButton = document.querySelector('.prev-button');
   const $kitchenForm = document.querySelector('#new_kitchen');
+  const $dateSliders = document.querySelectorAll('.date-slider');
 
   var $currentFieldset = document.querySelector('.fieldset.current'),
     $currentMenuItem = document.querySelector(`.${KITCHEN_MENU_LINK_CLASS}.current`),
@@ -73,9 +75,11 @@ jsController['kitchen-new'] = function () {
     }
   }
 
-  // change to proper fieldset if a hash is present
+  // change to proper fieldset if a hash is present, else make the current hash the first hash
   if (currentHash && document.querySelector(currentHash)) {
     changeCurrentFieldset(currentHash);
+  } else {
+    location.hash = hashArray[0];
   }
 
   // change shown fieldset on hashchange
@@ -109,5 +113,11 @@ jsController['kitchen-new'] = function () {
       isStuck = !isStuck;
     }
   }, 50));
+
+  // init the date sliders
+  Array.prototype.forEach.call($dateSliders, (el) => {
+    const dateSlider = new DateSlider(el);
+    dateSlider.init();
+  });
 }
 ;
