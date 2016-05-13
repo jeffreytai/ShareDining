@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512081520) do
+ActiveRecord::Schema.define(version: 20160513045022) do
 
   create_table "availabilities", force: :cascade do |t|
     t.integer  "kitchen_id",           limit: 4

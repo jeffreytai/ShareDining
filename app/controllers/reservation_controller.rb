@@ -14,14 +14,13 @@ class ReservationController < ApplicationController
     puts "kitchen_id: #{@reservation.kitchen_id}"
     puts "start_date: #{@reservation.start_date}"
     puts "end_date: #{@reservation.end_date}"
+
+    # puts "schedule: #{@reservation.schedule.to_json}"
   end
 
   def create
     @kitchen = Kitchen.find(params[:kitchen_id])
     @reservation = Reservation.new(reservation_params)
-
-    # Individual reservation will make start_date and end_date the same
-    # @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
 
     if @reservation.save
       redirect_to [@kitchen, @reservation], notice: "Reservation is successfully made."
@@ -37,7 +36,7 @@ class ReservationController < ApplicationController
   private
     def reservation_params
       params.require(:reservation).permit(:multiple, :start_date, :end_date
-                                          #:schedule
+                                          #,:schedule
                                           )
     end
 
