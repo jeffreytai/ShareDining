@@ -13,9 +13,9 @@
     <h2 class="payment-details">Please enter your payment information below. Note that you will not be charged until the
       kitchen owner accepts your request.</h2>
 
-    <!--TODO: change this to call the actual payment method-->
-    <form action="" method="POST" class="payment-form">
+    <form action="<%= charges_path %>" method="POST" class="payment-form" data-stripe-key="<%= ENV["publishable_key"] %>">
       <span class="payment-errors"></span>
+
       <ul class="payment-field-list">
         <li class="payment-field clearfix">
           <div class="payment-field-left">
@@ -75,6 +75,7 @@
         </li>
       </ul>
     </form>
+
   </div>
   <aside class="request-kitchen-sidebar">
     <div class="kitchen-request-side-image-container"></div>
@@ -85,9 +86,9 @@
       <li class="kitchen-tag"><%= @kitchen.rental_space %></li>
     </ul>
     <div class="request-kitchen-side-details-container">
-      <div class="request-kitchen-date">June 6, 2016</div>
+      <div class="request-kitchen-date"><%= @reservation.start_date.strftime("%B %d, %Y") %><!--June 6, 2016--></div>
       <div class="request-kitchen-start-time">1:30 PM</div>
-      <div class="request-kitchen-end-time">6:30P PM</div>
+      <div class="request-kitchen-end-time">6:30 PM</div>
       <span class="clearfix"></span>
     </div>
 
@@ -104,4 +105,50 @@
     </ul>
   </aside>
 </section>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<script type="text/javascript">
+  Stripe.setPublishableKey('pk_test_ERBycpYd4txIp1ab8VjIPMQe');
+
+  $(function() {
+    var $form = $('#payment-form');
+    $form.submit(function(event) {
+      // Disable the submit button to prevent repeated clicks:
+      $form.find('.submit').prop('disabled', true);
+
+      // Request a token from Stripe:
+      Stripe.card.createToken($form, stripeResponseHandler);
+
+      // Prevent the form from being submitted:
+      return false;
+    });
+  });
+
+  function stripeResponseHandler(status, response) {
+    // Grab the form:
+    var $form = $('#payment-form');
+
+    if (response.error) { // Problem!
+
+      // Show the errors on the form:
+      $form.find('.payment-errors').text(response.error.message);
+      $form.find('.submit').prop('disabled', false); // Re-enable submission
+
+    } else { // Token was created!
+
+      // Get the token ID:
+      var token = response.id;
+
+      // Insert the token ID into the form so it gets submitted to the server:
+      $form.append($('<input type="hidden" name="stripeToken">').val(token));
+
+      // Submit the form:
+      $form.get(0).submit();
+    }
+  };
+
+</script>
+
+
 </body>

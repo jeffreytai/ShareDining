@@ -24,13 +24,12 @@ class KitchenController < ApplicationController
     @location = params[:location]
     @type = params[:type_of_kitchen]
     @size = params[:size_of_kitchen]
+    @sort = params[:sort_kitchens]
 
-    if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@size.present?
+    if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@size.present? || !@sort.present?
       render :nothing => true, :status => 400
       return
     end
-
-    # handle no kitchens returned
 
     @nearbyKitchens = Kitchen.near(@location, 15)
 
@@ -47,7 +46,18 @@ class KitchenController < ApplicationController
       @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.size.downcase == @size }
     end
 
-    # limit number of filtered ktichens to specified num_results
+    # Sort orders
+    if @sort.present? && @sort != 'best_match'
+      if @sort == 'price_low_to_high'
+        @nearbyKitchens = @nearbyKitchens.sort_by &:price
+      elsif @sort == 'price_high_to_low'
+        @nearbyKitchens = (@nearbyKitchens.sort_by &:price).reverse!
+      elsif @sort == 'newest_created'
+        @nearbyKitchens = (@nearbyKitchens.sort_by &:created_at).reverse!
+      end
+    end
+
+    # limit number of filtered kitchens to specified num_results
     if @nearbyKitchens.size <= @num_results
       @filtered_kitchens = @nearbyKitchens
     else

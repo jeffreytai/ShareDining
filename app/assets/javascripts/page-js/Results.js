@@ -46,7 +46,8 @@ JsController.results = function () {
     start_date: document.querySelector('#start_date'),
     end_date: document.querySelector('#end_date'),
     type_of_kitchen: document.querySelector('#type_of_kitchen'),
-    size_of_kitchen: document.querySelector('#size_of_kitchen')
+    size_of_kitchen: document.querySelector('#size_of_kitchen'),
+    sort_kitchens: document.querySelector('#sort_kitchens')
   };
 
   let kitchenToMarkerMap = {};

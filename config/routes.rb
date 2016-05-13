@@ -8,13 +8,16 @@ Rails.application.routes.draw do
   post 'kitchen/create'
 
   resources :kitchen do
-    resources :reservation, only: [:new, :create]
+    match "reservation/new" => "reservation#new", via: :post
+    resources :reservation, only: [:create, :show]
     resources :availability, only: :create
   end
 
-  resources :reservation, only: [:show, :edit, :update, :destroy]
+  resources :reservation, only: [:edit, :update, :destroy]
 
   resources :availability, only: [:new, :show, :edit, :update, :destroy]
+
+  resources :charges
 
   scope '/api' do
     scope '/v1' do

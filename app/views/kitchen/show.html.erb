@@ -11,9 +11,7 @@
   </section>
 
   <section class="listing-date-container clearfix">
-    <%= form_for @reservation, url: kitchen_reservation_index_path(@kitchen), html: {method: :post, class: "listing-dates-form"} do |f| %>
-      <%= f.hidden_field :renter_id, value: current_user.id %>
-      <%= f.hidden_field :kitchen_id, value: @kitchen.id %>
+    <%= form_for @reservation, url: kitchen_reservation_new_path(@kitchen, @reservation), html: {method: :post, class: "listing-dates-form"} do |f| %>
       <%= f.radio_button :multiple, 'Single Reservation' %>
       <%= f.label :multiple, 'Single Reservation', value: false %>
       <%= f.radio_button :multiple, 'Multiple Reservations' %>
@@ -30,16 +28,15 @@
         <%= f.date_field :end_date, class: "listing-start-date" %>
       </div>
 
-      <%= f.label :schedule %><br />
-      <% Date::DAYNAMES.each do |day| %>
-        <%= f.check_box :schedule, {}, day %>
-        <%= day %>
-        <%= f.label "Start Time" %>
-        <%= f.time_select :schedule, minute_step: 30 %>
-        <%= f.label "End Time" %>
-        <%= f.time_select :schedule, minute_step: 30 %>
-        <br/>
-      <% end %>
+      <%# f.label :schedule %>
+      <%# Date::DAYNAMES.each_with_index do |day, index| %>
+        <%# check_box_tag "reservation[schedule_days][]", day, @reservation.schedule_days.include?(day) %>
+        <%# day %>
+        <%# f.label "Start Time" %>
+        <%# time_field_tag "reservation[schedule_times][]" %><!-- minute_step: 30 -->
+        <%# f.label "End Time" %>
+        <%# f.time_select :schedule, minute_step: 30 %>
+      <%# end %>
 
     <% end %>
 

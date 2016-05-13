@@ -2,6 +2,14 @@
 
 $main-container-width: 968px;
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
 .request-kitchen-main-container {
   width: $main-container-width;
   margin: 0 auto;

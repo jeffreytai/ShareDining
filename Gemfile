@@ -37,8 +37,8 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # Resizing pictures for thumbnails (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 
-# Calendar
-gem "simple_calendar", "~> 2.0"
+# Payment system (https://stripe.com/docs/checkout/rails)
+gem 'stripe'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
