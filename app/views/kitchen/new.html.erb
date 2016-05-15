@@ -846,6 +846,7 @@
         <legend class="fieldset-title">Availability</legend>
         <%= form_for @availability, url: {action: "create"} do |avail| %>
             <ul class="day-availability-list">
+              <%# hidden_field_tag "schedule" %>
               <li class="day-availability-list-element">
                 <h2>Sunday</h2>
                 <ul class="date-slider"></ul>
@@ -876,6 +877,12 @@
               </li>
             </ul>
         <% end %>
+
+        <!-- <script>
+          var schedule;
+          schedule = $('.date-slider').value;
+          $('#schedule').val(schedule);
+        </script> -->
 
 
         <br/>
