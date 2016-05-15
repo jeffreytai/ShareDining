@@ -124,6 +124,7 @@ class KitchenController < ApplicationController
     def kitchen_params
       params.require(:kitchen).permit(:user_id, :title, :description, :location, :rental_space,
                                       :kitchen_rules_and_instructions, :additional_details, :price,
+                                      :cancellation_policy,
                                       :availability,
                                       { washing_station: [] }, { food_preparation: [] },
                                       { food_preparation: [] }, { cookware: [] }, { storage: [] },

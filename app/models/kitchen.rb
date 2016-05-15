@@ -4,8 +4,6 @@ class Kitchen < ActiveRecord::Base
   validates_presence_of :token
   validates_uniqueness_of :token
 
-  # before_create :set_size
-
   validates :title, presence: true
   validates :rental_space, presence: true
   validates :location, presence: true
@@ -39,11 +37,5 @@ class Kitchen < ActiveRecord::Base
     def set_token
       self.token = rand(36**8).to_s(36) if self.new_record? and self.token.nil?
     end
-
-    # def set_size
-    #   num_items = self.washing_station.count + self.food_preparation.count + self.cookware.count + self.storage.count + self.refrigeration.count + self.ovens_fryers.count + self.oven_equipment_and_storage.count + self.baking_and_pastry.count + self.other_amenities.count + self.other_equipment.count
-    #   self.size = (num_items >= 20) ? "Large" : "Small"
-    # end
-
 
 end
