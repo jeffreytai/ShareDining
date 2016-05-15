@@ -23,10 +23,9 @@ class KitchenController < ApplicationController
     @num_results = params[:num_results] ? Integer(params[:num_results]) : nil
     @location = params[:location]
     @type = params[:type_of_kitchen]
-    @size = params[:size_of_kitchen]
     @sort = params[:sort_kitchens]
 
-    if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@size.present? || !@sort.present?
+    if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@sort.present?
       render :nothing => true, :status => 400
       return
     end
@@ -41,10 +40,10 @@ class KitchenController < ApplicationController
       end
     end
 
-    if @size.present? && @size != 'any'
-      # Change so that if there are no results in filtered_kitchens, do a search for the entire kitchen list
-      @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.size.downcase == @size }
-    end
+    # if @size.present? && @size != 'any'
+    #   # Change so that if there are no results in filtered_kitchens, do a search for the entire kitchen list
+    #   @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.size.downcase == @size }
+    # end
 
     # Sort orders
     if @sort.present? && @sort != 'best_match'
