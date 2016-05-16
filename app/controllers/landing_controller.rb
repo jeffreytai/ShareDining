@@ -12,4 +12,7 @@ class LandingController < ApplicationController
   def cookie_policy
   end
 
+  def usage_agreement
+  end
+
 end

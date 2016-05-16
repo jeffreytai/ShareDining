@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'landing/terms_of_use'
   get 'landing/privacy_policy'
   get 'landing/cookie_policy'
+  get 'landing/usage_agreement'
 
   get 'search/results'
 
