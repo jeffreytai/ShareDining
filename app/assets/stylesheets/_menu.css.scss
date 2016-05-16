@@ -21,8 +21,7 @@ $nav-height: 60px;
   .main-logo {
     background-color: $black;
     color: $white;
-    // changed this value to have logo fit
-    line-height: $nav-height - 30px;
+    line-height: $nav-height;
     text-align: center;
     font-size: 24px;
     opacity: .85;

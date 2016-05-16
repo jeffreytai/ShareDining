@@ -1,20 +1,15 @@
 <footer class="footer-distributed">
   <div class="footer-left">
-    <%= image_tag("global/logo_without_name", style: 'height:10%;width:10%;') %>
-    <p class="footer-links">
-      <%= link_to "The Kitchen Economy", landing_the_kitchen_economy_path %> •
-      <%= link_to "Terms of Use", landing_terms_of_use_path %> •<br/>
-      <%= link_to "Privacy Policy", landing_privacy_policy_path %> •
-      <%= link_to "Cookie Policy", landing_cookie_policy_path %>
-    </p>
+    <ul class="footer-links">
+      <li class="footer-link-list-element"><%= link_to "The Kitchen Economy", landing_the_kitchen_economy_path %></li>
+      <li class="footer-link-list-element"><%= link_to "Terms of Use", landing_terms_of_use_path %></li>
+      <li class="footer-link-list-element"><%= link_to "Privacy Policy", landing_privacy_policy_path %></li>
+      <li class="footer-link-list-element"><%= link_to "Cookie Policy", landing_cookie_policy_path %></li>
+    </ul>
     <p class="footer-company-name">Share Dining Limited © 2016</p>
   </div>
 
   <div class="footer-center">
-    <div>
-      <i class="fa fa-map-marker"></i>
-      <p><span>Insert Address</span> London, United Kingdom</p>
-    </div>
     <div>
       <i class="fa fa-phone"></i>
       <p>+44 7713 147510</p>
@@ -28,11 +23,10 @@
   <div class="footer-right">
     <p class="footer-company-about">
       <span>Creating the kitchen economy</span>
-      Insert more details here
     </p>
-    <div class="footer-icons">
-      <a href="https://www.facebook.com/sharediningltd/?fref=ts"><i class="fa fa-facebook"></i></a>
-      <a href="https://twitter.com/ShareDiningHQ"><i class="fa fa-twitter"></i></a>
-      <a href="https://www.instagram.com/sharedining/"><i class="fa fa-instagram"></i></a>
-  </div>
+    <ul class="footer-icons">
+      <li class="footer-icon-list-element"><a href="https://www.facebook.com/sharediningltd/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+      <li class="footer-icon-list-element"><a href="https://twitter.com/ShareDiningHQ"><i class="fa fa-twitter"></i></a></li>
+      <li class="footer-icon-list-element"><a href="https://www.instagram.com/sharedining/"><i class="fa fa-instagram"></i></a></li>
+    </ul>
 </footer>
