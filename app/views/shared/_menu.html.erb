@@ -14,14 +14,15 @@
 
   <ul class="landing-links">
     <% if user_signed_in? %>
-        <li><%= link_to "Messages", root_url %></li>
-        <li><%= link_to "Help", root_url %></li>
-        <li><%= link_to current_user.first_name, root_url %></li>
-        <li><%= link_to "Sign out", destroy_user_session_path %></li>
+      <li><%= link_to "Messages", root_url %></li>
+      <li><%= link_to "Help", root_url %></li>
+      <li><%= link_to current_user.first_name, root_url %></li>
+      <li><%= link_to "Sign out", destroy_user_session_path %></li>
     <% else %>
-        <li><%= link_to "About", root_url %></li>
-        <li><a href="#" class="nav-login-button">Login</a></li>
-        <li><a href="#" class="nav-signup-button">Sign Up</a></li>
+      <!-- Recipe Book will be a link to the blog -->
+      <li><%= link_to "The ShareDining Recipe Book", root_url %></li>
+      <li><a href="#" class="nav-login-button">Login</a></li>
+      <li><a href="#" class="nav-signup-button">Sign Up</a></li>
     <% end %>
   </ul>
   <a href="<%= new_kitchen_path %>"><button class="transparent-button landing-rent-button">

@@ -1,5 +1,5 @@
-@import 'colors';
 @import 'fonts';
+@import 'colors';
 
 .main-footer {
   font-size: 14px;
@@ -11,4 +11,8 @@
   padding: 40px 20px;
   text-transform: uppercase;
   color: $white;
+}
+
+a:link {
+  color: inherit;
 }
