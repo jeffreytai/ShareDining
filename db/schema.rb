@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512081520) do
+ActiveRecord::Schema.define(version: 20160515220527) do
 
   create_table "availabilities", force: :cascade do |t|
+    t.integer  "kitchen_id",           limit: 4
     t.time     "sunday_start_time"
     t.time     "sunday_end_time"
     t.time     "monday_start_time"
@@ -30,7 +31,6 @@ ActiveRecord::Schema.define(version: 20160512081520) do
     t.time     "saturday_end_time"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "kitchen_id",           limit: 4
   end
 
   add_index "availabilities", ["kitchen_id"], name: "index_availabilities_on_kitchen_id", using: :btree

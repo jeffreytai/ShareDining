@@ -3,6 +3,7 @@
 <head>
   <title>ShareDining</title>
   <link rel="shortcut icon" href="<%= image_url('global/favicon.ico') %>" type="image/x-icon"/>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -17,5 +18,7 @@
 <p class="alert"><%= alert %></p>
 
 <%= yield %>
+
+<%= render("shared/footer") %>
 
 </html>

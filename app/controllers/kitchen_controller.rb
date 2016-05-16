@@ -23,10 +23,9 @@ class KitchenController < ApplicationController
     @num_results = params[:num_results] ? Integer(params[:num_results]) : nil
     @location = params[:location]
     @type = params[:type_of_kitchen]
-    @size = params[:size_of_kitchen]
     @sort = params[:sort_kitchens]
 
-    if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@size.present? || !@sort.present?
+    if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@sort.present?
       render :nothing => true, :status => 400
       return
     end
@@ -41,10 +40,10 @@ class KitchenController < ApplicationController
       end
     end
 
-    if @size.present? && @size != 'any'
-      # Change so that if there are no results in filtered_kitchens, do a search for the entire kitchen list
-      @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.size.downcase == @size }
-    end
+    # if @size.present? && @size != 'any'
+    #   # Change so that if there are no results in filtered_kitchens, do a search for the entire kitchen list
+    #   @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.size.downcase == @size }
+    # end
 
     # Sort orders
     if @sort.present? && @sort != 'best_match'
@@ -82,7 +81,8 @@ class KitchenController < ApplicationController
   # POST /kitchen.json
   def create
     @kitchen = Kitchen.new(kitchen_params)
-    @availability = Availability.new(availability_params)
+    # @availability = Availability.new(availability_params)
+    @availability = Availability.new
     params[:whole_kitchen] == "1" ? (@kitchen.rental_space = "Whole Kitchen") : (@kitchen.rental_space = "Shared Space")
 
     if @kitchen.save
@@ -124,6 +124,8 @@ class KitchenController < ApplicationController
     def kitchen_params
       params.require(:kitchen).permit(:user_id, :title, :description, :location, :rental_space,
                                       :kitchen_rules_and_instructions, :additional_details, :price,
+                                      :cancellation_policy,
+                                      :availability,
                                       { washing_station: [] }, { food_preparation: [] },
                                       { food_preparation: [] }, { cookware: [] }, { storage: [] },
                                       { refrigeration: [] }, { ovens_fryers: [] },
@@ -132,13 +134,14 @@ class KitchenController < ApplicationController
                                       )
     end
 
-    def availability_params
-      params.require(:availability).permit(:sunday_start_time, :sunday_end_time, :monday_start_time,
-                                          :monday_end_time, :tuesday_start_time, :tuesday_end_time,
-                                          :wednesday_start_time, :wednesday_end_time, :thursday_start_time,
-                                          :thursday_end_time, :friday_start_time, :friday_end_time,
-                                          :saturday_start_time, :saturday_end_time
-                                          )
-    end
+    # def availability_params
+    #   params.require(:availability).permit(
+    #                                       :sunday_start_time, :sunday_end_time, :monday_start_time,
+    #                                       :monday_end_time, :tuesday_start_time, :tuesday_end_time,
+    #                                       :wednesday_start_time, :wednesday_end_time, :thursday_start_time,
+    #                                       :thursday_end_time, :friday_start_time, :friday_end_time,
+    #                                       :saturday_start_time, :saturday_end_time
+    #                                       )
+    # end
 
 end

@@ -838,6 +838,25 @@
               about</label>
             <%= f.text_area :additional_details, id: "additional-details", placeholder: "E.g Highly recommend local supplier [x]." %>
           </li>
+          <li>
+            <label for="cancellation_policy">Cancellation Policy</label>
+            <%= f.radio_button :cancellation_policy, 'flexible', checked: true %><%= f.label :cancellation_policy, "Flexible", style: "display: inline;" %>
+            <br/>
+            2 week in advance: 75% refund<br/>
+            1 week in advance: 50% refund<br/>
+            48 hours in advance: 25% refund<br/>
+            Less than 24 hours: 0% refund<br/>
+
+            <%= f.radio_button :cancellation_policy, 'limited' %><%= f.label :cancellation_policy, "Limited", style: "display: inline;" %>
+            <br/>
+            2 weeks in advance: 100% refund<br/>
+            1 week in advance: 50% refund<br/>
+            Less than 1 week: 0% refund<br/>
+
+            <%= f.radio_button :cancellation_policy, 'strict' %><%= f.label :cancellation_policy, "Strict", style: "display: inline;" %>
+            <br/>
+            No refund on cancellation.
+          </li>
         </ul>
       </fieldset>
       <!-- TODO: add availability section -->
@@ -846,6 +865,7 @@
         <legend class="fieldset-title">Availability</legend>
         <%= form_for @availability, url: {action: "create"} do |avail| %>
             <ul class="day-availability-list">
+              <%# hidden_field_tag "schedule" %>
               <li class="day-availability-list-element">
                 <h2>Sunday</h2>
                 <ul class="date-slider"></ul>
@@ -876,7 +896,6 @@
               </li>
             </ul>
         <% end %>
-
 
         <br/>
         <legend class="fieldset-title">Upload Pictures</legend>

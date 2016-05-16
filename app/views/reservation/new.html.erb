@@ -5,9 +5,8 @@
   <div class="request-kitchen-details-container">
     <h1 class="request-kitchen-details-header">1. Additional Information</h1>
     <fieldset class="kitchen-request-additional-info-fieldset">
-      <label class="additional-info-label" for="additional-info">Additional information you would like to share with the
-        owner:</label>
-      <textarea class="kitchen-request-additional-info-input" id="additional-info"></textarea>
+      <label class="additional-info-label" for="additional-info">Tell the owner briefly what you need the kitchen space for:</label>
+      <textarea class="kitchen-request-additional-info-input" id="additional-info" placeholder="e.g. I need to produce an inventory of [X]."></textarea>
     </fieldset>
     <h1 class="request-kitchen-details-header">2. Payment</h1>
     <h2 class="payment-details">Please enter your payment information below. Note that you will not be charged until the
@@ -82,7 +81,6 @@
     <h1 class="request-kitchen-title"><%= @kitchen.title %></h1>
     <h2 class="request-kitchen-address"><%= @censored_address %></h2>
     <ul class="kitchen-tag-list clearfix">
-      <li class="kitchen-tag"><%= @kitchen.size %></li>
       <li class="kitchen-tag"><%= @kitchen.rental_space %></li>
     </ul>
     <div class="request-kitchen-side-details-container">

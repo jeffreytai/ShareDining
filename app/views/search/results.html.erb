@@ -6,7 +6,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDcgmjQMh77M_6_u3k0z1ymYgeEIrENHM&libraries=places&callback=resultsGoogleInit" async defer></script>
 
 <body data-js="results">
-<%= render 'shared/navigation' %>
+<%= render 'shared/menu' %>
 
 <section id="map" class="results-map-container">
   <!--Google map rendered here-->
@@ -29,14 +29,6 @@
         <option value="any" selected>Any</option>
         <option value="whole">Whole Kitchen</option>
         <option value="shared">Shared Kitchen</option>
-      </select>
-    </li>
-    <li class="filter">
-      <label for="size_of_kitchen">Size</label>
-      <select id="size_of_kitchen" name="size_of_kitchen">
-        <option value="any" selected>Any</option>
-        <option value="small">Small</option>
-        <option value="large">Large (20+ items)</option>
       </select>
     </li>
     <li class="filter">
