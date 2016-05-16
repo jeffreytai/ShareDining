@@ -15,4 +15,7 @@ class LandingController < ApplicationController
   def usage_agreement
   end
 
+  def the_kitchen_economy
+  end
+
 end
