@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'landing/usage_agreement'
   get 'landing/the_kitchen_economy'
 
+  get 'dashboard' => 'account#show'
+
   get 'search/results'
 
   post 'kitchen/create'
