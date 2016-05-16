@@ -7,8 +7,10 @@ export default class DateSlider {
     this.labelStep = labelStep;
     this.numElements = (max - min) / (step / 60);
     this.selectedClass = selectedClass;
+    this.name = $dateSlider.dataset.name || 'dateslider'; // the name of the hidden input field associated with this slider
     this.isMouseDown = false; // used to detect dragging
     this.timeBlocks = []; // an array of all of the time blocks
+    this.hiddenField = null; // the hideen input field
   }
 
   /**
@@ -17,6 +19,7 @@ export default class DateSlider {
    */
   init() {
     this._createTimeBlocks();
+    this._createHiddenField();
     this._attachEvents();
   }
 
@@ -69,6 +72,18 @@ export default class DateSlider {
   }
 
   /**
+   * Creates the hidden field before the date slider element
+   * @returns {void}
+   * @private
+   */
+  _createHiddenField() {
+    this.hiddenField = document.createElement('input');
+    this.hiddenField.setAttribute('type', 'hidden');
+    this.hiddenField.setAttribute('name', this.name);
+    this.$dateSlider.parentNode.insertBefore(this.hiddenField, this.$dateSlider);
+  }
+
+  /**
    * Unselects all time blocks
    * @returns {void}
    * @private
@@ -94,6 +109,7 @@ export default class DateSlider {
         this._resetTimeBlocks();
         target.classList.toggle(this.selectedClass);
         this.isMouseDown = true;
+        this.startingIndex = Array.prototype.indexOf.call(this.timeBlocks, target);
       }
     });
 
@@ -102,11 +118,22 @@ export default class DateSlider {
       const target = evt.target;
 
       if (this.isMouseDown && target && target.nodeName === 'LI') {
-        target.classList.add(this.selectedClass);
+        const currentIndex = Array.prototype.indexOf.call(this.timeBlocks, target);
+        const minIndex = Math.min(currentIndex, this.startingIndex);
+        const maxIndex = Math.max(currentIndex, this.startingIndex);
+        const timeBlocksToBeSelected = this.timeBlocks.slice(minIndex, maxIndex + 1);
+
+        // select all the blocks up to and including the current block in case the user moved too fast or went outside
+        // of the dateslider
+        timeBlocksToBeSelected.forEach((el) => el.classList.add(this.selectedClass));
       }
     }, true);
 
-    document.addEventListener('mouseup', () => this.isMouseDown = false);
+    // stop the highlight and set the value of the hidden field
+    document.addEventListener('mouseup', () => {
+      this.isMouseDown = false;
+      this.hiddenField.value = this.value;
+    });
   }
 
   /**
@@ -119,7 +146,7 @@ export default class DateSlider {
 
     if (selectedBlocks.length) {
       minTime = selectedBlocks[0].dataset.beginTime;
-      maxTime = selectedBlocks[selectedBlocks.length - 1].dataset.beginTime;
+      maxTime = +selectedBlocks[selectedBlocks.length - 1].dataset.beginTime + (this.step / 60);
     }
 
     return `${minTime},${maxTime}`;
