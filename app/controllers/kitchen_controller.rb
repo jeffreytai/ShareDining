@@ -81,13 +81,19 @@ class KitchenController < ApplicationController
   # POST /kitchen.json
   def create
     @kitchen = Kitchen.new(kitchen_params)
-    # @availability = Availability.new(availability_params)
-    @availability = Availability.new
     params[:whole_kitchen] == "1" ? (@kitchen.rental_space = "Whole Kitchen") : (@kitchen.rental_space = "Shared Space")
+
+    @availability = Availability.new
+    @availability.sunday_availability = params[:sunday_availability]
+    @availability.monday_availability = params[:monday_availability]
+    @availability.tuesday_availability = params[:tuesday_availability]
+    @availability.wednesday_availability = params[:wednesday_availability]
+    @availability.thursday_availability = params[:thursday_availability]
+    @availability.friday_availability = params[:friday_availability]
+    @availability.saturday_availability = params[:saturday_availability]
 
     if @kitchen.save
       @availability.kitchen_id = @kitchen.id
-      puts @availability.kitchen_id
       @availability.save
       @photos = @kitchen.photos
       redirect_to kitchen_path(@kitchen.token)
@@ -125,7 +131,6 @@ class KitchenController < ApplicationController
       params.require(:kitchen).permit(:user_id, :title, :description, :location, :rental_space,
                                       :kitchen_rules_and_instructions, :additional_details, :price,
                                       :cancellation_policy,
-                                      :availability,
                                       { washing_station: [] }, { food_preparation: [] },
                                       { food_preparation: [] }, { cookware: [] }, { storage: [] },
                                       { refrigeration: [] }, { ovens_fryers: [] },
@@ -134,14 +139,6 @@ class KitchenController < ApplicationController
                                       )
     end
 
-    # def availability_params
-    #   params.require(:availability).permit(
-    #                                       :sunday_start_time, :sunday_end_time, :monday_start_time,
-    #                                       :monday_end_time, :tuesday_start_time, :tuesday_end_time,
-    #                                       :wednesday_start_time, :wednesday_end_time, :thursday_start_time,
-    #                                       :thursday_end_time, :friday_start_time, :friday_end_time,
-    #                                       :saturday_start_time, :saturday_end_time
-    #                                       )
-    # end
+
 
 end

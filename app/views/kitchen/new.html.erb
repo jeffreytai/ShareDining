@@ -860,39 +860,38 @@
 
       <fieldset class="fieldset" id="pictures">
         <legend class="fieldset-title">Availability</legend>
-        <%= form_for @availability, url: {action: "create"} do |avail| %>
+        <%# form_for @availability, url: {action: "create"} do |avail| %>
             <ul class="day-availability-list">
-              <%# hidden_field_tag "schedule" %>
               <li class="day-availability-list-element">
                 <h2>Sunday</h2>
-                <ul class="date-slider" data-name="sunday-availability"></ul>
+                <ul class="date-slider" data-name="sunday_availability"></ul>
               </li>
               <li class="day-availability-list-element">
                 <h2>Monday</h2>
-                <ul class="date-slider" data-name="monday-availability"></ul>
+                <ul class="date-slider" data-name="monday_availability"></ul>
               </li>
               <li class="day-availability-list-element">
                 <h2>Tuesday</h2>
-                <ul class="date-slider" data-name="tuesday-availability"></ul>
+                <ul class="date-slider" data-name="tuesday_availability"></ul>
               </li>
               <li class="day-availability-list-element">
                 <h2>Wednesday</h2>
-                <ul class="date-slider" data-name="wednesday-availability"></ul>
+                <ul class="date-slider" data-name="wednesday_availability"></ul>
               </li>
               <li class="day-availability-list-element">
                 <h2>Thursday</h2>
-                <ul class="date-slider" data-name="thursday-availability"></ul>
+                <ul class="date-slider" data-name="thursday_availability"></ul>
               </li>
               <li class="day-availability-list-element">
                 <h2>Friday</h2>
-                <ul class="date-slider" data-name="friday-availability"></ul>
+                <ul class="date-slider" data-name="friday_availability"></ul>
               </li>
               <li class="day-availability-list-element">
                 <h2>Saturday</h2>
-                <ul class="date-slider" data-name="saturday-availability"></ul>
+                <ul class="date-slider" data-name="saturday_availability"></ul>
               </li>
             </ul>
-        <% end %>
+        <%# end %>
 
         <br/>
         <legend class="fieldset-title">Upload Pictures</legend>

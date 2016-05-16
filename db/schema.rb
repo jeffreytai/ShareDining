@@ -11,26 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515220527) do
+ActiveRecord::Schema.define(version: 20160516210600) do
 
   create_table "availabilities", force: :cascade do |t|
-    t.time     "sunday_start_time"
-    t.time     "sunday_end_time"
-    t.time     "monday_start_time"
-    t.time     "monday_end_time"
-    t.time     "tuesday_start_time"
-    t.time     "tuesday_end_time"
-    t.time     "wednesday_start_time"
-    t.time     "wednesday_end_time"
-    t.time     "thursday_start_time"
-    t.time     "thursday_end_time"
-    t.time     "friday_start_time"
-    t.time     "friday_end_time"
-    t.time     "saturday_start_time"
-    t.time     "saturday_end_time"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "kitchen_id",           limit: 4
+    t.integer  "kitchen_id",             limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "sunday_availability",    limit: 255
+    t.string   "monday_availability",    limit: 255
+    t.string   "tuesday_availability",   limit: 255
+    t.string   "wednesday_availability", limit: 255
+    t.string   "thursday_availability",  limit: 255
+    t.string   "friday_availability",    limit: 255
+    t.string   "saturday_availability",  limit: 255
   end
 
   add_index "availabilities", ["kitchen_id"], name: "index_availabilities_on_kitchen_id", using: :btree
