@@ -84,17 +84,20 @@ class KitchenController < ApplicationController
     params[:whole_kitchen] == "1" ? (@kitchen.rental_space = "Whole Kitchen") : (@kitchen.rental_space = "Shared Space")
 
     @availability = Availability.new
-    @availability.sunday_availability = params[:sunday_availability]
-    @availability.monday_availability = params[:monday_availability]
-    @availability.tuesday_availability = params[:tuesday_availability]
-    @availability.wednesday_availability = params[:wednesday_availability]
-    @availability.thursday_availability = params[:thursday_availability]
-    @availability.friday_availability = params[:friday_availability]
-    @availability.saturday_availability = params[:saturday_availability]
+
+    @sunday_availability = params[:sunday_availability]
+    @monday_availability = params[:monday_availability]
+    @tuesday_availability = params[:tuesday_availability]
+    @wednesday_availability = params[:wednesday_availability]
+    @thursday_availability = params[:thursday_availability]
+    @friday_availability = params[:friday_availability]
+    @saturday_availability = params[:saturday_availability]
 
     if @kitchen.save
       @availability.kitchen_id = @kitchen.id
+      parse_availability
       @availability.save
+
       @photos = @kitchen.photos
       redirect_to kitchen_path(@kitchen.token)
       flash[:notice] = 'Kitchen was successfully added.'
@@ -139,6 +142,69 @@ class KitchenController < ApplicationController
                                       )
     end
 
+    def parse_availability
+      @sunday_time = @sunday_availability.split(',')
+      if @sunday_time[0] == '0' && @sunday_time[1] == '0'
+        @availability.sunday_start_time = nil
+        @availability.sunday_end_time = nil
+      else
+        @availability.sunday_start_time = @sunday_time[0].to_i
+        @availability.sunday_end_time = @sunday_time[1].to_i
+      end
 
+      @monday_time = @monday_availability.split(',')
+      if @monday_time[0] == '0' && @monday_time[1] == '0'
+        @availability.monday_start_time = nil
+        @availability.monday_end_time = nil
+      else
+        @availability.monday_start_time = @monday_time[0].to_i
+        @availability.monday_end_time = @monday_time[1].to_i
+      end
+
+      @tuesday_time = @tuesday_availability.split(',')
+      if @tuesday_time[0] == '0' && @tuesday_time[1] == '0'
+        @availability.tuesday_start_time = nil
+        @availability.tuesday_end_time = nil
+      else
+        @availability.tuesday_start_time = @tuesday_time[0].to_i
+        @availability.tuesday_end_time = @tuesday_time[1].to_i
+      end
+
+      @wednesday_time = @wednesday_availability.split(',')
+      if @wednesday_time[0] == '0' && @wednesday_time[1] == '0'
+        @availability.wednesday_start_time = nil
+        @availability.wednesday_end_time = nil
+      else
+        @availability.wednesday_start_time = @wednesday_time[0].to_i
+        @availability.wednesday_end_time = @wednesday_time[1].to_i
+      end
+
+      @thursday_time = @thursday_availability.split(',')
+      if @thursday_time[0] == '0' && @thursday_time[1] == '0'
+        @availability.thursday_start_time = nil
+        @availability.thursday_end_time = nil
+      else
+        @availability.thursday_start_time = @thursday_time[0].to_i
+        @availability.thursday_end_time = @thursday_time[1].to_i
+      end
+
+      @friday_time = @friday_availability.split(',')
+      if @friday_time[0] == '0' && @friday_time[1] == '0'
+        @availability.friday_start_time = nil
+        @availability.friday_end_time = nil
+      else
+        @availability.friday_start_time = @friday_time[0].to_i
+        @availability.friday_end_time = @friday_time[1].to_i
+      end
+
+      @saturday_time = @saturday_availability.split(',')
+      if @saturday_time[0] == '0' && @saturday_time[1] == '0'
+        @availability.saturday_start_time = nil
+        @availability.saturday_end_time = nil
+      else
+        @availability.saturday_start_time = @saturday_time[0].to_i
+        @availability.saturday_end_time = @saturday_time[1].to_i
+      end
+    end
 
 end

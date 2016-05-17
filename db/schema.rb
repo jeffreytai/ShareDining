@@ -11,19 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516210600) do
+ActiveRecord::Schema.define(version: 20160517005352) do
 
   create_table "availabilities", force: :cascade do |t|
-    t.integer  "kitchen_id",             limit: 4
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "sunday_availability",    limit: 255
-    t.string   "monday_availability",    limit: 255
-    t.string   "tuesday_availability",   limit: 255
-    t.string   "wednesday_availability", limit: 255
-    t.string   "thursday_availability",  limit: 255
-    t.string   "friday_availability",    limit: 255
-    t.string   "saturday_availability",  limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "kitchen_id",           limit: 4
+    t.integer  "sunday_start_time",    limit: 4
+    t.integer  "sunday_end_time",      limit: 4
+    t.integer  "monday_start_time",    limit: 4
+    t.integer  "monday_end_time",      limit: 4
+    t.integer  "tuesday_start_time",   limit: 4
+    t.integer  "tuesday_end_time",     limit: 4
+    t.integer  "wednesday_start_time", limit: 4
+    t.integer  "wednesday_end_time",   limit: 4
+    t.integer  "thursday_start_time",  limit: 4
+    t.integer  "thursday_end_time",    limit: 4
+    t.integer  "friday_start_time",    limit: 4
+    t.integer  "friday_end_time",      limit: 4
+    t.integer  "saturday_start_time",  limit: 4
+    t.integer  "saturday_end_time",    limit: 4
   end
 
   add_index "availabilities", ["kitchen_id"], name: "index_availabilities_on_kitchen_id", using: :btree
