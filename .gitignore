@@ -27,3 +27,6 @@
 
 # Ignore Gemfile.lock file
 Gemfile.lock
+
+# Ignore db/schema.rb, this file will automatically be generated
+db/schema.rb

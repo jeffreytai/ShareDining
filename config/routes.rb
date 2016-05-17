@@ -4,7 +4,16 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get 'landing/terms_of_use'
+  get 'landing/privacy_policy'
+  get 'landing/cookie_policy'
+  get 'landing/usage_agreement'
+  get 'landing/the_kitchen_economy'
+
+  get 'dashboard' => 'account#show'
+
   get 'search/results'
+
   post 'kitchen/create'
 
   resources :kitchen do

@@ -256,7 +256,8 @@ Kitchen.create(
   location: "London Greater London E8 3PH",
   kitchen_rules_and_instructions: "None",
   price: 85,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -296,7 +297,8 @@ Kitchen.create(
   location: "Portway London Greater London E15 3QN",
   kitchen_rules_and_instructions: "None",
   price: 62,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -336,7 +338,8 @@ Kitchen.create(
   location: "Mitcham Road Croydon Greater London CR0 3RU",
   kitchen_rules_and_instructions: "None",
   price: 57,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -376,7 +379,8 @@ Kitchen.create(
   location: "Watling Street Bexleyheath Greater London DA6 7QQ",
   kitchen_rules_and_instructions: "None",
   price: 10,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -396,7 +400,8 @@ Kitchen.create(
   location: "Balham High Road London Greater London SW17 7BQ",
   kitchen_rules_and_instructions: "None",
   price: 50,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -436,7 +441,8 @@ Kitchen.create(
   location: "Bromley Road London Greater London SE6 2RH",
   kitchen_rules_and_instructions: "None",
   price: 405,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -456,7 +462,8 @@ Kitchen.create(
   location: "Merton Road London Greater London",
   kitchen_rules_and_instructions: "None",
   price: 405,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
 )
 
 Kitchen.create(
@@ -476,5 +483,132 @@ Kitchen.create(
   location: "Epsom England",
   kitchen_rules_and_instructions: "None",
   price: 435,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1
+)
+
+Availability.create(
+  kitchen_id: 1,
+  sunday_start_time: 1,
+  sunday_end_time: 23,
+  monday_start_time: 1,
+  monday_end_time: 23,
+  tuesday_start_time: 1,
+  tuesday_end_time: 23,
+  wednesday_start_time: 1,
+  wednesday_end_time: 23,
+  thursday_start_time: 1,
+  thursday_end_time: 23,
+  friday_start_time: 1,
+  friday_end_time: 23,
+  saturday_start_time: 1,
+  saturday_end_time: 23
+)
+
+Availability.create(
+  kitchen_id: 2,
+  sunday_start_time: 1,
+  sunday_end_time: 23,
+  monday_start_time: 1,
+  monday_end_time: 23,
+  tuesday_start_time: 1,
+  tuesday_end_time: 23,
+  wednesday_start_time: 1,
+  wednesday_end_time: 23,
+  thursday_start_time: 1,
+  thursday_end_time: 23,
+  friday_start_time: 1,
+  friday_end_time: 23,
+  saturday_start_time: 1,
+  saturday_end_time: 23
+)
+
+Availability.create(
+  kitchen_id: 3,
+  sunday_start_time: 1,
+  sunday_end_time: 23,
+  monday_start_time: 1,
+  monday_end_time: 23,
+  tuesday_start_time: 1,
+  tuesday_end_time: 23,
+  wednesday_start_time: 1,
+  wednesday_end_time: 23,
+  thursday_start_time: 1,
+  thursday_end_time: 23,
+  friday_start_time: 1,
+  friday_end_time: 23,
+  saturday_start_time: 1,
+  saturday_end_time: 23
+)
+
+Availability.create(
+  kitchen_id: 4,
+  sunday_start_time: 1,
+  sunday_end_time: 23,
+  monday_start_time: 1,
+  monday_end_time: 23,
+  tuesday_start_time: 1,
+  tuesday_end_time: 23,
+  wednesday_start_time: 1,
+  wednesday_end_time: 23,
+  thursday_start_time: 1,
+  thursday_end_time: 23,
+  friday_start_time: 1,
+  friday_end_time: 23,
+  saturday_start_time: 1,
+  saturday_end_time: 23
+)
+
+Availability.create(
+  kitchen_id: 5,
+  sunday_start_time: 1,
+  sunday_end_time: 23,
+  monday_start_time: 1,
+  monday_end_time: 23,
+  tuesday_start_time: 1,
+  tuesday_end_time: 23,
+  wednesday_start_time: 1,
+  wednesday_end_time: 23,
+  thursday_start_time: 1,
+  thursday_end_time: 23,
+  friday_start_time: 1,
+  friday_end_time: 23,
+  saturday_start_time: 1,
+  saturday_end_time: 23
+)
+
+Availability.create(
+  kitchen_id: 6,
+  sunday_start_time: 1,
+  sunday_end_time: 23,
+  monday_start_time: 1,
+  monday_end_time: 23,
+  tuesday_start_time: 1,
+  tuesday_end_time: 23,
+  wednesday_start_time: 1,
+  wednesday_end_time: 23,
+  thursday_start_time: 1,
+  thursday_end_time: 23,
+  friday_start_time: 1,
+  friday_end_time: 23,
+  saturday_start_time: 1,
+  saturday_end_time: 23
+)
+
+Availability.create(
+  kitchen_id: 7,
+  sunday_start_time: 1,
+  sunday_end_time: 23,
+  monday_start_time: 1,
+  monday_end_time: 23,
+  tuesday_start_time: 1,
+  tuesday_end_time: 23,
+  wednesday_start_time: 1,
+  wednesday_end_time: 23,
+  thursday_start_time: 1,
+  thursday_end_time: 23,
+  friday_start_time: 1,
+  friday_end_time: 23,
+  saturday_start_time: 1,
+  saturday_end_time: 23
 )

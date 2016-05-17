@@ -1,7 +1,0 @@
-<h1>Pictures#new</h1>
-<p>Find me in app/views/pictures/new.html.erb</p>
-
-<%= form_for(:picture, :url => {:action => 'create'},:html => {:multipart => true}) do |f| %>
-<%= f.file_field :picture %>
-<%= f.submit "Upload" %>
-<% end %>
