@@ -1,4 +1,4 @@
-class ChangeTimesForAvailability < ActiveRecord::Migration
+class AddDayToAvailability < ActiveRecord::Migration
   def change
     remove_column :availabilities, :sunday_start_time
     remove_column :availabilities, :sunday_end_time
@@ -14,12 +14,12 @@ class ChangeTimesForAvailability < ActiveRecord::Migration
     remove_column :availabilities, :friday_end_time
     remove_column :availabilities, :saturday_start_time
     remove_column :availabilities, :saturday_end_time
-    add_column :availabilities, :sunday_availability, :string
-    add_column :availabilities, :monday_availability, :string
-    add_column :availabilities, :tuesday_availability, :string
-    add_column :availabilities, :wednesday_availability, :string
-    add_column :availabilities, :thursday_availability, :string
-    add_column :availabilities, :friday_availability, :string
-    add_column :availabilities, :saturday_availability, :string
+    add_column :availabilities, :sunday, :integer
+    add_column :availabilities, :monday, :integer
+    add_column :availabilities, :tuesday, :integer
+    add_column :availabilities, :wednesday, :integer
+    add_column :availabilities, :thursday, :integer
+    add_column :availabilities, :friday, :integer
+    add_column :availabilities, :saturday, :integer
   end
 end
