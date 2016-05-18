@@ -10,7 +10,7 @@ User.create(
   first_name: "Jeffrey",
   last_name: "Tai",
   email: "jeffreytai@ucla.edu",
-  password: "password",
+  password: "jeffrey94",
   last_sign_in_at: Time.now,
   current_sign_in_at: Time.now,
   last_sign_in_ip: "::1",
