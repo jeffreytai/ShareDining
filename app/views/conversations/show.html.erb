@@ -1,31 +1,37 @@
-<p>Conversation Subject:<br>
-  <%= @conversation.subject %>
-</p>
+<body>
+  <%= render("shared/menu") %>
 
-<% @conversation.receipts_for(current_user).each do |receipt| %>
-  <% message = receipt.message %>
 
-  <br>
-  <p>From:<br>
-    <%= message.sender.first_name %>
+  <p>Conversation Subject:<br>
+    <%= @conversation.subject %>
   </p>
 
-  <br>
-  <p>Message:<br>
-    <%= message.body %>
-  </p>
+  <% @conversation.receipts_for(current_user).each do |receipt| %>
+    <% message = receipt.message %>
+
+    <br>
+    <p>From:<br>
+      <%= message.sender.first_name %>
+    </p>
+
+    <br>
+    <p>Message:<br>
+      <%= message.body %>
+    </p>
+
+    <br>
+    <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
+  <% end %>
 
   <br>
-  <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
-<% end %>
+  <br>
+  <br>
 
-<br>
-<br>
-<br>
+  <%= form_tag reply_conversation_path(@conversation), method: :post do %>
+    <div>
+      <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+    </div>
+    <%= submit_tag "Reply" %>
+  <% end %>
 
-<%= form_tag reply_conversation_path(@conversation), method: :post do %>
-  <div>
-    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
-  </div>
-  <%= submit_tag "Reply" %>
-<% end %>
+</body>
