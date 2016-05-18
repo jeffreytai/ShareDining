@@ -40,6 +40,12 @@ gem 'mini_magick'
 # Payment system (https://stripe.com/docs/checkout/rails)
 gem 'stripe'
 
+# Messaging
+gem 'mailboxer'
+gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
