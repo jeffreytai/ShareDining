@@ -85,21 +85,11 @@ class KitchenController < ApplicationController
 
     @availability = Availability.new
 
-    @sunday_availability = params[:sunday_availability]
-    @monday_availability = params[:monday_availability]
-    @tuesday_availability = params[:tuesday_availability]
-    @wednesday_availability = params[:wednesday_availability]
-    @thursday_availability = params[:thursday_availability]
-    @friday_availability = params[:friday_availability]
-    @saturday_availability = params[:saturday_availability]
-
     if @kitchen.save
       @availability.kitchen_id = @kitchen.id
 
       parse_availability
       @availability.save
-
-      puts "In DB: #{@availability.sunday}"
 
       @photos = @kitchen.photos
       redirect_to kitchen_path(@kitchen.token)
@@ -147,6 +137,14 @@ class KitchenController < ApplicationController
 
     def parse_availability
       # Assigns availability attribute in format such as [3, 6], both digits are strings
+      @sunday_availability = params[:sunday_availability]
+      @monday_availability = params[:monday_availability]
+      @tuesday_availability = params[:tuesday_availability]
+      @wednesday_availability = params[:wednesday_availability]
+      @thursday_availability = params[:thursday_availability]
+      @friday_availability = params[:friday_availability]
+      @saturday_availability = params[:saturday_availability]
+
       @sunday_time = @sunday_availability.split(',')
       @availability.sunday = (@sunday_time[0] == '0' && @sunday_time[1] == '0') ? nil : [@sunday_time[0], @sunday_time[1]]
 
