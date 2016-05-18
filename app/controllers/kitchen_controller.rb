@@ -1,3 +1,5 @@
+require 'time'
+
 class KitchenController < ApplicationController
 
   # GET /kitchen/1
@@ -9,7 +11,7 @@ class KitchenController < ApplicationController
   end
 
   # TODO: filter out any information that is not relevant for the results page,
-  #   TODO: ie SELECT price, name, image[0], lat, long, shared, size
+  # TODO: ie SELECT price, name, image[0], lat, long, shared, size
   # GET /api/v1/kitchens
   # Returns a JSON array of relevant kitchens
   # GET parameters are as follows:
@@ -19,19 +21,25 @@ class KitchenController < ApplicationController
   # {String} type_of_kitchen - the type of kitchens to be returned. Values may include [any, whole, shared]
   # {String} size_of_kitchen  - the size of the kitchens to be returned. Values may include [any, large, small]
   def filter
+    @start_date = params[:start_date]
     @index = params[:index] ? Integer(params[:index]) : nil
     @num_results = params[:num_results] ? Integer(params[:num_results]) : nil
     @location = params[:location]
     @type = params[:type_of_kitchen]
     @sort = params[:sort_kitchens]
 
-    if !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@sort.present?
+    if !@start_date.present? || !@index.present? || !@num_results.present? || !@location.present? || !@type.present? || !@sort.present?
       render :nothing => true, :status => 400
       return
     end
 
-    @nearbyKitchens = Kitchen.near(@location, 15)
+    if @start_date.present?
+      day = Time.parse(@start_date).strftime("%A").downcase
+      @available_kitchens = Kitchen.joins(:availability).where("#{day} is not null")
+      @nearbyKitchens = @available_kitchens.near(@location, 15)
+    end
 
+    # Filter between Whole Kitchen and Shared Space
     if @type.present? && @type != 'any'
       if @type == 'whole'
         @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.rental_space == 'Whole Kitchen' }
@@ -39,11 +47,6 @@ class KitchenController < ApplicationController
         @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.rental_space == 'Shared Space' }
       end
     end
-
-    # if @size.present? && @size != 'any'
-    #   # Change so that if there are no results in filtered_kitchens, do a search for the entire kitchen list
-    #   @nearbyKitchens = @nearbyKitchens.select { |kitchen| kitchen.size.downcase == @size }
-    # end
 
     # Sort orders
     if @sort.present? && @sort != 'best_match'
@@ -62,7 +65,6 @@ class KitchenController < ApplicationController
     else
       @filtered_kitchens = @nearbyKitchens[@index...@index + @num_results]
     end
-
 
     render json: @filtered_kitchens
   end
