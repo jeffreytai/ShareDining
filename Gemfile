@@ -38,7 +38,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 
 # Payment system (https://stripe.com/docs/checkout/rails)
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Messaging
 gem 'mailboxer'
