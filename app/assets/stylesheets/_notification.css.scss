@@ -1,0 +1,29 @@
+@import 'fonts';
+.notification{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 200px;
+    right: 0;
+    padding-left: 24px;
+    padding-top: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: left;
+    line-height: 60 px;
+    font-size: 20px;
+    overflow: hidden;
+    -webkit-animation: fadeInOut 3s linear forwards;
+    animation: fadeInOut 3s linear forwards;
+  }
+
+@-webkit-keyframes fadeInOut {
+    0%,100% { opacity: 0; }
+    10% { opacity: 1; }
+    70% { opacity: 1;}
+  }
+
+@keyframes fadeInOut {
+    0%,100% { opacity: 0; }
+    10% { opacity: 1; }
+    70% { opacity: 1;}
+  }
