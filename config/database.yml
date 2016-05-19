@@ -15,7 +15,7 @@ default: &default
   database: sharedining
   pool: 5
   username: root
-  password:
+  password: a;sldkfj
   host: localhost
   socket: /tmp/mysql.sock
 

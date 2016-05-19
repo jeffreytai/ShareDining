@@ -1,0 +1,23 @@
+<h1>Your Conversations</h1>
+
+<div>
+  <br>
+    <ul>
+      <%= mailbox_section 'inbox', @box %>
+      <%= mailbox_section 'sent', @box %>
+      <%= mailbox_section 'trash', @box %>
+    </ul>
+
+  <br>
+  <br>
+
+  <div>
+    <% if @box == 'trash' %>
+      <p><%= button_to 'Empty trash', empty_trash_conversations_path, method: :delete, data: {confirm: 'Are you sure?'} %></p>
+    <% end %>
+
+    <%= render partial: 'conversations/conversation', collection: @conversations %>
+
+    <%= will_paginate %>
+  </div>
+</div>

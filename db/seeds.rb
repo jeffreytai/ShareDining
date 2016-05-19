@@ -489,126 +489,231 @@ Kitchen.create(
 
 Availability.create(
   kitchen_id: 1,
-  sunday_start_time: 1,
-  sunday_end_time: 23,
-  monday_start_time: 1,
-  monday_end_time: 23,
-  tuesday_start_time: 1,
-  tuesday_end_time: 23,
-  wednesday_start_time: 1,
-  wednesday_end_time: 23,
-  thursday_start_time: 1,
-  thursday_end_time: 23,
-  friday_start_time: 1,
-  friday_end_time: 23,
-  saturday_start_time: 1,
-  saturday_end_time: 23
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
 )
 
 Availability.create(
   kitchen_id: 2,
-  sunday_start_time: 1,
-  sunday_end_time: 23,
-  monday_start_time: 1,
-  monday_end_time: 23,
-  tuesday_start_time: 1,
-  tuesday_end_time: 23,
-  wednesday_start_time: 1,
-  wednesday_end_time: 23,
-  thursday_start_time: 1,
-  thursday_end_time: 23,
-  friday_start_time: 1,
-  friday_end_time: 23,
-  saturday_start_time: 1,
-  saturday_end_time: 23
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
 )
 
 Availability.create(
   kitchen_id: 3,
-  sunday_start_time: 1,
-  sunday_end_time: 23,
-  monday_start_time: 1,
-  monday_end_time: 23,
-  tuesday_start_time: 1,
-  tuesday_end_time: 23,
-  wednesday_start_time: 1,
-  wednesday_end_time: 23,
-  thursday_start_time: 1,
-  thursday_end_time: 23,
-  friday_start_time: 1,
-  friday_end_time: 23,
-  saturday_start_time: 1,
-  saturday_end_time: 23
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
 )
 
 Availability.create(
   kitchen_id: 4,
-  sunday_start_time: 1,
-  sunday_end_time: 23,
-  monday_start_time: 1,
-  monday_end_time: 23,
-  tuesday_start_time: 1,
-  tuesday_end_time: 23,
-  wednesday_start_time: 1,
-  wednesday_end_time: 23,
-  thursday_start_time: 1,
-  thursday_end_time: 23,
-  friday_start_time: 1,
-  friday_end_time: 23,
-  saturday_start_time: 1,
-  saturday_end_time: 23
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
 )
 
 Availability.create(
   kitchen_id: 5,
-  sunday_start_time: 1,
-  sunday_end_time: 23,
-  monday_start_time: 1,
-  monday_end_time: 23,
-  tuesday_start_time: 1,
-  tuesday_end_time: 23,
-  wednesday_start_time: 1,
-  wednesday_end_time: 23,
-  thursday_start_time: 1,
-  thursday_end_time: 23,
-  friday_start_time: 1,
-  friday_end_time: 23,
-  saturday_start_time: 1,
-  saturday_end_time: 23
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
 )
 
 Availability.create(
   kitchen_id: 6,
-  sunday_start_time: 1,
-  sunday_end_time: 23,
-  monday_start_time: 1,
-  monday_end_time: 23,
-  tuesday_start_time: 1,
-  tuesday_end_time: 23,
-  wednesday_start_time: 1,
-  wednesday_end_time: 23,
-  thursday_start_time: 1,
-  thursday_end_time: 23,
-  friday_start_time: 1,
-  friday_end_time: 23,
-  saturday_start_time: 1,
-  saturday_end_time: 23
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
 )
 
 Availability.create(
   kitchen_id: 7,
-  sunday_start_time: 1,
-  sunday_end_time: 23,
-  monday_start_time: 1,
-  monday_end_time: 23,
-  tuesday_start_time: 1,
-  tuesday_end_time: 23,
-  wednesday_start_time: 1,
-  wednesday_end_time: 23,
-  thursday_start_time: 1,
-  thursday_end_time: 23,
-  friday_start_time: 1,
-  friday_end_time: 23,
-  saturday_start_time: 1,
-  saturday_end_time: 23
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 8,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 9,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 10,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 11,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 12,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 13,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 14,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 15,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 16,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 17,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 18,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 19,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 20,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
+)
+
+Availability.create(
+  kitchen_id: 21,
+  sunday: ["1", "23"],
+  monday: ["1", "23"],
+  tuesday: ["1", "23"],
+  wednesday: ["1", "23"],
+  thursday: ["1", "23"],
+  friday: ["1", "23"],
+  saturday: ["1", "23"]
 )

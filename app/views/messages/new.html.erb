@@ -1,0 +1,19 @@
+<h1>Send message to kitchen owner</h1>
+
+<%= form_tag messages_path, method: :post do %>
+  <div>
+    <%= label_tag 'message[subject]', 'Subject' %>
+    <%= text_field_tag 'message[subject]', nil, required: true %>
+  </div>
+
+  <div>
+    <%= label_tag 'message[body]', 'Message' %>
+    <%= text_area_tag 'message[body]', nil, required: true %>
+  </div>
+
+  <div>
+    <%= hidden_field_tag(:recipient_id, params[:kitchen_owner]) %>
+  </div>
+
+  <%= submit_tag 'Send' %>
+<% end %>
