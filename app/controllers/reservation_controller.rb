@@ -7,15 +7,16 @@ class ReservationController < ApplicationController
     @reservation.renter_id = current_user.id
     @reservation.kitchen_id = @kitchen.id
 
+    @start_time = @reservation.start_time
+    @end_time = @reservation.end_time
+
+    # Gets day of week from start_date
+    @day = @reservation.start_date.strftime("%A").downcase
+    # puts "day: #{@day}"
+
     # Individual reservation will make start_date and end_date the same
     @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
 
-    puts "renter_id: #{@reservation.renter_id}"
-    puts "kitchen_id: #{@reservation.kitchen_id}"
-    puts "start_date: #{@reservation.start_date}"
-    puts "end_date: #{@reservation.end_date}"
-
-    # puts "schedule: #{@reservation.schedule.to_json}"
   end
 
   def create
@@ -35,7 +36,8 @@ class ReservationController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:multiple, :start_date, :end_date
+      params.require(:reservation).permit(:multiple, :start_date, :end_date,
+                                          :start_time, :end_time
                                           #,:schedule
                                           )
     end
