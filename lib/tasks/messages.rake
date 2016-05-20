@@ -1,5 +1,5 @@
 namespace :messages do
-  desc "Adds 10 messages to jeffrey94 from testuser1"
+  desc "Adds 11 messages to jeffrey94 from testuser1"
   task :add11 => :environment do
     recipients = User.find_by(id: 1)
     sender = User.find_by(id: 2)
