@@ -1,8 +1,6 @@
-<%= form_tag({controller: "charges", action: "create"}, method: "post") do %>
-<!-- <form action="" method="POST" id="payment-form" data-stripe-key="<%= ENV["publishable_key"] %>"> -->
+<%= form_tag charges_path, id: "payment-form" do %>
   <span class="payment-errors"></span>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
   <ul class="payment-field-list">
     <li class="payment-field clearfix">
       <div class="payment-field-left">
@@ -61,11 +59,10 @@
       <input type="submit" value="Submit Payment" class="transparent-button payment-submit">
     </li>
   </ul>
-<!-- </form> -->
+
 <% end %>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
 <script type="text/javascript">
   Stripe.setPublishableKey('pk_test_ERBycpYd4txIp1ab8VjIPMQe');
 
