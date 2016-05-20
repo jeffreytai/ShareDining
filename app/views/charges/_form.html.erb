@@ -1,6 +1,8 @@
 <%= form_tag charges_path, id: "payment-form" do %>
   <span class="payment-errors"></span>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <!-- later change the amount value to be @kitchen.price * number of days -->
+  <%= hidden_field_tag :amount, @kitchen.price %>
   <ul class="payment-field-list">
     <li class="payment-field clearfix">
       <div class="payment-field-left">
@@ -66,41 +68,21 @@
 <script type="text/javascript">
   Stripe.setPublishableKey('pk_test_ERBycpYd4txIp1ab8VjIPMQe');
 
-  $(function() {
-    var $form = $('#payment-form');
-    $form.submit(function(event) {
-      // Disable the submit button to prevent repeated clicks:
-      $form.find('.submit').prop('disabled', true);
-
-      // Request a token from Stripe:
-      Stripe.card.createToken($form, stripeResponseHandler);
-
-      // Prevent the form from being submitted:
-      return false;
+  var $form = document.getElementById('payment-form');
+  $form.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    Stripe.card.createToken($form, function(status, response) {
+      if (status === 200) {
+        var $hiddenInput = document.createElement('input');
+        $hiddenInput.setAttribute('name', 'stripeToken');
+        $hiddenInput.setAttribute('type', 'hidden');
+        $hiddenInput.value = response.id;
+        $form.appendChild($hiddenInput);
+        $form.submit();
+      }
     });
-  });
+    return false;
 
-  function stripeResponseHandler(status, response) {
-    // Grab the form:
-    var $form = $('#payment-form');
-
-    if (response.error) { // Problem!
-
-      // Show the errors on the form:
-      $form.find('.payment-errors').text(response.error.message);
-      $form.find('.submit').prop('disabled', false); // Re-enable submission
-
-    } else { // Token was created!
-
-      // Get the token ID:
-      var token = response.id;
-
-      // Insert the token ID into the form so it gets submitted to the server:
-      $form.append($('<input type="hidden" name="stripeToken">').val(token));
-
-      // Submit the form:
-      $form.get(0).submit();
-    }
-  };
+  })
 
 </script>

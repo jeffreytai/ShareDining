@@ -208,7 +208,7 @@ DEPENDENCIES
   byebug
   carrierwave!
   coffee-rails (~> 4.1.0)
-  devise
+  devise (~> 4.1.1)
   geocoder
   jbuilder (~> 2.0)
   jquery-rails

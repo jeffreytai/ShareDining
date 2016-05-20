@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'browserify-rails'
 
 # User authentication
-gem 'devise'
+gem 'devise', '~> 4.1.1'
 
 # Google Maps Geocoder
 gem 'geocoder'
