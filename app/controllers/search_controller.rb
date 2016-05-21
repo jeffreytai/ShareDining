@@ -4,6 +4,7 @@ class SearchController < ApplicationController
 
   def results
     @start_date = params[:start_date]
+    @end_date = params[:end_date]
 
     # Map the date to a day of the week and search for kitchens that are available on this day
     # day = Time.parse(@start_date).strftime("%A").downcase
