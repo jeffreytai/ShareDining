@@ -32,7 +32,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :conversations, only: [:index, :show, :destroy] do
+  resources :conversations, only: [:index, :destroy] do
+    # removed :show
     member do
       post :reply
     end

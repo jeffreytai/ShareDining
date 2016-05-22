@@ -1,26 +1,67 @@
-<body>
+<%= stylesheet_link_tag "mailbox.scss" %>
+
+<body class="mailbox-body">
   <%= render("shared/menu") %>
-  <h1>Your Conversations</h1>
 
-  <div>
-    <br>
-      <ul>
+  <div class="mailbox-menu">
+    <ul class="mailbox-menu-list">
+      <li class="mailbox-menu-list-el">
         <%= mailbox_section 'inbox', @box %>
+      </li>
+      <li class="mailbox-menu-list-el">
         <%= mailbox_section 'sent', @box %>
+      </li>
+      <li class="mailbox-menu-list-el">
         <%= mailbox_section 'trash', @box %>
-      </ul>
-
-    <br>
-    <br>
-
-    <div>
-      <% if @box == 'trash' %>
-        <p><%= button_to 'Empty trash', empty_trash_conversations_path, method: :delete, data: {confirm: 'Are you sure?'} %></p>
-      <% end %>
-
-      <%= render partial: 'conversations/conversation', collection: @conversations %>
-
-      <%= will_paginate %>
-    </div>
+      </li>
+    </ul>
   </div>
+
+  <div class="mailbox-message-container">
+    <% if @box == 'trash' %>
+      <p><%= button_to 'Empty trash', empty_trash_conversations_path, method: :delete, data: {confirm: 'Are you sure?'} %></p>
+    <% end %>
+    <ul class="mailbox-message-list">
+      <% @conversations.each do |conversation| %>
+        <li class="mailbox-message-list-el">
+          <%= conversation.subject %>
+          <div class="pull-right">
+            <% if conversation.is_trashed?(current_user) %>
+              <%= button_to 'Restore', restore_conversation_path(conversation), method: :post %>
+            <% else %>
+              <%= button_to 'Move to trash', conversation_path(conversation), method: :delete, data: {confirm: 'Are you sure?'} %>
+              <% if conversation.is_unread?(current_user) %>
+                <%= button_to 'Mark as read', mark_as_read_conversation_path(conversation), method: :post %>
+              <% end %>
+            <% end %>
+          </div>
+          <br/>
+          <% conversation.receipts_for(current_user).each do |receipt| %>
+            <% message = receipt.message %>
+            <br>
+            <p>
+              From: <%= message.sender.first_name %>
+            </p>
+            <p>
+              Message: <%= message.body %>
+            </p>
+            <p>
+              <%= message.created_at.strftime("%B %-d, %H:%M") %>
+            </p>
+          <% end %>
+          <br/>
+          <%= form_tag reply_conversation_path(conversation), method: :post do %>
+            <div>
+              <%= text_area_tag 'body', nil, cols: 50, class: 'form-control', placeholder: 'Type something...', required: true %>
+            </div>
+            <%= submit_tag "Reply" %>
+          <% end %>
+        </li>
+        <br/>
+      <% end %>
+    </ul>
+  </div>
+
+  <%# will_paginate %>
+
 </body>

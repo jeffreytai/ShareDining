@@ -5,8 +5,6 @@
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <!-- later change the amount value to be @kitchen.price * number of days -->
   <%= hidden_field_tag :amount, @kitchen.price %>
-  <%# hidden_field_tag :kitchen_id, @kitchen.id %>
-  <%# hidden_field_tag :reservation, @reservation %>
   <ul class="payment-field-list">
     <li class="payment-field clearfix">
       <div class="payment-field-left">
