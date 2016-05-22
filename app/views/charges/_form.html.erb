@@ -1,9 +1,11 @@
-<%= form_tag charges_path, id: "payment-form" do %>
+<%# form_tag charges_path, id: "payment-form" do %>
+<%= form_tag kitchen_reservation_index_path(@kitchen, @reservation), id: "payment-form" do %>
   <span class="payment-errors"></span>
+  <%= hidden_field_tag :information, id: "information" %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <!-- later change the amount value to be @kitchen.price * number of days -->
   <%= hidden_field_tag :amount, @kitchen.price %>
-  <%# hidden_field_tag :kitchen, @kitchen %>
+  <%# hidden_field_tag :kitchen_id, @kitchen.id %>
   <%# hidden_field_tag :reservation, @reservation %>
   <ul class="payment-field-list">
     <li class="payment-field clearfix">
@@ -72,6 +74,8 @@
 
   var $form = document.getElementById('payment-form');
   $form.addEventListener('submit', function(evt) {
+    var $information = document.getElementById('additional-info').value;
+    document.getElementById('information').value = $information
     evt.preventDefault();
     Stripe.card.createToken($form, function(status, response) {
       if (status === 200) {

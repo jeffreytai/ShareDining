@@ -40,6 +40,9 @@ gem 'mini_magick'
 # Payment system (https://stripe.com/docs/checkout/rails)
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+# Use redis for caching objects without saving
+gem 'redis', '~>3.2'
+
 # Messaging
 gem 'mailboxer'
 gem 'bootstrap-sass'

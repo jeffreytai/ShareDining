@@ -9,6 +9,8 @@ class ChargesController < ApplicationController
     Stripe.api_key = "sk_test_J3J9QUAayOvfqDKmbeHa4JYu"
 
     token = params[:stripeToken]
+    # @kitchen_id = params[:kitchen_id]
+    # @reservation = params[:reservation]
 
     @amount = params[:amount].to_i
 
@@ -25,12 +27,12 @@ class ChargesController < ApplicationController
       :customer    => customer.id
     )
 
+    # redirect_to controller: 'reservation', action: 'create', kitchen_id: @kitchen_id
+
   rescue Stripe::CardError => e
     # puts "#{e.message}"
     flash[:error] = e.message
     redirect_to new_charge_path
-    # redirect_to kitchen_reservation_index_path
-
   end
 
 end
