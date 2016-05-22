@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :reservation, only: [:edit, :update, :destroy]
   resources :availability, only: [:new, :show, :edit, :update, :destroy]
 
-  resources :charges, only: [:new, :create]
+  # resources :charges, only: [:new, :create]
 
   scope '/api' do
     scope '/v1' do

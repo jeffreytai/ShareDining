@@ -29,6 +29,7 @@ class ReservationController < ApplicationController
   def create
     @kitchen = Kitchen.find(params[:kitchen_id])
 
+    # Get cached version of reservation object (hash format)
     @json_reservation = JSON.parse($redis.get("reservation"))
     @reservation = Reservation.new
     @reservation.renter_id = current_user.id
