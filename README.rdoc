@@ -8,6 +8,9 @@ Software versions:
 
 * MySQL 14.x
 
-To run the Rails server,
-run "rails server"
+To run the Rails server and seed data,
+download source code and run `./make`
+
+Otherwise, to just run the Rails server,
+run `rails server`
 
