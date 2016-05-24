@@ -1,4 +1,9 @@
 <body class="kitchen-listing-body" data-js="kitchen-show">
+
+<section class="modal-overlay">
+  <%= render("multiple_reservation_modal") %>
+</section>
+
 <%= render("shared/menu") %>
 
 <div class="listing-container">
@@ -14,7 +19,7 @@
     <%= form_for @reservation, url: kitchen_reservation_new_path(@kitchen, @reservation), html: {method: :post, class: "listing-dates-form"} do |f| %>
       <%= f.radio_button :multiple, 'Single Reservation' %>
       <%= f.label :multiple, 'Single Reservation', value: false %>
-      <%= f.radio_button :multiple, 'Multiple Reservations' %>
+      <%= f.radio_button :multiple, 'Multiple Reservations', class: 'multiple-reservation-button' %>
       <%= f.label :multiple, 'Multiple Reservations', value: true %>
 
       <div class="listing-dates-form-field">
@@ -25,12 +30,6 @@
         <%= f.time_select :end_time, minute_step: 30, start_hour: 8, end_hour: 20, time_separator: ':' %>
       </div>
 
-      <!-- display only if Multiple reservations -->
-      <!-- <div class="listing-dates-form-field">
-        <label class="listing-date-label" for="start_date">End Date</label>
-        <%# f.date_field :end_date, class: "listing-start-date" %>
-      </div> -->
-
     <% end %>
 
     <div class="listing-price-container">
@@ -39,7 +38,7 @@
             <span class="listing-total-price">$920</span>
           </span>
       <button form="new_reservation" type="submit" class="transparent-button listing-book-button">Request Kitchen</button>
-      <%= link_to 'Message Owner', new_message_path(:kitchen_owner => @kitchen.user_id), class: "transparent-button listing-book-button"%>
+      <!--<%= link_to 'Message Owner', new_message_path(:kitchen_owner => @kitchen.user_id), class: "transparent-button listing-book-button"%>-->
     </div>
   </section>
 

@@ -164,7 +164,8 @@
 // logic to display modals based on class added to body
 .modal-overlay,
 .login-modal,
-.signup-modal {
+.signup-modal,
+.reservation-modal {
   transition: opacity .4s;
   opacity: 0;
   visibility: hidden;
@@ -173,6 +174,14 @@
 body.login-modal-show {
   .modal-overlay,
   .login-modal {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+body.reservation-modal-show {
+  .modal-overlay,
+  .reservation-modal {
     opacity: 1;
     visibility: visible;
   }
