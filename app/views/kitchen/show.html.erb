@@ -192,6 +192,33 @@
 
     </div>
   </section>
+
+  <section class="listing-review-container">
+    <div class="listing-review-heading">
+      <% if @reviews.length == 1 %>
+        <%= @reviews.length %> Review (<%= @avg_rating %> stars)
+      <% else %>
+        <%= @reviews.length %> Reviews (<%= @avg_rating %> stars)
+      <% end %>
+    </div>
+    <ul class="listing-review-list">
+      <% if @reviews.length == 0 %>
+        No reviews yet.
+      <% else %>
+        <% @reviews.each do |review| %>
+          <li class="listing-review-name">
+            <%= review.user.first_name %>
+            <br/>
+            <%= review.created_at.strftime("%B %d") %>
+          </li>
+          <li class="listing-review-content">
+            <%= review.comment %>
+          </li>
+          <hr/>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
 </div>
 
 <%= render("shared/footer") %>

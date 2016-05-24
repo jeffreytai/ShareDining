@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'browserify-rails'
 
 # User authentication
-gem 'devise'
+gem 'devise', '~> 4.1.1'
 
 # Google Maps Geocoder
 gem 'geocoder'
@@ -39,6 +39,9 @@ gem 'mini_magick'
 
 # Payment system (https://stripe.com/docs/checkout/rails)
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+# Use redis for caching objects without saving
+gem 'redis', '~>3.2'
 
 # Messaging
 gem 'mailboxer'

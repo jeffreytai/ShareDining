@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 User.create(
   first_name: "Jeffrey",
   last_name: "Tai",
@@ -68,7 +60,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 54,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'limited'
 )
 
 Kitchen.create(
@@ -89,7 +82,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "Please be respectful and do not damage the equipment we provide.",
   price: 107,
   additional_details: "None",
-  user_id: 2
+  user_id: 2,
+  cancellation_policy: 'flexible'
 )
 
 Kitchen.create(
@@ -110,7 +104,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 75,
   additional_details: "None",
-  user_id: 3
+  user_id: 3,
+  cancellation_policy: 'strict'
 )
 
 Kitchen.create(
@@ -131,7 +126,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 40,
   additional_details: "None",
-  user_id: 4
+  user_id: 4,
+  cancellation_policy: 'limited'
 )
 
 Kitchen.create(
@@ -152,7 +148,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 40,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'strict'
 )
 
 Kitchen.create(
@@ -173,7 +170,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 40,
   additional_details: "None",
-  user_id: 2
+  user_id: 2,
+  cancellation_policy: 'strict'
 )
 
 Kitchen.create(
@@ -194,7 +192,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 40,
   additional_details: "None",
-  user_id: 3
+  user_id: 3,
+  cancellation_policy: 'flexible'
 )
 
 Kitchen.create(
@@ -215,7 +214,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 115,
   additional_details: "None",
-  user_id: 4
+  user_id: 4,
+  cancellation_policy: 'limited'
 )
 
 Kitchen.create(
@@ -236,7 +236,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 15,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'limited'
 )
 #
 Kitchen.create(
@@ -257,7 +258,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 85,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'strict'
 )
 
 Kitchen.create(
@@ -277,7 +279,9 @@ Kitchen.create(
   location: "Lea Bridge Road London Greater London E17 9DW",
   kitchen_rules_and_instructions: "None",
   price: 10,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 4,
+  cancellation_policy: 'strict'
 )
 
 Kitchen.create(
@@ -298,7 +302,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 62,
   additional_details: "None",
-  user_id: 1
+  user_id: 4,
+  cancellation_policy: 'flexible'
 )
 
 Kitchen.create(
@@ -318,7 +323,9 @@ Kitchen.create(
   location: "Upper Tulse Hill London Greater London",
   kitchen_rules_and_instructions: "None",
   price: 57,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 3,
+  cancellation_policy: 'flexible'
 )
 
 Kitchen.create(
@@ -339,7 +346,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 57,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'limited'
 )
 
 Kitchen.create(
@@ -359,7 +367,9 @@ Kitchen.create(
   location: "Sutton Greater London SM3 9HG",
   kitchen_rules_and_instructions: "None",
   price: 57,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 2,
+  cancellation_policy: 'flexible'
 )
 
 Kitchen.create(
@@ -380,7 +390,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 10,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'strict'
 )
 
 Kitchen.create(
@@ -401,7 +412,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 50,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'strict'
 )
 
 Kitchen.create(
@@ -421,7 +433,9 @@ Kitchen.create(
   location: "London Greater London SE3 0QZ",
   kitchen_rules_and_instructions: "None",
   price: 50,
-  additional_details: "None"
+  additional_details: "None",
+  user_id: 1,
+  cancellation_policy: 'strict'
 )
 
 Kitchen.create(
@@ -442,7 +456,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 405,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'limited'
 )
 
 Kitchen.create(
@@ -463,7 +478,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 405,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'flexible'
 )
 
 Kitchen.create(
@@ -484,7 +500,8 @@ Kitchen.create(
   kitchen_rules_and_instructions: "None",
   price: 435,
   additional_details: "None",
-  user_id: 1
+  user_id: 1,
+  cancellation_policy: 'limited'
 )
 
 Availability.create(
@@ -717,3 +734,31 @@ Availability.create(
   friday: ["1", "23"],
   saturday: ["1", "23"]
 )
+
+Review.create(
+  kitchen_id: 1,
+  user_id: 2,
+  comment: "I really enjoyed my stay at Hotel Villa Fortuna. Simple, clean comfortable rooms a short walk from town. The staff were very friendly. Having access to the kitchen was great.",
+  rating: 4.0
+)
+
+Review.create(
+  kitchen_id: 1,
+  user_id: 3,
+  comment: "the private room was in a nice location just outside of the town of La Fortuna. We didn't meet the host, but the staff were friendly, tho they didn't speak english but were very kind and tolerant of my poor spanish. We ended up leaving a day early to get to another location, nothing to do with the accommadations offered, fully understanding the strict no refund policy.",
+  rating: 3.0
+)
+
+Review.create(
+  kitchen_id: 1,
+  user_id: 4,
+  comment: "We loved our stay at Villa Fortuna Hotel. Everyone was very friendly and helpful. We especially enjoyed the outdoor kitchen with free coffee in the morning. My one and only complaint is that there is no smoking on the premises. However, I would reccomend this place to anyone!",
+  rating: 5.0
+)
+
+# Review.create(
+#   kitchen_id: 1,
+#   user_id: 5,
+#   comment: "We enjoyed our accommodations. We were really only there to sleep. It was very clean and perfect for our two night stay near Arenal volcano. We arrived very late and appreciate the communication of the owner. She left our keys for us outside the place and the light on. The housekeeping was very thorough. Thank you!!",
+#  rating: 2.0
+# )

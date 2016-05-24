@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'landing#user'
 
-  devise_for :users
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
 
   get 'landing/terms_of_use'
   get 'landing/privacy_policy'
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :reservation, only: [:edit, :update, :destroy]
   resources :availability, only: [:new, :show, :edit, :update, :destroy]
 
-  resources :charges
+  # resources :charges, only: [:new, :create]
 
   scope '/api' do
     scope '/v1' do
@@ -32,7 +32,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :conversations, only: [:index, :show, :destroy] do
+  resources :conversations, only: [:index, :destroy] do
+    # removed :show
     member do
       post :reply
     end

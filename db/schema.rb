@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519041610) do
+ActiveRecord::Schema.define(version: 20160524062334) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -87,6 +87,18 @@ ActiveRecord::Schema.define(version: 20160519041610) do
 # Could not dump table "reservations" because of following StandardError
 #   Unknown type 'json' for column 'schedule'
 
+  create_table "reviews", force: :cascade do |t|
+    t.text     "comment",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id",    limit: 4
+    t.integer  "kitchen_id", limit: 4
+    t.float    "rating",     limit: 24
+  end
+
+  add_index "reviews", ["kitchen_id"], name: "index_reviews_on_kitchen_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -113,4 +125,6 @@ ActiveRecord::Schema.define(version: 20160519041610) do
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "reservations", "kitchens"
+  add_foreign_key "reviews", "kitchens"
+  add_foreign_key "reviews", "users"
 end

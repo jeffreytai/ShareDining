@@ -1,0 +1,66 @@
+@import 'fonts';
+@import 'colors';
+
+.mailbox-body {
+  background-color: lighten($light-grey, 16);
+}
+
+.mailbox-message-container {
+  // width: 1000px;
+  width: 90%;
+  margin: 0 200px;
+  font-family: main;
+  background-color: $white;
+  padding: 40px 50px 30px;
+  min-height: calc(100vh - 100px);
+  border-left: 2px solid $light-grey;
+
+}
+
+.mailbox-message-list {
+  width: 80%;
+}
+
+.mailbox-message-list-el {
+  // height: 40px;
+  // line-height: 40px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $light-grey;
+  padding: 15px;
+}
+
+.mailbox-menu {
+  position: absolute;
+  top: 61px;
+  left: 0;
+  min-width: 150px;
+  background-color: lighten($light-grey, 15);
+  height: calc(100vh - 61px);
+  font-family: main;
+  font-size: 15px;
+  padding-left: 50px;
+
+  &.stuck {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+  }
+
+  .mailbox-menu-list,
+  .mailbox-menu-list-el {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mailbox-menu-list {
+    padding-top: 20px;
+  }
+
+  .mailbox-menu-list-el {
+    box-sizing: border-box;
+    height: 20px;
+    line-height: 50px;
+    position: relative;
+  }
+}
