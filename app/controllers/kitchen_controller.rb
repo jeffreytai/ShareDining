@@ -9,6 +9,9 @@ class KitchenController < ApplicationController
     @censored_address = ('' == @kitchen.location.partition(',').last) ? @kitchen.location : @kitchen.location.partition(',').last
     @reservation = Reservation.new
     @reviews = Review.where(kitchen_id: @kitchen.id)
+    ratings = @reviews.map(&:rating)
+    @avg_rating = ratings.inject(0.0) { |sum, el| sum + el } / ratings.length
+
   end
 
   # TODO: filter out any information that is not relevant for the results page,

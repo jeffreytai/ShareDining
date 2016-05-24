@@ -196,10 +196,14 @@
 
   <section class="listing-review-container">
     <div class="listing-review-heading">
-      Reviews
+      <% if @reviews.length == 1 %>
+        <%= @reviews.length %> Review (<%= @avg_rating %> stars)
+      <% else %>
+        <%= @reviews.length %> Reviews (<%= @avg_rating %> stars)
+      <% end %>
     </div>
     <ul class="listing-review-list">
-      <% if @reviews.size == 0 %>
+      <% if @reviews.length == 0 %>
         No reviews yet.
       <% else %>
         <% @reviews.each do |review| %>

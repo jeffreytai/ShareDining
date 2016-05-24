@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524041742) do
+ActiveRecord::Schema.define(version: 20160524062334) do
 
   create_table "availabilities", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160524041742) do
     t.datetime "updated_at",               null: false
     t.integer  "user_id",    limit: 4
     t.integer  "kitchen_id", limit: 4
+    t.float    "rating",     limit: 24
   end
 
   add_index "reviews", ["kitchen_id"], name: "index_reviews_on_kitchen_id", using: :btree

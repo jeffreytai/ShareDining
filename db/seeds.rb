@@ -738,23 +738,27 @@ Availability.create(
 Review.create(
   kitchen_id: 1,
   user_id: 2,
-  comment: "I really enjoyed my stay at Hotel Villa Fortuna. Simple, clean comfortable rooms a short walk from town. The staff were very friendly. Having access to the kitchen was great."
+  comment: "I really enjoyed my stay at Hotel Villa Fortuna. Simple, clean comfortable rooms a short walk from town. The staff were very friendly. Having access to the kitchen was great.",
+  rating: 4.0
 )
 
 Review.create(
   kitchen_id: 1,
   user_id: 3,
-  comment: "the private room was in a nice location just outside of the town of La Fortuna. We didn't meet the host, but the staff were friendly, tho they didn't speak english but were very kind and tolerant of my poor spanish. We ended up leaving a day early to get to another location, nothing to do with the accommadations offered, fully understanding the strict no refund policy."
+  comment: "the private room was in a nice location just outside of the town of La Fortuna. We didn't meet the host, but the staff were friendly, tho they didn't speak english but were very kind and tolerant of my poor spanish. We ended up leaving a day early to get to another location, nothing to do with the accommadations offered, fully understanding the strict no refund policy.",
+  rating: 3.0
 )
 
 Review.create(
   kitchen_id: 1,
   user_id: 4,
-  comment: "We loved our stay at Villa Fortuna Hotel. Everyone was very friendly and helpful. We especially enjoyed the outdoor kitchen with free coffee in the morning. My one and only complaint is that there is no smoking on the premises. However, I would reccomend this place to anyone!"
+  comment: "We loved our stay at Villa Fortuna Hotel. Everyone was very friendly and helpful. We especially enjoyed the outdoor kitchen with free coffee in the morning. My one and only complaint is that there is no smoking on the premises. However, I would reccomend this place to anyone!",
+  rating: 5.0
 )
 
 # Review.create(
 #   kitchen_id: 1,
 #   user_id: 5,
-#   comment: "We enjoyed our accommodations. We were really only there to sleep. It was very clean and perfect for our two night stay near Arenal volcano. We arrived very late and appreciate the communication of the owner. She left our keys for us outside the place and the light on. The housekeeping was very thorough. Thank you!!"
+#   comment: "We enjoyed our accommodations. We were really only there to sleep. It was very clean and perfect for our two night stay near Arenal volcano. We arrived very late and appreciate the communication of the owner. She left our keys for us outside the place and the light on. The housekeeping was very thorough. Thank you!!",
+#  rating: 2.0
 # )
