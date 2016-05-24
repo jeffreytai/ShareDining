@@ -199,16 +199,20 @@
       Reviews
     </div>
     <ul class="listing-review-list">
-      <% @reviews.each do |review| %>
-        <li class="listing-review-name">
-          <%= review.user.first_name %>
-          <br/>
-          <%= review.created_at.strftime("%B %-d") %>
-        </li>
-        <li class="listing-review-content">
-          <%= review.comment %>
-        </li>
-        <hr/>
+      <% if @reviews.size == 0 %>
+        No reviews yet.
+      <% else %>
+        <% @reviews.each do |review| %>
+          <li class="listing-review-name">
+            <%= review.user.first_name %>
+            <br/>
+            <%= review.created_at.strftime("%B %d") %>
+          </li>
+          <li class="listing-review-content">
+            <%= review.comment %>
+          </li>
+          <hr/>
+        <% end %>
       <% end %>
     </ul>
   </section>
