@@ -16,10 +16,12 @@ class ReservationController < ApplicationController
     @end_time = @reservation.end_time
 
     # Gets day of week from start_date
-    @day = @reservation.start_date.strftime("%A").downcase
+    @start_date = @reservation.start_date
+
+    # @day = @reservation.start_date.strftime("%A").downcase
 
     # Individual reservation will make start_date and end_date the same
-    @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
+    # @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
 
     # Store reservation object to use in create action (without saving)
     $redis.set "reservation", @reservation.to_json
