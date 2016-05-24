@@ -48,6 +48,7 @@ gem 'mailboxer'
 gem 'bootstrap-sass'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
+gem 'phony'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
