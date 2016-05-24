@@ -193,6 +193,25 @@
 
     </div>
   </section>
+
+  <section class="listing-review-container">
+    <div class="listing-review-heading">
+      Reviews
+    </div>
+    <ul class="listing-review-list">
+      <% @reviews.each do |review| %>
+        <li class="listing-review-name">
+          <%= review.user.first_name %>
+          <br/>
+          <%= review.created_at.strftime("%B %-d") %>
+        </li>
+        <li class="listing-review-content">
+          <%= review.comment %>
+        </li>
+        <hr/>
+      <% end %>
+    </ul>
+  </section>
 </div>
 
 <%= render("shared/footer") %>

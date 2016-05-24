@@ -11,10 +11,10 @@
   margin: 0 200px;
   font-family: main;
   background-color: $white;
-  padding-top: 40px;
-  padding-left: 50px;
+  padding: 40px 50px 30px;
   min-height: calc(100vh - 100px);
   border-left: 2px solid $light-grey;
+
 }
 
 .mailbox-message-list {

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :kitchens, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   def mailboxer_email(object)
     email

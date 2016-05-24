@@ -8,6 +8,7 @@ class KitchenController < ApplicationController
     @kitchen = Kitchen.find_by(token: params[:id])
     @censored_address = ('' == @kitchen.location.partition(',').last) ? @kitchen.location : @kitchen.location.partition(',').last
     @reservation = Reservation.new
+    @reviews = Review.where(kitchen_id: @kitchen.id)
   end
 
   # TODO: filter out any information that is not relevant for the results page,
@@ -64,6 +65,10 @@ class KitchenController < ApplicationController
       @filtered_kitchens = @nearbyKitchens
     else
       @filtered_kitchens = @nearbyKitchens[@index...@index + @num_results]
+    end
+
+    @filtered_kitchens.each do |kitchen|
+      puts kitchen.id
     end
 
     render json: @filtered_kitchens

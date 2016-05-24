@@ -7,11 +7,12 @@ class Kitchen < ActiveRecord::Base
   validates :title, presence: true
   validates :rental_space, presence: true
   validates :location, presence: true
-  # validates :price, presence: true
+  validates :price, presence: true
   # don't validate price for testing purposes
 
   belongs_to :user
   has_many :reservations, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_one :availability, dependent: :destroy
 
   # Mount photos to kitchen
