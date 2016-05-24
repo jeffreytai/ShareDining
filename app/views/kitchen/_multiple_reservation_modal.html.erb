@@ -1,0 +1,47 @@
+<div class="reservation-modal modal" role="dialog" aria-labelledby="reservation-modal-title" aria-describedby="reservation-modal-description">
+  <h1 id="reservation-modal-title" class="modal-title">Reoccurring Reservation</h1>
+  <h2 id="reservation-modal-description" class="modal-tagline">Book kitchens regularly</h2>
+
+  <%= form_for @reservation, url: kitchen_reservation_new_path(@kitchen, @reservation), html: {method: :post, class: "listing-dates-form"} do |f| %>
+
+
+
+      <ul class="day-availability-list">
+        <li class="day-availability-list-element">
+          <h2>Sunday</h2>
+          <%= f.time_select :start_time, minute_step: 30, start_hour: 4, end_hour: 16, time_separator: ':' %> to
+          <%= f.time_select :end_time, minute_step: 30, start_hour: 8, end_hour: 20, time_separator: ':' %>
+        </li>
+        <li class="day-availability-list-element">
+          <h2>Monday</h2>
+          <%= f.time_select :start_time, minute_step: 30, start_hour: 4, end_hour: 16, time_separator: ':' %> to
+          <%= f.time_select :end_time, minute_step: 30, start_hour: 8, end_hour: 20, time_separator: ':' %>
+        </li>
+        <li class="day-availability-list-element">
+          <h2>Tuesday</h2>
+          <%= f.time_select :start_time, minute_step: 30, start_hour: 4, end_hour: 16, time_separator: ':' %> to
+          <%= f.time_select :end_time, minute_step: 30, start_hour: 8, end_hour: 20, time_separator: ':' %>
+        </li>
+        <li class="day-availability-list-element">
+          <h2>Wednesday</h2>
+          <%= f.time_select :start_time, minute_step: 30, start_hour: 4, end_hour: 16, time_separator: ':' %> to
+          <%= f.time_select :end_time, minute_step: 30, start_hour: 8, end_hour: 20, time_separator: ':' %>
+        </li>
+        <li class="day-availability-list-element">
+          <h2>Thursday</h2>
+          <%= f.time_select :start_time, minute_step: 30, start_hour: 4, end_hour: 16, time_separator: ':' %> to
+          <%= f.time_select :end_time, minute_step: 30, start_hour: 8, end_hour: 20, time_separator: ':' %>
+        </li>
+        <li class="day-availability-list-element">
+          <h2>Friday</h2>
+          <%= f.time_select :start_time, minute_step: 30, start_hour: 4, end_hour: 16, time_separator: ':' %> to
+          <%= f.time_select :end_time, minute_step: 30, start_hour: 8, end_hour: 20, time_separator: ':' %>
+        </li>
+        <li class="day-availability-list-element">
+          <h2>Saturday</h2>
+          <%= f.time_select :start_time, minute_step: 30, start_hour: 4, end_hour: 16, time_separator: ':' %> to
+          <%= f.time_select :end_time, minute_step: 30, start_hour: 8, end_hour: 20, time_separator: ':' %>
+        </li>
+      </ul>
+  <% end %>
+</div>
