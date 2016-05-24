@@ -1,5 +1,3 @@
-<%= stylesheet_link_tag "mailbox.scss" %>
-
 <body class="mailbox-body">
   <%= render("shared/menu") %>
 
@@ -11,9 +9,9 @@
       <li class="mailbox-menu-list-el">
         <%= mailbox_section 'sent', @box %>
       </li>
-      <li class="mailbox-menu-list-el">
-        <%= mailbox_section 'trash', @box %>
-      </li>
+      <!-- <li class="mailbox-menu-list-el">
+        <%# mailbox_section 'trash', @box %>
+      </li> -->
     </ul>
   </div>
 
@@ -25,7 +23,7 @@
       <% @conversations.each do |conversation| %>
         <li class="mailbox-message-list-el">
           <%= conversation.subject %>
-          <div class="pull-right">
+          <!-- <div class="pull-right">
             <% if conversation.is_trashed?(current_user) %>
               <%= button_to 'Restore', restore_conversation_path(conversation), method: :post %>
             <% else %>
@@ -34,19 +32,18 @@
                 <%= button_to 'Mark as read', mark_as_read_conversation_path(conversation), method: :post %>
               <% end %>
             <% end %>
-          </div>
-          <br/>
+          </div> -->
           <% conversation.receipts_for(current_user).each do |receipt| %>
             <% message = receipt.message %>
+            <div class="pull-right">
+              <%= message.created_at.strftime("%B %-d, %H:%M") %>
+            </div>
             <br>
             <p>
               From: <%= message.sender.first_name %>
             </p>
             <p>
               Message: <%= message.body %>
-            </p>
-            <p>
-              <%= message.created_at.strftime("%B %-d, %H:%M") %>
             </p>
           <% end %>
           <br/>

@@ -7,7 +7,7 @@
 
 .mailbox-message-container {
   // width: 1000px;
-  width: 98%;
+  width: 90%;
   margin: 0 200px;
   font-family: main;
   background-color: $white;
@@ -27,6 +27,7 @@
   border-style: solid;
   border-width: 1px;
   border-color: $light-grey;
+  padding: 15px;
 }
 
 .mailbox-menu {
