@@ -13,10 +13,9 @@ class KitchenController < ApplicationController
 
     # Need ajax call: when user selects date, the time ranges should be the kitchen's available hours
     @day = Date.today.strftime("%A").downcase
-    puts "day: #{@day}"
-    @day2 = @availability[@day]
-    puts "day2: #{@day2}"
-
+    # puts "day: #{@day}"
+    # @day2 = @availability[@day]
+    # puts "day2: #{@day2}"
 
     @reviews = Review.where(kitchen_id: @kitchen.id)
     ratings = @reviews.map(&:rating)
