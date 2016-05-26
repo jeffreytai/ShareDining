@@ -1,0 +1,7 @@
+<div class="single-reservation-modal modal" role="dialog" aria-labelledby="reservation-modal-title" aria-describedby="reservation-modal-description">
+  <h1 id="reservation-modal-title" class="modal-title">Single Reservation</h1>
+  <h2 id="reservation-modal-description" class="modal-tagline">Book a kitchen</h2>
+
+  <%= form_for @reservation, url: kitchen_reservation_new_path(@kitchen, @reservation), html: {method: :post, class: "listing-dates-form"} do |f| %>
+  <% end %>
+</div>

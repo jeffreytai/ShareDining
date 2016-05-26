@@ -165,10 +165,11 @@
 .modal-overlay,
 .login-modal,
 .signup-modal,
-.reservation-modal {
-  transition: opacity .4s;
-  opacity: 0;
-  visibility: hidden;
+.single-reservation-modal,
+.multiple-reservation-modal {
+    transition: opacity .4s;
+    opacity: 0;
+    visibility: hidden;
 }
 
 body.login-modal-show {
@@ -179,9 +180,17 @@ body.login-modal-show {
   }
 }
 
-body.reservation-modal-show {
+body.multiple-reservation-modal-show {
   .modal-overlay,
-  .reservation-modal {
+  .multiple-reservation-modal {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+body.single-reservation-modal-show {
+  .modal-overlay,
+  .single-reservation-modal {
     opacity: 1;
     visibility: visible;
   }
