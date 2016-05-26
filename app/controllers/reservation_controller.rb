@@ -16,7 +16,8 @@ class ReservationController < ApplicationController
     @end_time = @reservation.end_time
 
     # Gets day of week from start_date
-    @start_date = @reservation.start_date
+    puts "start date: #{@reservation.start_date}"
+    # @start_date = @reservation.start_date
 
     # @day = @reservation.start_date.strftime("%A").downcase
 
