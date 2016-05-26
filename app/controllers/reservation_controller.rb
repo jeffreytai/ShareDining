@@ -60,6 +60,8 @@ class ReservationController < ApplicationController
     )
 
     if @reservation.save
+      UserMailer.kitchen_rental_email(User.find_by(id: @reservation.renter_id), @kitchen).deliver_now
+      UserMailer.kitchen_rented_email(User.find_by(id: @kitchen.user_id), @kitchen).deliver_now
       redirect_to [@kitchen, @reservation], notice: "Reservation is successfully made."
     else
       flash[:notice] = 'Error: Reservation was not successfully added.'

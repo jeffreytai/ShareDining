@@ -106,6 +106,9 @@ class KitchenController < ApplicationController
       @availability.save
 
       @photos = @kitchen.photos
+
+      UserMailer.new_kitchen_email(User.find_by(id: @kitchen.user_id), @kitchen).deliver_now
+
       redirect_to kitchen_path(@kitchen.token)
       flash[:notice] = 'Kitchen was successfully added.'
     else

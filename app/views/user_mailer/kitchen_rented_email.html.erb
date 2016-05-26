@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @owner.first_name %>,</h1>
+    <p>
+      Your kitchen "<%= @kitchen.title %>" has been rented.<br>
+    </p>
+    <p>
+      To view your kitchen, just follow this link: <%= @url %>.
+    </p>
+    <p>Thank you and have a great day!</p>
+    <p>-The ShareDining Team</p>
+  </body>
+</html>
