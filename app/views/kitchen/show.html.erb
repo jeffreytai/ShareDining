@@ -35,7 +35,8 @@
 
     <div class="listing-price-container">
       <span class="listing-price">
-        <span class="price-math">£<%= @kitchen.price %>/hr * 3 hours =</span>
+        <span class="price-math">£<%= @kitchen.price * 1.2 %>/hr * 3 hours =</span>
+        <!-- need Ajax to update math display -->
         <span class="listing-total-price">$920</span>
       </span>
       <!-- <button form="new_reservation" type="submit" class="transparent-button listing-book-button">Request Kitchen</button> -->

@@ -26,7 +26,7 @@ function makeKitchenHtml(kitchen) {
         <a class="result-link" id="${kitchen.token}" href="/kitchen/${kitchen.token}">
           <h2 class="result-title">${kitchen.title}</h2>
           <h2 class="result-price-container">
-            <span class="result-price">£${kitchen.price}</span>
+            <span class="result-price">£${Math.ceil(kitchen.price * 1.2)}</span>
             <span class="result-price-after">/night</span>
           </h2>
         </a>`;

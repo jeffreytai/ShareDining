@@ -33,12 +33,26 @@
     <!--TODO: Replace with actual data-->
     <ul class="request-kitchen-price-list">
       <li class="request-kitchen-price-element clearfix">
-        <span class="kitchen-price-calculation">£<%= @kitchen.price %> x <span class="kitchen-price-num-hours">5</span> hours</span>
-        <span class="kitchen-price-total">£<%= @kitchen.price * 5 %></span>
+        <% if @reservation.multiple == false %>
+          <% numHours = @reservation.end_time[4] - @reservation.start_time[4] %>
+          <!-- <span class="kitchen-price-calculation">£<%= @kitchen.price * 1.2 %> x <span class="kitchen-price-num-hours"><%= numHours %></span> hours</span> -->
+          <span class="kitchen-price-calculation">Kitchen Fee</span>
+          <span class="kitchen-price-total">£<%= @kitchen.price * numHours %></span>
+          <span class="kitchen-price-calculation">Service Fee</span>
+          <span class="kitchen-price-total">£<%= @kitchen.price * 0.2 * numHours %></span>
+        <% else %>
+          <span class="kitchen-price-calculation">£<%= @kitchen.price %> x <span class="kitchen-price-num-hours">5</span> hours</span>
+          <span class="kitchen-price-total">£<%= @kitchen.price * 1.2 * 5 %></span>
+        <% end %>
       </li>
       <li class="request-kitchen-total-price clearfix">
-        <span class="kitchen-price-total-label">Total</span>
-        <span class="kitchen-price-total">£<%= @kitchen.price * 5 %></span>
+        <% if @reservation.multiple == false %>
+          <span class="kitchen-price-total-label">Total</span>
+          <span class="kitchen-price-total">£<%= @kitchen.price * 1.2 * numHours %></span>
+        <% else %>
+          <span class="kitchen-price-total-label">Total</span>
+          <span class="kitchen-price-total">£<%= @kitchen.price * 1.2 * 5 %></span>
+        <% end %>
       </li>
     </ul>
   </aside>
