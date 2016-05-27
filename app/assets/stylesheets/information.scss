@@ -1,10 +1,60 @@
 @import 'colors';
 
+
 .information-body {
   background-color: lighten($light-grey,  17);
 }
 
+.h1_p {
+    box-sizing: border-box;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $light-grey;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
 .main-information-section {
+  min-height: calc(100vh - 250px);
+  font-family: main;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  color: lighten($dark-grey, 10);
+  box-sizing: border-box;
+  padding: 40px;
+  width: 969px;
+  margin: 0 auto;
+  background-color: $white;
+
+  h1, h2, h3 {
+    font-family: logo;
+    color: $dark-grey;
+    margin-bottom: 10px;
+  }
+ 
+
+  h2 {
+    margin: 16px 0 8px;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .definitions li {
+    list-style-type: square;
+  }
+
+  .definitions strong {
+    font-weight: bold;
+  }
+}
+
+.terms-main-information-section {
   min-height: calc(100vh - 250px);
   font-family: main;
   font-size: 14px;
@@ -19,17 +69,9 @@
   h1, h2, h3 {
     font-family: logo;
     color: $dark-grey;
+    font-weight: bold;
   }
-
-  h1 {
-    box-sizing: border-box;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid $light-grey;
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
-  }
+ 
 
   h2 {
     margin: 16px 0 8px;
@@ -37,14 +79,75 @@
   }
 
   p {
-    margin-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  
+  ul {
+    list-style-position: outside;
+    margin-left: 1em;
   }
 
-  .definitions li {
+  .indented ul{
+    list-style-position: outside;
+    margin-left: 2em;
+  }
+
+  li {
     list-style-type: square;
   }
-
-  .definitions strong {
-    font-weight: bold;
+  strong {
+    font-weight:bold;
   }
 }
+
+.usage-main-information-section {
+  min-height: calc(100vh - 250px);
+  font-family: main;
+  font-size: 14px;
+  line-height: 1.4;
+  color: lighten($dark-grey, 10);
+  box-sizing: border-box;
+  padding: 40px;
+  width: 969px;
+  margin: 0 auto;
+  background-color: $white;
+
+  h1, h2, h3 {
+    font-family: logo;
+    color: $dark-grey;
+    font-weight: bold;
+  }
+ 
+
+  h2 {
+    margin: 16px 0 8px;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  
+  ul {
+    list-style-position: outside;
+    list-style-type: decimal;
+    margin-left: 3em;
+  }
+  ul.decimal {
+    list-style-type: decimal;
+  }
+  ul.alpha {
+    list-style-type: lower-alpha;
+  }
+
+  li {
+    margin-bottom: 14px;
+  }
+  strong {
+    font-weight:bold;
+  }
+}
+
+
