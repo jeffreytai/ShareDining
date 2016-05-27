@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @user.first_name %>,</p>
+    <p>
+      You have successfully added your kitchen "<%= @kitchen.title %>" to ShareDining.
+    </p>
+    <p>
+    To view <%= @kitchen.title %>, just follow this link: <%= @url %>.
+    </p>
+    <p>Thank you and have a great day!</p>
+    <p>-The ShareDining Team</p>
+  </body>
+</html>

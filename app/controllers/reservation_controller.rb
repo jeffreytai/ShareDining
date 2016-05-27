@@ -16,7 +16,10 @@ class ReservationController < ApplicationController
     @end_time = @reservation.end_time
 
     # Gets day of week from start_date
-    @day = @reservation.start_date.strftime("%A").downcase
+    puts "start date: #{@reservation.start_date}"
+    # @start_date = @reservation.start_date
+
+    # @day = @reservation.start_date.strftime("%A").downcase
 
     # Individual reservation will make start_date and end_date the same
     @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
@@ -34,8 +37,8 @@ class ReservationController < ApplicationController
     @reservation = Reservation.new
     @reservation.renter_id = current_user.id
     @reservation.kitchen_id = @kitchen.id
-    @reservation.start_date = @json_reservation['start_date'].to_date
-    @reservation.end_date = @json_reservation['end_date'].to_date
+    # @reservation.start_date = @json_reservation['start_date'].to_date
+    # @reservation.end_date = @json_reservation['end_date'].to_date
     @reservation.information = params[:information]
     # Need to store schedule and multiple value
 
@@ -57,6 +60,8 @@ class ReservationController < ApplicationController
     )
 
     if @reservation.save
+      UserMailer.kitchen_rental_email(User.find_by(id: @reservation.renter_id), @kitchen).deliver_now
+      UserMailer.kitchen_rented_email(User.find_by(id: @kitchen.user_id), @kitchen).deliver_now
       redirect_to [@kitchen, @reservation], notice: "Reservation is successfully made."
     else
       flash[:notice] = 'Error: Reservation was not successfully added.'

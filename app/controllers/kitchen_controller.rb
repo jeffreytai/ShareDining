@@ -8,10 +8,18 @@ class KitchenController < ApplicationController
     @kitchen = Kitchen.find_by(token: params[:id])
     @censored_address = ('' == @kitchen.location.partition(',').last) ? @kitchen.location : @kitchen.location.partition(',').last
     @reservation = Reservation.new
+
+    @availability = Availability.find_by kitchen_id: @kitchen.id
+
+    # Need ajax call: when user selects date, the time ranges should be the kitchen's available hours
+    @day = Date.today.strftime("%A").downcase
+    # puts "day: #{@day}"
+    # @day2 = @availability[@day]
+    # puts "day2: #{@day2}"
+
     @reviews = Review.where(kitchen_id: @kitchen.id)
     ratings = @reviews.map(&:rating)
     @avg_rating = ratings.inject(0.0) { |sum, el| sum + el } / ratings.length
-
   end
 
   # TODO: filter out any information that is not relevant for the results page,
@@ -70,10 +78,6 @@ class KitchenController < ApplicationController
       @filtered_kitchens = @nearbyKitchens[@index...@index + @num_results]
     end
 
-    @filtered_kitchens.each do |kitchen|
-      puts kitchen.id
-    end
-
     render json: @filtered_kitchens
   end
 
@@ -102,6 +106,9 @@ class KitchenController < ApplicationController
       @availability.save
 
       @photos = @kitchen.photos
+
+      UserMailer.new_kitchen_email(User.find_by(id: @kitchen.user_id), @kitchen).deliver_now
+
       redirect_to kitchen_path(@kitchen.token)
       flash[:notice] = 'Kitchen was successfully added.'
     else
