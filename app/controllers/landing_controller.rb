@@ -18,4 +18,7 @@ class LandingController < ApplicationController
   def the_kitchen_economy
   end
 
+  def help
+  end
+
 end

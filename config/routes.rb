@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'landing/cookie_policy'
   get 'landing/usage_agreement'
   get 'landing/the_kitchen_economy'
+  get 'landing/help'
 
   get 'dashboard' => 'account#show'
 
