@@ -507,7 +507,6 @@ Kitchen.create(
 Availability.create(
   kitchen_id: 1,
   sunday: ["1", "23"],
-  monday: ["1", "23"],
   tuesday: ["1", "23"],
   wednesday: ["1", "23"],
   thursday: ["1", "23"],

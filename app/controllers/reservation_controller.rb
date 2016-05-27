@@ -12,17 +12,25 @@ class ReservationController < ApplicationController
     @reservation.renter_id = current_user.id
     @reservation.kitchen_id = @kitchen.id
 
-    @start_time = @reservation.start_time
-    @end_time = @reservation.end_time
+    # Single reservation
+    if @reservation.multiple == false
+      @reservation.end_date = @reservation.start_date
 
-    # Gets day of week from start_date
-    puts "start date: #{@reservation.start_date}"
-    # @start_date = @reservation.start_date
+      @day = @reservation.start_date.strftime("%A").downcase
+      @reservation.schedule = {"#{@day}": [@reservation.start_time, @reservation.end_time]}
 
-    # @day = @reservation.start_date.strftime("%A").downcase
-
-    # Individual reservation will make start_date and end_date the same
-    @reservation.end_date = ( @reservation.multiple == false ) ? @reservation.start_date : @reservation.end_date
+    # Multiple reservation
+    else
+      @reservation.schedule = {
+        "sunday": [@reservation.sunday_start_time, @reservation.sunday_end_time],
+        "monday": [@reservation.monday_start_time, @reservation.monday_end_time],
+        "tuesday": [@reservation.tuesday_start_time, @reservation.tuesday_end_time],
+        "wednesday": [@reservation.wednesday_start_time, @reservation.wednesday_end_time],
+        "thursday": [@reservation.thursday_start_time, @reservation.thursday_end_time],
+        "friday": [@reservation.friday_start_time, @reservation.friday_end_time],
+        "saturday": [@reservation.saturday_start_time, @reservation.saturday_end_time]
+      }
+    end
 
     # Store reservation object to use in create action (without saving)
     $redis.set "reservation", @reservation.to_json
@@ -37,10 +45,11 @@ class ReservationController < ApplicationController
     @reservation = Reservation.new
     @reservation.renter_id = current_user.id
     @reservation.kitchen_id = @kitchen.id
-    # @reservation.start_date = @json_reservation['start_date'].to_date
-    # @reservation.end_date = @json_reservation['end_date'].to_date
+    @reservation.multiple = @json_reservation['multiple']
+    @reservation.start_date = @json_reservation['start_date'].to_date
+    @reservation.end_date = @json_reservation['end_date'].to_date
     @reservation.information = params[:information]
-    # Need to store schedule and multiple value
+    @reservation.schedule = @json_reservation['schedule'].to_hash
 
     Stripe.api_key = "sk_test_J3J9QUAayOvfqDKmbeHa4JYu"
     token = params[:stripeToken]
@@ -68,7 +77,6 @@ class ReservationController < ApplicationController
     end
 
   rescue Stripe::CardError => e
-    # puts "#{e.message}"
     flash[:error] = e.message
     redirect_to new_charge_path
   end
@@ -79,9 +87,11 @@ class ReservationController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:multiple, :start_date, :end_date,
-                                          :start_time, :end_time
-                                          #,:schedule
+      params.require(:reservation).permit(:multiple, :start_date, :end_date, :start_time, :end_time,
+                                          :sunday_start_time, :sunday_end_time, :monday_start_time, :monday_end_time,
+                                          :tuesday_start_time, :tuesday_end_time, :wednesday_start_time, :wednesday_end_time,
+                                          :thursday_start_time, :thursday_end_time, :friday_start_time, :friday_end_time,
+                                          :saturday_start_time, :saturday_end_time
                                           )
     end
 
