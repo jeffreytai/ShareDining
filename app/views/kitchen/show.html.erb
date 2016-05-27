@@ -23,13 +23,13 @@
       <%= f.radio_button :multiple, 'Multiple Reservations', class: 'multiple-reservation-button' %>
       <%= f.label :multiple, 'Multiple Reservations', value: true %>
 
-      <div class="listing-dates-form-field">
+      <!-- <div class="listing-dates-form-field"> -->
         <!-- <label class="listing-date-label" for="start_date">Date</label> -->
         <%# f.date_field :start_date, value: Date.today, class: "listing-start-date" %>
         <!-- TODO: load only available hours -->
         <%# f.time_select :start_time, minute_step: 30, start_hour: @availability[@day][0].to_i, end_hour: @availability[@day][1].to_i, time_separator: ':' %>
         <%# f.time_select :end_time, minute_step: 30, start_hour: @availability[@day][0].to_i, end_hour: @availability[@day][1].to_i, time_separator: ':' %>
-      </div>
+      <!-- </div> -->
 
     <% end %>
 

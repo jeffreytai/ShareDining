@@ -22,9 +22,11 @@
       <li class="kitchen-tag"><%= @kitchen.rental_space %></li>
     </ul>
     <div class="request-kitchen-side-details-container">
-      <div class="request-kitchen-date"><%# @reservation.start_date.strftime("%B %d, %Y") %><!--June 6, 2016--></div>
-      <div class="request-kitchen-start-time">1:30 PM</div>
-      <div class="request-kitchen-end-time">6:30 PM</div>
+      <div class="request-kitchen-date"><%= @reservation.start_date.strftime("%B %d, %Y") %></div>
+      <% if @reservation.multiple == false %>
+        <div class="request-kitchen-start-time"><%= @reservation.start_time[4].to_s + ":" + @reservation.start_time[5].to_s + "0 " + ((@reservation.start_time[4] < 12) ? "AM" : " PM") %></div>
+        <div class="request-kitchen-end-time"><%= @reservation.end_time[4].to_s + ":" + @reservation.end_time[5].to_s + "0 " + ((@reservation.end_time[4] < 12) ? "AM" : "PM") %></div>
+      <% end %>
       <span class="clearfix"></span>
     </div>
 
