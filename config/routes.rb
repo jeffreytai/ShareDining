@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'landing/help'
 
   get 'dashboard' => 'account#show'
+  post 'account/payment'
 
   get 'search/results'
   post 'kitchen/create'

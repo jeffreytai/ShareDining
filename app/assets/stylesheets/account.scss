@@ -14,10 +14,39 @@
   }
 }
 
+.account-questions-container {
+  font-family: main;
+  width: 50%;
+  margin: 0px auto;
+  border: 1px solid $light-grey;
+
+  .account-questions-purpose {
+    margin: 20px;
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      font-family: main;
+      font-size: 100%;
+    }
+  }
+
+  .account-questions-favorite {
+    margin: 20px;
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      font-family: main;
+      font-size: 100%;
+    }
+  }
+}
+
 .account-kitchen-container {
   font-family: main;
   width: 50%;
-  margin: 0px auto 50px;
+  margin: 20px auto 50px;
   border: 1px solid $light-grey;
   padding: 30px 0;
 
@@ -40,5 +69,18 @@
       text-align: center;
       padding-top: 40px;
     }
+  }
+}
+
+.account-payment-container {
+  width: 50%;
+  margin: 20px auto;
+  border: 1px solid $light-grey;
+
+  .account-payment-title {
+    font-family: main;
+    text-align: center;
+    padding: 20px;
+    font-size: 150%;
   }
 }

@@ -1,0 +1,85 @@
+<%= form_tag account_payment_path, id: "payment-form" do %>
+  <span class="payment-errors"></span>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <ul class="payment-field-list">
+    <li class="payment-field clearfix">
+      <div class="payment-field-left">
+        <label for="payment-cc-number">Card Number</label>
+        <input id="payment-cc-number" type="number" size="20" data-stripe="number" class="payment-cc-number">
+      </div>
+      <div class="payment-field-right">
+        <label for="payment-cvc">CVC</label>
+        <input id="payment-cvc" type="number" size="4" data-stripe="cvc" class="payment-cvc">
+      </div>
+    </li>
+    <li class="payment-field">
+      <label for="payment-zip">Zip</label>
+      <input id="payment-zip" type="number" data-stripe="address_zip" class="payment-zip">
+    </li>
+    <li class="payment-field">
+      <label for="payment-expiration">Expiration</label>
+      <select id="payment-expiration" data-stripe="exp_month" class="payment-expiration-month">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+      <select data-stripe="exp_year" class="payment-expiration-year">
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+        <option value="2031">2031</option>
+        <option value="2032">2032</option>
+        <option value="2033">2033</option>
+        <option value="2034">2034</option>
+        <option value="2035">2035</option>
+      </select>
+    </li>
+    <li class="payment-field">
+      <input type="submit" value="Add Payment Method" class="transparent-button payment-submit">
+    </li>
+  </ul>
+<% end %>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+  Stripe.setPublishableKey('pk_test_ERBycpYd4txIp1ab8VjIPMQe');
+
+  var $form = document.getElementById('payment-form');
+  $form.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    Stripe.card.createToken($form, function(status, response) {
+      if (status === 200) {
+        var $hiddenInput = document.createElement('input');
+        $hiddenInput.setAttribute('name', 'stripeToken');
+        $hiddenInput.setAttribute('type', 'hidden');
+        $hiddenInput.value = response.id;
+        $form.appendChild($hiddenInput);
+        $form.submit();
+      }
+    });
+    return false;
+
+  })
+
+</script>
