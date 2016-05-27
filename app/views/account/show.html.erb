@@ -1,3 +1,28 @@
 <%= render("shared/menu") %>
 
-<h1>Testing</h1>
+<section class="account-information">
+	<div class="account-name">
+		Hey, I'm <%= @user.first_name %>!
+	</div>
+	<br/>
+	Joined: <%= @user.created_at.strftime("%B %d, %Y") %>
+</section>
+
+<section class="account-kitchen-container">
+	<div class="account-kitchen-title">
+		My Kitchens
+	</div>
+	<div class="account-kitchen-list">
+		<% @kitchens.each do |kitchen| %>
+			<div class="account-kitchen-list-el">
+				<%= kitchen.title %>
+			</div>
+		<% end %>
+	</div>
+
+
+</section>
+
+<%# link_to 'Edit Account Information', edit_user_registration_path %>
+
+<%= render("shared/footer") %>

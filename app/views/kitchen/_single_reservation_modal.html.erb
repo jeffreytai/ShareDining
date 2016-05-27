@@ -1,7 +1,18 @@
 <div class="single-reservation-modal modal" role="dialog" aria-labelledby="reservation-modal-title" aria-describedby="reservation-modal-description">
   <h1 id="reservation-modal-title" class="modal-title">Single Reservation</h1>
   <h2 id="reservation-modal-description" class="modal-tagline">Book a kitchen</h2>
-
+  <br/>
   <%= form_for @reservation, url: kitchen_reservation_new_path(@kitchen, @reservation), html: {method: :post, class: "listing-dates-form"} do |f| %>
+    <%= f.hidden_field :multiple, value: false %>
+    <label class="listing-date-label" for="start_date">Date</label>
+    <%= f.date_field :start_date, value: Date.today, class: "listing-start-date" %>
+    <!-- TODO: load only available hours -->
+    <br/>
+    <%= f.label :start_time %>
+    <%= f.time_select :start_time, minute_step: 30, start_hour: @availability[@day][0].to_i, end_hour: @availability[@day][1].to_i, time_separator: ':' %>
+    <br/>
+    <%= f.label :end_time %>
+    <%= f.time_select :end_time, minute_step: 30, start_hour: @availability[@day][0].to_i, end_hour: @availability[@day][1].to_i, time_separator: ':' %>
+    <%= f.submit "Request Kitchen" %>
   <% end %>
 </div>

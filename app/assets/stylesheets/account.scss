@@ -1,3 +1,44 @@
-// Place all the styles related to the Account controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors';
+@import 'fonts';
+
+.account-information {
+  font-family: main;
+  width: 50%;
+  margin: 50px auto 20px;
+  border: 1px solid $light-grey;
+  text-align: center;
+  padding: 30px 0;
+
+  .account-name {
+    font-size: 200%;
+  }
+}
+
+.account-kitchen-container {
+  font-family: main;
+  width: 50%;
+  margin: 0px auto 50px;
+  border: 1px solid $light-grey;
+  padding: 30px 0;
+
+  .account-kitchen-title {
+    font-size: 150%;
+    text-align: center;
+  }
+
+  .account-kitchen-list {
+    margin: 20px;
+    // border: 1px solid $light-grey;
+    text-align: center;
+    padding: 15px;
+
+    .account-kitchen-list-el {
+      width: 30%;
+      display: inline-block;
+      border: 1px solid $light-grey;
+      height: 60px;
+      text-align: center;
+      padding-top: 40px;
+    }
+  }
+}
