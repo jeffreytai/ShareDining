@@ -1,3 +1,13 @@
 <%= render("shared/menu") %>
 
-<h1>Testing</h1>
+<h1>Account Details</h1>
+
+<ul>
+	<li>First Name: <%= @user.first_name %></li>
+	<li>Last Name: <%= @user.last_name %></li>
+	<li>Email: <%= @user.email %></li>
+</ul>
+
+<%= link_to 'Edit Account Information', edit_user_registration_path %>
+
+<%= render("shared/footer") %>
