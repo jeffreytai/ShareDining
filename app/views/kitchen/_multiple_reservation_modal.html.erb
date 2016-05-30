@@ -11,61 +11,81 @@
     <%= f.date_field :end_date, value: Date.today + 7, class: "listing-start-date" %>
     <br/>
     <ul class="day-availability-list">
-      <% if @availability.sunday != [] %>
-        <li class="day-availability-list-element">
-          <h2>Sunday</h2>
+      <li class="day-availability-list-element">
+        <h2>Sunday</h2>
+        <% if @availability.sunday != [] %>
           <%= f.time_select :sunday_start_time, minute_step: 30, start_hour: @availability.sunday[0].to_i, end_hour: @availability.sunday[1].to_i, time_separator: ':' %> to
           <%= f.time_select :sunday_end_time, minute_step: 30, start_hour: @availability.sunday[0].to_i, end_hour: @availability.sunday[1].to_i, time_separator: ':' %>
-        </li>
-      <% end %>
+        <% else %>
+          No times available
+        <% end %>
+      </li>
+      <br/>
 
-      <% if @availability.monday != [] %>
-        <li class="day-availability-list-element">
-          <h2>Monday</h2>
+      <li class="day-availability-list-element">
+        <h2>Monday</h2>
+        <% if @availability.monday != [] %>
           <%= f.time_select :monday_start_time, minute_step: 30, start_hour: @availability.monday[0].to_i, end_hour: @availability.monday[1].to_i, time_separator: ':' %> to
           <%= f.time_select :monday_end_time, minute_step: 30, start_hour: @availability.monday[0].to_i, end_hour: @availability.monday[1].to_i, time_separator: ':' %>
-        </li>
-      <% end %>
+        <% else %>
+          No times available
+        <% end %>
+      </li>
+      <br/>
 
-      <% if @availability.tuesday != [] %>
-        <li class="day-availability-list-element">
-          <h2>Tuesday</h2>
+      <li class="day-availability-list-element">
+        <h2>Tuesday</h2>
+        <% if @availability.tuesday != [] %>
           <%= f.time_select :tuesday_start_time, minute_step: 30, start_hour: @availability.tuesday[0].to_i, end_hour: @availability.tuesday[1].to_i, time_separator: ':' %> to
           <%= f.time_select :tuesday_end_time, minute_step: 30, start_hour: @availability.tuesday[0].to_i, end_hour: @availability.tuesday[1].to_i, time_separator: ':' %>
-        </li>
-      <% end %>
+        <% else %>
+          No times available
+        <% end %>
+      </li>
+      <br/>
 
-      <% if @availability.wednesday != [] %>
-        <li class="day-availability-list-element">
-          <h2>Wednesday</h2>
+      <li class="day-availability-list-element">
+        <h2>Wednesday</h2>
+        <% if @availability.wednesday != [] %>
           <%= f.time_select :wednesday_start_time, minute_step: 30, start_hour: @availability.wednesday[0].to_i, end_hour: @availability.wednesday[1].to_i, time_separator: ':' %> to
           <%= f.time_select :wednesday_end_time, minute_step: 30, start_hour: @availability.wednesday[0].to_i, end_hour: @availability.wednesday[1].to_i, time_separator: ':' %>
-        </li>
-      <% end %>
+        <% else %>
+          No times available
+        <% end %>
+      </li>
+      <br/>
 
-      <% if @availability.thursday != [] %>
-        <li class="day-availability-list-element">
-          <h2>Thursday</h2>
+      <li class="day-availability-list-element">
+        <h2>Thursday</h2>
+        <% if @availability.thursday != [] %>
           <%= f.time_select :thursday_start_time, minute_step: 30, start_hour: @availability.thursday[0].to_i, end_hour: @availability.thursday[1].to_i, time_separator: ':' %> to
           <%= f.time_select :thursday_end_time, minute_step: 30, start_hour: @availability.thursday[0].to_i, end_hour: @availability.thursday[1].to_i, time_separator: ':' %>
-        </li>
-      <% end %>
+        <% else %>
+          No times available
+        <% end %>
+      </li>
+      <br/>
 
-      <% if @availability.friday != [] %>
-        <li class="day-availability-list-element">
-          <h2>Friday</h2>
+      <li class="day-availability-list-element">
+        <h2>Friday</h2>
+        <% if @availability.friday != [] %>
           <%= f.time_select :friday_start_time, minute_step: 30, start_hour: @availability.friday[0].to_i, end_hour: @availability.friday[1].to_i, time_separator: ':' %> to
           <%= f.time_select :friday_end_time, minute_step: 30, start_hour: @availability.friday[0].to_i, end_hour: @availability.friday[1].to_i, time_separator: ':' %>
-        </li>
-      <% end %>
+        <% else %>
+          No times available
+        <% end %>
+      </li>
+      <br/>
 
-      <% if @availability.saturday != [] %>
-        <li class="day-availability-list-element">
-          <h2>Saturday</h2>
+      <li class="day-availability-list-element">
+        <h2>Saturday</h2>
+        <% if @availability.saturday != [] %>
           <%= f.time_select :saturday_start_time, minute_step: 30, start_hour: @availability.saturday[0].to_i, end_hour: @availability.saturday[1].to_i, time_separator: ':' %> to
           <%= f.time_select :saturday_end_time, minute_step: 30, start_hour: @availability.saturday[0].to_i, end_hour: @availability.saturday[1].to_i, time_separator: ':' %>
-        </li>
-      <% end %>
+        <% else %>
+          No times available
+        <% end %>
+      </li>
     </ul>
     <%= f.submit "Request Kitchen" %>
   <% end %>

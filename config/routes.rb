@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root 'landing#user'
 
-  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
+  devise_for :users,
+             :controllers => {
+                sessions: 'sessions', registrations: 'registrations'
+             }
 
   get 'landing/terms_of_use'
   get 'landing/privacy_policy'
