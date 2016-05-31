@@ -15,7 +15,7 @@
 
   <div class="landing-search">
     <%= form_tag({:controller => "search", :action => "results"}, :method => :get, :class => "landing-search-form") do %>
-        <%= text_field_tag :location, nil, class: "landing-location-input", required: true, :placeholder => "London, United Kingdom", "aria-label": "Location" %>
+        <%= text_field_tag :location, nil, class: "landing-location-input", required: true, :placeholder => "Location", "aria-label": "Location" %>
         <%= date_field_tag :start_date, Date.today, class: "landing-start-input", required: true, "aria-label": "Start Date" %>
         <%= date_field_tag :end_date, Date.today, class: "landing-end-input", required: true, "aria-label": "End Date" %>
 

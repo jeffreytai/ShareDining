@@ -737,21 +737,21 @@ Availability.create(
 Review.create(
   kitchen_id: 1,
   user_id: 2,
-  comment: "I really enjoyed my stay at Hotel Villa Fortuna. Simple, clean comfortable rooms a short walk from town. The staff were very friendly. Having access to the kitchen was great.",
+  comment: "I really enjoyed using the Mayfair kitchen. It was clean, simple, and very large. Affordable as well! I used the kitchen to bake an order of 300 cookies and the double commercial Wolf oven was great! I will definitely be back to use the Mayfair kitchen!",
   rating: 4.0
 )
 
 Review.create(
   kitchen_id: 1,
   user_id: 3,
-  comment: "the private room was in a nice location just outside of the town of La Fortuna. We didn't meet the host, but the staff were friendly, tho they didn't speak english but were very kind and tolerant of my poor spanish. We ended up leaving a day early to get to another location, nothing to do with the accommadations offered, fully understanding the strict no refund policy.",
+  comment: "The Mayfair kitchen was great for me and my team of 5 chefs. I used the kitchen to prep for an upcoming 5 course dinner and kitchen had everything I needed! The space was very large and clean. Will go back again!",
   rating: 3.0
 )
 
 Review.create(
   kitchen_id: 1,
   user_id: 4,
-  comment: "We loved our stay at Villa Fortuna Hotel. Everyone was very friendly and helpful. We especially enjoyed the outdoor kitchen with free coffee in the morning. My one and only complaint is that there is no smoking on the premises. However, I would reccomend this place to anyone!",
+  comment: "My team and I used the Mayfair kitchen to prep for an upcoming service for about 20. The space had everything I needed, from knives to cookware. The double Wolf oven was a big help! The only complaint I have, is that the kitchen did not have a stand mixer—I needed to bring my own. Otherwise, I loved everything about it!",
   rating: 5.0
 )
 
