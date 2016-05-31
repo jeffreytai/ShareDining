@@ -21,7 +21,8 @@ class MessagesController < ApplicationController
     else
       conversation = current_user.send_message(recipients, body, subject).conversation
       flash[:success] = "Message has been sent!"
-      redirect_to conversation_path(conversation)
+      redirect_to conversations_path
+      # redirect_to conversation_path(conversation)
     end
   end
 
