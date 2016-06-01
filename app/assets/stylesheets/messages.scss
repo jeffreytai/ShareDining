@@ -1,3 +1,50 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'colors';
+
+.messages-main-container {
+  width: 968px;
+  margin: 0 auto;
+  padding-top: 20px;
+  min-height: 100vh;
+  border: solid $light-grey;
+  border-width: 0 1px;
+
+  form {
+    margin: 50px auto;
+    width: 500px;
+  }
+
+  label {
+    font-size: 20px;
+    color: $dark-grey;
+    font-family: main;
+    display: block;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    font-size: 20px;
+    line-height: 22px;
+    color: $dark-grey;
+    font-family: main;
+    border: 1px solid $light-grey;
+    margin: 10px 0;
+    border-radius: 2px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  textarea {
+    height: 200px;
+  }
+}
+
+.messages-main-title {
+  width: 100%;
+  margin: 10px 0;
+  text-align: center;
+  font-family: logo;
+  color: $dark-grey;
+  font-size: 28px;
+}
+

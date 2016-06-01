@@ -7,10 +7,10 @@
     <label class="listing-date-label" for="start_date">Date</label>
     <%= f.date_field :start_date, value: Date.today, class: "listing-start-date" %>
     <!-- TODO: load only available hours -->
-    <br/>
+    <br/><br>
     <%= f.label :start_time %>
     <%= f.time_select :start_time, minute_step: 30, start_hour: @availability[@day][0].to_i, end_hour: @availability[@day][1].to_i, time_separator: ':' %>
-    <br/>
+    <br/><br>
     <%= f.label :end_time %>
     <%= f.time_select :end_time, minute_step: 30, start_hour: @availability[@day][0].to_i, end_hour: @availability[@day][1].to_i, time_separator: ':' %>
     <%= f.submit "Request Kitchen" %>

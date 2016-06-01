@@ -47,6 +47,10 @@
     float: left;
     height: inherit;
 
+    & > * {
+      line-height: 60px;
+    }
+
     .listing-dates-form-field {
       margin: 10px 0;
 
@@ -94,6 +98,7 @@
       font-size: 12px;
       padding: 10px;
       margin: 15px 0 0 0;
+      text-decoration: none;
     }
 
     .listing-price {
@@ -236,6 +241,18 @@
       line-height: 150%;
     }
   }
+}
 
-
+.single-reservation-modal,
+.multiple-reservation-modal {
+  input,
+  select {
+    font-family: main;
+    font-size: 16px;
+    color: $dark-grey;
+    padding: 4px;
+    border-radius: 2px;
+    border: 1px solid $light-grey;
+    background-color: lighten($light-grey, 20);
+  }
 }
