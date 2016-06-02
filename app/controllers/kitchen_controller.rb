@@ -110,7 +110,17 @@ class KitchenController < ApplicationController
       flash[:notice] = 'Kitchen was successfully added.'
     else
       respond_to do |format|
-        flash[:notice] = 'Error: Kitchen was not successfully added.'
+        if !params[:kitchen][:title].present?
+          flash[:notice]='Error: Kitchen title is required'
+	elsif !params[:kitchen][:description].present?
+	  flash[:notice]='Error: Kitchen description is required'
+ 	elsif !params[:kitchen][:location].present?
+	  flash[:notice]='Error: Kitchen location is required'
+      	elsif !params[:kitchen][:price].present?
+	  flash[:notice]='Error: Kitchen price is required'
+	else
+          flash[:notice] = 'Error: Kitchen was not successfully added.'
+        end
         format.html { render action: 'new' }
         format.json { render json: @kitchen.errors, status: :unprocessable_entity }
       end

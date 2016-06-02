@@ -17,11 +17,11 @@
   <ul class="filters-list clearfix">
     <li class="filter">
       <label for="start_date">Begin</label>
-      <%= date_field_tag :start_date, @start_date %>
+      <%= date_field_tag :start_date, @start_date, :min => Date.today %>
     </li>
     <li class="filter">
       <label for="end_date">End</label>
-      <%= date_field_tag :end_date, @end_date %>
+      <%= date_field_tag :end_date, @end_date, :min => Date.today %>
     </li>
     <li class="filter">
       <label for="type_of_kitchen">Type</label>
