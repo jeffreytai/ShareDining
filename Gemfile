@@ -35,12 +35,14 @@ gem 'devise', '~> 4.1.1'
 gem 'geocoder'
 
 # File attachment (https://github.com/carrierwaveuploader/carrierwave)
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+# gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave', '~> 0.11.0'
 # Resizing pictures for thumbnails (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 
 # Payment system (https://stripe.com/docs/checkout/rails)
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+# gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'stripe', '~> 1.43.0'
 
 # Use redis for caching objects without saving
 gem 'redis', '~>3.2'
