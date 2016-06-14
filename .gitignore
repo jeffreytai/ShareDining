@@ -30,3 +30,8 @@ Gemfile.lock
 
 # Ignore db/schema.rb, this file will automatically be generated
 db/schema.rb
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
