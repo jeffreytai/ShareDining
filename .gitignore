@@ -35,3 +35,6 @@ db/schema.rb
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Archive.zip for AWS upload
+Archive.zip
