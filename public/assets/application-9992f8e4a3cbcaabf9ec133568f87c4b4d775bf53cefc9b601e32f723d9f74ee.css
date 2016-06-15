@@ -1,0 +1,3243 @@
+/* line 5, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider {
+  width: 100%;
+  height: 30px;
+  margin: 30px 0;
+  border: 0 solid #D5D4CD;
+  border-width: 1px 2px;
+}
+/* line 12, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+/* line 18, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-block {
+  box-sizing: border-box;
+  float: left;
+  font-size: 0;
+  height: 100%;
+  border-left: 1px solid #D5D4CD;
+  background-color: #fafaf9;
+  position: relative;
+  transition: background-color .2s;
+}
+/* line 28, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-block:nth-child(even) {
+  border-left: 1px solid #b1b6ba;
+}
+/* line 32, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-block:first-child {
+  border-left: none;
+}
+/* line 36, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-block:hover, .date-slider .time-block:focus {
+  background-color: rgba(7, 152, 39, 0.4);
+}
+/* line 41, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-block.selected {
+  background-color: rgba(7, 152, 39, 0.8);
+}
+/* line 46, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-block.noon {
+  border-left: none;
+}
+/* line 49, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-block.noon:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 1px solid #b1b6ba;
+  height: 45px;
+}
+/* line 59, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-block.noon .time-label {
+  top: -33px;
+}
+/* line 64, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_date-slider.scss */
+.date-slider .time-label {
+  position: absolute;
+  top: -18px;
+  font-size: 11px;
+  color: #8f8c7a;
+  transform: translateX(-50%);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 4, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed {
+  background-color: #1b1d1e;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  font-family: main;
+  padding: 40px 50px;
+}
+
+/* line 15, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Footer left */
+/* line 24, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-left {
+  width: 40%;
+}
+
+/* Footer links */
+/* line 30, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-links {
+  color: #FFF;
+  margin: 20px 0 12px;
+  padding: 0;
+  width: 50%;
+}
+
+/* line 37, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-links .footer-link-list-element {
+  display: inline-block;
+  margin: 2px 8px 2px 0;
+}
+/* line 41, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-links .footer-link-list-element a {
+  color: inherit;
+  text-decoration: none;
+  line-height: 1.8;
+  border-bottom: 1px dashed rgba(213, 212, 205, 0.5);
+}
+/* line 47, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-links .footer-link-list-element a:hover, .footer-distributed .footer-links .footer-link-list-element a:focus {
+  border-bottom-style: solid;
+}
+
+/* line 54, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-company-name {
+  color: #8f9296;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* line 61, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center {
+  width: 35%;
+}
+
+/* line 65, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center i {
+  background-color: #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+
+/* line 78, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center i.fa-envelope {
+  font-size: 17px;
+  line-height: 38px;
+}
+
+/* line 83, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center p {
+  display: inline-block;
+  color: #ffffff;
+  vertical-align: middle;
+  margin: 0;
+}
+
+/* line 90, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center p span {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+
+/* line 97, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center p a {
+  color: #5383d3;
+  text-decoration: none;
+}
+
+/* Footer Right */
+/* line 104, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-right {
+  width: 20%;
+}
+
+/* line 108, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-company-about {
+  line-height: 20px;
+  color: #92999f;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* line 116, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-company-about span {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* line 124, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-icons .footer-icon-list-element {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+  text-align: center;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+/* line 135, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-icons .footer-icon-list-element a {
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 35px;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 6, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav {
+  font-family: logo;
+  border-bottom: 1px solid #f3f3f1;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #32373a;
+}
+/* line 14, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo-link {
+  float: left;
+  width: 200px;
+  height: 100%;
+  text-decoration: inherit;
+}
+/* line 21, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo {
+  background-color: #000;
+  color: #FFF;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  opacity: .85;
+  transition: opacity .5s;
+}
+/* line 30, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo:hover {
+  opacity: 1;
+}
+
+/* line 36, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-rent-button {
+  float: right;
+}
+
+/* line 40, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links {
+  float: right;
+  height: inherit;
+  font-size: 13px;
+}
+/* line 45, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li {
+  float: left;
+  height: inherit;
+  line-height: 60px;
+  margin-right: 35px;
+}
+/* line 51, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li a {
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: inherit;
+  text-decoration: inherit;
+  text-transform: uppercase;
+}
+/* line 58, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li a:hover, .landing-links li a:focus {
+  color: #FFF;
+  background-color: #32373a;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 4, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+/* line 13, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: main;
+  border-radius: 3px;
+  margin: 0 auto;
+  transform: translateX(-50%) translateY(-50%);
+  width: 20%;
+  min-width: 320px;
+  background-color: #FFF;
+  box-shadow: 5px 5px 10px rgba(50, 55, 58, 0.8);
+  padding: 44px;
+}
+/* line 28, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal.signup-modal {
+  padding: 30px;
+}
+/* line 32, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-title {
+  color: #32373a;
+  font-size: 24px;
+}
+/* line 37, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-tagline {
+  color: #626a70;
+  font-size: 12px;
+  margin-top: 12px;
+}
+/* line 43, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .login-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #D5D4CD;
+  width: calc(100% - 40px);
+  font-size: 12px;
+  padding: 15px 20px;
+  line-height: 1.5;
+}
+/* line 54, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list {
+  width: 80%;
+  margin: 40px auto;
+}
+/* line 58, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list button {
+  font-family: logo;
+  background-color: #FFF;
+  width: 100%;
+  height: 50px;
+  border-radius: 3px;
+  border: 2px solid #D5D4CD;
+  padding: 0 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+/* line 69, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list button:hover {
+  box-shadow: 0 0 15px rgba(50, 55, 58, 0.4);
+}
+/* line 73, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list button .login-button-text {
+  height: 50px;
+  line-height: 50px;
+}
+/* line 78, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list button svg {
+  margin: 15px 0;
+  float: left;
+  height: 20px;
+  width: 20px;
+  fill: #3B5998;
+}
+/* line 88, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-separator-title {
+  font-family: logo;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #32373a;
+  font-size: 12px;
+  position: relative;
+}
+/* line 97, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-separator-title:before {
+  content: '';
+  display: block;
+  width: 100%;
+  border-top: 1px solid #D5D4CD;
+  margin: 20px auto 40px auto;
+}
+/* line 105, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-separator-title:after {
+  content: 'OR';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateY(-40%) translateX(-50%);
+  background-color: #FFF;
+  width: 70px;
+}
+/* line 116, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .login-email-form {
+  width: 100%;
+}
+/* line 120, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay input[type=text],
+.modal-overlay input[type=password],
+.modal-overlay input[type=email],
+.modal-overlay input[type=submit] {
+  border-radius: 3px;
+  width: calc(100% - 24px);
+  margin-top: 15px;
+  padding: 12px 10px;
+  border: 2px solid #D5D4CD;
+  font-size: 13px;
+}
+/* line 132, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay input[type=submit] {
+  background-color: #333333;
+  color: #FFF;
+  border: none;
+  box-sizing: content-box;
+  width: calc(100% - 20px);
+}
+
+/* line 141, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.remember-me-field {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  height: 14px;
+}
+/* line 147, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.remember-me-field .remember-me-label,
+.remember-me-field .remember-me-checkbox {
+  float: left;
+}
+/* line 152, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.remember-me-field .remember-me-label {
+  color: #32373a;
+}
+/* line 156, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.remember-me-field .remember-me-checkbox {
+  display: block;
+  height: 14px;
+  width: 14px;
+  margin: 0 10px 0 0;
+}
+
+/* line 165, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay,
+.login-modal,
+.signup-modal,
+.single-reservation-modal,
+.multiple-reservation-modal {
+  transition: opacity .4s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* line 176, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+body.login-modal-show .modal-overlay,
+body.login-modal-show .login-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 184, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+body.multiple-reservation-modal-show .modal-overlay,
+body.multiple-reservation-modal-show .multiple-reservation-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 192, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+body.single-reservation-modal-show .modal-overlay,
+body.single-reservation-modal-show .single-reservation-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 200, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+body.signup-modal-show .modal-overlay,
+body.signup-modal-show .signup-modal {
+  opacity: 1;
+  visibility: visible;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 2, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_notification.css.scss */
+.notification {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 200px;
+  padding-left: 24px;
+  padding-top: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  line-height: 60 px;
+  font-size: 20px;
+  overflow: hidden;
+  -webkit-animation: fadeInOut 3s linear forwards;
+  animation: fadeInOut 3s linear forwards;
+}
+
+@-webkit-keyframes fadeInOut {
+  0%,100% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    display: none;
+  }
+}
+@keyframes fadeInOut {
+  0%,100% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    display: none;
+  }
+}
+/* line 1, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+html, body, button, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 10, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 14, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 18, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 22, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 26, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 31, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 36, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+body {
+  -webkit-text-size-adjust: none;
+}
+
+/* hides up/down arrows in date */
+/* line 41, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+/* line 3, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_shared.scss */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 9, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_shared.scss */
+.transparent-button {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 2px solid #32373a;
+  border-radius: 2px;
+  margin-top: 15px;
+  margin-right: 50px;
+  text-transform: uppercase;
+}
+/* line 20, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_shared.scss */
+.transparent-button:hover, .transparent-button:focus {
+  background-color: #32373a;
+  color: #FFF;
+}
+/* line 3, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container {
+  position: relative;
+}
+/* line 6, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .slider-list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* line 11, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .slider-list .slider-list-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  text-align: center;
+}
+/* line 18, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .slider-list .slider-list-element.current {
+  display: block;
+}
+/* line 24, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list {
+  z-index: 400;
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  margin: 0 10% 8px 10%;
+  text-align: center;
+}
+/* line 32, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list .breadcrumb-list-el {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 16px;
+}
+/* line 38, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list .breadcrumb-list-el.current .breadcrumb-button {
+  background-color: #FFF;
+  opacity: .9;
+}
+/* line 44, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list .breadcrumb-button {
+  opacity: .4;
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  background-color: #D5D4CD;
+  transition: opacity .25s, background-color .25s;
+}
+/* line 54, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list .breadcrumb-button:hover, .slider-container .breadcrumb-list .breadcrumb-button:focus {
+  opacity: .7;
+}
+/* line 61, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button,
+.slider-container .prev-button {
+  font-size: 0;
+  z-index: 400;
+  background-color: #32373a;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  opacity: .7;
+  border-radius: 100%;
+  line-height: 54px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 5px rgba(50, 55, 58, 0.7);
+}
+/* line 77, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button:hover, .slider-container .next-button:focus,
+.slider-container .prev-button:hover,
+.slider-container .prev-button:focus {
+  opacity: .9;
+}
+/* line 82, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button:after,
+.slider-container .prev-button:after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+}
+/* line 92, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .prev-button {
+  left: 10px;
+}
+/* line 95, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .prev-button:after {
+  right: 18px;
+  border-left-width: 0;
+  border-right: 20px solid #D5D4CD;
+}
+/* line 102, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button {
+  right: 10px;
+}
+/* line 105, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button:after {
+  left: 18px;
+  border-right-width: 0;
+  border-left: 20px solid #D5D4CD;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 4, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-information {
+  font-family: main;
+  width: 50%;
+  margin: 50px auto 20px;
+  border: 1px solid #D5D4CD;
+  text-align: center;
+  padding: 30px 0;
+}
+/* line 12, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-information .account-name {
+  font-size: 200%;
+}
+
+/* line 17, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-questions-container {
+  font-family: main;
+  width: 50%;
+  margin: 0px auto;
+  border: 1px solid #D5D4CD;
+}
+/* line 23, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-questions-container .account-questions-purpose {
+  margin: 20px;
+}
+/* line 26, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-questions-container .account-questions-purpose textarea {
+  width: 100%;
+  height: 100px;
+  font-family: main;
+  font-size: 100%;
+}
+/* line 34, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-questions-container .account-questions-favorite {
+  margin: 20px;
+}
+/* line 37, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-questions-container .account-questions-favorite textarea {
+  width: 100%;
+  height: 100px;
+  font-family: main;
+  font-size: 100%;
+}
+
+/* line 46, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-kitchen-container {
+  font-family: main;
+  width: 50%;
+  margin: 20px auto 50px;
+  border: 1px solid #D5D4CD;
+  padding: 30px 0;
+}
+/* line 53, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-kitchen-container .account-kitchen-title {
+  font-size: 150%;
+  text-align: center;
+}
+/* line 58, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-kitchen-container .account-kitchen-list {
+  margin: 20px;
+  text-align: center;
+  padding: 15px;
+}
+/* line 64, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-kitchen-container .account-kitchen-list .account-kitchen-list-el {
+  width: 30%;
+  display: inline-block;
+  border: 1px solid #D5D4CD;
+  height: 60px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+/* line 75, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-payment-container {
+  width: 50%;
+  margin: 20px auto;
+  border: 1px solid #D5D4CD;
+}
+/* line 80, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/account.scss */
+.account-payment-container .account-payment-title {
+  font-family: main;
+  text-align: center;
+  padding: 20px;
+  font-size: 150%;
+}
+/* line 4, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.information-body {
+  background-color: #fdfdfc;
+}
+
+/* line 8, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.h1_p {
+  box-sizing: border-box;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #D5D4CD;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* line 18, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.main-information-section {
+  min-height: calc(100vh - 250px);
+  font-family: main;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  color: #4a5055;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 969px;
+  margin: 0 auto;
+  background-color: #FFF;
+}
+/* line 31, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.main-information-section h1, .main-information-section h2, .main-information-section h3 {
+  font-family: logo;
+  color: #32373a;
+  margin-bottom: 10px;
+}
+/* line 38, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.main-information-section h2 {
+  margin: 16px 0 8px;
+  font-size: 16px;
+}
+/* line 43, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.main-information-section p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+/* line 48, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.main-information-section .definitions li {
+  list-style-type: square;
+}
+/* line 52, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.main-information-section .definitions strong {
+  font-weight: bold;
+}
+
+/* line 57, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.terms-main-information-section {
+  min-height: calc(100vh - 250px);
+  font-family: main;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #4a5055;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 969px;
+  margin: 0 auto;
+  background-color: #FFF;
+}
+/* line 69, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.terms-main-information-section h1, .terms-main-information-section h2, .terms-main-information-section h3 {
+  font-family: logo;
+  color: #32373a;
+  font-weight: bold;
+}
+/* line 76, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.terms-main-information-section h2 {
+  margin: 16px 0 8px;
+  font-size: 16px;
+}
+/* line 81, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.terms-main-information-section p {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+/* line 86, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.terms-main-information-section ul {
+  list-style-position: outside;
+  margin-left: 1em;
+}
+/* line 91, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.terms-main-information-section .indented ul {
+  list-style-position: outside;
+  margin-left: 2em;
+}
+/* line 96, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.terms-main-information-section li {
+  list-style-type: square;
+}
+/* line 99, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.terms-main-information-section strong {
+  font-weight: bold;
+}
+
+/* line 104, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section {
+  min-height: calc(100vh - 250px);
+  font-family: main;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #4a5055;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 969px;
+  margin: 0 auto;
+  background-color: #FFF;
+}
+/* line 116, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section h1, .usage-main-information-section h2, .usage-main-information-section h3 {
+  font-family: logo;
+  color: #32373a;
+  font-weight: bold;
+}
+/* line 123, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section h2 {
+  margin: 16px 0 8px;
+  font-size: 16px;
+}
+/* line 128, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section p {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+/* line 133, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section ul {
+  list-style-position: outside;
+  list-style-type: decimal;
+  margin-left: 3em;
+}
+/* line 138, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section ul.decimal {
+  list-style-type: decimal;
+}
+/* line 141, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section ul.alpha {
+  list-style-type: lower-alpha;
+}
+/* line 145, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section li {
+  margin-bottom: 14px;
+}
+/* line 148, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/information.scss */
+.usage-main-information-section strong {
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 7, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-body {
+  background-color: #fafaf9;
+}
+
+/* line 11, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-container {
+  width: 969px;
+  margin: 0 350px;
+  font-family: main;
+  background-color: #FFF;
+  padding-top: 40px;
+  min-height: calc(100vh - 100px);
+  border-left: 2px solid #D5D4CD;
+}
+
+/* line 21, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-subtitle,
+.kitchen-new-title {
+  font-family: logo;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 28, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-title {
+  font-size: 34px;
+  color: #32373a;
+}
+
+/* line 33, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-subtitle {
+  font-size: 14px;
+  color: #626a70;
+  margin: 16px 0 40px;
+}
+
+/* line 40, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset {
+  width: 85%;
+  min-width: 350px;
+  margin: 0 auto;
+  display: none;
+}
+/* line 46, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset.current {
+  display: block;
+}
+/* line 50, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset.fieldset-basic {
+  width: 50%;
+}
+/* line 54, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset .fieldset-title {
+  font-family: logo;
+  width: 100%;
+  color: #32373a;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 10px;
+}
+/* line 63, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset .input-list li {
+  margin: 16px 0;
+}
+/* line 67, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset label,
+.fieldset .input-fieldset-title,
+.fieldset .checkbox-fieldset-title {
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: block;
+  font-family: logo;
+}
+/* line 76, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset textarea,
+.fieldset input[type=text] {
+  width: 100%;
+  border-radius: 2px;
+  border: 2px solid #D5D4CD;
+  font-size: 16px;
+  color: #32373a;
+  padding: 10px;
+}
+/* line 85, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset textarea:active, .fieldset textarea:hover,
+.fieldset input[type=text]:active,
+.fieldset input[type=text]:hover {
+  border-color: #8f8c7a;
+}
+/* line 91, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset textarea {
+  font-size: 14px;
+  line-height: 1.2;
+  height: 76.8px;
+}
+/* line 97, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset .price-input,
+.fieldset .price-currency-symbol {
+  display: inline-block;
+  height: 28px;
+  vertical-align: middle;
+  line-height: 28px;
+}
+/* line 105, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset .price-input {
+  width: 64px;
+  color: #32373a;
+  border: 1px solid #D5D4CD;
+  font-size: 20px;
+}
+/* line 112, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset .price-currency-symbol {
+  font-family: logo;
+  padding: 0 10px;
+  border-radius: 4px 0 0 4px;
+  background-color: #ecece9;
+  color: #4a5055;
+  border: 2px solid #D5D4CD;
+  margin-right: -.25em;
+}
+/* line 122, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.fieldset .price-description {
+  color: #626a70;
+  font-size: 12px;
+}
+
+/* line 129, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.radio-selection-list {
+  width: 80%;
+  margin: 0 auto;
+}
+/* line 133, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.radio-selection-list input[type=radio],
+.radio-selection-list input[type=checkbox] {
+  display: none;
+}
+/* line 138, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.radio-selection-list li {
+  width: 50%;
+  height: 40px;
+  float: left;
+}
+/* line 144, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.radio-selection-list label {
+  height: 100%;
+  width: 100%;
+  border: 2px solid #D5D4CD;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+}
+/* line 152, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.radio-selection-list label:hover {
+  background-color: #ecece9;
+}
+/* line 157, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.radio-selection-list li:first-child label {
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+}
+/* line 162, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.radio-selection-list li:last-child label {
+  border-radius: 0 5px 5px 0;
+}
+/* line 168, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.radio-selection-list input[type=radio]:checked ~ label,
+.radio-selection-list input[type=checkbox]:checked ~ label {
+  background-color: #32373a;
+  color: #FFF;
+}
+
+/* line 175, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset {
+  margin: 20px 0;
+  width: 100%;
+}
+/* line 179, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .checkbox-field-list {
+  width: 100%;
+}
+/* line 183, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .checkbox-fieldset-list-item {
+  width: calc(45% - 1px);
+  float: left;
+  height: 36px;
+}
+/* line 188, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .checkbox-fieldset-list-item:nth-child(odd) {
+  border-right: 2px solid #D5D4CD;
+  padding-right: 5%;
+  margin-right: 5%;
+}
+/* line 194, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .checkbox-fieldset-list-item .inventory-fieldlist-checkbox,
+.checkbox-fieldset .checkbox-fieldset-list-item label {
+  float: left;
+}
+/* line 200, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .checkbox-fieldset-list-item label {
+  font-family: main;
+  font-size: 14px;
+  color: #7a848b;
+  line-height: 36px;
+}
+/* line 207, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .checkbox-fieldset-list-item:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+/* line 214, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .inventory-fieldlist-checkbox {
+  padding: 0;
+  height: 16px;
+  width: 16px;
+  margin: 10px 10px 10px 0;
+}
+/* line 221, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .inventory-fieldlist-checkbox:checked ~ label {
+  color: #4a5055;
+}
+/* line 225, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .inventory-fieldlist-checkbox:checked ~ .inventory-quantity-input {
+  display: block;
+}
+/* line 231, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.checkbox-fieldset .inventory-quantity-input {
+  display: none;
+  box-sizing: border-box;
+  float: right;
+  padding: 2px;
+  width: 24px;
+  border: none;
+  border-bottom: 2px solid #D5D4CD;
+  text-align: center;
+  height: 18px;
+  margin-top: 9px;
+}
+
+/* line 245, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu {
+  position: absolute;
+  top: 61px;
+  left: 0;
+  min-width: 350px;
+  background-color: #f8f8f7;
+  height: calc(100vh - 61px);
+  font-family: main;
+  font-size: 15px;
+}
+/* line 255, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu.stuck {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+}
+/* line 261, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-side-menu-list,
+.kitchen-new-side-menu .kitchen-new-side-menu-el {
+  width: 100%;
+  box-sizing: border-box;
+}
+/* line 267, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-side-menu-list {
+  padding-top: 20px;
+}
+/* line 271, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-side-menu-el {
+  box-sizing: border-box;
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+}
+/* line 278, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-menu-link {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: inherit;
+  padding-left: 20px;
+  transition: padding-left .5s, background-color .25s;
+}
+/* line 288, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-menu-link.current {
+  background-color: #ecece9;
+  font-family: logo;
+}
+/* line 293, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-menu-link.current, .kitchen-new-side-menu .kitchen-new-menu-link:hover {
+  padding-left: 30px;
+}
+/* line 298, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-menu-link:hover {
+  background-color: #f1f1ee;
+}
+/* line 302, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-menu-link:after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 20px;
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  opacity: 0;
+  transition: opacity .5s;
+}
+/* line 314, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-menu-link.completed:after {
+  background-color: #079827;
+  opacity: 1;
+}
+/* line 319, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-side-menu .kitchen-new-menu-link.incomplete:after {
+  background-color: #CB0300;
+  opacity: 1;
+}
+
+/* line 326, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-button-container {
+  width: 70%;
+  margin: 20px auto 0;
+  border-top: 1px solid #D5D4CD;
+  padding: 20px 0 30px;
+}
+/* line 332, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-button-container .next-button,
+.kitchen-new-button-container .prev-button {
+  width: 100px;
+  height: 36px;
+  margin: 0;
+  cursor: pointer;
+}
+/* line 339, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-button-container .next-button:disabled,
+.kitchen-new-button-container .prev-button:disabled {
+  opacity: .2;
+  pointer-events: none;
+  cursor: default;
+}
+/* line 346, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-button-container .next-button {
+  float: right;
+}
+/* line 350, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/kitchen_new.scss */
+.kitchen-new-button-container .prev-button {
+  float: left;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 6, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-body {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 11, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-banner {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: url(/assets/landing/banner-eb966691dbcda44b835e43be97a37945423e972c92a07f3e7b27a8411ad7a1b0.jpg) no-repeat center;
+  background-size: cover;
+}
+/* line 18, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-banner .main-nav {
+  border-bottom: none;
+}
+
+/* line 23, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.banner-details {
+  font-family: logo;
+  width: 100%;
+  opacity: .9;
+  text-shadow: 4px 4px 5px rgba(50, 55, 58, 0.85);
+}
+/* line 29, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.banner-details .tagline {
+  margin-top: calc(45vh - 60px);
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #FFF;
+  font-size: 60px;
+}
+/* line 38, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.banner-details .sub-tagline {
+  width: 100%;
+  text-align: center;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/* line 47, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 150px;
+  text-align: center;
+}
+/* line 56, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search .landing-search-form {
+  display: inline-block;
+  height: 40px;
+  margin-top: 75px;
+  transform: translateY(-50%);
+}
+/* line 63, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search input, .landing-search button {
+  display: inline-block;
+  font-family: main;
+  float: left;
+  line-height: 40px;
+  border: none;
+  padding: 0 0 0 10px;
+  margin: 0;
+  height: inherit;
+  color: #889097;
+  font-size: 16px;
+  opacity: .95;
+}
+/* line 77, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search input:hover,
+.landing-search input:focus {
+  opacity: 1;
+}
+/* line 82, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search input:focus {
+  color: #626a70;
+}
+/* line 86, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search .landing-location-input {
+  border-right: 2px solid #D5D4CD;
+  width: 300px;
+  border-radius: 3px 0 0 3px;
+}
+/* line 92, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search .landing-start-input,
+.landing-search .landing-end-input {
+  width: 175px;
+}
+/* line 97, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search .landing-start-input {
+  border-right: 2px solid #D5D4CD;
+}
+/* line 101, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search .landing-submit {
+  padding: 0 14px;
+  color: #FFF;
+  background-color: transparent;
+  border: 2px solid #FFF;
+  border-radius: 0 3px 3px 0;
+}
+/* line 108, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-search .landing-submit:hover {
+  background-color: #FFF;
+  color: #32373a;
+  border-left: 2px solid #D5D4CD;
+  opacity: 1;
+}
+
+/* line 117, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list-container {
+  width: 969px;
+  margin: 40px auto;
+}
+
+/* line 122, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-section-title {
+  font-family: logo;
+  font-size: 24px;
+  color: #32373a;
+  margin: 40px 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 131, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list {
+  width: 100%;
+}
+/* line 134, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category {
+  position: relative;
+  width: 305px;
+  height: 305px;
+  float: left;
+  background: no-repeat center;
+  background-size: cover;
+  margin: 13px 0;
+}
+/* line 143, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category:nth-child(3n-1) {
+  margin: 13px 25px;
+}
+/* line 148, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category:nth-child(1) {
+  background-image: url(/assets/landing/categoryImages/1-f9221faee903d1d78a5d2cc61629547de97e55130d9e6d517be017cd35f785d1.jpg);
+}
+/* line 148, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category:nth-child(2) {
+  background-image: url(/assets/landing/categoryImages/2-c8b8d52e0f350772f5bb1f6561199970c161753689fe741654c6318d54d14f6b.jpg);
+}
+/* line 148, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category:nth-child(3) {
+  background-image: url(/assets/landing/categoryImages/3-df3781a709eaaa7fe147eeb2ed5ff3ea0dd7d070cacc9febfa09cc57a54fec1d.jpg);
+}
+/* line 148, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category:nth-child(4) {
+  background-image: url(/assets/landing/categoryImages/4-4c3017089853aee30fe030e6f604a427d67c3bb22941ba7023cbae1aad530da9.jpg);
+}
+/* line 148, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category:nth-child(5) {
+  background-image: url(/assets/landing/categoryImages/5-2798f02804f93c04545303dd494e74c3917f92a340eeb99f8a3be532f5285766.jpg);
+}
+/* line 148, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category:nth-child(6) {
+  background-image: url(/assets/landing/categoryImages/6-964cd52d48bca8230d7a8813f1bf92e36505685d345c34119512025b9aed7ae4.jpg);
+}
+/* line 154, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/landing.scss */
+.landing-kitchen-list .landing-kitchen-category-title {
+  font-size: 12px;
+  opacity: .9;
+  text-transform: uppercase;
+  width: 70%;
+  position: absolute;
+  left: calc(15% - 15px);
+  bottom: 30px;
+  padding: 15px;
+  text-align: center;
+  background-color: #FFF;
+  color: #32373a;
+  font-family: logo;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 3, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container {
+  position: relative;
+}
+/* line 6, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .slider-list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* line 11, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .slider-list .slider-list-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  text-align: center;
+}
+/* line 18, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .slider-list .slider-list-element.current {
+  display: block;
+}
+/* line 24, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list {
+  z-index: 400;
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  margin: 0 10% 8px 10%;
+  text-align: center;
+}
+/* line 32, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list .breadcrumb-list-el {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 16px;
+}
+/* line 38, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list .breadcrumb-list-el.current .breadcrumb-button {
+  background-color: #FFF;
+  opacity: .9;
+}
+/* line 44, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list .breadcrumb-button {
+  opacity: .4;
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  background-color: #D5D4CD;
+  transition: opacity .25s, background-color .25s;
+}
+/* line 54, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .breadcrumb-list .breadcrumb-button:hover, .slider-container .breadcrumb-list .breadcrumb-button:focus {
+  opacity: .7;
+}
+/* line 61, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button,
+.slider-container .prev-button {
+  font-size: 0;
+  z-index: 400;
+  background-color: #32373a;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  opacity: .7;
+  border-radius: 100%;
+  line-height: 54px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 5px rgba(50, 55, 58, 0.7);
+}
+/* line 77, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button:hover, .slider-container .next-button:focus,
+.slider-container .prev-button:hover,
+.slider-container .prev-button:focus {
+  opacity: .9;
+}
+/* line 82, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button:after,
+.slider-container .prev-button:after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+}
+/* line 92, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .prev-button {
+  left: 10px;
+}
+/* line 95, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .prev-button:after {
+  right: 18px;
+  border-left-width: 0;
+  border-right: 20px solid #D5D4CD;
+}
+/* line 102, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button {
+  right: 10px;
+}
+/* line 105, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_slider.scss */
+.slider-container .next-button:after {
+  left: 18px;
+  border-right-width: 0;
+  border-left: 20px solid #D5D4CD;
+}
+
+/* line 5, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.kitchen-listing-body {
+  background-color: #fafaf9;
+}
+
+/* line 9, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-container {
+  width: 968px;
+  margin: 0 auto;
+  font-family: main;
+  color: #565d62;
+}
+
+/* line 16, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-head-container {
+  width: 100%;
+  margin-top: 35px;
+}
+/* line 20, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-head-container .listing-title {
+  font-family: logo;
+  color: #4a5055;
+  font-size: 44px;
+  float: left;
+}
+/* line 27, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-head-container .listing-details-list {
+  float: right;
+  font-size: 14px;
+  color: #889097;
+  text-align: right;
+}
+/* line 33, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-head-container .listing-details-list li {
+  margin: 6px 0;
+}
+
+/* line 39, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #e8e7e3;
+  margin: 20px 0;
+  padding: 10px 20px;
+}
+/* line 46, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-dates-form {
+  float: left;
+  height: inherit;
+}
+/* line 50, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-dates-form > * {
+  line-height: 60px;
+}
+/* line 54, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-dates-form .listing-dates-form-field {
+  margin: 10px 0;
+}
+/* line 57, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-dates-form .listing-dates-form-field label {
+  margin-right: 6px;
+}
+/* line 61, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-dates-form .listing-dates-form-field select,
+.listing-date-container .listing-dates-form .listing-dates-form-field input {
+  border: 1px solid #D5D4CD;
+  padding: 4px;
+  font-family: main;
+  font-size: 14px;
+}
+/* line 69, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-dates-form .listing-dates-form-field select {
+  background-color: white;
+  border-radius: 2px;
+}
+/* line 76, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-price-container {
+  float: right;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 81, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-price-container:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+/* line 88, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-price-container .listing-price,
+.listing-date-container .listing-price-container .listing-book-button {
+  display: block;
+  font-family: logo;
+}
+/* line 94, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-price-container .listing-book-button {
+  float: right;
+  background-color: #32373a;
+  color: #FFF;
+  font-size: 12px;
+  padding: 10px;
+  margin: 15px 0 0 0;
+  text-decoration: none;
+}
+/* line 104, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-price-container .listing-price {
+  color: #32373a;
+  line-height: 30px;
+  height: 30px;
+}
+/* line 109, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-price-container .listing-price .price-math {
+  color: #626a70;
+  font-size: 12px;
+}
+/* line 114, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-date-container .listing-price-container .listing-price .listing-total-price {
+  font-size: 18px;
+}
+
+/* line 121, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-images-container {
+  background-color: #f6f5f4;
+  width: 100%;
+  height: 600px;
+}
+/* line 126, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-images-container .listing-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* line 133, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  background-color: white;
+  width: 100%;
+}
+/* line 140, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-description {
+  box-sizing: border-box;
+  width: 70%;
+  padding: 0 20px 20px;
+  margin: 40px auto 40px;
+  border-bottom: 2px solid #D5D4CD;
+}
+/* line 147, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-description p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+/* line 153, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-inventory-container-header,
+.listing-details-container .listing-details-heading,
+.listing-details-container .listing-features-heading {
+  text-align: center;
+  font-family: logo;
+  color: #000;
+  font-size: 14px;
+}
+/* line 162, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-details-heading {
+  margin-bottom: 15px;
+}
+/* line 166, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-features-heading {
+  font-size: 13px;
+  text-align: left;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+/* line 173, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-features-heading:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10%;
+  margin: 0 auto;
+  border-bottom: 2px solid #D5D4CD;
+}
+/* line 184, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-features {
+  padding-left: 30px;
+  columns: 2;
+  column-rule: 1px solid #f1f1ee;
+  column-gap: 100px;
+  width: 80%;
+  margin: 0 auto;
+}
+/* line 193, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-inventory-section-container {
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  break-inside: avoid-column;
+  font-size: 13px;
+}
+/* line 201, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-features-list {
+  list-style: none;
+}
+/* line 204, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-features-list li {
+  margin-bottom: 12px;
+}
+/* line 207, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-details-container .listing-features-list li:before {
+  content: "\2713\0020";
+  color: rgba(7, 152, 39, 0.9);
+}
+
+/* line 215, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-review-container {
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  background-color: white;
+  width: 100%;
+}
+/* line 222, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-review-container .listing-review-heading {
+  text-align: center;
+  font-family: logo;
+  color: #000;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+/* line 230, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-review-container .listing-review-list {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+/* line 234, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-review-container .listing-review-list .listing-review-name {
+  padding: 40px 20px 40px;
+  float: left;
+}
+/* line 239, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.listing-review-container .listing-review-list .listing-review-content {
+  padding: 40px 40px 40px 160px;
+  line-height: 150%;
+}
+
+/* line 248, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/listing.scss */
+.single-reservation-modal input,
+.single-reservation-modal select,
+.multiple-reservation-modal input,
+.multiple-reservation-modal select {
+  font-family: main;
+  font-size: 16px;
+  color: #32373a;
+  padding: 4px;
+  border-radius: 2px;
+  border: 1px solid #D5D4CD;
+  background-color: white;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 4, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-body {
+  background-color: #fafaf9;
+}
+
+/* line 8, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-message-container {
+  width: 90%;
+  margin: 0 200px;
+  font-family: main;
+  background-color: #FFF;
+  padding: 40px 50px 30px;
+  min-height: calc(100vh - 100px);
+  border-left: 2px solid #D5D4CD;
+}
+
+/* line 20, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-message-list {
+  width: 80%;
+}
+
+/* line 24, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-message-list-el {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #D5D4CD;
+  padding: 15px;
+}
+
+/* line 33, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-menu {
+  position: absolute;
+  top: 61px;
+  left: 0;
+  min-width: 150px;
+  background-color: #f8f8f7;
+  height: calc(100vh - 61px);
+  font-family: main;
+  font-size: 15px;
+  padding-left: 50px;
+}
+/* line 44, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-menu.stuck {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+}
+/* line 50, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-menu .mailbox-menu-list,
+.mailbox-menu .mailbox-menu-list-el {
+  width: 100%;
+  box-sizing: border-box;
+}
+/* line 56, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-menu .mailbox-menu-list {
+  padding-top: 20px;
+}
+/* line 60, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/mailbox.scss */
+.mailbox-menu .mailbox-menu-list-el {
+  box-sizing: border-box;
+  height: 20px;
+  line-height: 50px;
+  position: relative;
+}
+/* line 3, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_shared.scss */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 9, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_shared.scss */
+.transparent-button {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 6px 10px;
+  font-size: 13px;
+  border: 2px solid #32373a;
+  border-radius: 2px;
+  margin-top: 15px;
+  margin-right: 50px;
+  text-transform: uppercase;
+}
+/* line 20, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_shared.scss */
+.transparent-button:hover, .transparent-button:focus {
+  background-color: #32373a;
+  color: #FFF;
+}
+
+/* line 1, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+html, body, button, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 10, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 14, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 18, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 22, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 26, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 31, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 36, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+body {
+  -webkit-text-size-adjust: none;
+}
+
+/* hides up/down arrows in date */
+/* line 41, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_reset.scss */
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  display: none;
+}
+
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 6, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav {
+  font-family: logo;
+  border-bottom: 1px solid #f3f3f1;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #32373a;
+}
+/* line 14, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo-link {
+  float: left;
+  width: 200px;
+  height: 100%;
+  text-decoration: inherit;
+}
+/* line 21, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo {
+  background-color: #000;
+  color: #FFF;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  opacity: .85;
+  transition: opacity .5s;
+}
+/* line 30, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo:hover {
+  opacity: 1;
+}
+
+/* line 36, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-rent-button {
+  float: right;
+}
+
+/* line 40, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links {
+  float: right;
+  height: inherit;
+  font-size: 13px;
+}
+/* line 45, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li {
+  float: left;
+  height: inherit;
+  line-height: 60px;
+  margin-right: 35px;
+}
+/* line 51, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li a {
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: inherit;
+  text-decoration: inherit;
+  text-transform: uppercase;
+}
+/* line 58, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li a:hover, .landing-links li a:focus {
+  color: #FFF;
+  background-color: #32373a;
+}
+
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 4, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed {
+  background-color: #1b1d1e;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  font-family: main;
+  padding: 40px 50px;
+}
+
+/* line 15, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Footer left */
+/* line 24, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-left {
+  width: 40%;
+}
+
+/* Footer links */
+/* line 30, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-links {
+  color: #FFF;
+  margin: 20px 0 12px;
+  padding: 0;
+  width: 50%;
+}
+
+/* line 37, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-links .footer-link-list-element {
+  display: inline-block;
+  margin: 2px 8px 2px 0;
+}
+/* line 41, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-links .footer-link-list-element a {
+  color: inherit;
+  text-decoration: none;
+  line-height: 1.8;
+  border-bottom: 1px dashed rgba(213, 212, 205, 0.5);
+}
+/* line 47, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-links .footer-link-list-element a:hover, .footer-distributed .footer-links .footer-link-list-element a:focus {
+  border-bottom-style: solid;
+}
+
+/* line 54, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-company-name {
+  color: #8f9296;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* line 61, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center {
+  width: 35%;
+}
+
+/* line 65, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center i {
+  background-color: #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+
+/* line 78, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center i.fa-envelope {
+  font-size: 17px;
+  line-height: 38px;
+}
+
+/* line 83, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center p {
+  display: inline-block;
+  color: #ffffff;
+  vertical-align: middle;
+  margin: 0;
+}
+
+/* line 90, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center p span {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+
+/* line 97, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-center p a {
+  color: #5383d3;
+  text-decoration: none;
+}
+
+/* Footer Right */
+/* line 104, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-right {
+  width: 20%;
+}
+
+/* line 108, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-company-about {
+  line-height: 20px;
+  color: #92999f;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* line 116, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-company-about span {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* line 124, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-icons .footer-icon-list-element {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+  text-align: center;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+/* line 135, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_footer.scss */
+.footer-distributed .footer-icons .footer-icon-list-element a {
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 35px;
+}
+
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 4, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+/* line 13, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: main;
+  border-radius: 3px;
+  margin: 0 auto;
+  transform: translateX(-50%) translateY(-50%);
+  width: 20%;
+  min-width: 320px;
+  background-color: #FFF;
+  box-shadow: 5px 5px 10px rgba(50, 55, 58, 0.8);
+  padding: 44px;
+}
+/* line 28, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal.signup-modal {
+  padding: 30px;
+}
+/* line 32, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-title {
+  color: #32373a;
+  font-size: 24px;
+}
+/* line 37, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-tagline {
+  color: #626a70;
+  font-size: 12px;
+  margin-top: 12px;
+}
+/* line 43, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .login-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #D5D4CD;
+  width: calc(100% - 40px);
+  font-size: 12px;
+  padding: 15px 20px;
+  line-height: 1.5;
+}
+/* line 54, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list {
+  width: 80%;
+  margin: 40px auto;
+}
+/* line 58, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list button {
+  font-family: logo;
+  background-color: #FFF;
+  width: 100%;
+  height: 50px;
+  border-radius: 3px;
+  border: 2px solid #D5D4CD;
+  padding: 0 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+/* line 69, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list button:hover {
+  box-shadow: 0 0 15px rgba(50, 55, 58, 0.4);
+}
+/* line 73, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list button .login-button-text {
+  height: 50px;
+  line-height: 50px;
+}
+/* line 78, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-list button svg {
+  margin: 15px 0;
+  float: left;
+  height: 20px;
+  width: 20px;
+  fill: #3B5998;
+}
+/* line 88, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-separator-title {
+  font-family: logo;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #32373a;
+  font-size: 12px;
+  position: relative;
+}
+/* line 97, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-separator-title:before {
+  content: '';
+  display: block;
+  width: 100%;
+  border-top: 1px solid #D5D4CD;
+  margin: 20px auto 40px auto;
+}
+/* line 105, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .modal-separator-title:after {
+  content: 'OR';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateY(-40%) translateX(-50%);
+  background-color: #FFF;
+  width: 70px;
+}
+/* line 116, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay .login-email-form {
+  width: 100%;
+}
+/* line 120, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay input[type=text],
+.modal-overlay input[type=password],
+.modal-overlay input[type=email],
+.modal-overlay input[type=submit] {
+  border-radius: 3px;
+  width: calc(100% - 24px);
+  margin-top: 15px;
+  padding: 12px 10px;
+  border: 2px solid #D5D4CD;
+  font-size: 13px;
+}
+/* line 132, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay input[type=submit] {
+  background-color: #333333;
+  color: #FFF;
+  border: none;
+  box-sizing: content-box;
+  width: calc(100% - 20px);
+}
+
+/* line 141, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.remember-me-field {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  height: 14px;
+}
+/* line 147, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.remember-me-field .remember-me-label,
+.remember-me-field .remember-me-checkbox {
+  float: left;
+}
+/* line 152, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.remember-me-field .remember-me-label {
+  color: #32373a;
+}
+/* line 156, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.remember-me-field .remember-me-checkbox {
+  display: block;
+  height: 14px;
+  width: 14px;
+  margin: 0 10px 0 0;
+}
+
+/* line 165, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+.modal-overlay,
+.login-modal,
+.signup-modal,
+.single-reservation-modal,
+.multiple-reservation-modal {
+  transition: opacity .4s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* line 176, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+body.login-modal-show .modal-overlay,
+body.login-modal-show .login-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 184, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+body.multiple-reservation-modal-show .modal-overlay,
+body.multiple-reservation-modal-show .multiple-reservation-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 192, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+body.single-reservation-modal-show .modal-overlay,
+body.single-reservation-modal-show .single-reservation-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 200, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_modal.scss */
+body.signup-modal-show .modal-overlay,
+body.signup-modal-show .signup-modal {
+  opacity: 1;
+  visibility: visible;
+}
+/* line 3, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/messages.scss */
+.messages-main-container {
+  width: 968px;
+  margin: 0 auto;
+  padding-top: 20px;
+  min-height: 100vh;
+  border: solid #D5D4CD;
+  border-width: 0 1px;
+}
+/* line 11, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/messages.scss */
+.messages-main-container form {
+  margin: 50px auto;
+  width: 500px;
+}
+/* line 16, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/messages.scss */
+.messages-main-container label {
+  font-size: 20px;
+  color: #32373a;
+  font-family: main;
+  display: block;
+}
+/* line 23, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/messages.scss */
+.messages-main-container input,
+.messages-main-container textarea {
+  width: 100%;
+  font-size: 20px;
+  line-height: 22px;
+  color: #32373a;
+  font-family: main;
+  border: 1px solid #D5D4CD;
+  margin: 10px 0;
+  border-radius: 2px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+/* line 37, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/messages.scss */
+.messages-main-container textarea {
+  height: 200px;
+}
+
+/* line 42, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/messages.scss */
+.messages-main-title {
+  width: 100%;
+  margin: 10px 0;
+  text-align: center;
+  font-family: logo;
+  color: #32373a;
+  font-size: 28px;
+}
+/* line 5, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* line 13, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container {
+  width: 968px;
+  margin: 0 auto;
+  padding: 40px 0;
+  font-family: main;
+  color: #747262;
+  font-size: 16px;
+}
+/* line 21, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-details-container,
+.request-kitchen-main-container .request-kitchen-sidebar {
+  float: left;
+  box-sizing: border-box;
+}
+/* line 27, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-details-container {
+  width: 58%;
+}
+/* line 31, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-details-header {
+  font-size: 24px;
+  font-family: logo;
+  color: #32373a;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #D5D4CD;
+}
+/* line 40, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .kitchen-request-additional-info-fieldset {
+  width: 100%;
+  margin-bottom: 40px;
+}
+/* line 44, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .kitchen-request-additional-info-fieldset .additional-info-label {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+}
+/* line 50, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .kitchen-request-additional-info-fieldset .kitchen-request-additional-info-input {
+  box-sizing: border-box;
+  display: block;
+  padding: 4px;
+  width: 100%;
+  font-size: 14px;
+  font-family: main;
+  height: 150px;
+  line-height: 1.2;
+  border: 1px solid #D5D4CD;
+  border-radius: 4px;
+}
+/* line 64, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar {
+  position: absolute;
+  top: 90px;
+  right: calc(50vw - 484px);
+  border: 1px solid #ecece9;
+  box-shadow: 0 3px 5px 1px rgba(213, 212, 205, 0.4);
+  width: 367.84px;
+  padding: 0 12px;
+}
+/* line 73, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .kitchen-request-side-image-container {
+  width: calc(100% + 24px);
+  margin-left: -12px;
+  height: 200px;
+  background: url(/assets/sampleKitchens/3-7639b3eed5c8d21a191c6167a5cb374c38b8b973be3ba621c05d5e7fb7402675.jpg) center;
+  background-size: cover;
+}
+/* line 81, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-title {
+  color: #32373a;
+  font-size: 26px;
+  margin: 20px 0;
+}
+/* line 87, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-address {
+  font-size: 18px;
+}
+/* line 91, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .kitchen-tag-list {
+  margin: 20px 0 0;
+}
+/* line 95, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .kitchen-tag {
+  background-color: #32373a;
+  color: #FFF;
+  border-radius: 2px;
+  padding: 8px 10px;
+  margin-right: 20px;
+  float: left;
+  font-size: 14px;
+  text-align: center;
+}
+/* line 106, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-side-details-container {
+  font-size: 16px;
+  margin: 50px auto;
+  padding: 20px 0;
+  position: relative;
+}
+/* line 112, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-side-details-container:before, .request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-side-details-container:after {
+  content: '';
+  position: absolute;
+  border: 1px solid #ecece9;
+  width: 40%;
+  left: 30%;
+}
+/* line 121, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-side-details-container:after {
+  bottom: 0;
+}
+/* line 125, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-side-details-container:before {
+  top: 0;
+}
+/* line 130, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-date {
+  width: 100%;
+  font-size: 20px;
+  color: #4a5055;
+  text-align: center;
+}
+/* line 137, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-start-time,
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-end-time {
+  width: 50%;
+  text-align: center;
+  float: left;
+  font-size: 18px;
+  margin-top: 15px;
+  color: #747262;
+  position: relative;
+}
+/* line 149, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-sidebar .request-kitchen-start-time:after {
+  content: '\2192';
+  position: absolute;
+  right: -3px;
+  font-size: 18px;
+  line-height: 18px;
+}
+/* line 158, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-price-list {
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+/* line 162, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-price-list .request-kitchen-price-element {
+  margin: 20px 0;
+}
+/* line 165, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-price-list .request-kitchen-price-element .kitchen-price-total,
+.request-kitchen-main-container .request-kitchen-price-list .request-kitchen-price-element .kitchen-price-calculation {
+  width: 50%;
+  float: left;
+}
+/* line 171, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-price-list .request-kitchen-price-element .kitchen-price-total {
+  text-align: right;
+  color: #32373a;
+}
+/* line 177, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-price-list .request-kitchen-total-price {
+  padding-top: 20px;
+  border-top: 4px double #D5D4CD;
+}
+/* line 181, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-price-list .request-kitchen-total-price .kitchen-price-total-label,
+.request-kitchen-main-container .request-kitchen-price-list .request-kitchen-total-price .kitchen-price-total {
+  color: #32373a;
+  float: left;
+  width: 50%;
+  font-size: 24px;
+}
+/* line 189, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .request-kitchen-price-list .request-kitchen-total-price .kitchen-price-total {
+  text-align: right;
+}
+/* line 195, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-details {
+  font-size: 18px;
+  margin: 20px 0;
+  line-height: 1.3;
+}
+/* line 201, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-form {
+  width: 100%;
+}
+/* line 205, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field-list {
+  width: 100%;
+  padding-top: 10px;
+}
+/* line 210, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+/* line 214, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field .payment-field-left,
+.request-kitchen-main-container .payment-field .payment-field-right {
+  float: left;
+}
+/* line 219, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field .payment-field-left {
+  margin-right: 10px;
+}
+/* line 223, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field label {
+  text-transform: capitalize;
+  font-size: 16px;
+  display: block;
+  font-family: logo;
+  margin-bottom: 6px;
+}
+/* line 231, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field input[type=number],
+.request-kitchen-main-container .payment-field select {
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #D5D4CD;
+  font-family: main;
+}
+/* line 239, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field select {
+  background-color: inherit;
+  height: 40px;
+}
+/* line 244, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field .payment-zip {
+  width: 120px;
+}
+/* line 248, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field .payment-expiration-month {
+  width: 50px;
+  margin-right: 20px;
+}
+/* line 253, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field .payment-expiration-year {
+  width: 100px;
+}
+/* line 257, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field .payment-cc-number {
+  width: 250px;
+}
+/* line 261, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field .payment-cvc {
+  width: 70px;
+}
+/* line 265, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/reservation.scss */
+.request-kitchen-main-container .payment-field .payment-submit {
+  font-size: 16px;
+  padding: 10px;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'logo';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Catamaran Black"), local("Catamaran-Black"), url(/assets/logo-font-f6d5f3361200b9841322bf424d7d49b1e7d81ad6ed193b81787b9915f867755b.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+@font-face {
+  font-family: 'main';
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat-Regular"), url(/assets/main-font-61fe7189590814dd84fd3ab4b3aaf1c36cc4b754acec65d70b54738cd724cbd0.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* line 6, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav {
+  font-family: logo;
+  border-bottom: 1px solid #f3f3f1;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #32373a;
+}
+/* line 14, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo-link {
+  float: left;
+  width: 200px;
+  height: 100%;
+  text-decoration: inherit;
+}
+/* line 21, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo {
+  background-color: #000;
+  color: #FFF;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  opacity: .85;
+  transition: opacity .5s;
+}
+/* line 30, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.main-nav .main-logo:hover {
+  opacity: 1;
+}
+
+/* line 36, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-rent-button {
+  float: right;
+}
+
+/* line 40, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links {
+  float: right;
+  height: inherit;
+  font-size: 13px;
+}
+/* line 45, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li {
+  float: left;
+  height: inherit;
+  line-height: 60px;
+  margin-right: 35px;
+}
+/* line 51, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li a {
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: inherit;
+  text-decoration: inherit;
+  text-transform: uppercase;
+}
+/* line 58, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/_menu.scss */
+.landing-links li a:hover, .landing-links li a:focus {
+  color: #FFF;
+  background-color: #32373a;
+}
+
+/* line 10, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 15, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.nav-search-icon {
+  float: left;
+  height: 20px;
+  width: 20px;
+  padding: 20px;
+  opacity: .75;
+  fill: #7a848b;
+}
+
+/* line 24, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.nav-search {
+  height: inherit;
+  display: block;
+  float: left;
+  margin: 0;
+  border: none;
+  color: #32373a;
+  width: calc(100% - 1000px);
+  font-size: 14px;
+  padding: 0 0 0 20px;
+  border-bottom: inherit;
+}
+
+/* line 37, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-map-container {
+  float: left;
+  width: 40%;
+  height: calc(100vh - 60px);
+  border-right: 1px solid #CCC;
+}
+
+/* line 44, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-container {
+  height: calc(100vh - 60px);
+  overflow: scroll;
+  font-family: logo;
+  width: calc(60% - 1px);
+  float: left;
+  background-color: #f8f8f7;
+}
+/* line 52, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-container .filters-list {
+  position: relative;
+  background-color: #FFF;
+  box-shadow: 0 2px 3px 2px rgba(213, 212, 205, 0.8);
+  width: 95%;
+  height: 70px;
+  margin: 24px auto;
+}
+/* line 61, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-container .filter {
+  box-sizing: border-box;
+  width: 25%;
+  border-left: 1px solid #D5D4CD;
+  float: left;
+  height: inherit;
+}
+/* line 68, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-container .filter label {
+  color: #6e777e;
+  text-transform: uppercase;
+  font-size: 12px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+/* line 77, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-container .filter input[type=date],
+.results-container .filter select {
+  box-sizing: border-box;
+  font-family: main;
+  border: none;
+  padding-left: 10px;
+  width: 100%;
+  display: block;
+  font-size: 18px;
+}
+/* line 88, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-container .filter select {
+  background-color: inherit;
+}
+
+/* line 94, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.no-results-container {
+  display: none;
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+  color: #32373a;
+}
+
+/* line 102, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list {
+  width: 100%;
+  position: relative;
+}
+/* line 106, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result {
+  box-sizing: border-box;
+  width: calc(50% - 24px);
+  margin: 8px 16px;
+  float: left;
+  height: 320px;
+  background: no-repeat center;
+  background-size: 100% 100%;
+  box-shadow: 2px 2px 5px 2px rgba(50, 55, 58, 0.4);
+}
+/* line 116, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result:nth-child(even) {
+  margin-right: 0;
+}
+/* line 122, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result:nth-child(1n) {
+  background-image: url(/assets/sampleKitchens/1-b50c749fa610855033d3f139eafa089a1235a65a1da02b32aea3df55ce39c86f.jpg);
+}
+/* line 122, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result:nth-child(2n) {
+  background-image: url(/assets/sampleKitchens/2-c5c4fabe26e2ac88f3e5202fdcf5b10d412859bc24ab4aec1d3e385075dda3aa.jpg);
+}
+/* line 122, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result:nth-child(3n) {
+  background-image: url(/assets/sampleKitchens/3-7639b3eed5c8d21a191c6167a5cb374c38b8b973be3ba621c05d5e7fb7402675.jpg);
+}
+/* line 122, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result:nth-child(4n) {
+  background-image: url(/assets/sampleKitchens/4-f9221faee903d1d78a5d2cc61629547de97e55130d9e6d517be017cd35f785d1.jpg);
+}
+/* line 122, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result:nth-child(5n) {
+  background-image: url(/assets/sampleKitchens/5-4e1acb9a290b3a017a528cb0fa132b25196bf398198a4187b1f793adc923c28c.jpg);
+}
+/* line 122, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result:nth-child(6n) {
+  background-image: url(/assets/sampleKitchens/6-17802bdb96f2f2a4e4b9801c398f36249c2f49dc4260150bb9e82be5e870726a.jpg);
+}
+/* line 128, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result-link {
+  display: block;
+  font: inherit;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(50, 55, 58, 0.7), rgba(50, 55, 58, 0.5) 5%, rgba(50, 55, 58, 0) 30%);
+  color: #FFF;
+  text-decoration: inherit;
+  position: relative;
+}
+/* line 138, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result-link .result-title,
+.results-list .result-link .result-price-container {
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+}
+/* line 145, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result-link .result-title {
+  font-family: main;
+  font-size: 18px;
+  left: 0;
+  padding: 0 0 10px 10px;
+  width: 70%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* line 155, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result-link .result-price-container {
+  right: 0;
+  padding: 0 10px 10px 0;
+  width: 30%;
+  text-align: right;
+}
+/* line 161, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result-link .result-price-container .result-price {
+  font-size: 24px;
+}
+/* line 165, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-list .result-link .result-price-container .result-price-after {
+  opacity: .8;
+  font-size: 12px;
+}
+
+/* line 173, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-container.loading {
+  overflow: hidden;
+}
+/* line 176, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.results-container.loading .loading-overlay {
+  display: block;
+}
+
+/* line 182, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.loading-overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 500;
+}
+/* line 191, /Users/jeffreytai/Documents/ShareDining/app/assets/stylesheets/search.scss */
+.loading-overlay .loading-icon {
+  display: block;
+  margin: 50vh auto 0 auto;
+  transform: translateY(-178px);
+  width: 100px;
+  height: 100px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+*/
+

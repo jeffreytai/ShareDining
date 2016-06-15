@@ -16,7 +16,7 @@ class Kitchen < ActiveRecord::Base
   has_one :availability, dependent: :destroy
 
   # Mount photos to kitchen
-  mount_uploaders :photos, PhotoUploader
+  mount_uploader :photos, PhotoUploader
   serialize :photos, JSON
 
   serialize :washing_station, Array
